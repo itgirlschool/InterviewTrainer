@@ -1,0 +1,111 @@
+@import '../../../style/template';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//контейнер
+.container__signin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $background-general;
+
+    //знак крестик для закрытия окошка
+    .cross-wrapper__signin {
+        max-width: 95%;
+        padding-top: 3.25%;
+        margin-bottom: 7.92vh;
+
+        .crossbtn__signin {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .crossbtn-x {
+                color: $pink-color;
+
+                .icon {
+                    font-size: 2.917vw;
+                    background-color: $grey;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    //wrapper формы регистрации и заголовок
+    .wrapper__signin {
+        text-align: center;
+
+        .title__signin {
+            margin-bottom: 2.64vh;
+            font-size: 3.33vw;
+            color: $pink-color;
+        }
+
+        //Форма регистрации
+        .form-signin__registration {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .form-signin__input {
+                
+                width: 30.69vw;
+                height: 6.1vh;
+                border: none;
+                border-radius: 1.39vw;
+                background-color: $grey;
+                padding-left: 1.60vw;
+                font-size: 20px;
+                color: $form-signin_font-color;
+            }
+
+            .form-signin__input:not(:last-of-type) {
+                margin-bottom: 10px;
+            }
+
+            .form-signin__input:last-of-type {
+                margin-bottom: 3.68vh;
+            }
+
+            .form-signin__input::placeholder {
+
+                font-size: 20px;
+                color: $form-signin_font-color;
+            }
+
+            // кнопка "сохранить" форму
+            .save__sighin {
+                margin-bottom: 22px;
+
+                .btn__signin {
+                    width: 30.69vw;
+                    height: 6.1vh;
+                    border: none;
+                    border-radius: 3.47vw;
+                    font-size: 1.39vw;
+                    background-color: $pink-color;
+                    color: $white-color;
+                    cursor: pointer;
+                }
+            }
+
+            .enter__signin {
+                font-size: 1.11vw;
+                color: $white-color;
+                cursor: pointer;
+            }
+
+
+        }
+    }
+}

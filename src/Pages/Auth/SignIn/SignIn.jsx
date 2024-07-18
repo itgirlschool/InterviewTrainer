@@ -1,5 +1,5 @@
 import "./SignIn.scss";
-
+import {CloseCircleOutlined} from '@ant-design/icons';
 
 
 export default function SignIn() {
@@ -7,7 +7,7 @@ export default function SignIn() {
     <div className="container__signin">
       <div className="cross-wrapper__signin">
         <div className="crossbtn__signin">
-          <span className="crossbtn-x">X</span>
+          <span className="crossbtn-x"><CloseCircleOutlined className="icon"/></span>
         </div>
       </div>
       <div className="wrapper__signin">
