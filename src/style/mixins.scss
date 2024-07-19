@@ -1,0 +1,20 @@
+@import '../style/vars.scss';
+
+@mixin container {
+    background-color: $containerColor ;
+    color: $textColor;
+    border-radius: 40px;
+    border: 1px solid $textColor;
+    padding: 40px;
+}
+
+@mixin font($fontSize: 16px, $fontWeight: 500) {
+    font-size: $fontSize;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: $fontWeight;
+    line-height: 22px;
+}
+
+@mixin gapIconAndList {
+margin-right: 10px;
+}
