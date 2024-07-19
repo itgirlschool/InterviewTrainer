@@ -1,0 +1,64 @@
+@import "../../style/vars.scss";
+@import '../../style/mixins.scss';
+
+form {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+    grid-template-areas: 'nm email .' 
+    'lst psw .'
+    'phn . . '
+    'btn . .';
+}
+
+label {
+    @include font(18px);
+    display: flex;
+    flex-direction: column;
+    margin: 10px 50px;
+    margin-left: 0px;
+
+    & span {
+        padding-left: 25px;
+        padding-bottom: 5px;
+    }
+
+    &:first-child {
+        grid-area: nm;
+    }
+    &:nth-child(2) {
+        grid-area: lst;
+    }
+    &:nth-child(3) {
+        grid-area: phn;
+    }
+    &:nth-child(4) {
+        grid-area: email;
+    }
+    &:nth-child(5) {
+        grid-area: psw;
+    }
+}
+
+input {
+    @include font(16px, 400);
+    height: 50px;
+    border-radius: 10px;
+    background-color: $inputColor;
+    color: $textColor;
+
+    &[type="text"], &[type="number"],&[type="password"] {
+        padding-left: 25px;
+    }
+}
+
+button {
+    @include font(16px, 400);
+    grid-area: btn;
+    display: block;
+    height: 60px;
+    border-radius: 40px;
+    margin: 90px 50px 0 0;
+    background-color: $mainColor;
+    color: $textColor;
+}

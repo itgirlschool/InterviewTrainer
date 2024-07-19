@@ -1,0 +1,48 @@
+@import "../../style/vars.scss";
+@import '../../style/mixins.scss';
+
+.profile__nav-list {
+    @include font(20px);
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 40px;
+
+    & p {
+        display: flex;
+        align-items: center;
+        &:before {
+        @include gapIconAndList;
+        content: url('../../assets/icon/email.svg');
+        }
+    }
+    
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $textColor;
+
+    &:nth-child(2)::before {
+        @include gapIconAndList;
+        content: url('../../assets/icon/user.svg');
+    }
+    &:nth-child(3)::before {
+        @include gapIconAndList;
+        content: url('../../assets/icon/resume.svg');
+    }
+    &:nth-child(4)::before {
+        @include gapIconAndList;
+        content: url('../../assets/icon/setting.svg');
+    }
+    &:nth-child(5)::before {
+        @include gapIconAndList;
+        content: url('../../assets/icon/logout.svg');
+    }
+    &:last-child::before{
+        @include gapIconAndList;
+        content: url('../../assets/icon/review.svg');
+    }
+}
