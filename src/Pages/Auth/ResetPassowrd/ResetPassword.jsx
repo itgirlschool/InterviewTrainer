@@ -37,20 +37,26 @@ export default function ResetPassword() {
   // };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <p>Забыли пароль?</p>
+    <div className="reset__container">
+      <form
+        className={user ? "form" : "hidden"}
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <p className="header">Забыли пароль?</p>
         <input
+          className="input"
           {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
           type="text"
           placeholder="Ваш Email"
         />
-        <button type="submit">Отправить на почту</button>
-        <button>Вернуться</button>
+        <button className="button__submit" type="submit">
+          Отправить на почту
+        </button>
+        <button className="button__back">Вернуться</button>
       </form>
-      <div className="hidden">
-        <p>E-mail не найден</p>
-        <button>Создать аккаунт</button>
+      <div className={user ? "hidden" : "false__email"}>
+        <p className="header">E-mail не найден</p>
+        <button className="button__sighnin">Создать аккаунт</button>
       </div>
     </div>
   );
