@@ -69,6 +69,13 @@
                 color: $form-signin_font-color;
             }
 
+            .form-error{ //для вывода ошибок на экран формы
+                margin-bottom: 5px;
+                font-size: 20px;
+                color: $red-error;
+                
+            }
+
             .form-signin__input:not(:last-of-type) {
                 margin-bottom: 10px;
             }
