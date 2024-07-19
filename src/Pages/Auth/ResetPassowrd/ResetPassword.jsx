@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./ResetPassword.scss";
 
 export default function ResetPassword() {
@@ -52,11 +53,15 @@ export default function ResetPassword() {
         <button className="button__submit" type="submit">
           Отправить на почту
         </button>
-        <button className="button__back">Вернуться</button>
+        <Link to="/login">
+          <button className="button__back">Вернуться</button>
+        </Link>
       </form>
       <div className={user ? "hidden" : "false__email"}>
         <p className="header">E-mail не найден</p>
-        <button className="button__sighnin">Создать аккаунт</button>
+        <Link to="/signin">
+          <button className="button__sighnin">Создать аккаунт</button>
+        </Link>
       </div>
     </div>
   );
