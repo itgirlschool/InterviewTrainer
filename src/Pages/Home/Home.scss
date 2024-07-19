@@ -1,0 +1,129 @@
+.home {
+  background: url('/images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  min-height: 100vh; 
+  width: 100%;
+
+  .welcome-title {
+    padding-top: 85px;
+    padding-left: 60px;
+    font-size: 48px;
+    color: #EA5D80;
+  }
+
+  .intro-text {
+    margin: 32px auto;
+    font-size: 16px;
+    margin-left: 60px;
+    width: 816px;
+  }
+
+  .grade-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 42px;
+    margin-left: 60px;
+    margin-right: 60px; 
+    margin-bottom: 103px;
+
+    .grade {
+      background: #0E0F14;
+      padding: 20px;
+      border-radius: 28px;
+      height: 444px;
+      border: 1px solid #EA5D80;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; 
+      margin-bottom: 20px; 
+
+      h2 {
+        margin-bottom: 10px;
+        color: #EA5D80;
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #FFFFFF;
+      }
+
+      button {
+        background: #EA5D80;
+        border: none;
+        padding: 10px 20px;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 302px;
+        height: 49px;
+        margin: 0 auto 25px auto; 
+      }
+    }
+
+    .grade:not(:last-child) {
+      margin-right: 98px; 
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .grade-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .grade {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .welcome-title {
+      font-size: 36px;
+      padding-top: 40px;
+      padding-left: 20px;
+    }
+
+    .intro-text {
+      font-size: 14px;
+      margin-left: 20px;
+      width: 90%;
+    }
+
+    .grade-container {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .grade {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .welcome-title {
+      font-size: 24px;
+      padding-top: 20px;
+      padding-left: 10px;
+    }
+
+    .intro-text {
+      font-size: 12px;
+      margin-left: 10px;
+      width: 95%;
+    }
+
+    .grade-container {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .grade {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+}
