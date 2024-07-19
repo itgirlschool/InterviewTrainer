@@ -54,13 +54,13 @@ export default function ResetPassword() {
           Отправить на почту
         </button>
         <Link to="/login">
-          <button className="button__back">Вернуться</button>
+          <p className="button__back">Вернуться</p>
         </Link>
       </form>
       <div className={user ? "hidden" : "false__email"}>
         <p className="header">E-mail не найден</p>
         <Link to="/signin">
-          <button className="button__sighnin">Создать аккаунт</button>
+          <p className="button__sighnin">Создать аккаунт</p>
         </Link>
       </div>
     </div>
