@@ -1,0 +1,39 @@
+$background-general: #1B1C20;
+$white-color: #FFFFFF;
+$pink-color: #EA5D80;
+$Mobile: "(max-width: 431px)";
+
+.footer {
+    background-color: $background-general;
+    display: flex;
+    justify-content: center;
+    gap: 2.125rem;
+    padding: 1.625rem 0;
+    border-top: 1px solid $pink-color;
+    @media #{$Mobile} {
+        gap: 0.875rem;
+    }
+}
+
+.footer__button {
+    width: 3rem;
+    height: 3rem;
+    background-color: $white-color;
+    border: 0.006rem solid $white-color;
+    border-radius: 6.25rem;
+    padding-top: 0.3rem;
+    @media #{$Mobile} {
+        width: 2.625rem;
+        height: 2.625rem;
+    }
+  
+}
+
+.footer__img {
+    width: 1.5rem;
+    height:  1.5rem;
+    @media #{$Mobile} {
+        width: 1.3125rem;
+        height: 1.3125rem;
+    }
+}

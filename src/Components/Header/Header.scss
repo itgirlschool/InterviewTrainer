@@ -1,0 +1,45 @@
+$background-general: #1B1C20;
+$background-general: #1B1C20;
+$pink-color: #EA5D80;
+$grey: #777777;
+$form-signin_font-color: #444242;
+$white-color: #FFFFFF;
+$red-error: red;
+$Mobile: "(max-width: 431px)";
+
+.header {
+    background-color: $background-general;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3.375rem;
+    @media #{$Mobile} {
+        padding: 0.75rem 1.0625rem;
+    }
+}
+
+.header__logo {
+    height: 2.875rem;
+    width: auto; 
+    @media #{$Mobile} {
+        height: 1.8125;
+        width: auto;
+    }
+}
+
+.header__links {
+    display: flex;
+    align-items: center;
+    gap: 3.3125rem;
+}
+
+.header__link {
+    text-decoration: none;
+    color: $pink-color;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.header__burger {
+    display: none;
+}
