@@ -1,9 +1,15 @@
-//import { useRef } from 'react';
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { useForm } from "react-hook-form";
+import { v4 as uuidv4 } from 'uuid';
+import { Register } from './signin.actions';
+import { useDispatch } from 'react-redux';
 import "./SignIn.scss";
+import { addUser } from '../../../app/store/slice/UsersSlice';
 
 export default function SignIn() {
+
+  const userId = uuidv4();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -12,17 +18,16 @@ export default function SignIn() {
     formState: { errors }
   } = useForm();
 
-  const passw = watch("password");
-
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    //добавляем айди в объект пользователя
+    data.id = userId;
     console.log(data);
     form.reset();
-
+    dispatch(Register(data));
+   
   };
 
-
-
+   const passw = watch("password");
 
   return (
     <div className="container__signin">
@@ -83,10 +88,10 @@ export default function SignIn() {
           />
 
           {/*Вывод ошибки если не проходит проверку на валидацию*/}
-          {errors?.mail?.type === "pattern" && (
+          {errors?.email?.type === "pattern" && (
             <p className="form-error">Эмейл не соответствует проверке</p>
           )}
-          {errors?.mail?.type === "required" && (
+          {errors?.email?.type === "required" && (
             <p className="form-error">Необходимо ввести эмейл</p>
           )}
 
@@ -94,7 +99,7 @@ export default function SignIn() {
           <input type="text"
             placeholder="Ваш Email"
             className="form-signin__input"
-            {...register("mail",
+            {...register("email",
               {
                 required: true,
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
@@ -117,7 +122,7 @@ export default function SignIn() {
           {/*Сам input*/}
           <input
             name="password"
-            type="text"
+            type="passward"
             placeholder="Ваш пароль"
             className="form-signin__input"
 
