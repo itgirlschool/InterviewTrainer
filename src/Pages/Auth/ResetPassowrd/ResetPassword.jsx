@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "./ResetPassword.scss";
 
 export default function ResetPassword() {
@@ -11,9 +12,14 @@ export default function ResetPassword() {
     formState: { errors },
   } = useForm();
   const [data, setData] = useState("");
-  const [user, setUser] = useState(true);
+  const [trueUser, setTrueUser] = useState(true);
+  const [message, setMessage] = useState("");
+  const [emailError, setEmailError] = useState(true);
 
-  const onSubmit = (data) => setData(JSON.stringify(data));
+  const onSubmit = (data) => {
+    setData(JSON.stringify(data));
+    getCheck();
+  };
   console.log(errors);
 
   const state = useSelector((state) => state.users);
@@ -26,21 +32,33 @@ export default function ResetPassword() {
   // //   { name: "Nina", emale: "Nina3@mail.com" },
   // // ];
 
-  // const handleChange = () => {};
+  const auth = getAuth();
+  console.log(auth);
 
-  // const getSignIn = () => {
-  //   //переход на страницу регистрации
-  // };
-
-  // const getCheck = () => {
-  //   console.log(data);
-  //   //вызов массива и сравнение
-  // };
+  const getCheck = () => {
+    const result = data.forEach((el) => {
+      if (el.email == register.email) {
+        setTrueUser(true);
+        setMessage(el.email);
+        sendPasswordResetEmail(auth, email)
+          .then(() => {
+            console.log("Password reset email sent!");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+      } else {
+        setTrueUser(false);
+      }
+    });
+    console.log(data);
+  };
 
   return (
     <div className="reset__container">
       <form
-        className={user ? "form" : "hidden"}
+        className={trueUser ? "form" : "hidden"}
         onSubmit={handleSubmit(onSubmit)}
       >
         <p className="header">Забыли пароль?</p>
@@ -50,14 +68,23 @@ export default function ResetPassword() {
           type="text"
           placeholder="Ваш Email"
         />
-        <button className="button__submit" type="submit">
+        <div className={!message ? "hidden" : "message"}>
+          Ссылка длля сброса пароля отправлена на {message}
+        </div>
+        <div className={!errors.email ? "hidden" : "message__error"}>
+          Ошибка формата ввода Email
+        </div>
+        <button
+          className={!errors.email ? "button__submit" : "button__disabled"}
+          type="submit"
+        >
           Отправить на почту
         </button>
         <Link to="/login">
           <p className="button__back">Вернуться</p>
         </Link>
       </form>
-      <div className={user ? "hidden" : "false__email"}>
+      <div className={trueUser ? "hidden" : "false__email"}>
         <p className="header">E-mail не найден</p>
         <Link to="/signin">
           <p className="button__sighnin">Создать аккаунт</p>
@@ -67,14 +94,8 @@ export default function ResetPassword() {
   );
 }
 
-// - страница с инпутом(скрытый текст имейл), Заголовок "Забыли пароль?"; ++++
-
-// - валидация имейла ++++
-
 // - получение мейлов с сервера
 
 // - сравнение мейла с массивом
 
 // - Если мейл есть: генерация пароля, отправка письма на почту с паролем (если есть вызываем метод по смене пароля через почту (см FB))
-
-// - Если мейла нет: окно мейл не найден, пройдите регистрацию, кнопка "зарегистрироваться" отправляет на окно регистрации
