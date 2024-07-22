@@ -4,13 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { Register } from './signin.actions';
 import { useDispatch } from 'react-redux';
 import "./SignIn.scss";
-import { addUser } from '../../../app/store/slice/UsersSlice';
+import { addUser } from '../../../Services/fbUsers';
 
 export default function SignIn() {
 
   const userId = uuidv4();
   const dispatch = useDispatch();
-
+console.log(addUser);
   const {
     register,
     handleSubmit,
