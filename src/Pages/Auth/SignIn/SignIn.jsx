@@ -96,7 +96,7 @@ export default function SignIn() {
           )}
 
           {/*Сам input*/}
-          <input type="text"
+          <input type="email"
             placeholder="Ваш Email"
             className="form-signin__input"
             {...register("email",
@@ -122,7 +122,7 @@ export default function SignIn() {
           {/*Сам input*/}
           <input
             name="password"
-            type="passward"
+            type="password"
             placeholder="Ваш пароль"
             className="form-signin__input"
 
