@@ -15,9 +15,8 @@ export default function LoginIn() {
 
   const onSubmit = (data) => {
 
-    console.log(data);
-    form.reset();
-    dispatch(Login(data.email, data.password));
+    form.reset(); //очищаем поля формы
+    dispatch(Login(data.email, data.password)); //отправляем данные на авторизацию
   };
 
   return (
