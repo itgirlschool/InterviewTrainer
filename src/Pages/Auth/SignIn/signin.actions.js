@@ -25,7 +25,7 @@ export const Register = (user) => {
                             password: user.password,
                           }
 
-                           addUser.add(infoUser);
+                           addUser(infoUser);
                           console.log(infoUser);
 
             })
