@@ -1,13 +1,15 @@
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
+import { Login } from './login.actions';
 import "./LoginIn.scss";
 
 export default function LoginIn() {
 
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors }
   } = useForm();
 
@@ -15,8 +17,7 @@ export default function LoginIn() {
 
     console.log(data);
     form.reset();
-
-
+    dispatch(Login(data.email, data.password));
   };
 
   return (
