@@ -1,3 +1,4 @@
+import { CloseCircleOutlined } from '@ant-design/icons';
 import "./LoginIn.scss";
 
 export default function LoginIn() {
@@ -6,7 +7,7 @@ export default function LoginIn() {
       <div className="container__login">
         <div className="cross-wrapper__login">
           <div className="crossbtn__login">
-            <span className="crossbtn-x">X</span>
+            <span className="crossbtn-x"><CloseCircleOutlined className="icon" /></span>
           </div>
         </div>
         <div className="wrapper__login">
@@ -14,12 +15,12 @@ export default function LoginIn() {
           <form action="" className="form-login__authorisation">
             <input type="text" placeholder="Ваш Email" className="form-login__input" />
             <input type="text" placeholder="Ваш пароль" className="form-login__input" />
-            <div className="save__login">
-              <button type="submit" className="btn__login">Сохранить</button>
-            </div>
             <div className="enter__login">
-              <a className="enter__log">Создать аккаунт</a>
-              <a className="enter__log">Забыли свой пароль?</a>
+              <button type="submit" className="btn__login">Войти</button>
+            </div>
+            <div className="extra__options">
+              <p className="option">Создать аккаунт</p>
+              <p className="option">Забыли свой пароль?</p>
             </div>
           </form>
         </div>
