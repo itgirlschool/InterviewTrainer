@@ -13,7 +13,7 @@ export default function ResetPassword() {
   } = useForm();
   const [data, setData] = useState("");
   const [trueUser, setTrueUser] = useState(true);
-  const [resEmail, setresEmail] = useState("");
+  const [message, setMessage] = useState("");
   const auth = getAuth();
 
   const onSubmit = (data) => {
@@ -22,7 +22,7 @@ export default function ResetPassword() {
   };
 
   // const usersArr = store....
-  console.log(store);
+  // console.log(store);
 
   //убрать
   const myArr = [
@@ -33,17 +33,19 @@ export default function ResetPassword() {
   //!!!!
 
   const getCheck = (data) => {
-    const result = myArr.filter((el) => data.email == el.email);
+    const result = myArr.filter((el) => el.email == data.email);
     console.log(result);
     if (result[0].email) {
-      setresEmail(result[0].email);
-      return getPasswordReset(resEmail);
+      return getPasswordReset(result[0].email);
     } else {
       return setTrueUser(false);
     }
   };
 
   const getPasswordReset = (resEmail) => {
+    console.log(resEmail);
+    console.log(typeof resEmail);
+    setMessage(resEmail);
     sendPasswordResetEmail(auth, resEmail)
       .then(() => {
         console.log("Password reset email sent!", resEmail);
@@ -68,8 +70,8 @@ export default function ResetPassword() {
           type="text"
           placeholder="Ваш Email"
         />
-        <div className={!resEmail ? "hidden" : "message"}>
-          <p>Ссылка для сброса пароля отправлена на {resEmail}</p>
+        <div className={!message ? "hidden" : "message"}>
+          <p>Ссылка для сброса пароля отправлена на {message}</p>
         </div>
         <div className={!errors.email ? "hidden" : "message__error"}>
           Ошибка формата ввода Email
