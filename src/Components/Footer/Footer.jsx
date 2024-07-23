@@ -9,7 +9,7 @@ import img_telegram from "../../assets/images/img telegram.png";
 
 export default function Footer() {
   return (
-    <div className="footer"> 
+    <footer className="footer"> 
       <button className="footer__button">
       <a href="https://itgirlschool.com/">
       <img className="footer__img" src={img_google} alt="Перейти на страницу ITGIRLS">
@@ -27,6 +27,6 @@ export default function Footer() {
       </button>
       <button className="footer__button">
       <a href="https://t.me/itgirlschool"><img className="footer__img" src={img_telegram} alt="Перейти в Telegram"></img></a></button>
-    </div>
+    </footer>
   )
 }

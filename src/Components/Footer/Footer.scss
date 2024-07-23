@@ -1,7 +1,13 @@
+//удалить потом//
 $background-general: #1B1C20;
 $white-color: #FFFFFF;
 $pink-color: #EA5D80;
+$ligth-grey: #BCBABA;
 $Mobile: "(max-width: 431px)";
+
+body {
+    margin: 0;
+}
 
 .footer {
     background-color: $background-general;
@@ -9,7 +15,7 @@ $Mobile: "(max-width: 431px)";
     justify-content: center;
     gap: 2.125rem;
     padding: 1.625rem 0;
-    border-top: 1px solid $pink-color;
+    border-top: 0.5px solid $pink-color;
     @media #{$Mobile} {
         gap: 0.875rem;
     }
@@ -36,4 +42,9 @@ $Mobile: "(max-width: 431px)";
         width: 1.3125rem;
         height: 1.3125rem;
     }
+}
+
+.footer__button:hover {
+    background-color: $ligth-grey;
+    border: 0.006rem solid $ligth-grey;
 }

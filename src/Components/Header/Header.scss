@@ -1,45 +1,105 @@
-$background-general: #1B1C20;
+//удалить потом//
 $background-general: #1B1C20;
 $pink-color: #EA5D80;
 $grey: #777777;
 $form-signin_font-color: #444242;
 $white-color: #FFFFFF;
-$red-error: red;
-$Mobile: "(max-width: 431px)";
+$ligth-grey: #BCBABA;
+$Mobile: "(max-width: 767px)";
 
 .header {
     background-color: $background-general;
+}
+
+.header__body {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 3.375rem;
-    @media #{$Mobile} {
-        padding: 0.75rem 1.0625rem;
-    }
+    border-bottom: 1px solid $pink-color;
 }
 
 .header__logo {
-    height: 2.875rem;
-    width: auto; 
-    @media #{$Mobile} {
-        height: 1.8125;
-        width: auto;
+    display: flex;
+    align-items: center;
+    
+    & img {
+        height: 2.875rem;
     }
+
 }
 
 .header__links {
     display: flex;
     align-items: center;
     gap: 3.3125rem;
-}
 
-.header__link {
+    & > a {
     text-decoration: none;
     color: $pink-color;
     font-size: 1.25rem;
     font-weight: 500;
 }
+}
 
+.header__popup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem;
+    color: $white-color;
+    background-color: rgba(26, 27, 31, 0.95);
+    border: 0.5px solid $ligth-grey;
+    border-radius: 0.625rem;
+    padding: 1rem 1rem 1.3125rem 1rem;
+    font-size: 0.875rem;
+    position: fixed;
+    z-index: 2;
+    right: 2.275rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.header__popup.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__raitinginfo {
+    display: grid;
+    grid-template: auto auto/auto auto;
+    .popup__percent {
+        color: $pink-color;
+        justify-self: end;
+    }
+
+    .popup__progress {
+        grid-column: 2 span;
+        accent-color: $pink-color;
+        width: 14rem;
+        height: 1.3rem;   
+    }
+}
+
+.popup__link {
+    text-decoration: none;
+    color: $white-color;
+    display: flex;
+    align-items: center;
+
+    & img,
+    & svg {
+        padding-right: 0.5rem;
+        height: 1.125rem;
+        width: 1.125rem;
+        color: $pink-color;
+    }
+}
+
+//burger
 .header__burger {
     display: none;
+    
 }
