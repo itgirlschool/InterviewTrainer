@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { store } from "../../../app/store/index.js";
 import { Link } from "react-router-dom";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "./ResetPassword.scss";
@@ -13,46 +13,46 @@ export default function ResetPassword() {
   } = useForm();
   const [data, setData] = useState("");
   const [trueUser, setTrueUser] = useState(true);
-  const [message, setMessage] = useState("");
-  const [emailError, setEmailError] = useState(true);
+  const [resEmail, setresEmail] = useState("");
+  const auth = getAuth();
 
   const onSubmit = (data) => {
     setData(JSON.stringify(data));
-    getCheck();
+    getCheck(data);
   };
-  console.log(errors);
 
-  const state = useSelector((state) => state.users);
-  console.log(state);
-  console.log(data);
+  // const usersArr = store....
+  console.log(store);
 
-  // // const myArr = [
-  // //   { name: "Lena", emale: "lena1@mail.com" },
-  // //   { name: "Dasha", emale: "dasha2@mail.com" },
-  // //   { name: "Nina", emale: "Nina3@mail.com" },
-  // // ];
+  //убрать
+  const myArr = [
+    { name: "Lena", email: "ilm63.rus@gmail.com" },
+    { name: "Dasha", email: "dasha2@mail.com" },
+    { name: "Nina", email: "Nina3@mail.com" },
+  ];
+  //!!!!
 
-  const auth = getAuth();
-  console.log(auth);
+  const getCheck = (data) => {
+    const result = myArr.filter((el) => data.email == el.email);
+    console.log(result);
+    if (result[0].email) {
+      setresEmail(result[0].email);
+      return getPasswordReset(resEmail);
+    } else {
+      return setTrueUser(false);
+    }
+  };
 
-  const getCheck = () => {
-    const result = data.forEach((el) => {
-      if (el.email == register.email) {
-        setTrueUser(true);
-        setMessage(el.email);
-        sendPasswordResetEmail(auth, email)
-          .then(() => {
-            console.log("Password reset email sent!");
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-          });
-      } else {
-        setTrueUser(false);
-      }
-    });
-    console.log(data);
+  const getPasswordReset = (resEmail) => {
+    sendPasswordResetEmail(auth, resEmail)
+      .then(() => {
+        console.log("Password reset email sent!", resEmail);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
   };
 
   return (
@@ -68,8 +68,8 @@ export default function ResetPassword() {
           type="text"
           placeholder="Ваш Email"
         />
-        <div className={!message ? "hidden" : "message"}>
-          Ссылка длля сброса пароля отправлена на {message}
+        <div className={!resEmail ? "hidden" : "message"}>
+          <p>Ссылка для сброса пароля отправлена на {resEmail}</p>
         </div>
         <div className={!errors.email ? "hidden" : "message__error"}>
           Ошибка формата ввода Email
@@ -84,7 +84,7 @@ export default function ResetPassword() {
           <p className="button__back">Вернуться</p>
         </Link>
       </form>
-      <div className={trueUser ? "hidden" : "false__email"}>
+      <div className={trueUser ? "hidden" : "form"}>
         <p className="header">E-mail не найден</p>
         <Link to="/signin">
           <p className="button__sighnin">Создать аккаунт</p>
@@ -93,9 +93,3 @@ export default function ResetPassword() {
     </div>
   );
 }
-
-// - получение мейлов с сервера
-
-// - сравнение мейла с массивом
-
-// - Если мейл есть: генерация пароля, отправка письма на почту с паролем (если есть вызываем метод по смене пароля через почту (см FB))
