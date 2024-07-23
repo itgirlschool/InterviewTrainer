@@ -15,6 +15,7 @@ export default function ResetPassword() {
   const [trueUser, setTrueUser] = useState(true);
   const [message, setMessage] = useState("");
   const auth = getAuth();
+  console.log(getAuth());
 
   const onSubmit = (data) => {
     setData(JSON.stringify(data));
@@ -35,7 +36,7 @@ export default function ResetPassword() {
   const getCheck = (data) => {
     const result = myArr.filter((el) => el.email == data.email);
     console.log(result);
-    if (result[0].email) {
+    if (result.length != 0) {
       return getPasswordReset(result[0].email);
     } else {
       return setTrueUser(false);
