@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -9,13 +9,21 @@ export default function ResetPassword() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState,
+    formState: { errors, isSubmitSuccessful },
   } = useForm();
   const [data, setData] = useState("");
   const [trueUser, setTrueUser] = useState(true);
   const [message, setMessage] = useState("");
   const usersObj = useSelector((state) => state.users);
   const auth = getAuth();
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ email: "" });
+    }
+  }, [formState, reset]);
 
   const onSubmit = (data) => {
     setData(JSON.stringify(data));
@@ -67,7 +75,7 @@ export default function ResetPassword() {
           Ошибка формата ввода Email
         </div>
         <button
-          className={!errors.email ? "button__submit" : "button__disabled"}
+          className={message ? "button__disabled" : "button__submit"}
           type="submit"
         >
           Отправить на почту
@@ -93,3 +101,8 @@ export default function ResetPassword() {
     </div>
   );
 }
+
+//добавить очистку формы
+//добавить мобильные стили
+//добавить стили на брейкпойнтах
+//изучить отправку нового пароля из формынового пароля
