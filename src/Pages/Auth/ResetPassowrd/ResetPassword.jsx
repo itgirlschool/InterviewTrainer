@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { store } from "../../../app/store/index.js";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "./ResetPassword.scss";
 
@@ -14,28 +14,17 @@ export default function ResetPassword() {
   const [data, setData] = useState("");
   const [trueUser, setTrueUser] = useState(true);
   const [message, setMessage] = useState("");
+  const usersObj = useSelector((state) => state.users);
   const auth = getAuth();
-  console.log(getAuth());
 
   const onSubmit = (data) => {
     setData(JSON.stringify(data));
     getCheck(data);
   };
 
-  // const usersArr = store....
-  // console.log(store);
-
-  //убрать
-  const myArr = [
-    { name: "Lena", email: "ilm63.rus@gmail.com" },
-    { name: "Dasha", email: "dasha2@mail.com" },
-    { name: "Nina", email: "Nina3@mail.com" },
-  ];
-  //!!!!
-
   const getCheck = (data) => {
+    const myArr = Object.values(usersObj.users);
     const result = myArr.filter((el) => el.email == data.email);
-    console.log(result);
     if (result.length != 0) {
       return getPasswordReset(result[0].email);
     } else {
@@ -92,6 +81,14 @@ export default function ResetPassword() {
         <Link to="/signin">
           <p className="button__sighnin">Создать аккаунт</p>
         </Link>
+        <button
+          onClick={(e) => {
+            setTrueUser(true);
+          }}
+          className="button__back"
+        >
+          Назад
+        </button>
       </div>
     </div>
   );
