@@ -3,13 +3,12 @@ import userAuthSlice from "./slice/UserAuthSlice";
 import usersSlice from "./slice/UsersSlice";
 import middlewareUsers from "./middleware/middlewareUsers";
 
-import firebase from "firebase/compat/app";
-import firebaseConfig from "../../../firebaseConfig";
-import "firebase/compat/database";
+import { firebaseConfig } from "../../../firebaseConfig";
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
-initializeApp(firebaseConfig);
-export const database = firebase.initializeApp(firebaseConfig).database();
+const app = initializeApp(firebaseConfig);
+const realtimeDb = getDatabase(app);
 
 export const store = configureStore({
   reducer: {
