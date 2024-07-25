@@ -1,14 +1,16 @@
 @import '../../../style/template.scss';
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
 
-//контейнер
-.container__login {
+.none {
+    display: none;
+  }
+
+.modal__login {
     position: absolute;
     top: 0;
     left: 0;
@@ -16,11 +18,10 @@
     height: 100%;
     background-color: $background-general;
 
-    //знак крестик для закрытия окошка
     .cross-wrapper__login {
         max-width: 95%;
         padding-top: 3.25%;
-        margin-bottom: 7.92vh;
+        margin-bottom: 100px;
 
         .crossbtn__login {
             display: flex;
@@ -31,99 +32,221 @@
                 color: $pink-color;
 
                 .icon {
-                    font-size: 2.917vw;
+                    font-size: 30px;
                     background-color: $grey;
                     border-radius: 50%;
                     cursor: pointer;
+
+                    @media screen and (max-width: 1560px) {
+                        font-size: 25px;
+                    }
+
+                    @media screen and (max-width: 1240px) {
+                        font-size: 20px;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        font-size: 15px;
+                    }
+
+                    @media screen and (max-width: 435px) {
+                        font-size: 10px;
+                    }
                 }
             }
         }
     }
 
-    //wrapper формы авторизации и заголовок
-    .wrapper__login {
+    .text-login__wrapper {
+        .text-login {
+
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 100px;
+            color: $pink-color;
+
+            @media screen and (max-width: 1560px) {
+                font-size: 80px;
+            }
+
+            @media screen and (max-width: 1240px) {
+                font-size: 60px;
+            }
+
+            @media screen and (max-width: 768px) {
+                font-size: 50px;
+            }
+
+            @media screen and (max-width: 435px) {
+                font-size: 40px;
+            }
+        }
+    }
+
+    .create-acc__login {
         text-align: center;
 
+        .create-acc {
+            font-size: 30px;
+            color: $white-color;
+
+            @media screen and (max-width: 1560px) {
+                font-size: 20px;
+            }
+
+            @media screen and (max-width: 435px) {
+                font-size: 15px;
+            }
+        }
+    }
+
+}
+
+.container__login {
+    max-width: 100vw;
+    min-height: 100vh;
+    background-color: $background-general;
+
+    .wrapper__login {
+        text-align: center;
+        padding-top: 120px;
+
         .title__login {
-            margin-bottom: 2.64vh;
-            font-family: "M PLUS Rounded 1c", sans-serif;
-            font-weight: 500;
-            font-style: normal;
+            margin-bottom: 23px;
             font-size: 48px;
             color: $pink-color;
+
+            @media screen and (max-width: 1440px) {
+                font-size: 30px;
+            }
+
+            @media screen and (max-width: 556px) {
+                font-size: 25px;
+            }
         }
 
-        //Форма авторизации
         .form-login__authorisation {
-
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
 
             .form-login__input {
-
-                width: 30.69vw;
-                height: 6.1vh;
-                padding-left: 1.60vw;
-                font-family: "M PLUS Rounded 1c", sans-serif;
-                font-weight: 400;
-                font-size: 20px;
-
+                width: 442px;
+                height: 43px;
+                padding-left: 23px;
                 border: none;
-                border-radius: 1.39vw;
+                border-radius: 10px;
                 background-color: $grey;
-                color: $form-login_font-color;
-            }
-
-            .form-error{ //для вывода ошибок на экран формы
-                margin-bottom: 5px;
+                outline: none;
                 font-size: 15px;
-                color: $red-error;
-                
-            }
-
-            .form-login__input:not(:last-of-type) {
-                margin-bottom: 10px;
-            }
-
-            .form-login__input:last-of-type {
-                margin-bottom: 3.68vh;
-            }
-
-            .form-login__input::placeholder {
-
-                font-size: 20px;
                 color: $form-login_font-color;
-            }
 
-            // кнопка "войти"  в форму
-            .enter__login {
-                margin-bottom: 22px;
+                @media screen and (max-width: 1440px) {
+                    width: 300px;
+                    height: 29px;
+                    border-radius: 7px;
+                    padding-left: 13px;
+                }
 
+                @media screen and (max-width: 556px) {
+                    height: 35px;
+                    border-radius: 15px;
+                    font-size: 10px;
+                }
 
-                .btn__login {
-                    width: 30.69vw;
-                    height: 6.1vh;
-                    border: none;
-                    border-radius: 3.47vw;
-                    font-family: "M PLUS Rounded 1c", sans-serif;
-                    font-weight: 400;
-                    font-style: normal;
-                    font-size: 22px;
-                    background-color: $pink-color;
-                    color: $white-color;
-                    cursor: pointer;
+                @media screen and (max-width: 435px) {
+                    font-size: 15px;
                 }
             }
 
+
+            .form-error {
+                margin-top: -10px;
+                margin-bottom: 3px;
+                font-size: 10px;
+                color: $red-error;
+
+                @media screen and (max-width: 556px) {
+                    font-size: 10px;
+                }
+
+            }
+
+
+            .form-login__input:not(:last-of-type) {
+                margin-bottom: 15px;
+
+                @media screen and (max-width: 1440px) {
+                    margin-bottom: 15px;
+                }
+
+            }
+
+            .form-login__input:last-of-type {
+                margin-bottom: 20px;
+
+                @media screen and (max-width: 1440px) {
+                    margin-bottom: 20px;
+                }
+
+            }
+
+            .form-login__input::placeholder {
+                font-size: 20px;
+                color: $form-login_font-color;
+
+                @media screen and (max-width: 1440px) {
+                    font-size: 10px;
+                }
+
+                @media screen and (max-width: 435px) {
+                    font-size: 15px;
+                }
+
+            }
+
+            .enter__login {
+                margin-bottom: 22px;
+
+                .btn__login {
+                    width: 442px;
+                    height: 43px;
+                    border: none;
+                    border-radius: 50px;
+                    font-size: 20px;
+                    background-color: $pink-color;
+                    color: $white-color;
+                    cursor: pointer;
+
+                    @media screen and (max-width: 1440px) {
+                        width: 300px;
+                        height: 26px;
+                        border-radius: 13px;
+                        font-size: 15px;
+                    }
+
+                    @media screen and (max-width: 556px) {
+                        height: 35px;
+                        font-size: 15px;
+                        border-radius: 15px;
+                    }
+
+                    @media screen and (max-width: 435px) {
+                        font-size: 15px;
+                    }
+                }
+
+            }
+
             .extra__options {
-                font-family: "M PLUS Rounded 1c", sans-serif;
-                font-weight: 400;
-                font-size: 1.11vw;
-                font-style: normal;
+                font-size: 16px;
                 color: $white-color;
                 cursor: pointer;
+
+                @media screen and (max-width: 1440px) {
+                    font-size: 10px;
+                }
 
                 .option {
                     display: block;
@@ -133,8 +256,6 @@
                     margin-bottom: 10px;
                 }
             }
-
-
         }
     }
 }

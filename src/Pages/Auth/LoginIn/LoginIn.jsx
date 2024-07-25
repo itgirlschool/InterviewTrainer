@@ -1,41 +1,52 @@
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { useForm } from "react-hook-form";
-import { useDispatch } from 'react-redux';
-import { Login } from './login.actions';
+import { useState } from "react";
+import getLogin from './getLogin';
 import "./LoginIn.scss";
 
 export default function LoginIn() {
+  const [loginError, setloginError] = useState(false);
 
-  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors }
   } = useForm();
 
   const onSubmit = (data) => {
-
-    form.reset(); //очищаем поля формы
-    dispatch(Login(data.email, data.password)); //отправляем данные на авторизацию
+    getLogin(data.email, data.password, setloginError);
+    reset();
   };
+
+  const handleCrossBtnClick = () => {
+    setloginError(false);
+  }
 
   return (
     <>
-      <div className="container__login">
-        <div className="cross-wrapper__login">
-          <div className="crossbtn__login">
+      <div className={loginError ? "modal__login" : "modal__login none"}>
+        <div className="cross-wrapper__login" onClick={handleCrossBtnClick}>
+          <div className="crossbtn__login" >
             <span className="crossbtn-x"><CloseCircleOutlined className="icon" /></span>
           </div>
         </div>
+        <div className="text-login__wrapper">
+          <p className="text-login">Email не найден</p>
+        </div>
+        <div className="create-acc__login">
+          <a className="create-acc">Создать аккаунт</a>
+        </div>
+
+      </div>
+      <div className="container__login">
         <div className="wrapper__login">
           <h3 className="title__login">Войти</h3>
 
-          <form action=""
+          <form
             className="form-login__authorisation"
-            name="form"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            {/*Вывод ошибки если не проходит проверку на валидацию*/}
+            onSubmit={handleSubmit(onSubmit)}>
+
             {errors?.email?.type === "pattern" && (
               <p className="form-error">Эмейл не соответствует проверке</p>
             )}
@@ -43,7 +54,6 @@ export default function LoginIn() {
               <p className="form-error">Необходимо ввести эмейл</p>
             )}
 
-            {/*Сам input*/}
             <input type="email"
               placeholder="Ваш Email"
               className="form-login__input"
@@ -55,12 +65,11 @@ export default function LoginIn() {
                 })}
             />
 
-            {/*Вывод ошибки если не проходит проверку на валидацию*/}
             {errors?.password?.type === "required" && (
               <p className="form-error">Необходимо ввести пароль</p>
             )}
             {errors?.password?.type === "pattern" && (
-              <p className="form-error">Cимволы: A-Z,!@#$&*,0-9,a-z</p>
+              <p className="form-error">Cимволы: A-Z,!@,0-9,a-z</p>
             )}
             {errors?.password?.type === "minLength" && (
               <p className="form-error">Пароль должен содержать не меньше 8 символов</p>
@@ -73,10 +82,9 @@ export default function LoginIn() {
                 {
                   required: true,
                   minLength: {
-                    value: 8,
-                    message: "Password must have at least 8 characters"
+                    value: 8
                   },
-                  pattern: /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/
+                  pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/
                 })}
             />
 
@@ -85,8 +93,8 @@ export default function LoginIn() {
                 className="btn__login">Войти</button>
             </div>
             <div className="extra__options">
-              <p className="option">Создать аккаунт</p>
-              <p className="option">Забыли свой пароль?</p>
+              <a className="option">Создать аккаунт</a>
+              <a className="option">Забыли свой пароль?</a>
             </div>
           </form>
         </div>

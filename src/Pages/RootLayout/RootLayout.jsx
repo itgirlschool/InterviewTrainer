@@ -4,10 +4,18 @@ import Footer from "../../Components/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
 
 export default function RootLayout() {
   const [flag, setFlag] = useState(true);
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch({type:"SUBSCRIBE_TO_USERS"})
+  },[dispatch]);
+  
   useEffect(() => {
     if (
       location.pathname === "/login" ||
