@@ -10,6 +10,8 @@ import { initializeApp } from "firebase/app";
 
 initializeApp(firebaseConfig);
 export const database = firebase.initializeApp(firebaseConfig).database();
+const listenerMiddlewareUsers = middlewareUsers(database);
+
 
 export const store = configureStore({
   reducer: {
@@ -17,5 +19,5 @@ export const store = configureStore({
     users: usersSlice,
   },
   middleware: (getDefaultMiddleWare) =>
-    getDefaultMiddleWare().concat(middlewareUsers),
+    getDefaultMiddleWare().concat(listenerMiddlewareUsers),
 });
