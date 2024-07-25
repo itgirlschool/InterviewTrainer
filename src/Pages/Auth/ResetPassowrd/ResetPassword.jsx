@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "./ResetPassword.scss";
 
 export default function ResetPassword() {
@@ -11,13 +10,13 @@ export default function ResetPassword() {
     handleSubmit,
     reset,
     formState,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful, isDirty, isValid },
   } = useForm();
   const [data, setData] = useState("");
+  const [dataUser, setDataUser] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const [trueUser, setTrueUser] = useState(true);
-  const [message, setMessage] = useState("");
   const usersObj = useSelector((state) => state.users);
-  const auth = getAuth();
 
   useEffect(() => {
     if (isSubmitSuccessful) {
@@ -34,25 +33,10 @@ export default function ResetPassword() {
     const myArr = Object.values(usersObj.users);
     const result = myArr.filter((el) => el.email == data.email);
     if (result.length != 0) {
-      return getPasswordReset(result[0].email);
+      return setDataUser(result[0].password), setShowModal(true);
     } else {
       return setTrueUser(false);
     }
-  };
-
-  const getPasswordReset = (resEmail) => {
-    console.log(resEmail);
-    console.log(typeof resEmail);
-    setMessage(resEmail);
-    sendPasswordResetEmail(auth, resEmail)
-      .then(() => {
-        console.log("Password reset email sent!", resEmail);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
   };
 
   return (
@@ -68,17 +52,15 @@ export default function ResetPassword() {
           type="text"
           placeholder="Ваш Email"
         />
-        <div className={!message ? "hidden" : "message"}>
-          <p>Ссылка для сброса пароля отправлена на {message}</p>
-        </div>
-        <div className={!errors.email ? "hidden" : "message__error"}>
+        <div className={isValid ? "hidden" : "message__error"}>
           Ошибка формата ввода Email
         </div>
         <button
-          className={message ? "button__disabled" : "button__submit"}
+          disabled={!isDirty || !isValid}
+          className={"button__submit"}
           type="submit"
         >
-          Отправить на почту
+          Показать пароль
         </button>
         <Link to="/login">
           <p className="button__back">Вернуться</p>
@@ -98,11 +80,19 @@ export default function ResetPassword() {
           Назад
         </button>
       </div>
+      <div className={!showModal ? "hidden" : "modal__overlay"}>
+        <div className="modal">
+          <div className="modal__data">{dataUser}</div>
+          <button
+            className="modal__button"
+            onClick={() => {
+              setShowModal(false);
+            }}
+          >
+            Ок
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
-
-//добавить очистку формы
-//добавить мобильные стили
-//добавить стили на брейкпойнтах
-//изучить отправку нового пароля из формынового пароля
