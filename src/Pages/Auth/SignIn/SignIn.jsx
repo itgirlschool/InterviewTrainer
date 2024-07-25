@@ -17,29 +17,22 @@ export default function SignIn() {
 
   const onSubmit = (data) => {
     getRegister(data, setUserError);
-
-    if(userError==true){
-      return;
-    }else{
-      reset();
-    }
-    
+    reset();
   };
 
   const passw = watch("password");
 
-  useEffect(()=>{
-    if(userError==true){
+  useEffect(() => {
+    if (userError == true) {
       setErrorInfo('Данный эмейл уже существует');
     }
-  },[userError])
-  
+  }, [userError])
+
 
   return (
     <div className="container__signin">
       <div className="wrapper__signin">
         <h3 className="title__signin">Регистрация</h3>
-
         <form className="form-signin__registration"
           onSubmit={handleSubmit(onSubmit)}>
           {errors?.firstName?.type === "required" && <p className="form-error">Данное поле необходимо заполнить</p>}
@@ -49,7 +42,7 @@ export default function SignIn() {
           {errors?.firstName?.type === "pattern" && (
             <p className="form-error">Используйте кириллицу или латинске буквы</p>
           )}
-          <p className="form-usererror">{userError? errorInfo : ''}</p>
+          <p className="form-usererror">{userError ? errorInfo : ''}</p>
           <input type="text"
             placeholder="Ваше имя"
             className="form-signin__input"
@@ -98,7 +91,6 @@ export default function SignIn() {
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
               })}
           />
-
           {errors?.password?.type === "required" && (
             <p className="form-error">Необходимо ввести пароль</p>
           )}
@@ -108,7 +100,6 @@ export default function SignIn() {
           {errors?.password?.type === "minLength" && (
             <p className="form-error">Пароль должен содержать не меньше 8 символов</p>
           )}
-         
 
           <input
             name="password"
@@ -121,7 +112,7 @@ export default function SignIn() {
                 minLength: {
                   value: 8
                 },
-                pattern:  /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/
+                pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/
               })}
           />
 
@@ -134,8 +125,6 @@ export default function SignIn() {
           {errors?.confirmPassword?.type === "minLength" && (
             <p className="form-error">Пароль должен содержать не меньше 8 символов</p>
           )}
-          
-
           <input
             name="confirmPassword"
             type="password"
@@ -151,7 +140,7 @@ export default function SignIn() {
               },
             )}
           />
-           {errors.confirmPassword && <p className="form-error">Пароли не совпадают</p>}
+          {errors.confirmPassword && <p className="form-error">Пароли не совпадают</p>}
           <div className="save__sighin" >
             <button type="submit"
               className="btn__signin">

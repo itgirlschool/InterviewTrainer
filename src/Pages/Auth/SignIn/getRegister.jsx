@@ -5,7 +5,6 @@ const auth = getAuth();
 
 export default function getRegister(user, setUserError) {
 
-
   createUserWithEmailAndPassword(auth, user.email, user.password)
     .then((data) => {
 
