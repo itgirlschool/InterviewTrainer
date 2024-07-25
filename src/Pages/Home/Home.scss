@@ -1,0 +1,216 @@
+.home {
+    background: url('../../assets/background.svg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    min-height: 100vh;
+    width: 100%;
+
+    .welcome-title {
+        padding-top: 5vh;
+        padding-left: 5vw;
+        font-size: 4vw;
+        color: #EA5D80;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        text-align: left;
+    }
+
+    .intro-text {
+        margin: 2vh auto;
+        font-size: 1.5vw;
+        margin-left: 5vw;
+        width: 90%;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .grade-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 5vh 5vw;
+
+        .grade {
+            background: #0E0F14;
+            padding: 2vh 2vw;
+            border-radius: 28px;
+            border: 1px solid #EA5D80;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 3vh;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            width: 30%;
+            box-sizing: border-box;
+
+            h2 {
+                margin-bottom: 1vh;
+                color: #EA5D80;
+                font-size: 3vw;
+                font-weight: 500;
+                line-height: 1.2;
+                text-align: left;
+            }
+
+            p {
+                font-size: 1.2vw;
+                color: #FFFFFF;
+                font-weight: 400;
+                line-height: 1.5;
+                text-align: left;
+            }
+
+            button {
+                background: #EA5D80;
+                border: none;
+                padding: 1vh 2vw;
+                color: white;
+                font-size: 1.5vw;
+                cursor: pointer;
+                border-radius: 50px;
+                margin: 2vh auto 0 auto;
+                font-family: 'M PLUS Rounded 1c', sans-serif;
+                font-weight: 400;
+                line-height: 1.5;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .grade-container {
+            flex-direction: column;
+            align-items: center;
+
+            .grade {
+                width: 90%;
+            }
+        }
+    }
+
+    @media (max-width: 1440px) {
+        .welcome-title {
+            font-size: 4vw;
+        }
+
+        .intro-text {
+            font-size: 1.3vw;
+            width: 75%;
+        }
+
+        .grade {
+            height: auto;
+
+            h2 {
+                font-size: 2vw;
+            }
+
+            p {
+                font-size: 1vw;
+            }
+
+            button {
+                width: auto;
+                font-size: 1vw;
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .grade-container {
+            flex-direction: column;
+            align-items: center;
+
+            .grade {
+                width: 90%;
+            }
+        }
+
+        .welcome-title {
+            font-size: 6vw;
+        }
+
+        .intro-text {
+            font-size: 1.1vw;
+            width: 80%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .welcome-title {
+            font-size: 7vw;
+            padding-top: 4vh;
+            padding-left: 4vw;
+        }
+
+        .intro-text {
+            font-size: 1.3vw;
+            margin-left: 4vw;
+            width: 90%;
+        }
+
+        .grade-container {
+            margin-left: 4vw;
+            margin-right: 4vw;
+        }
+
+        .grade {
+            width: 100%;
+            margin-bottom: 4vh;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .welcome-title {
+            font-size: 10vw;
+            padding-top: 2vh;
+            padding-left: 2vw;
+        }
+
+        .intro-text {
+            font-size: 1.6vw;
+            margin-left: 2vw;
+            width: 100%;
+        }
+
+        .grade-container {
+            margin-left: 2vw;
+            margin-right: 2vw;
+        }
+
+        .grade {
+            width: 100%;
+            margin-bottom: 2vh;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .welcome-title {
+            font-size: 11vw;
+            padding-top: 1vh;
+            padding-left: 1vw;
+        }
+
+        .intro-text {
+            font-size: 2vw;
+            margin-left: 1vw;
+            width: 100%;
+        }
+
+        .grade-container {
+            margin-left: 1vw;
+            margin-right: 1vw;
+        }
+
+        .grade {
+            width: 100%;
+            margin-bottom: 1vh;
+        }
+    }
+}
