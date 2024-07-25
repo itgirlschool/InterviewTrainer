@@ -1,50 +1,47 @@
-//удалить потом//
-$background-general: #1B1C20;
-$white-color: #FFFFFF;
-$pink-color: #EA5D80;
-$ligth-grey: #BCBABA;
-$Mobile: "(max-width: 431px)";
-
-body {
-    margin: 0;
-}
+@import "../../style/template.scss";
 
 .footer {
     background-color: $background-general;
     display: flex;
     justify-content: center;
-    gap: 2.125rem;
-    padding: 1.625rem 0;
+    gap: 2.21vw;
+    padding: 26px 0;
     border-top: 0.5px solid $pink-color;
+    @media #{$Tablet} {
+        gap: 14px;
+        padding: 16px 0;
+    }
     @media #{$Mobile} {
-        gap: 0.875rem;
+        gap: 14px;
+        padding: 11px 0;
     }
 }
 
 .footer__button {
-    width: 3rem;
-    height: 3rem;
+    width: 48px;
+    height: 48px;
     background-color: $white-color;
-    border: 0.006rem solid $white-color;
-    border-radius: 6.25rem;
-    padding-top: 0.3rem;
+    border: 0.5px solid $white-color;
+    border-radius: 100%;
+    padding-top: 4.8px;
     @media #{$Mobile} {
-        width: 2.625rem;
-        height: 2.625rem;
+        width: 38px;
+        height: 38px;
+        padding-top: 2px;
     }
-  
 }
 
 .footer__img {
-    width: 1.5rem;
-    height:  1.5rem;
+    width: 24px;
+    height:  24px;
     @media #{$Mobile} {
-        width: 1.3125rem;
-        height: 1.3125rem;
+        width: 21px;
+        height: 21px;
     }
 }
 
 .footer__button:hover {
     background-color: $ligth-grey;
-    border: 0.006rem solid $ligth-grey;
+    border: 0.5px solid $ligth-grey;
 }
+

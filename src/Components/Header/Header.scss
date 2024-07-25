@@ -1,70 +1,95 @@
-//удалить потом//
-$background-general: #1B1C20;
-$pink-color: #EA5D80;
-$grey: #777777;
-$form-signin_font-color: #444242;
-$white-color: #FFFFFF;
-$ligth-grey: #BCBABA;
-$Mobile: "(max-width: 767px)";
+@import "../../style/template.scss";
+
+//burger
 
 .header {
+    font-family: 'M PLUS Rounded 1c';
+    min-height: 106px;
     background-color: $background-general;
-}
-
-.header__body {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 3.375rem;
     border-bottom: 1px solid $pink-color;
 }
 
+.header__body {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    @include flex__center;
+    justify-content: space-between;
+    padding: 16px 45px;
+}
+
 .header__logo {
-    display: flex;
-    align-items: center;
+    @include flex__center;
     
     & img {
         height: 2.875rem;
     }
-
 }
 
 .header__links {
-    display: flex;
-    align-items: center;
-    gap: 3.3125rem;
+    @include flex__center;
+    gap: 53px;
 
     & > a {
+    @include flex__center;
     text-decoration: none;
     color: $pink-color;
-    font-size: 1.25rem;
+    font-size: 20px;
     font-weight: 500;
 }
+}
+
+.profile__img {
+    width: 70px;
+    height: 70px;
+}
+
+.img__active {
+    width: 100vw;
+    height: 100vh;
+
+    & img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
 }
 
 .header__popup {
     display: flex;
     flex-direction: column;
-    gap: 0.9375rem;
+    gap: 15px;
     color: $white-color;
     background-color: rgba(26, 27, 31, 0.95);
     border: 0.5px solid $ligth-grey;
-    border-radius: 0.625rem;
-    padding: 1rem 1rem 1.3125rem 1rem;
-    font-size: 0.875rem;
+    border-radius: 10px;
+    padding: 16px 16px 21px;
+    font-size: 14px;
     position: fixed;
-    z-index: 2;
-    right: 2.275rem;
+    z-index: 12;
+    right: 36px;
     opacity: 0;
     transform: translateY(-10px);
     visibility: hidden;
-    transition: 0.3s;
+    transition: 0.01s;
 }
 
 .header__popup.active {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
+    position: fixed;
+    top: 90px;
 }
 
 .popup__raitinginfo {
@@ -78,28 +103,181 @@ $Mobile: "(max-width: 767px)";
     .popup__progress {
         grid-column: 2 span;
         accent-color: $pink-color;
-        width: 14rem;
-        height: 1.3rem;   
+        width: 224px;
+        height: 20px;   
     }
 }
 
 .popup__link {
     text-decoration: none;
     color: $white-color;
-    display: flex;
-    align-items: center;
+    @include flex__center;
 
-    & img,
-    & svg {
-        padding-right: 0.5rem;
-        height: 1.125rem;
-        width: 1.125rem;
+    img,
+    svg {
+        padding-right: 8px;
+        height: 26px;
+        width: 26px;
         color: $pink-color;
+        justify-self: center;
+        align-self: center;
     }
 }
 
-//burger
-.header__burger {
+@media #{$Desktop} {
+    .burger,
+    .burger__img {
     display: none;
-    
 }
+}
+
+@media #{$Tablet} {
+    .header {
+        font-family: 'M PLUS Rounded 1c';
+        min-height: 68px;
+    }
+    
+    .header__body {
+        padding: 16px 26px;
+    }
+
+    .header__links {
+        display: none;
+    }
+
+    .header__logo {
+        & img {
+            height: 36px;
+        }
+    }
+
+    .burger__img {
+       border: 0.5px solid $pink-color;
+       border-radius: 50%;
+       width: 36px;
+       height: 36px;
+       background-color: $background-general;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+
+    .burger__img.menu {
+        background-image: url("../../assets/images/img_burgermenu.svg");
+     }
+
+     .burger__img.close {
+        background-image: url("../../assets/images/img_closemenu.svg");
+     }
+
+    .burger {
+        display: flex;
+        flex-direction: column;
+        color: $white-color;
+        padding: 26px;
+        gap: 16px;
+        position: fixed;
+        top: 40px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 4;
+        background-color: $background-general;
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        transition: 0.01s;
+        a {
+            text-decoration: none;
+            color: $white-color;
+            font-size: 16px;
+        }
+    }
+
+    .burger.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .burger__username {
+        @include flex__center;
+        gap: 16px;
+        font-size: 20px;
+        font-weight: 700;
+
+        img {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    .burger__raiting {
+        padding-top: 20px;
+        width: 78vw;
+
+        .rainting__intro {
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        .active__status {
+            position: fixed;
+            background-color: $color-green;
+            font-size: 10px;
+            color: $background-general;
+            padding: 2px 12px;
+            border-radius: 20px;
+            left: 100px;
+            top: 95px;
+        }
+
+        .burger__percent {
+            color: $pink-color;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .burger__progress {
+            accent-color: $pink-color;
+            width: 78vw;
+            height: 3vh;
+        }
+    }
+
+    .popup__link {
+        img,
+        svg {
+            width: 44px;
+            height: 28px;
+            padding-right: 16px;
+        }
+    }
+
+    .burger__line {
+        border-bottom: 0.3px solid $pink-color;
+        padding-bottom: 16px;
+    }
+}
+
+@media #{$Mobile} {
+    .header {
+        font-family: 'M PLUS Rounded 1c';
+        min-height: 54px;
+    }
+
+    .header__body {
+        padding: 11px 16px;
+    }
+
+    .header__logo {
+        & img {
+            height: 29px;
+        }
+    }
+
+    .burger__img {
+        width: 32px;
+        height: 32px;
+     }
+}
+
