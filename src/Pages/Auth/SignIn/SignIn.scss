@@ -14,10 +14,12 @@
 
 .wrapper__signin {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 130px;
 
     .title__signin {
         margin-bottom: 23px;
+        font-family: 'M PLUS Rounded 1c';
+        font-weight: 500;
         font-size: 48px;
         color: $pink-color;
 
@@ -44,6 +46,8 @@
             border-radius: 10px;
             background-color: $grey;
             outline: none;
+            font-family: 'M PLUS Rounded 1c';
+            font-weight: 400;
             font-size: 15px;
             color: $form-signin_font-color;
 
@@ -96,11 +100,13 @@
         }
 
         .form-signin__input::placeholder {
+            font-family: 'M PLUS Rounded 1c';
+            font-weight: 400;
             font-size: 20px;
             color: $form-signin_font-color;
 
             @media screen and (max-width: 1440px) {
-                font-size: 10px;
+                font-size: 15px;
             }
         }
 
@@ -112,6 +118,8 @@
                 height: 43px;
                 border: none;
                 border-radius: 50px;
+                font-family: 'M PLUS Rounded 1c';
+                font-weight: 400;
                 font-size: 20px;
                 background-color: $pink-color;
                 color: $white-color;
@@ -121,7 +129,7 @@
                     width: 300px;
                     height: 26px;
                     border-radius: 13px;
-                    font-size: 10px;
+                    font-size: 15px;
                 }
 
                 @media screen and (max-width: 556px) {
@@ -133,12 +141,14 @@
         }
 
         .enter__signin {
+            font-family: 'Jost';
+            font-weight: 400;
             font-size: 16px;
             color: $white-color;
             cursor: pointer;
 
             @media screen and (max-width: 1440px) {
-                font-size: 10px;
+                font-size: 15px;
             }
         }
     }
