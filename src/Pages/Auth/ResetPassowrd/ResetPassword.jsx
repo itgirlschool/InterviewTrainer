@@ -52,7 +52,7 @@ export default function ResetPassword() {
         className={trueUser ? "form" : "hidden"}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <p className="header">Забыли пароль?</p>
+        <p className="reset__header">Забыли пароль?</p>
         <input
           className="input"
           {...register("email", { required: true, pattern: /^\S+@\S+\.\S+$/i })}
@@ -76,7 +76,7 @@ export default function ResetPassword() {
         </Link>
       </form>
       <div className={trueUser ? "hidden" : "form"}>
-        <p className="header">E-mail не найден</p>
+        <p className="reset__header">E-mail не найден</p>
         <Link to="/signin">
           <p className="button__sighnin">Создать аккаунт</p>
         </Link>
