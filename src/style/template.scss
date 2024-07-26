@@ -23,3 +23,22 @@ body {
     display: flex;
     align-items: center;
 }
+%font__jost {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+%button__text {
+  display: block;
+  border: none;
+  font-size: 24px;
+  @extend %font__jost;
+  color: #FFFFFF;
+  background-color: transparent;
+}
+
+%flex__center {
+  justify-content: center;
+  align-items: center;
+}
