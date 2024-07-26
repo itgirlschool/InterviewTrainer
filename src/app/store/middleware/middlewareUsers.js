@@ -8,6 +8,7 @@ const middlewareUsers = (database) => {
         store.dispatch(setUsers(data));
       });
     }
+    return next(action);
   };
 };
 

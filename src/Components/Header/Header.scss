@@ -1,28 +1,23 @@
 @import "../../style/template.scss";
-
-//burger
+@import "../../style/vars";
 
 .header {
-    font-family: 'M PLUS Rounded 1c';
-    min-height: 106px;
+    font-family:$font;
+    min-height: 10vh;
     background-color: $background-general;
     border-bottom: 1px solid $pink-color;
+    display: flex;
+    align-items: center;
 }
 
 .header__body {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 5;
     @include flex__center;
     justify-content: space-between;
-    padding: 16px 45px;
 }
 
 .header__logo {
     @include flex__center;
-    
+
     & img {
         height: 2.875rem;
     }
@@ -104,7 +99,7 @@
         grid-column: 2 span;
         accent-color: $pink-color;
         width: 224px;
-        height: 20px;   
+        height: 20px;
     }
 }
 
@@ -133,10 +128,9 @@
 
 @media #{$Tablet} {
     .header {
-        font-family: 'M PLUS Rounded 1c';
         min-height: 68px;
     }
-    
+
     .header__body {
         padding: 16px 26px;
     }
@@ -219,7 +213,7 @@
             display: flex;
             justify-content: space-between;
         }
-    
+
         .active__status {
             position: fixed;
             background-color: $color-green;
@@ -236,7 +230,7 @@
             font-size: 14px;
             font-weight: 500;
         }
-        
+
         .burger__progress {
             accent-color: $pink-color;
             width: 78vw;
@@ -261,7 +255,6 @@
 
 @media #{$Mobile} {
     .header {
-        font-family: 'M PLUS Rounded 1c';
         min-height: 54px;
     }
 
