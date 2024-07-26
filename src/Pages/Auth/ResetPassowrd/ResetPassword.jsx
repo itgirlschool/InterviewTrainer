@@ -8,10 +8,17 @@ export default function ResetPassword() {
   const {
     register,
     handleSubmit,
+    getFieldState,
     reset,
     formState,
-    formState: { errors, isSubmitSuccessful, isDirty, isValid },
-  } = useForm();
+    formState: { isSubmitSuccessful, isDirty, isValid },
+  } = useForm({
+    mode: "onChange",
+
+    defaultValues: {
+      email: "",
+    },
+  });
   const [data, setData] = useState("");
   const [dataUser, setDataUser] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -48,13 +55,15 @@ export default function ResetPassword() {
         <p className="header">Забыли пароль?</p>
         <input
           className="input"
-          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+          {...register("email", { required: true, pattern: /^\S+@\S+\.\S+$/i })}
           type="text"
           placeholder="Ваш Email"
         />
-        <div className={isValid ? "hidden" : "message__error"}>
-          Ошибка формата ввода Email
+        {""}
+        <div className="message__error">
+          {isDirty && !isValid && "Ошибка формата ввода Email"}
         </div>
+        {""}
         <button
           disabled={!isDirty || !isValid}
           className={"button__submit"}
