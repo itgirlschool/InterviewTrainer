@@ -1,3 +1,28 @@
+$background-general: #1B1C20;
+$white-color: #FFFFFF;
+$pink-color: #EA5D80;
+$ligth-grey: #BCBABA;
+$grey: #777777;
+$ligth-grey: #BCBABA;
+$color-green: #00FF47;
+
+$Mobile: "(max-width: 431px)";
+$Tablet: "(max-width: 819px)";
+$Desktop: "(min-width: 819px)"; 
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin flex__center {
+    display: flex;
+    align-items: center;
+}
 %font__jost {
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
