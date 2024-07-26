@@ -23,12 +23,12 @@ export default function RootLayout() {
 
   useEffect(() => {
     onAuthStateChanged(auth,(user)=>{
-
       if(user){
-        navigate("/home");
-        return
+        console.log('auth success')
+       // navigate("/home");
+       // return
       }
-      navigate('login')
+     // navigate('login')
     })
   }, []);
 
