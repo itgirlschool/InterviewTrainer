@@ -7,8 +7,8 @@ import firebaseConfig from "../../../firebaseConfig";
 import "firebase/compat/database";
 import { initializeApp } from "firebase/app";
 
-initializeApp(firebaseConfig);
-export const database = firebase.initializeApp(firebaseConfig).database();
+initializeApp(firebaseConfig.app);
+export const database = firebase.initializeApp(firebaseConfig.app).database();
 const listenerMiddlewareUsers = middlewareUsers(database);
 
 export const store = configureStore({
@@ -16,10 +16,6 @@ export const store = configureStore({
     userAuth: userAuthSlice,
     users: usersSlice,
   },
-
-  middleware: (getDefaultMiddleWare) =>
-    getDefaultMiddleWare().concat(listenerMiddlewareUsers),
-
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(listenerMiddlewareUsers),
 });
