@@ -1,6 +1,25 @@
 $background-general: #1B1C20;
-$pink-color: #EA5D80;
-$grey: #777777;
-$form-signin_font-color: #444242;
 $white-color: #FFFFFF;
-$red-error: red;
+$pink-color: #EA5D80;
+$ligth-grey: #BCBABA;
+$grey: #777777;
+$ligth-grey: #BCBABA;
+$color-green: #00FF47;
+
+$Mobile: "(max-width: 431px)";
+$Tablet: "(max-width: 819px)";
+$Desktop: "(min-width: 819px)"; 
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin flex__center {
+    display: flex;
+    align-items: center;
+}
