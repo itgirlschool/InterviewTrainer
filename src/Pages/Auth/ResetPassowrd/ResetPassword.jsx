@@ -19,31 +19,26 @@ export default function ResetPassword() {
       email: "",
     },
   });
-  const [data, setData] = useState("");
   const [dataUser, setDataUser] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [trueUser, setTrueUser] = useState(true);
-  const usersObj = useSelector((state) => state.users);
-
+  const {users} = useSelector((state) => state.users);
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset({ email: "" });
     }
   }, [formState, reset]);
 
-  const onSubmit = (data) => {
-    setData(JSON.stringify(data));
-    getCheck(data);
-  };
 
-  const getCheck = (data) => {
-    const myArr = Object.values(usersObj.users);
-    const result = myArr.filter((el) => el.email == data.email);
-    if (result.length != 0) {
-      return setDataUser(result[0].password), setShowModal(true);
-    } else {
-      return setTrueUser(false);
+  const onSubmit = (data) => {
+    const myArr = Object.values(users);
+    const result = myArr.find((el) => el.email === data.email);
+    if (result) {
+      setDataUser(result.password)
+      setShowModal(true);
+      return
     }
+     setTrueUser(false);
   };
 
   return (
