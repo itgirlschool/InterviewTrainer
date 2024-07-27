@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import getRegister from './getRegister.jsx';
 import "./SignIn.scss";
@@ -7,17 +9,18 @@ import "./SignIn.scss";
 export default function SignIn() {
   const [userError, setUserError] = useState(false);
   const [errorInfo, setErrorInfo] = useState('');
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     watch,
-    reset,
+
     formState: { errors }
   } = useForm();
 
   const onSubmit = (data) => {
-    getRegister(data, setUserError);
-    reset();
+    getRegister(data, setUserError, navigate);
+
   };
 
   const passw = watch("password");
@@ -35,14 +38,14 @@ export default function SignIn() {
         <h3 className="title__signin">Регистрация</h3>
         <form className="form-signin__registration"
           onSubmit={handleSubmit(onSubmit)}>
-          {errors?.firstName?.type === "required" && <p className="form-error">Данное поле необходимо заполнить</p>}
+          {errors?.firstName?.type === "required" && <p className="form-error">Это поле обязательно для заполнения</p>}
           {errors?.firstName?.type === "maxLength" && (
-            <p className="form-error">Имя не может превышать 20 букв</p>
+            <p className="form-error">Введите не более 20 символов</p>
           )}
           {errors?.firstName?.type === "pattern" && (
             <p className="form-error">Используйте кириллицу или латинске буквы</p>
           )}
-          <p className="form-usererror">{userError ? errorInfo : ''}</p>
+
           <input type="text"
             placeholder="Ваше имя"
             className="form-signin__input"
@@ -53,9 +56,9 @@ export default function SignIn() {
 
             })}
           />
-          {errors?.lastName?.type === "required" && <p className="form-error">Данное поле необходимо заполнить</p>}
+          {errors?.lastName?.type === "required" && <p className="form-error">Это поле обязательно для заполнения</p>}
           {errors?.lastName?.type === "maxLength" && (
-            <p className="form-error">Фамилия не может превышать 20 букв</p>
+            <p className="form-error">Введите не более 20 символов</p>
           )}
           {errors?.lastName?.type === "pattern" && (
             <p className="form-error">Используйте кириллицу или латинске буквы</p>
@@ -75,12 +78,12 @@ export default function SignIn() {
           />
 
           {errors?.email?.type === "pattern" && (
-            <p className="form-error">Эмейл не соответствует проверке</p>
+            <p className="form-error">Неверный формат Email</p>
           )}
           {errors?.email?.type === "required" && (
-            <p className="form-error">Необходимо ввести эмейл</p>
+            <p className="form-error">Это поле обязательно для заполнения</p>
           )}
-
+          <p className="form-usererror">{userError ? errorInfo : ''}</p>
           <input type="email"
             placeholder="Ваш Email"
             className="form-signin__input"
@@ -92,13 +95,13 @@ export default function SignIn() {
               })}
           />
           {errors?.password?.type === "required" && (
-            <p className="form-error">Необходимо ввести пароль</p>
+            <p className="form-error">Это поле обязательно для заполнения</p>
           )}
           {errors?.password?.type === "pattern" && (
-            <p className="form-error">Cимволы: A-Z,!@,0-9,a-z</p>
+            <p className="form-error">Cимволы:(только: A-Z,a-z,!@,0-9)</p>
           )}
           {errors?.password?.type === "minLength" && (
-            <p className="form-error">Пароль должен содержать не меньше 8 символов</p>
+            <p className="form-error">Введите не менее 8 символов</p>
           )}
 
           <input
@@ -117,14 +120,15 @@ export default function SignIn() {
           />
 
           {errors?.confirmPassword?.type === "required" && (
-            <p className="form-error">Необходимо ввести пароль</p>
+            <p className="form-error">Это поле обязательно для заполнения</p>
           )}
           {errors?.confirmPassword?.type === "pattern" && (
-            <p className="form-error">Cимволы: A-Z, !@ ,0-9,a-z</p>
+            <p className="form-error">Cимволы:(только: A-Z,a-z,!@,0-9)</p>
           )}
           {errors?.confirmPassword?.type === "minLength" && (
-            <p className="form-error">Пароль должен содержать не меньше 8 символов</p>
+            <p className="form-error">Введите не менее 8 символов</p>
           )}
+          {errors.confirmPassword && <p className="form-error error_password">Пароли не совпадают</p>}
           <input
             name="confirmPassword"
             type="password"
@@ -140,14 +144,14 @@ export default function SignIn() {
               },
             )}
           />
-          {errors.confirmPassword && <p className="form-error">Пароли не совпадают</p>}
+
           <div className="save__sighin" >
             <button type="submit"
               className="btn__signin">
               Сохранить</button>
           </div>
           <div className="enter__signin">
-            <a className="enter__sn">Вход</a>
+            <NavLink to="/login">Вход</NavLink>
           </div>
         </form>
       </div >

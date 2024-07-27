@@ -3,7 +3,7 @@ import { addUser } from "../../../Services/fbUsers";
 
 const auth = getAuth();
 
-export default function getRegister(user, setUserError) {
+export default function getRegister(user, setUserError, navigate) {
 
   createUserWithEmailAndPassword(auth, user.email, user.password)
     .then((data) => {
@@ -16,7 +16,7 @@ export default function getRegister(user, setUserError) {
         id: data.user.uid,
         password: user.password,
       }
-      addUser(infoUser);
+      addUser(infoUser).then(()=>navigate('/home'));
 
 
     })
