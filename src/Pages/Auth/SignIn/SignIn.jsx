@@ -9,32 +9,18 @@ import "./SignIn.scss";
 export default function SignIn() {
   const [userError, setUserError] = useState(false);
   const [errorInfo, setErrorInfo] = useState('');
-  
-
-  //const [passwordMain, setPasswordMain] = useState('');
-  //const [confirmPasswordMain, setConfirmPasswordMain] =useState('');
-  const [passwNotMatch, setPasswNotMatch] =useState(false);
-
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    getValues,
     watch,
     formState: { errors }
   } = useForm();
 
-
   const onSubmit = (data) => {
     getRegister(data, setUserError, navigate);
-
   };
  
-
-
-    
-  
-//console.log(password, confirmPassword);
   const passw = watch("password");
 
   useEffect(() => {
