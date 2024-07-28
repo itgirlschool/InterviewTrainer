@@ -9,20 +9,32 @@ import "./SignIn.scss";
 export default function SignIn() {
   const [userError, setUserError] = useState(false);
   const [errorInfo, setErrorInfo] = useState('');
+  
+
+  //const [passwordMain, setPasswordMain] = useState('');
+  //const [confirmPasswordMain, setConfirmPasswordMain] =useState('');
+  const [passwNotMatch, setPasswNotMatch] =useState(false);
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    getValues,
     watch,
-
     formState: { errors }
   } = useForm();
+
 
   const onSubmit = (data) => {
     getRegister(data, setUserError, navigate);
 
   };
+ 
 
+
+    
+  
+//console.log(password, confirmPassword);
   const passw = watch("password");
 
   useEffect(() => {
@@ -128,26 +140,29 @@ export default function SignIn() {
           {errors?.confirmPassword?.type === "minLength" && (
             <p className="form-error">Введите не менее 8 символов</p>
           )}
-          {errors.confirmPassword && <p className="form-error error_password">Пароли не совпадают</p>}
+           {errors.confirmPassword && <p className="form-error error_password">Пароли не совпадают</p>}
+ 
           <input
             name="confirmPassword"
             type="password"
             placeholder="Повторите пароль"
             className="form-signin__input"
-            {...register("confirmPassword",
-              {
-                required: true,
-                minLength: 8,
-                pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/,
-                validate: value =>
-                  value === passw || "Пароль не совпадает"
-              },
-            )}
+              {...register("confirmPassword",
+                {
+                  required: true,
+                  minLength: 8,
+                  pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/,
+                  validate: value =>
+                    value === passw || "Пароли не совпадает"
+                },
+              )}
           />
 
           <div className="save__sighin" >
             <button type="submit"
-              className="btn__signin">
+              className="btn__signin"
+            
+              >
               Сохранить</button>
           </div>
           <div className="enter__signin">
