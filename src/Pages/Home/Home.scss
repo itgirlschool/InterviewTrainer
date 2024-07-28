@@ -1,17 +1,30 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container_main {
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
+}
+
 .home {
+    flex: 1;
     background: url('../../assets/background.svg') no-repeat;
     background-size: cover;
     color: white;
-    min-height: 100vh;
     width: 100%;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 
     .welcome-title {
-        padding-top: 2vh;
+        margin: 0;
+        padding-top: 4vh;
         padding-left: 5vw;
-        font-size: 3vw;
+        font-size: 48px;
         color: #EA5D80;
         font-family: 'M PLUS Rounded 1c', sans-serif;
         font-weight: 500;
@@ -20,14 +33,15 @@
     }
 
     .intro-text {
-        margin: 1vh auto;
-        font-size: 1.2vw;
+        margin: vh auto;
+        font-size: 16 px;
         margin-left: 5vw;
-        width: 90%;
+        width: 60% !important;
         font-family: 'M PLUS Rounded 1c', sans-serif;
         font-weight: 400;
         line-height: 1.5;
         text-align: left;
+        padding: 2vh 0 3vh;
     }
 
     .grade-container {
@@ -36,6 +50,7 @@
         flex-wrap: wrap;
         margin: 2vh 5vw;
         gap: 10px;
+        
 
         .grade {
             background: #0E0F14;
@@ -48,6 +63,8 @@
             font-family: 'M PLUS Rounded 1c', sans-serif;
             width: 30%;
             box-sizing: border-box;
+            height: 444px;
+            width: 356px;
 
             h2 {
                 margin-bottom: 1vh;
