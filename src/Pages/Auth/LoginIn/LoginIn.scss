@@ -24,7 +24,7 @@
             font-size: 48px;
             font-family: 'M PLUS Rounded 1c';
             font-weight: 500;
-            color: $pink-color;
+            color: $pinkcolor;
 
             @media screen and (max-width: 1368px) {
                 font-size: 40px;
@@ -64,7 +64,7 @@
                 border-radius: 20px;
                 border: none;
                 background-color: $grey;
-                color: $form-login_font-color;
+                color: $formlogin-fontcolor;
                 outline: none;
                 
 
@@ -97,7 +97,7 @@
                 font-family: 'M PLUS Rounded 1c';
                 font-weight: 400;
                 font-size: 16px;
-                color: $white-color;
+                color: $whitecolor;
 
                 @media screen and (max-width: 435px) {
                     font-size: 13px;
@@ -110,7 +110,7 @@
                 font-size: 16px;
                 font-family: 'M PLUS Rounded 1c';
                 font-weight: 400;
-                color: $white-color;
+                color: $whitecolor;
 
                 @media screen and (max-width: 435px) {
                     font-size: 13px;
@@ -146,7 +146,7 @@
                 font-family: 'M PLUS Rounded 1c';
                 font-size: 20px;
                 font-weight: 400;
-                color: $form-login_font-color;
+                color: $formlogin-fontcolor;
 
                 @media screen and (max-width: 980px) {
                     font-size: 20px;
@@ -168,7 +168,7 @@
                     font-weight: 500;
                     font-size: 20px;
                     background-color: $pink-color;
-                    color: $white-color;
+                    color: $whitecolor;
                     cursor: pointer;
 
                     @media screen and (max-width: 1368px) {
@@ -200,7 +200,7 @@
                 font-family: 'Jost';
                 font-weight: 400;
                 font-size: 16px;
-                color: $white-color;
+                color: $whitecolor;
                 text-decoration: none;
                 cursor: pointer;
             }
@@ -209,7 +209,7 @@
                 font-family: 'Jost';
                 font-weight: 400;
                 font-size: 16px;
-                color: $white-color;
+                color: $whitecolor;
                 text-decoration: none;
                 cursor: pointer;
             }
