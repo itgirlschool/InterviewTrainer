@@ -1,62 +1,44 @@
-import { CloseCircleOutlined } from '@ant-design/icons';
 import { useForm } from "react-hook-form";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import getLogin from './getLogin';
 import "./LoginIn.scss";
 
 export default function LoginIn() {
   const [loginError, setloginError] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors }
   } = useForm();
 
   const onSubmit = (data) => {
-    getLogin(data.email, data.password, setloginError);
-    reset();
+    getLogin(data.email,
+             data.password,
+             setloginError,
+             navigate);
   };
-
-  const handleCrossBtnClick = () => {
-    setloginError(false);
-  }
 
   return (
     <>
-      <div className={loginError ? "modal__login" : "modal__login none"}>
-        <div className="cross-wrapper__login" onClick={handleCrossBtnClick}>
-          <div className="crossbtn__login" >
-            <span className="crossbtn-x"><CloseCircleOutlined className="icon" /></span>
-          </div>
-        </div>
-        <div className="text-login__wrapper">
-          <p className="text-login">Email не найден</p>
-        </div>
-        <div className="create-acc__login">
-          <a className="create-acc">Создать аккаунт</a>
-        </div>
-
-      </div>
       <div className="container__login">
         <div className="wrapper__login">
           <h3 className="title__login">Войти</h3>
-
           <form
             className="form-login__authorisation"
             onSubmit={handleSubmit(onSubmit)}>
-
             {errors?.email?.type === "pattern" && (
-              <p className="form-error">Эмейл не соответствует проверке</p>
+              <p className="form-error">Неверный формат Email</p>
             )}
             {errors?.email?.type === "required" && (
-              <p className="form-error">Необходимо ввести эмейл</p>
+              <p className="form-error">Это поле обязательно для заполнения</p>
             )}
-
+            <p className="form-usererror">{loginError ? 'Неправильно указан Email и/или пароль' : ''}</p>
             <input type="email"
-              placeholder="Ваш Email"
-              className="form-login__input"
+                   placeholder="Ваш Email"
+                   className="form-login__input"
 
               {...register("email",
                 {
@@ -64,20 +46,19 @@ export default function LoginIn() {
                   pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
                 })}
             />
-
             {errors?.password?.type === "required" && (
-              <p className="form-error">Необходимо ввести пароль</p>
+              <p className="form-error">Это поле обязательно для заполнения</p>
             )}
             {errors?.password?.type === "pattern" && (
-              <p className="form-error">Cимволы: A-Z,!@,0-9,a-z</p>
+              <p className="form-error">Cимволы:(только: A-Z,a-z,!@,0-9)</p>
             )}
             {errors?.password?.type === "minLength" && (
-              <p className="form-error">Пароль должен содержать не меньше 8 символов</p>
+              <p className="form-error">Введите не менее 8 символов</p>
             )}
 
             <input type="password"
-              placeholder="Ваш пароль"
-              className="form-login__input"
+                   placeholder="Ваш пароль"
+                   className="form-login__input"
               {...register("password",
                 {
                   required: true,
@@ -87,14 +68,15 @@ export default function LoginIn() {
                   pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/
                 })}
             />
-
             <div className="enter__login">
               <button type="submit"
                 className="btn__login">Войти</button>
             </div>
-            <div className="extra__options">
-              <a className="option">Создать аккаунт</a>
-              <a className="option">Забыли свой пароль?</a>
+            <div className="create-acc__option">
+              <NavLink to="/signin">Создать аккаунт</NavLink>
+            </div>
+            <div className="reset-password__option">
+              <NavLink to="/resetpassword">Забыли свой пароль?</NavLink>
             </div>
           </form>
         </div>
