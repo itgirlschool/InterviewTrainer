@@ -45,7 +45,6 @@
                 font-size: 26px;
                 margin-bottom: 32px;
             }
-
         }
 
         .form-login__authorisation {
@@ -66,7 +65,6 @@
                 background-color: $grey;
                 color: $formlogin-fontcolor;
                 outline: none;
-                
 
                 @media screen and (max-width: 1368px) {
                     width: 390px;
@@ -97,26 +95,24 @@
                 font-family: 'M PLUS Rounded 1c';
                 font-weight: 400;
                 font-size: 16px;
-                color: $whitecolor;
+                color: red;
 
                 @media screen and (max-width: 435px) {
                     font-size: 13px;
                 }
             }
 
-           
-
             .form-usererror {
+                margin-bottom: 10px;
                 font-size: 16px;
                 font-family: 'M PLUS Rounded 1c';
                 font-weight: 400;
-                color: $whitecolor;
+                color: red;
 
                 @media screen and (max-width: 435px) {
                     font-size: 13px;
                 }
             }
-
 
             .form-login__input:not(:last-of-type) {
                 margin-bottom: 12px;
@@ -192,7 +188,7 @@
                 }
             }
 
-            .create-acc__option{
+            .create-acc__option {
                 margin-bottom: 10px;
             }
 
@@ -205,7 +201,7 @@
                 cursor: pointer;
             }
 
-            .reset-password__option a{
+            .reset-password__option a {
                 font-family: 'Jost';
                 font-weight: 400;
                 font-size: 16px;

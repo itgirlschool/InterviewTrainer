@@ -29,13 +29,14 @@ export default function LoginIn() {
           <form
             className="form-login__authorisation"
             onSubmit={handleSubmit(onSubmit)}>
+            <p className="form-usererror">{loginError ? 'Неправильно указан Email и/или пароль' : ''}</p>
             {errors?.email?.type === "pattern" && (
               <p className="form-error">Неверный формат Email</p>
             )}
             {errors?.email?.type === "required" && (
               <p className="form-error">Это поле обязательно для заполнения</p>
             )}
-            <p className="form-usererror">{loginError ? 'Неправильно указан Email и/или пароль' : ''}</p>
+        
             <input type="email"
                    placeholder="Ваш Email"
                    className="form-login__input"
@@ -49,9 +50,6 @@ export default function LoginIn() {
             {errors?.password?.type === "required" && (
               <p className="form-error">Это поле обязательно для заполнения</p>
             )}
-            {errors?.password?.type === "pattern" && (
-              <p className="form-error">Cимволы:(только: A-Z,a-z,!@,0-9)</p>
-            )}
             {errors?.password?.type === "minLength" && (
               <p className="form-error">Введите не менее 8 символов</p>
             )}
@@ -64,8 +62,7 @@ export default function LoginIn() {
                   required: true,
                   minLength: {
                     value: 8
-                  },
-                  pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/
+                  }
                 })}
             />
             <div className="enter__login">
