@@ -1,34 +1,24 @@
-html, body, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
 
 .container_main {
     display: flex;
     flex-direction: column;
-    min-height: 75vh;
+    min-height: 80vh;
 }
 
 .home {
-    flex: 1;
-    background: url('../../assets/background.svg') no-repeat;
-    background-size: cover;
-    color: white;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    @include background;
+    font-family: $font;
+    color: $white-color;
+    padding: 4vh 9vw 10vh 54px;
 
     .welcome-title {
-        margin: 0;
         padding-top: 4vh;
         padding-left: 5vw;
         font-size: 48px;
-        color: #EA5D80;
-        font-family: 'M PLUS Rounded 1c', sans-serif;
+        color: $pinkcolor;
         font-weight: 500;
-        line-height: 1.2;
         text-align: left;
     }
 
@@ -37,7 +27,6 @@ html, body, #root {
         font-size: 16 px;
         margin-left: 5vw;
         width: 60% !important;
-        font-family: 'M PLUS Rounded 1c', sans-serif;
         font-weight: 400;
         line-height: 1.5;
         text-align: left;
@@ -102,6 +91,9 @@ html, body, #root {
             }
         }
     }
+
+    
+
 
     @media (max-width: 1440px) {
         .welcome-title {

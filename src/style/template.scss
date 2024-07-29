@@ -13,6 +13,13 @@ body {
     display: flex;
     align-items: center;
 }
+
+@mixin background {
+  background: url("../../assets/images/background_top.svg") top right/38% auto no-repeat,
+    url("../../assets/images/background_bottom.svg") bottom left/38% auto no-repeat,
+    url('../../assets/images/background1.png') 0 0/100% 100% no-repeat;
+}
+
 %font__jost {
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
