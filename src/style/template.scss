@@ -28,3 +28,16 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin button__pink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  color: $whitecolor;
+  background: $pinkcolor;
+}

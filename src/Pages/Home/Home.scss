@@ -11,204 +11,66 @@
     @include background;
     font-family: $font;
     color: $white-color;
-    padding: 4vh 9vw 10vh 54px;
-
+    padding: 4vh 10vw 4vh 54px;
+    min-height: 80vh;
+    
     .welcome-title {
-        padding-top: 4vh;
-        padding-left: 5vw;
-        font-size: 48px;
+        font-size: 40px;
         color: $pinkcolor;
         font-weight: 500;
         text-align: left;
+        margin: 0;
     }
 
     .intro-text {
-        margin: vh auto;
-        font-size: 16 px;
-        margin-left: 5vw;
-        width: 60% !important;
+        padding-top: 12px;
+        font-size: 16px;
+        width: 80% !important;
         font-weight: 400;
         line-height: 1.5;
         text-align: left;
-        padding: 2vh 0 3vh;
     }
 
     .grade-container {
-        display: flex;
+        padding-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         justify-content: space-between;
-        flex-wrap: wrap;
-        margin: 2vh 5vw;
-        gap: 10px;
+        gap: 5vw;
         
 
         .grade {
-            background: #0E0F14;
-            padding: 1vh 1vw;
+            display: flex;
+            justify-content: space-around;
+            background: $color-grade;
+            padding: 20px 20px;
             border-radius: 28px;
-            border: 1px solid #EA5D80;
+            border: 1px solid $pink-color;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            width: 30%;
-            box-sizing: border-box;
-            height: 444px;
-            width: 356px;
+            gap: 16px;
+            min-height: 44vh;
 
             h2 {
-                margin-bottom: 1vh;
-                color: #EA5D80;
-                font-size: 2.5vw;
+                color: $pink-color;
+                margin: 0;
+                font-size: 32px;
                 font-weight: 500;
-                line-height: 1.2;
-                text-align: left;
             }
 
             p {
-                font-size: 1vw;
-                color: #FFFFFF;
+                font-size: 16px;
                 font-weight: 400;
                 line-height: 1.5;
-                text-align: left;
-            }
-
-            button {
-                background: #EA5D80;
-                border: none;
-                padding: 1vh 2vw;
-                color: white;
-                font-size: 1.2vw;
-                cursor: pointer;
-                border-radius: 50px;
-                margin: 1vh auto 0 auto;
-                font-family: 'M PLUS Rounded 1c', sans-serif;
-                font-weight: 400;
-                line-height: 1.5;
-                text-align: center;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+            } 
         }
     }
+}
 
-    
-
-
-    @media (max-width: 1440px) {
-        .welcome-title {
-            font-size: 3vw;
-        }
-
-        .intro-text {
-            font-size: 1.2vw;
-            width: 75%;
-        }
-
-        .grade {
-            h2 {
-                font-size: 2vw;
+.home__button {
+                @include button__pink;
             }
 
-            p {
-                font-size: 1vw;
-            }
-
-            button {
-                font-size: 1vw;
-            }
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .grade-container {
-            flex-direction: column;
-            align-items: center;
-
-            .grade {
-                width: 90%;
-            }
-        }
-
-        .welcome-title {
-            font-size: 5vw;
-        }
-
-        .intro-text {
-            font-size: 1vw;
-            width: 80%;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .welcome-title {
-            font-size: 6vw;
-            padding-top: 3vh;
-            padding-left: 4vw;
-        }
-
-        .intro-text {
-            font-size: 1.1vw;
-            margin-left: 4vw;
-            width: 90%;
-        }
-
-        .grade-container {
-            margin-left: 4vw;
-            margin-right: 4vw;
-        }
-
-        .grade {
-            width: 100%;
-            margin-bottom: 3vh;
-        }
-    }
-
-    @media (max-width: 375px) {
-        .welcome-title {
-            font-size: 8vw;
-            padding-top: 2vh;
-            padding-left: 2vw;
-        }
-
-        .intro-text {
-            font-size: 1.4vw;
-            margin-left: 2vw;
-            width: 100%;
-        }
-
-        .grade-container {
-            margin-left: 2vw;
-            margin-right: 2vw;
-        }
-
-        .grade {
-            width: 100%;
-            margin-bottom: 1vh;
-        }
-    }
-
-    @media (max-width: 360px) {
-        .welcome-title {
-            font-size: 9vw;
-            padding-top: 1vh;
-            padding-left: 1vw;
-        }
-
-        .intro-text {
-            font-size: 1.6vw;
-            margin-left: 1vw;
-            width: 100%;
-        }
-
-        .grade-container {
-            margin-left: 1vw;
-            margin-right: 1vw;
-        }
-
-        .grade {
-            width: 100%;
-            margin-bottom: 1vh;
-        }
-    }
+.home__button:hover {
+    background: $grey;
 }
