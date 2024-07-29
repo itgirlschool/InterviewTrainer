@@ -25,7 +25,7 @@ export default function SignIn() {
 
   useEffect(() => {
     if (userError == true) {
-      setErrorInfo('Данный эмейл уже существует');
+      setErrorInfo('Данный Email уже существует');
     }
   }, [userError])
 
@@ -154,6 +154,9 @@ export default function SignIn() {
           <div className="enter__signin">
             <NavLink to="/login">Вход</NavLink>
           </div>
+          {userError?  <div className="reset-password__option">
+              <NavLink to="/resetpassword">Забыли свой пароль?</NavLink>
+            </div>:<div></div>}
         </form>
       </div >
     </div >
