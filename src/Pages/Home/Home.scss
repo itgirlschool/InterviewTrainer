@@ -103,15 +103,17 @@
 
 @media (max-width : 1024px) and (min-width: 818px)  {
     .home {
+        padding: 4vh;
+
         .intro-text {
             padding-top: 22px;
         }
     
         .grade-container {
-            padding-top: 42px;     
+            padding-top: 22px;     
     
             .grade {
-                padding: 32px;
+                padding: 22px;
                 gap: 22px;
             }
         }
