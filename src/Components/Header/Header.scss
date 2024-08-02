@@ -17,6 +17,7 @@
 
     & .header__logo img {
     height: 90%;
+    cursor: pointer;
     } 
 }
 
@@ -30,12 +31,14 @@
     color: $pink-color;
     font-size: 20px;
     font-weight: 500;
+    cursor: pointer;
 }
 }
 
 .profile__img {
     width: 50px;
     height: 50px;
+    cursor: pointer;
 }
 
 .overlay {
@@ -71,7 +74,7 @@
     opacity: 1;
     visibility: visible;
     position: fixed;
-    top: 90px;
+    top: 9vh;
 }
 
 .popup__raitinginfo {
