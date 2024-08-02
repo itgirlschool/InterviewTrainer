@@ -2,6 +2,13 @@
     display: flex;
     align-items: center;
 }
+
+@mixin background {
+  background: url("../../assets/images/background_top.svg") top right/38% auto no-repeat,
+    url("../../assets/images/background_bottom.svg") bottom left/38% auto no-repeat,
+    url('../../assets/images/background1.png') 0 0/100% 100% no-repeat;
+}
+
 %font__jost {
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
@@ -20,4 +27,17 @@
 %flex__center {
   justify-content: center;
   align-items: center;
+}
+
+@mixin button__pink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  color: $whitecolor;
+  background: $pinkcolor;
 }
