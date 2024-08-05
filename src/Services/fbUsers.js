@@ -1,10 +1,10 @@
 import { database } from "../app/store";
 
-export const addUser = (user) => {
+export const addUser = async (user) => {
   try {
     const ref = database.ref("users").push();
     const { key } = ref;
-    ref.set({ ...user, key });
+    await ref.set({ ...user, key });
   } catch (err) {
     console.log(err);
   }

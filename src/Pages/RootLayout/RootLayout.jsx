@@ -35,7 +35,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (
       location.pathname === "/login" ||
-      location.pathname === "/signIn" ||
+      location.pathname === "/signin" ||
       location.pathname === "/resetpassword"
     ) {
       setFlag(false);
