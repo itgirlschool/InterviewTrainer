@@ -1,0 +1,78 @@
+@import "../../style/vars.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video__wrapper {
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1rem;
+
+  &:hover .controls {
+    transform: translateY(0%);
+  }
+}
+
+video {
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 2rem;
+  padding: 1rem;
+  width: 80%;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.725rem;
+  transform: translateY(150%);
+  transition: all 0.4s ease-in-out;
+
+  &__action {
+    background: transparent;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    & img {
+      width: 3rem;
+    }
+  }
+
+  &__progress {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 1.5rem;
+    height: 0.5rem;
+    width: 60%;
+  }
+
+  &__velocity {
+    appearance: none;
+    background: transparent;
+    color: $background-general;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+
+  &__mute {
+    background: transparent;
+    border: transparent;
+    outline: none;
+    cursor: pointer;
+    & img {
+      width: 2rem;
+    }
+  }
+}
