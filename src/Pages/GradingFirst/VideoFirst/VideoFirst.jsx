@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import VideoPlayer from "../../../Components/VideoPlayer/VideoPlayer.jsx";
 
 export default function VideoFirst() {
   return (
@@ -6,7 +7,9 @@ export default function VideoFirst() {
       <Link to="/gradingfirst">Градация 1</Link>
       <span> {">"} Видеоуроки</span>
       <div>Навигация по видеоурокам</div>
-      <div>Блок для встраивания плейера</div>
+      <div>
+        <VideoPlayer />
+      </div>
     </>
   );
 }
