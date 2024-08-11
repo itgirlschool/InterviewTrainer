@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import VideoPlayerInner from "./VideoPlayerInner.jsx";
+// import VideoPlayerInner from "./VideoPlayerCustomize.jsx";
 import "./VideoPlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
