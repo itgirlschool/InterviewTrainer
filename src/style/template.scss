@@ -1,12 +1,15 @@
 @mixin flex__center {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 @mixin background {
-  background: url("../../assets/images/background_top.svg") top right/38% auto no-repeat,
-    url("../../assets/images/background_bottom.svg") bottom left/38% auto no-repeat,
-    url('../../assets/images/background1.png') 0 0/100% 100% no-repeat;
+  background: url("../../assets/images/background_top.svg")
+      top right/38% auto no-repeat,
+    url("../../assets/images/background_bottom.svg") bottom
+      left/38% auto no-repeat,
+    url("../../assets/images/background1.png") 0 0/100% 100%
+      no-repeat;
 }
 
 %font__jost {
@@ -20,7 +23,7 @@
   border: none;
   font-size: 24px;
   @extend %font__jost;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: transparent;
 }
 
@@ -40,4 +43,11 @@
   font-size: 20px;
   color: $whitecolor;
   background: $pinkcolor;
+}
+
+@mixin player__btn {
+  background: transparent;
+  border: transparent;
+  outline: none;
+  cursor: pointer;
 }
