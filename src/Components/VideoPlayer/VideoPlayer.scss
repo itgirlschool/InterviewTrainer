@@ -82,12 +82,14 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
     cursor: pointer;
     color: $whitecolor;
     background: $pinkcolor;
+    min-width: 17rem;
     border: none;
     border-radius: 3.25rem;
-    font-size: 1rem;
-    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    padding: 0.5rem 1.5rem;
   }
 }
