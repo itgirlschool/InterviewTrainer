@@ -20,7 +20,7 @@ function VideoTest() {
             <img src={prev} alt="video-prev" />
             <p>Предыдущее видео</p>
           </button>
-          {!isFinished ? (
+          {!isChecked ? (
             <button
               className="video__nav-finish"
               onClick={handleCheck}
