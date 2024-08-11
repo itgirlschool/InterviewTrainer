@@ -5,6 +5,7 @@ import play from "../../assets/images/player_play.svg";
 import pause from "../../assets/images/player_pause.svg";
 import mute from "../../assets/images/player_mute.svg";
 import unmute from "../../assets/images/player_unmute.svg";
+import fullscreen from "../../assets/images/player_fullscreen.svg";
 
 function VideoPlayerInner(props) {
   const videoElement = useRef(null);
@@ -16,6 +17,7 @@ function VideoPlayerInner(props) {
     handleVideoProgress,
     handleVideoSpeed,
     toggleMute,
+    toggleFullScreen,
   } = useVideoPlayer(videoElement);
 
   return (
@@ -25,6 +27,7 @@ function VideoPlayerInner(props) {
           ref={videoElement}
           onTimeUpdate={handleOnTimeUpdate}
           onClick={togglePlay}
+          poster={props.poster}
         >
           <source src={props.src} type="video/mp4" />
           <p>Ваш браузер не поддерживает видео</p>
@@ -67,6 +70,12 @@ function VideoPlayerInner(props) {
             ) : (
               <img src={unmute} alt="unmute" />
             )}
+          </button>
+          <button
+            className="controls__fullscreen"
+            onClick={toggleFullScreen}
+          >
+            <img src={fullscreen} alt="fullscreen" />
           </button>
         </div>
       </div>

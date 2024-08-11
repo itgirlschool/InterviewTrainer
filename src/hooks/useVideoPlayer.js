@@ -6,6 +6,7 @@ const useVideoPlayer = videoElement => {
     progress: 0,
     speed: 1,
     isMuted: false,
+    isFullScreen: false,
   });
 
   const togglePlay = () => {
@@ -64,6 +65,16 @@ const useVideoPlayer = videoElement => {
       : (videoElement.current.muted = false);
   }, [playerState.isMuted, videoElement]);
 
+  const toggleFullScreen = () => {
+    setPlayerState({
+      ...playerState,
+      isFullScreen: !playerState.isFullScreen,
+    });
+    playerState.isFullScreen
+      ? document.exitFullscreen()
+      : videoElement.current.requestFullscreen();
+  };
+
   return {
     playerState,
     togglePlay,
@@ -71,6 +82,7 @@ const useVideoPlayer = videoElement => {
     handleVideoProgress,
     handleVideoSpeed,
     toggleMute,
+    toggleFullScreen,
   };
 };
 

@@ -45,7 +45,7 @@ video {
     outline: none;
     cursor: pointer;
     & img {
-      width: 3rem;
+      width: 2rem;
     }
   }
 
@@ -63,16 +63,17 @@ video {
     outline: none;
     border: none;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
-  &__mute {
+  &__mute,
+  &__fullscreen {
     background: transparent;
     border: transparent;
     outline: none;
     cursor: pointer;
     & img {
-      width: 2rem;
+      width: 1.5rem;
     }
   }
 }
