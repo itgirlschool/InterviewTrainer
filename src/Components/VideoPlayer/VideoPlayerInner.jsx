@@ -28,11 +28,12 @@ function VideoPlayerInner(props) {
           onTimeUpdate={handleOnTimeUpdate}
           onClick={togglePlay}
           poster={props.poster}
+          controls
         >
           <source src={props.src} type="video/mp4" />
           <p>Ваш браузер не поддерживает видео</p>
         </video>
-        <div className="controls">
+        {/* <div className="controls">
           <button
             className="controls__action"
             onClick={togglePlay}
@@ -77,7 +78,7 @@ function VideoPlayerInner(props) {
           >
             <img src={fullscreen} alt="fullscreen" />
           </button>
-        </div>
+        </div> */}
       </div>
     </React.Fragment>
   );

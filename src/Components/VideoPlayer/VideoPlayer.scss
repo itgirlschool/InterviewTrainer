@@ -3,6 +3,7 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -68,5 +69,25 @@ video {
     & img {
       width: 1.5rem;
     }
+  }
+}
+
+.video__nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 2rem;
+
+  & button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: $whitecolor;
+    background: $pinkcolor;
+    border: none;
+    border-radius: 3.25rem;
+    font-size: 1rem;
+    padding: 1rem 2rem;
   }
 }
