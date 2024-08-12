@@ -13,6 +13,8 @@ import {
   Instructions,
   Profile,
   VideoFirst,
+  // TheoryFirst,
+  // TestsFirst,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -55,12 +57,8 @@ export const router = createBrowserRouter([
           // {
           //   path: "testsfirst",
           //   element: <TestsFirst />,
-          // }
+          // },
         ],
-      },
-      {
-        path: "gradingfirst/videofirst",
-        element: <VideoFirst />,
       },
       {
         path: "gradingsecond",

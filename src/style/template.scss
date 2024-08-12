@@ -32,6 +32,13 @@
   align-items: center;
 }
 
+@mixin container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4vh 10vw 4vh 54px;
+}
+
 @mixin button__pink {
   display: flex;
   justify-content: center;

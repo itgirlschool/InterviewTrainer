@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import VideoPlayer from "../../../Components/VideoPlayer/VideoPlayer.jsx";
+import { Pagination } from "antd";
 
 export default function VideoFirst() {
   return (
@@ -10,6 +11,7 @@ export default function VideoFirst() {
       <div>
         <VideoPlayer />
       </div>
+      <Pagination />
     </>
   );
 }
