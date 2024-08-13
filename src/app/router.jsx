@@ -13,6 +13,7 @@ import {
   Instructions,
   Profile,
 } from "../Pages";
+import { CodeTrainer } from "../Pages/CodeTrainer/CodeTrainer";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
+      {
+        path: "code_trainer",
+        element: <CodeTrainer />,
+      }
     ],
     errorElement: <Error />,
   },
