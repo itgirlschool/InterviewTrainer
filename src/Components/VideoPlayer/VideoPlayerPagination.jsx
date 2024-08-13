@@ -4,12 +4,12 @@ import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 
-function VideoPlayerPagination(props) {
+function VideoPlayerPagination() {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheck = e => {
+  const handleCheck = () => {
     setIsChecked(true);
-    props.handleCheckButton(e);
+    // props.handleCheckButton();
   };
 
   return (
@@ -25,7 +25,7 @@ function VideoPlayerPagination(props) {
         {!isChecked ? (
           <button
             className="video__nav-finish"
-            onClick={e => handleCheck(e)}
+            onClick={handleCheck}
           >
             <img src={check} alt="video-checked" />
             <p>Я посмотрела</p>
