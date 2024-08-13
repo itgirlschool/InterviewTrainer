@@ -1,0 +1,49 @@
+@import "../../style/vars.scss";
+
+.theme__wrapper {
+  height: 100%;
+  width: 80%;
+  background-color: $theme-nav-bar-color;
+  padding: 1rem 1rem 1rem 2rem;
+  margin-left: auto;
+  border-radius: 1.25rem 0 0 1.25rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0.75rem;
+    background-color: #f9f9fd;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $grey;
+    cursor: pointer;
+  }
+}
+
+.theme {
+  display: flex;
+  flex-direction: column;
+}
+
+.theme__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: grey solid 1px;
+  & p {
+    font-size: 1.125rem;
+  }
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-green;
+    border-radius: 50%;
+    padding: 0.125rem;
+
+    & img {
+      width: 1.5rem;
+    }
+  }
+}

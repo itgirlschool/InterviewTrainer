@@ -4,7 +4,7 @@ import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 
-function VideoPlayerPagination() {
+function VideoPlayerPagination(props) {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheck = () => {
