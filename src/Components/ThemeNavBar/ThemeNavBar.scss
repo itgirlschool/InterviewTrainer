@@ -4,7 +4,7 @@
   height: 100%;
   width: 80%;
   background-color: $theme-nav-bar-color;
-  padding: 1rem 1rem 1rem 2rem;
+  padding: 1rem;
   margin-left: auto;
   border-radius: 1.25rem 0 0 1.25rem;
   overflow-y: scroll;
@@ -32,7 +32,12 @@
   padding-bottom: 0.5rem;
   border-bottom: grey solid 1px;
   & p {
+    padding-left: 0.5rem;
     font-size: 1.125rem;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   & div {
     display: flex;
