@@ -4,11 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run dev\"",
     "dev": "vite",
     "build": "vite build",
     "fb": "firebase deploy",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server -w src/db.json -p 3001"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
@@ -27,10 +29,12 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "json-server": "^1.0.0-beta.1",
     "sass": "^1.77.8",
     "vite": "^5.3.4"
   }
