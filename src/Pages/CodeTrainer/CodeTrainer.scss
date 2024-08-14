@@ -1,0 +1,39 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+@import "../../index.scss";
+
+* {
+    font-family: $font;
+    color: $white-color;
+}
+
+h1 {
+    color: $pink-color;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+    align-items: center;
+    gap: 15px;
+    margin: auto;
+}
+
+.textarea {
+    background-color: $darkgreycolor;
+    width: 45%;
+    height: 50vh;
+    padding: 2%;
+    outline: none;
+}
+
+.task__container {
+    background-color: $darkgreycolor;
+    width: 45%;
+    height: 50vh;
+    padding: 2%;
+}
+.task__text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

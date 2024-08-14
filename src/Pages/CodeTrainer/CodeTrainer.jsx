@@ -8,7 +8,12 @@ export function CodeTrainer() {
     return (
         <>
     <h1>Code Trainer</h1>
-    <textarea name="task" id="task" cols="30" rows="10" value={firstTask}></textarea>
+    <div className="container">
+        <div className="task__container">
+            <div className="task__text">{firstTask}</div>
+        </div>
+        <textarea className="textarea" name="solution" id="solution"></textarea>
+    </div>
     </> );
 }
 
