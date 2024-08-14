@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1723640944642,
+    "task": "Создать функцию, которая будет проверять, является ли строка палиндромом (одинаково читается справа и слева) и возвращать булевое значение: isPalindrome(‘тест’); //false; isPalindrome(‘шалаш’); //true",
+    "solution": {
+      "base": "function isPalindrome(string) {\n  let cleanedString = string.replace(/\\s+/g, '').toLowerCase();\n  let arr = cleanedString.split('');\n  let reversArr = arr.reverse();\n  let resString = reversArr.join('');\n  let res = cleanedString === resString;\n  return res;\n}",
+      "es6": "const isPalindrome = (str) => {\n  const cleanedString = str.replace(/\\s+/g, '').toLowerCase();\n  return cleanedString === cleanedString.split('').reverse().join('');\n};"
+    }
+  },
+  {
+    "id": 1723642010812,
+    "task": "Создать функцию, которая будет принимать предложение и возвращать из него первое самое короткое слово: findShort(“The smallest word in sentence”); //”in”;   findShort(“Just test string”); //”Just",
+    "solution": {
+      "base": "function findShort(string) {\n  let wordsArr = string.split(' ');\n  let shortestWord = wordsArr[0];\n  for (let word of wordsArr) {\n    if (word.length < shortestWord.length) {\n      shortestWord = word;\n    }\n  }\n  return shortestWord;\n}",
+      "es6": "const findShort = str => str.split(' ').reduce((shortest, current) => \n  current.length < shortest.length ? current : shortest);"
+    }
+  }
+]
