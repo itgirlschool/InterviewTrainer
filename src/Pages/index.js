@@ -3,6 +3,7 @@ import Home from "./Home/Home";
 import LoginIn from "./Auth/LoginIn/LoginIn";
 import SignIn from "./Auth/SignIn/SignIn";
 import ResetPassword from "./Auth/ResetPassowrd/ResetPassword";
+import AutoTests from "./AutoTests/AutoTests";
 import ContentLesson from "./ContentLesson/ContentLesson";
 import Error from "./Error/Error";
 import GradingFirst from "./GradingFirst/GradingFirst";
@@ -16,6 +17,7 @@ export {
   LoginIn,
   SignIn,
   ResetPassword,
+  AutoTests,
   ContentLesson,
   Error,
   GradingFirst,

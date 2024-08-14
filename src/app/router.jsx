@@ -5,6 +5,7 @@ import {
   LoginIn,
   SignIn,
   ResetPassword,
+  AutoTests,
   ContentLesson,
   Error,
   GradingFirst,
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "resetpassword",
         element: <ResetPassword />,
+      },
+      {
+        path: "autotests",
+        element: <AutoTests/>
       },
       {
         path: "contentlesson",
