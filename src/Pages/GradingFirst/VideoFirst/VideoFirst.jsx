@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import VideoPlayer from "../../../Components/VideoPlayer/VideoPlayer.jsx";
 import "./VideoFirst.scss";
+import { useGetVideosQuery } from "../../../app/store/middleware/videosApi.js";
+import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
 
 export default function VideoFirst() {
+  const { data, error, isLoading } = useGetVideosQuery();
+
   return (
     <div className="videoPage">
       <div className="videoPage__nav">
@@ -18,7 +22,9 @@ export default function VideoFirst() {
         </span>
       </div>
       <div>
-        <VideoPlayer />
+        <ThemeNavBar data={data?.stage1 || []} />
+        <Outlet />
+        {/* <VideoPlayer /> */}
       </div>
     </div>
   );

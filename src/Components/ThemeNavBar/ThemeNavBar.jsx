@@ -1,35 +1,31 @@
 import React from "react";
 import "./ThemeNavBar.scss";
 import check from "../../assets/images/video_checked.svg";
+import { Link } from "react-router-dom";
 
-function ThemeNavBar(props) {
+function ThemeNavBar({ data }) {
   return (
-    <React.Fragment>
-      <div className="theme__wrapper">
-        <ul className="theme">
-          {props.themeArray.map(item => {
+    <div className="theme__wrapper">
+      <ul className="theme">
+        {data &&
+          data.map(item => {
             return (
-              <li
-                className="theme__item"
-                key={item.id}
-                onClick={key => props.handleThemeClick(key)}
-              >
+              <li className="theme__item">
                 {!item.isFinished ? (
-                  <p>{item.title}</p>
+                  <Link key={item.id}>{item.title}</Link>
                 ) : (
-                  <React.Fragment>
-                    <p>{item.title}</p>
+                  <>
+                    <Link key={item.id}>{item.title}</Link>
                     <div>
                       <img src={check} alt="finished" />
                     </div>
-                  </React.Fragment>
+                  </>
                 )}
               </li>
             );
           })}
-        </ul>
-      </div>
-    </React.Fragment>
+      </ul>
+    </div>
   );
 }
 
