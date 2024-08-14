@@ -10,8 +10,12 @@
   color: #ea5d80;
   text-decoration: none;
 }
-.videoPage__navspan {
+.videoPage__titlespan {
   font-size: 32px;
   color: #ffffff;
   text-decoration: none;
+}
+.videoPage__main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }

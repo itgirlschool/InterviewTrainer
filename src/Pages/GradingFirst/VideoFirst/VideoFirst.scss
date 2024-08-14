@@ -3,13 +3,19 @@
 
 .videoPage {
   @include container;
+
   gap: 30px;
 
   &__mainlink {
     @include stageSubTitlePink;
   }
 
-  &__navspan {
+  &__titlespan {
     @include stageSubTitleWhite;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
   }
 }

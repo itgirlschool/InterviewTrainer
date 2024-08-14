@@ -12,11 +12,21 @@ function ThemeNavBar({ data }) {
             return (
               <li className="theme__item">
                 {!item.isFinished ? (
-                  <Link key={item.id}>{item.title}</Link>
+                  <Link
+                    className="theme__item_link"
+                    key={item.id}
+                  >
+                    {item.title}
+                  </Link>
                 ) : (
                   <>
-                    <Link key={item.id}>{item.title}</Link>
-                    <div>
+                    <Link
+                      className="theme__item_link"
+                      key={item.id}
+                    >
+                      {item.title}
+                    </Link>
+                    <div className="theme__item_div">
                       <img src={check} alt="finished" />
                     </div>
                   </>

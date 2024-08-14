@@ -2,7 +2,6 @@
 
 .theme__wrapper {
   height: 100%;
-  width: 80%;
   background-color: $theme-nav-bar-color;
   padding: 1rem;
   margin-left: auto;
@@ -31,15 +30,18 @@
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: grey solid 1px;
-  & p {
+
+  &_link {
     padding-left: 0.5rem;
     font-size: 1.125rem;
     max-width: 70%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
   }
-  & div {
+
+  &_div {
     display: flex;
     justify-content: center;
     align-items: center;
