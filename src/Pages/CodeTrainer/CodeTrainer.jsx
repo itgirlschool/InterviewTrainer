@@ -1,10 +1,9 @@
 import "./CodeTrainer.scss";
-import RootLayout from "../RootLayout/RootLayout.jsx"
 
 export function CodeTrainer() {
 
     return (
-    <div>Code Trainer</div>
+    <h1>Code Trainer</h1>
     );
 }
 
