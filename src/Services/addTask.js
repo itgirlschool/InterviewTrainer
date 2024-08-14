@@ -7,6 +7,7 @@ const filePath = path.resolve(new URL(import.meta.url).pathname, '../../data/tas
 // Пример задачи, которую вы хотите добавить
 const taskToAdd = {
     task: "",
+    funcName: "",
     solution: {
         base: "",
         es6: ""
