@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./VideoPlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";

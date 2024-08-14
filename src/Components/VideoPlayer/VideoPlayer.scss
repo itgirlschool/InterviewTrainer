@@ -44,6 +44,7 @@ video {
     font-size: 1.125rem;
     padding: 0.25rem 1.5rem;
     min-width: 17rem;
+    text-decoration: none;
   }
 }
 
@@ -59,15 +60,13 @@ video {
     margin-top: 2rem;
     width: 80%;
   }
-  .video__nav {
-    & button {
-      font-size: 0.5rem;
-      padding: 0.25rem 1rem;
-      min-width: 8rem;
+  .video__button {
+    font-size: 0.5rem;
+    padding: 0.25rem 1rem;
+    min-width: 8rem;
 
-      & img {
-        width: 1rem;
-      }
+    & img {
+      width: 1rem;
     }
   }
 }
