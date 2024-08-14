@@ -4,14 +4,30 @@ import {
     LogoutOutlined,
 } from "@ant-design/icons";
 import img_logo from "../../assets/images/logo_it.png";
-import img_profile from "../../assets/images/img_profile_big.svg";
 import img_profileLittle from "../../assets/images/img_profile.svg";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
+
+    const currentUser = useSelector((state) => state.user);
+
+
+    const userName = currentUser && currentUser.firstName && currentUser.lastName 
+        ? `${currentUser.firstName} ${currentUser.lastName}` 
+        : "Anonymous User";
+
+    const getInitials = (name) => {
+        if (!name) return "AN";
+        const initials = name.split(' ')
+            .map(word => word[0])
+            .join('')
+            .toUpperCase();
+        return initials;
+    }
 
     return (
         <header className="header">
@@ -23,7 +39,9 @@ export default function Header() {
                     <NavLink to="/home">Выбор градации</NavLink>
                     <NavLink to="/instructions">Инструкции</NavLink>
                     <div onClick={() => setIsOpen(!isOpen)}>
-                        <img className="profile__img" src={img_profile} alt="Профиль" />
+                        <div className="profile__img">
+                            {getInitials(userName)}
+                        </div>
                     </div>
                 </div>
                 <button
@@ -36,7 +54,7 @@ export default function Header() {
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <div className={`header__popup ${isOpen ? "active" : ""}`}>
-                    <div>UserName</div>
+                    <div className="popup__username">{userName}</div>
                     <div className="popup__raitinginfo">
                         <div>Градация 1</div>
                         <div className="popup__percent">50%</div>
@@ -65,8 +83,10 @@ export default function Header() {
                 onClick={() => setBurgerActive(!burgerActive)}
             >
                 <div className="burger__username">
-                    <img className="profile__img" src={img_profile} alt="Профиль" />
-                    <div>UserName</div>
+                <div className="profile__img">
+                            {getInitials(userName)}
+                        </div>
+                    <div>{userName}</div>
                 </div>
                 <div className="burger__raiting">
                     <div className="rainting__intro">
