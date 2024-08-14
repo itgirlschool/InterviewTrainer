@@ -10,20 +10,14 @@ function ThemeNavBar({ data }) {
         {data &&
           data.map(item => {
             return (
-              <li className="theme__item">
-                {!item.isFinished ? (
-                  <Link
-                    className="theme__item_link"
-                    key={item.id}
-                  >
+              <li className="theme__item" key={item.id}>
+                {!item.isChecked ? (
+                  <Link className="theme__item_link">
                     {item.title}
                   </Link>
                 ) : (
                   <>
-                    <Link
-                      className="theme__item_link"
-                      key={item.id}
-                    >
+                    <Link className="theme__item_link">
                       {item.title}
                     </Link>
                     <div className="theme__item_div">

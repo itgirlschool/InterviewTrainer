@@ -7,7 +7,7 @@ import {
 import { useEffect } from "react";
 import "./VideoFirst.scss";
 import { useGetVideosQuery } from "../../../app/store/middleware/videosApi.js";
-import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
+import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBarResponsive.jsx";
 
 export default function VideoFirst() {
   const { data, error, isLoading } = useGetVideosQuery();

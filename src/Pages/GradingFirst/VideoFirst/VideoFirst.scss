@@ -19,3 +19,21 @@
     grid-template-columns: 1fr 3fr;
   }
 }
+
+.video__container {
+  border-radius: 0 1.25rem 1.25rem 0;
+  background-color: $theme-nav-bar-color;
+}
+.theme__wrapper {
+  border-radius: 1.25rem 0 0 1.25rem;
+}
+
+@media screen and (max-width: 479px) {
+  .videoPage__main {
+    display: flex;
+    flex-direction: column;
+  }
+  .video__container {
+    background-color: transparent;
+  }
+}

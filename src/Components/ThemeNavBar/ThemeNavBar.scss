@@ -1,11 +1,12 @@
 @import "../../style/vars.scss";
+@import "../../style/template.scss";
 
 .theme__wrapper {
   height: 100%;
+  width: 100%;
   background-color: $theme-nav-bar-color;
   padding: 1rem;
   margin-left: auto;
-  border-radius: 1.25rem 0 0 1.25rem;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -29,7 +30,7 @@
   justify-content: space-between;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: grey solid 1px;
+  border-bottom: $grey solid 1px;
 
   &_link {
     padding-left: 0.5rem;
@@ -52,5 +53,19 @@
     & img {
       width: 1.5rem;
     }
+  }
+}
+
+.navbar__mobile_btn {
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: $whitecolor;
+  background: $pinkcolor;
+  border: none;
+  border-radius: 3.25rem;
+  padding: 0.25rem 1.5rem;
+
+  &:hover {
+    background: $grey;
   }
 }

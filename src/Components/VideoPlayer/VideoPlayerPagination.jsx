@@ -10,7 +10,6 @@ function VideoPlayerPagination(props) {
 
   const handleCheck = () => {
     setIsChecked(true);
-    // props.handleCheckButton();
   };
 
   return (
