@@ -1,0 +1,15 @@
+@import "../../../style/template.scss";
+@import "../../../style/vars.scss";
+
+.videoPage {
+  @include container;
+  gap: 30px;
+
+  &__mainlink {
+    @include stageSubTitlePink;
+  }
+
+  &__navspan {
+    @include stageSubTitleWhite;
+  }
+}

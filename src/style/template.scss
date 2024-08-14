@@ -39,6 +39,18 @@
   padding: 4vh 10vw 4vh 54px;
 }
 
+@mixin stageSubTitlePink {
+  font-size: 32px;
+  color: $pinkcolor;
+  text-decoration: none;
+}
+
+@mixin stageSubTitleWhite {
+  font-size: 32px;
+  color: $whitecolor;
+  text-decoration: none;
+}
+
 @mixin button__pink {
   display: flex;
   justify-content: center;

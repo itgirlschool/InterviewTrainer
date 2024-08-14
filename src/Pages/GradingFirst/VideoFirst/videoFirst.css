@@ -1,0 +1,17 @@
+.videoPage {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4vh 10vw 4vh 54px;
+  gap: 30px;
+}
+.videoPage__mainlink {
+  font-size: 32px;
+  color: #ea5d80;
+  text-decoration: none;
+}
+.videoPage__navspan {
+  font-size: 32px;
+  color: #ffffff;
+  text-decoration: none;
+}

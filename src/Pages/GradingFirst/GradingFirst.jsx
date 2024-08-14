@@ -1,6 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
 import GradeContents from "../../Components/GradeContents/GradeContents";
-import "./GradingFirst.scss";
 
 export default function GradingFirst() {
   const location = useLocation();
