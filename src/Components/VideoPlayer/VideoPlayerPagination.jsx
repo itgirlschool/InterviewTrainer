@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./VideoPlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
@@ -14,29 +15,23 @@ function VideoPlayerPagination(props) {
 
   return (
     <div className="video__nav">
-      <button
-        className="video__button"
-        onClick={props.handleShowPrev}
-      >
+      <Link className="video__button" to="/">
         <img src={prev} alt="video-prev" />
         <p>Предыдущее видео</p>
-      </button>
+      </Link>
       {!isChecked ? (
-        <button
+        <div
           className="video__button"
           onClick={handleCheck}
         >
           <img src={check} alt="video-checked" />
           <p>Я посмотрела</p>
-        </button>
+        </div>
       ) : (
-        <button
-          className="video__button"
-          onClick={props.handleShowNext}
-        >
+        <Link className="video__button" to="/">
           <p>Следующее видео</p>
           <img src={next} alt="video-next" />
-        </button>
+        </Link>
       )}
     </div>
   );
