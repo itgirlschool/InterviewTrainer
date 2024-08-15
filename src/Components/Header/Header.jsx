@@ -13,16 +13,16 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
 
-    const currentUser = useSelector((state) => state.user);
+    const currentUser = useSelector((state) => state.userAuth);
 
 
-    const userName = currentUser && currentUser.firstName && currentUser.lastName 
-        ? `${currentUser.firstName} ${currentUser.lastName}` 
+    const userName = currentUser && currentUser.displayName 
+        ? `${currentUser.displayName}` 
         : "Anonymous User";
 
-    const getInitials = (name) => {
-        if (!name) return "AN";
-        const initials = name.split(' ')
+    const getInitials = (displayName) => {
+        if (!displayName) return "AN";
+        const initials = displayName.split(' ')
             .map(word => word[0])
             .join('')
             .toUpperCase();
