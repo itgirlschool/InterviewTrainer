@@ -15,16 +15,12 @@ export default function VideoFirst() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Current pathname:", pathname);
     if (pathname === "/gradingfirst/videofirst") {
       navigate("/gradingfirst/videofirst/1", {
         replace: true,
       });
     }
   }, [pathname, navigate]);
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading videos</div>;
 
   return (
     <div className="videoPage">

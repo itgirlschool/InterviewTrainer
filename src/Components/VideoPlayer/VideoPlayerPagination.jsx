@@ -5,33 +5,40 @@ import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 
-function VideoPlayerPagination(props) {
-  const [isChecked, setIsChecked] = useState(false);
+function VideoPlayerPagination({ isEnded }) {
+  const [hasWatched, setHasWatched] = useState(false);
+
+  const watching = (
+    <>
+      <img src={check} alt="video-checked" />
+      <p style={{ opacity: "0.5" }}>Я посмотрела</p>
+    </>
+  );
+
+  const watched = (
+    <>
+      <img src={next} alt="video-next" />
+      <p>Следующее видео</p>
+    </>
+  );
 
   const handleCheck = () => {
-    setIsChecked(true);
+    if (isEnded) setHasWatched(true);
   };
 
   return (
     <div className="video__nav">
-      <Link className="video__button" to="/">
+      <button className="video__button">
         <img src={prev} alt="video-prev" />
         <p>Предыдущее видео</p>
-      </Link>
-      {!isChecked ? (
-        <div
-          className="video__button"
-          onClick={handleCheck}
-        >
-          <img src={check} alt="video-checked" />
-          <p>Я посмотрела</p>
-        </div>
-      ) : (
-        <Link className="video__button" to="/">
-          <p>Следующее видео</p>
-          <img src={next} alt="video-next" />
-        </Link>
-      )}
+      </button>
+      <button
+        className="video__button"
+        disabled={!isEnded}
+        onClick={handleCheck}
+      >
+        {hasWatched && isEnded ? watched : watching}
+      </button>
     </div>
   );
 }

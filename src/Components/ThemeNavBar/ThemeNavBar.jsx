@@ -8,26 +8,21 @@ function ThemeNavBar({ data }) {
     <div className="theme__wrapper">
       <ul className="theme">
         {data &&
-          data.map(item => {
-            return (
-              <li className="theme__item" key={item.id}>
-                {!item.isChecked ? (
-                  <Link className="theme__item_link">
-                    {item.title}
-                  </Link>
-                ) : (
-                  <>
-                    <Link className="theme__item_link">
-                      {item.title}
-                    </Link>
-                    <div className="theme__item_div">
-                      <img src={check} alt="finished" />
-                    </div>
-                  </>
-                )}
-              </li>
-            );
-          })}
+          data.map(item => (
+            <li key={item.id} className="theme__item">
+              <Link
+                to={`/gradingfirst/videofirst/${item.id}`}
+                className="theme__item_link"
+              >
+                {item.title}
+              </Link>
+              {item.isFinished && (
+                <div className="theme__item_div">
+                  <img src={check} alt="finished" />
+                </div>
+              )}
+            </li>
+          ))}
       </ul>
     </div>
   );
