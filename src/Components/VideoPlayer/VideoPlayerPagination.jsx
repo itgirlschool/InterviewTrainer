@@ -11,7 +11,7 @@ function VideoPlayerPagination({ isEnded }) {
   const watching = (
     <>
       <img src={check} alt="video-checked" />
-      <p style={{ opacity: "0.5" }}>Я посмотрела</p>
+      <p>Я посмотрела</p>
     </>
   );
 
@@ -28,17 +28,18 @@ function VideoPlayerPagination({ isEnded }) {
 
   return (
     <div className="video__nav">
-      <button className="video__button">
+      <Link className="video__button" to="/">
         <img src={prev} alt="video-prev" />
         <p>Предыдущее видео</p>
-      </button>
-      <button
+      </Link>
+      <Link
         className="video__button"
+        to="/"
         disabled={!isEnded}
         onClick={handleCheck}
       >
         {hasWatched && isEnded ? watched : watching}
-      </button>
+      </Link>
     </div>
   );
 }
