@@ -2,38 +2,65 @@
 @import "../../style/vars.scss";
 @import "../../index.scss";
 
-* {
-    font-family: $font;
-    color: $white-color;
-}
+.grading__codetasks {
+  font-family: $font;
+  color: $white-color;
+  padding: 0 54px;
 
-h1 {
-    color: $pink-color;
-}
-
-.container {
+  .grading__intro {
+    padding-top: 4vh;
     display: flex;
-    width: 90vw;
     align-items: center;
-    gap: 15px;
-    margin: auto;
+    gap: 12px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .graiding__name {
+    font-size: 32px;
+    color: $pinkcolor;
+    font-weight: 500;
+  }
+
+  .graiding__arrow {
+    color: $pinkcolor;
+    height: 10.5px;
+  }
+
+  & .graiding__section {
+    font-size: 32px;
+  }
 }
 
-.textarea {
-    background-color: $darkgreycolor;
-    width: 45%;
-    height: 50vh;
-    padding: 2%;
-    outline: none;
+.codetrainer {
+  padding-top: 32px;
 }
 
-.task__container {
-    background-color: $darkgreycolor;
-    width: 45%;
-    height: 50vh;
-    padding: 2%;
-}
-.task__text {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.codetrainer__buttons {
+  padding-top: 19px;
+  @include flex__center;
+  justify-content: end;
+  gap: 17.7vw;
+
+  .codetrainer__solution {
+    font-size: 16px;
+    background-color: $pinkcolor;
+    color: $white-color;
+    @include flex__center;
+    border: none;
+    gap: 8px;
+    padding: 6px 40px;
+    border-radius: 50px;
+  }
+
+  .codetrainer__check {
+    font-size: 16px;
+    background-color: $color-grey-button;
+    color: $pinkcolor;
+    border: 1px solid $grey;
+    padding: 6px 40px;
+    border-radius: 50px;
+  }
 }

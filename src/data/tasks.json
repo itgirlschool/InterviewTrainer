@@ -1,6 +1,6 @@
 [
     {
-      "id": 1723640944642,
+      "id": 1,
       "task": "Создать функцию, которая будет проверять, является ли строка палиндромом (одинаково читается справа и слева) и возвращать булевое значение: isPalindrome(‘тест’); //false; isPalindrome(‘шалаш’); //true",
       "funcName": "isPalindrome(string)",
       "solution": {
@@ -9,7 +9,7 @@
       }
     },
     {
-      "id": 1723642010812,
+      "id": 2,
       "task": "Создать функцию, которая будет принимать предложение и возвращать из него первое самое короткое слово: findShort(“The smallest word in sentence”); //”in”;   findShort(“Just test string”); //”Just",
       "funcName": "findShort(string)",
       "solution": {
