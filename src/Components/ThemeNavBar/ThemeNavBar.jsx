@@ -1,31 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ThemeNavBar.scss";
-import check from "../../assets/images/video_checked.svg";
-import { Link } from "react-router-dom";
+import ThemeNavBarInner from "./ThemeNavBarInner.jsx";
+import list from "../../assets/images/navbar_mobile_list.svg";
+import close from "../../assets/images/navbar_mobile_list-close.svg";
 
-function ThemeNavBar({ data }) {
+function ThemeNavBarResponsive({ data }) {
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth < 480,
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 480);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () =>
+      window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [mobNavBarClass, setMobNavBarClass] = useState(
+    "mobile__t_wrapper",
+  );
+
+  const handleOpenNavBar = () => {
+    setMobNavBarClass("mobile__t_wrapper__active");
+  };
+  const handleCloseNavBar = () => {
+    setMobNavBarClass("mobile__t_wrapper");
+  };
+
   return (
-    <div className="theme__wrapper">
-      <ul className="theme">
-        {data &&
-          data.map(item => (
-            <li key={item.id} className="theme__item">
-              <Link
-                to={`/gradingfirst/videofirst/${item.id}`}
-                className="theme__item_link"
-              >
-                {item.title}
-              </Link>
-              {item.isFinished && (
-                <div className="theme__item_div">
-                  <img src={check} alt="finished" />
-                </div>
-              )}
-            </li>
-          ))}
-      </ul>
+    <div>
+      {isMobile ? (
+        <div className="mobile__container">
+          <button
+            className="mobile__open_btn"
+            onClick={handleOpenNavBar}
+          >
+            <img src={list} alt="list" />
+            <p>Все темы</p>
+          </button>
+          <div className={mobNavBarClass}>
+            <button
+              className="mobile__close_btn"
+              onClick={handleCloseNavBar}
+            >
+              <img src={close} alt="close" />
+            </button>
+            <ThemeNavBarInner data={data} />
+          </div>
+        </div>
+      ) : (
+        <ThemeNavBarInner data={data} />
+      )}
     </div>
   );
 }
 
-export default ThemeNavBar;
+export default ThemeNavBarResponsive;

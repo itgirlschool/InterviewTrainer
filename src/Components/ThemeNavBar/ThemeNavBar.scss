@@ -4,7 +4,6 @@
 .theme__wrapper {
   height: 100%;
   width: 100%;
-  background-color: $theme-nav-bar-color;
   padding: 1rem;
   margin-left: auto;
   overflow-y: scroll;
@@ -56,7 +55,11 @@
   }
 }
 
-.navbar__mobile_btn {
+.mobile__open_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   font-size: 0.75rem;
   cursor: pointer;
   color: $whitecolor;
@@ -67,5 +70,44 @@
 
   &:hover {
     background: $grey;
+  }
+}
+
+.mobile__close_btn {
+  background-color: transparent;
+  border: $pinkcolor 1px solid;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: -10%;
+
+  & img {
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.mobile__container {
+  position: relative;
+}
+.mobile__t_wrapper {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  transform: translateX(-100%);
+  transition: 3ms;
+
+  &__active {
+    transform: translateX(0%);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .theme__wrapper {
+    overflow-y: auto;
+    font-size: 0.5rem;
   }
 }

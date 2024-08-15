@@ -26,14 +26,16 @@
 }
 .theme__wrapper {
   border-radius: 1.25rem 0 0 1.25rem;
+  background-color: $theme-nav-bar-color;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 950px) {
   .videoPage__main {
     display: flex;
     flex-direction: column;
   }
-  .video__container {
+  .video__container,
+  .theme__wrapper {
     background-color: transparent;
   }
 }
