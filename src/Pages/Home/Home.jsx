@@ -2,30 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import "./Home.scss";
 import { app, realtimeDb } from "../../../firebaseConfig";
-import WelcomeMessage from '../WelcomeMessage/WelcomeMessage';
 
 export default function Home() {
   const navigate = useNavigate();
-  const [user, setUser] = useState({ firstName: '', lastName: '' });
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const db = getDatabase();
-      const userId = localStorage.getItem('userId');
-
-      if (userId) {
-        const userDataSnapshot = await db.ref(`users/${userId}`).get();
-
-        if (userDataSnapshot.exists()) {
-          setUser(userDataSnapshot.val());
-        }
-      }
-    };
-
-    fetchUserData();
-  }, []);
+  const { displayName } = useSelector((state) => state.userAuth);
 
   const handleSelect = (path) => {
     navigate(path);
@@ -33,7 +17,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <WelcomeMessage firstName={user.firstName} lastName={user.lastName} />
+      <h1 className="welcome-title">Добро пожаловать, {displayName || 'USER'}!</h1>
       <p className="intro-text"> Наш тренажер собеседований — это идеальный инструмент для всех, кто хочет уверенно подготовиться к прохождению собеседований на позицию frontend-разработчика. Мы понимаем, что собеседования могут вызывать стресс и неопределенность, и именно поэтому мы создали платформу, которая поможет вам улучшить свои навыки, укрепить уверенность и успешно пройти собеседование. Тренажер предлагает практические задания и вопросы, которые помогут вам подготовиться к собеседованиям разного уровня — от Junior до Senior. Начните подготовку к собеседованию уже сегодня и сделайте шаг к успешной карьере в сфере frontend-разработки! </p>
       <div className="grade-container">
         <div className="grade junior">
