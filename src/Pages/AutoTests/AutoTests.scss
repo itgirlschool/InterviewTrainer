@@ -1,0 +1,27 @@
+@import '../../style/vars.scss';
+@import '../../style/template.scss';
+
+.container-autotests{
+    .title-autotests{
+        padding: 75px 0 0 54px;
+        margin-bottom: 19px;
+        font-family: $font;
+        font-size: 32px;
+        font-weight: 500;
+        color: $pink-color;
+        .title-tests{
+            padding-left: 5.5px;
+            font-family: $font;
+            font-size: 32px;
+            font-weight: 400;
+            color: $white-color;   
+        }
+    }
+
+    .card-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+

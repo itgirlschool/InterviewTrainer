@@ -1,0 +1,113 @@
+@import '../../style/vars.scss';
+@import '../../style/template.scss';
+
+.card__container {
+    width: 691px;
+    height: 563px;
+    border: 1px solid $pink-color;
+    border-radius: 28px;
+
+    .card-wrapper {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .card-question {
+            .question {
+                max-width: 565px;
+                width: 100%;
+                margin-bottom: 46px;
+                font-family: $font;
+                font-weight: 800;
+                font-size: 20px;
+                color: $white-color;
+            }
+        }
+
+        .card-form {
+            .answers-list {
+                width: 555px;
+
+
+                .answer {
+                    display: flex;
+                    align-items: center;
+
+                    .radio-style {
+                        display: inline-block;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background: #030303;
+                        border: 2px solid $pink-color;
+                       
+                    }
+
+                    .radio-style::before {
+                        content: '';
+                        display: inline-block;
+                        margin-top: 5px;
+                        margin-left: 5px;
+                        width: 65%;
+                        height: 65%;
+                        border-radius: 50%; 
+                        background: $pink-color; 
+                        opacity: 0; 
+                        transition: opacity 0.3s; 
+                      }
+                      #first-answer:checked+ .radio-style::before{
+                        opacity:1;
+                      }
+
+                      #second-answer:checked+ .radio-style::before{
+                        opacity:1;
+                      }
+
+                      #third-answer:checked+ .radio-style::before{
+                        opacity:1;
+                      }
+
+                      #fourth-answer:checked+ .radio-style::before{
+                        opacity:1;
+                      }
+
+                    .answer-text {
+                        display: block;
+                        max-width: 478px;
+                        width: 100%;
+                        height: 41px;
+                        padding-left: 36px;
+                        font-family: $font;
+                        font-weight: 400;
+                        font-size: 18px;
+                        color: $white-color;
+                    }
+                }
+
+                .answer:not(:last-child) {
+                    margin-bottom: 47px;
+                }
+
+                .answer:last-child {
+                    margin-bottom: 42px;
+                }
+            }
+
+            .card-button {
+                text-align: center;
+
+                .card-btn {
+                    width: 442px;
+                    height: 62px;
+                    border-radius: 50px;
+                    background-color: $pink-color;
+                    font-family: $font;
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: $white-color;
+                }
+            }
+        }
+    }
+}
