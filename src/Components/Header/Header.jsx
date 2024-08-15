@@ -1,8 +1,5 @@
 import "./Header.scss";
-import {
-    SettingOutlined,
-    LogoutOutlined,
-} from "@ant-design/icons";
+import { SettingOutlined, LogoutOutlined } from "@ant-design/icons";
 import img_logo from "../../assets/images/logo_it.png";
 import img_profileLittle from "../../assets/images/img_profile.svg";
 import { NavLink } from "react-router-dom";
@@ -13,12 +10,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [burgerActive, setBurgerActive] = useState(false);
 
-    const currentUser = useSelector((state) => state.userAuth);
-
-
-    const userName = currentUser && currentUser.displayName 
-        ? `${currentUser.displayName}` 
-        : "Anonymous User";
+    const { displayName } = useSelector((state) => state.userAuth);
 
     const getInitials = (displayName) => {
         if (!displayName) return "AN";
@@ -40,7 +32,7 @@ export default function Header() {
                     <NavLink to="/instructions">Инструкции</NavLink>
                     <div onClick={() => setIsOpen(!isOpen)}>
                         <div className="profile__img">
-                            {getInitials(userName)}
+                            {getInitials(displayName)}
                         </div>
                     </div>
                 </div>
@@ -54,7 +46,7 @@ export default function Header() {
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <div className={`header__popup ${isOpen ? "active" : ""}`}>
-                    <div className="popup__username">{userName}</div>
+                    <div className="popup__username">{displayName || "Anonymous User"}</div>
                     <div className="popup__raitinginfo">
                         <div>Градация 1</div>
                         <div className="popup__percent">50%</div>
@@ -68,7 +60,7 @@ export default function Header() {
                         <img src={img_profileLittle} alt="Мой профиль" />
                         Мой профиль
                     </NavLink>
-                    <NavLink className="popup__link" to="">
+                    <NavLink className="popup__link" to="#">
                         <SettingOutlined className="icon" />
                         Настройки
                     </NavLink>
@@ -83,10 +75,10 @@ export default function Header() {
                 onClick={() => setBurgerActive(!burgerActive)}
             >
                 <div className="burger__username">
-                <div className="profile__img">
-                            {getInitials(userName)}
-                        </div>
-                    <div>{userName}</div>
+                    <div className="profile__img">
+                        {getInitials(displayName)}
+                    </div>
+                    <div>{displayName || "Anonymous User"}</div>
                 </div>
                 <div className="burger__raiting">
                     <div className="rainting__intro">
@@ -110,11 +102,11 @@ export default function Header() {
                     <img src={img_profileLittle} alt="Мой профиль" />
                     Мой профиль
                 </NavLink>
-                <NavLink className="popup__link burger__line" to="">
+                <NavLink className="popup__link burger__line" to="#">
                     <SettingOutlined className="icon" />
                     Настройки
                 </NavLink>
-                <NavLink className="popup__link" to="#">
+                <NavLink className="popup__link" to="/signin">
                     <LogoutOutlined className="icon" />
                     Выйти
                 </NavLink>
