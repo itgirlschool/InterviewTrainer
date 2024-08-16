@@ -4,7 +4,7 @@ import ThemeNavBarInner from "./ThemeNavBarInner.jsx";
 import list from "../../assets/images/navbar_mobile_list.svg";
 import close from "../../assets/images/navbar_mobile_list-close.svg";
 
-function ThemeNavBarResponsive({ data }) {
+function ThemeNavBarResponsive({ data, error, isLoading }) {
   const [isMobile, setIsMobile] = useState(
     window.innerWidth < 480,
   );
@@ -32,6 +32,13 @@ function ThemeNavBarResponsive({ data }) {
 
   return (
     <div>
+      {error && (
+        <h3>
+          Не удалось загрузить видео.... Попробуйте ещё раз
+          позже
+        </h3>
+      )}
+      {isLoading && <h3>Loading....</h3>}
       {isMobile ? (
         <div className="mobile__container">
           <button

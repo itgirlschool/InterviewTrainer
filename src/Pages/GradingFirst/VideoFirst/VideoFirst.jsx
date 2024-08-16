@@ -37,7 +37,11 @@ export default function VideoFirst() {
         </span>
       </div>
       <div className="videoPage__main">
-        <ThemeNavBar data={data?.stage1 || []} />
+        <ThemeNavBar
+          data={data?.stage1 || []}
+          error={error}
+          isLoading={isLoading}
+        />
         <Outlet />
       </div>
     </div>

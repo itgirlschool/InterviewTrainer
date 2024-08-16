@@ -19,7 +19,6 @@ export default function VideoFirstItem() {
       const newVideo = db.videos.stage1.find(
         item => item.id === id,
       );
-      console.log(newVideo.title);
       setVideo(prevVideo => newVideo);
     }
   }, [data, id]);
