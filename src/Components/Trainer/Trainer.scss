@@ -1,0 +1,48 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+@import "../../index.scss";
+
+.trainer__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  height: 50vh;
+}
+
+.trainer__question {
+  background-color: $color_trainer;
+  border-radius: 5px;
+  overflow-x: auto;
+  overflow-anchor: none;
+  padding: 22px;
+
+  .trainer__name {
+    font-size: 22px;
+    color: $pink-color;
+    font-weight: 400;
+  }
+
+  .trainer__theme {
+    margin-top: 16px;
+    color: $color_trainer;
+    background-color: $color-green;
+    width: 112px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+
+  .task__text {
+    padding-top: 16px;
+  }
+}
+
+.cm-theme {
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.cm-editor,
+.cm-scroller {
+  border-radius: 5px;
+}
