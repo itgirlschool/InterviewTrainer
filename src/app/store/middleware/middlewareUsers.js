@@ -11,5 +11,4 @@ const middlewareUsers = (database) => {
     return next(action);
   };
 };
-
 export default middlewareUsers;
