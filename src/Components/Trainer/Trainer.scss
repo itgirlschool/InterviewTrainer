@@ -11,7 +11,7 @@
 
 .trainer__question {
   background-color: $color_trainer;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow-x: auto;
   overflow-anchor: none;
   padding: 22px;
@@ -35,14 +35,36 @@
   .task__text {
     padding-top: 16px;
   }
+
+  .task__example {
+    padding-top: 16px;
+    font-weight: 600;
+  }
+
+  .task__answer {
+    margin-top: 16px;
+    padding: 16px;
+    font-weight: 600;
+    background-color: $color-grade;
+    border-radius: 20px;
+    display: none;
+  }
+
+  .task__answer.active {
+    display: contents;
+  }
 }
 
 .cm-theme {
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .cm-editor,
 .cm-scroller {
-  border-radius: 5px;
+  border-radius: 10px;
+}
+
+pre {
+  font-family: $font !important;
 }

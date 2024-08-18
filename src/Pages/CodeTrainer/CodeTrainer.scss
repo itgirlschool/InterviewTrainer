@@ -38,24 +38,33 @@
   padding-top: 32px;
 }
 
-.codetrainer__buttons {
+.codetaining__buttom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   padding-top: 19px;
+
+.codetrainer__button {
+  justify-self: end;
+}
+
+  .codetrainer__buttons {
   @include flex__center;
-  justify-content: end;
-  gap: 17.7vw;
+  justify-content: space-between;
+}
 
-  .codetrainer__solution {
-    font-size: 16px;
-    background-color: $pinkcolor;
-    color: $white-color;
-    @include flex__center;
-    border: none;
-    gap: 8px;
-    padding: 6px 40px;
-    border-radius: 50px;
-  }
+.codetrainer__pink {
+  font-size: 16px;
+  background-color: $pinkcolor;
+  color: $white-color;
+  @include flex__center;
+  border: none;
+  gap: 8px;
+  padding: 6px 40px;
+  border-radius: 50px;
+}
 
-  .codetrainer__check {
+.codetrainer__check {
     font-size: 16px;
     background-color: $color-grey-button;
     color: $pinkcolor;
@@ -64,3 +73,6 @@
     border-radius: 50px;
   }
 }
+
+
+

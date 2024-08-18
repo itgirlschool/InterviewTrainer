@@ -1,7 +1,10 @@
 [
     {
       "id": 1,
-      "task": "Создать функцию, которая будет проверять, является ли строка палиндромом (одинаково читается справа и слева) и возвращать булевое значение: isPalindrome(‘тест’); //false; isPalindrome(‘шалаш’); //true",
+      "tasks": "Палиндром",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию, которая будет проверять, является ли строка палиндромом (одинаково читается справа и слева) и возвращать булевое значение.",
+      "example": "isPalindrome(‘тест’); //false; isPalindrome(‘шалаш’); //true",
       "funcName": "isPalindrome(string)",
       "solution": {
         "base": "function isPalindrome(string) {\n  let cleanedString = string.replace(/\\s+/g, '').toLowerCase();\n  let arr = cleanedString.split('');\n  let reversArr = arr.reverse();\n  let resString = reversArr.join('');\n  let res = cleanedString === resString;\n  return res;\n}",
