@@ -1,0 +1,48 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.theory{ 
+
+  &__page{
+    padding-top: 3%;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: $white-color;
+
+    .grad__header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 36px;
+    }
+
+    .pink__text {
+      color: $pink-color;
+    }
+  }
+
+  &__container{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__list{
+    width: 20%;
+    height: 200px;
+    background-color: $grey;
+  }
+
+}
+
+.header__img {
+  margin-left: 2%;
+  margin-right: 2%;
+}

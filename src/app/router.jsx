@@ -12,6 +12,7 @@ import {
   GradingThird,
   Instructions,
   Profile,
+  TheoryPage,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -59,6 +60,7 @@ export const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
+      { path: "theory", element: <TheoryPage /> },
     ],
     errorElement: <Error />,
   },
