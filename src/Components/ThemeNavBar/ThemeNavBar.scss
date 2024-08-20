@@ -4,12 +4,12 @@
 .theme__wrapper {
   height: 100%;
   width: 100%;
-  padding: 1rem;
+  padding: 16px;
   margin-left: auto;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-    width: 0.75rem;
+    width: 12px;
     background-color: #f9f9fd;
   }
   &::-webkit-scrollbar-thumb {
@@ -27,13 +27,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
   border-bottom: $grey solid 1px;
 
   &_link {
-    padding-left: 0.5rem;
-    font-size: 1.125rem;
+    padding-left: 8px;
+    font-size: 18px;
     max-width: 70%;
     white-space: nowrap;
     overflow: hidden;
@@ -47,10 +47,10 @@
     align-items: center;
     background-color: $color-green;
     border-radius: 50%;
-    padding: 0.125rem;
+    padding: 18px;
 
     & img {
-      width: 1.5rem;
+      width: 24px;
     }
   }
 }
@@ -60,13 +60,13 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  font-size: 0.75rem;
+  font-size: 12px;
   cursor: pointer;
   color: $whitecolor;
   background: $pinkcolor;
   border: none;
-  border-radius: 3.25rem;
-  padding: 0.25rem 1.5rem;
+  border-radius: 50px;
+  padding: 4px 24px;
 
   &:hover {
     background: $grey;
@@ -82,7 +82,7 @@
   top: -10%;
 
   & img {
-    width: 2rem;
+    width: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,6 +108,6 @@
 @media screen and (max-width: 950px) {
   .theme__wrapper {
     overflow-y: auto;
-    font-size: 0.5rem;
+    font-size: 8px;
   }
 }

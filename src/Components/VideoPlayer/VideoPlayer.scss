@@ -16,7 +16,7 @@
   align-content: center;
   width: 100%;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 16px;
 }
 
 video {
@@ -33,15 +33,15 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 8px;
     cursor: pointer;
     color: $whitecolor;
     background: $pinkcolor;
     border: none;
-    border-radius: 3.25rem;
-    font-size: 1.125rem;
-    padding: 0.25rem 1.5rem;
-    min-width: 17rem;
+    border-radius: 50px;
+    font-size: 18px;
+    padding: 4px 24px;
+    min-width: 270px;
     text-decoration: none;
 
     &:hover {
@@ -52,19 +52,19 @@ video {
 
 @media screen and (max-width: 950px) {
   .video__container {
-    margin-top: 2rem;
+    margin-top: 30px;
     padding: 0;
   }
   .video__wrapper {
     width: 100%;
   }
   .video__button {
-    font-size: 0.5rem;
-    padding: 0.25rem 0.75rem;
-    min-width: 7rem;
+    font-size: 8px;
+    padding: 4px 12px;
+    min-width: 110px;
 
     & img {
-      width: 1rem;
+      width: 16px;
     }
   }
 }
