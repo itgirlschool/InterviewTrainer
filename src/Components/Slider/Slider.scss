@@ -1,0 +1,86 @@
+@import '../../style/vars.scss';
+@import '../../style/template.scss';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider-container {
+
+    .slider-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+
+        .inner-wrapper {
+            width: 691px;
+            padding-right: 28px;
+            display: flex;
+            justify-content: end;
+            gap: 134px;
+
+            .amount {
+
+                // color: rgb(233, 57, 216);
+                .amounts {
+                    font-family: $font;
+                    font-weight: 500;
+                    font-size: 22px;
+                    color: $white-color;
+                }
+            }
+
+            .themes {
+                .select-variants {
+                    width: 182px;
+                    height: 30px;
+                    // display: flex;
+                    // flex-direction: column;
+                   // appearance: none;
+                    border-radius: 50px;
+                    border-color: $pink-color;
+                    //background: #FFF url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.50495 5.78413L0.205241 1.25827C-0.0684138 0.970375 -0.0684138 0.503596 0.205241 0.215836C0.478652 -0.0719461 0.922098 -0.071946 1.19549 0.215837L5.00007 4.22052L8.80452 0.215953C9.07805 -0.0718292 9.52145 -0.0718292 9.79486 0.215953C10.0684 0.503736 10.0684 0.970492 9.79486 1.25839L5.49508 5.78425C5.35831 5.92814 5.17925 6 5.00009 6C4.82085 6 4.64165 5.928 4.50495 5.78413Z' fill='%23ED266A'/%3E%3C/svg%3E%0A") no-repeat center / cover;
+                    outline: none;
+                    background-color: $color-grade;
+                    color: $pink-color;
+                    cursor: pointer;
+
+                    ////////////////////
+                   
+                   
+
+
+                    .option-variant {
+                        max-width: 180px;
+                        min-height: 160px;
+                        color: $white-color;
+                        //text-align: center;
+                        text-align-last: center;
+                        cursor: pointer;
+                        // padding-right: 5px;
+
+                    }
+
+
+                }
+
+               
+
+
+            }
+        }
+
+        .endTest {
+            color: $white-color;
+        }
+
+    }
+
+
+
+
+
+}
