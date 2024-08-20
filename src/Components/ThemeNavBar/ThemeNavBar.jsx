@@ -5,9 +5,7 @@ import list from "../../assets/images/navbar_mobile_list.svg";
 import close from "../../assets/images/navbar_mobile_list-close.svg";
 
 function ThemeNavBarResponsive({ data, error, isLoading }) {
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth < 480,
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
