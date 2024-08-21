@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #1B1C20;
+  background-color: #1b1c20;
 }
 .container__login .wrapper__login {
   text-align: center;
@@ -21,7 +21,7 @@
   font-size: 48px;
   font-family: "M PLUS Rounded 1c";
   font-weight: 500;
-  color: #EA5D80;
+  color: #ea5d80;
 }
 @media screen and (max-width: 1368px) {
   .container__login .wrapper__login .title__login {
@@ -165,8 +165,8 @@
   font-family: "M PLUS Rounded 1c";
   font-weight: 500;
   font-size: 20px;
-  background-color: #EA5D80;
-  color: #FFFFFF;
+  background-color: #ea5d80;
+  color: #ffffff;
   cursor: pointer;
 }
 @media screen and (max-width: 1368px) {
@@ -198,7 +198,7 @@
   font-family: "Jost";
   font-weight: 400;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
@@ -206,7 +206,7 @@
   font-family: "Jost";
   font-weight: 400;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }

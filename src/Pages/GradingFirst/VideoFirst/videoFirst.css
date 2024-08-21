@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 4vh 10vw 4vh 54px;
+  padding: 4vh 10vw 4vh 3vw;
   gap: 30px;
 }
 .videoPage__mainlink {
@@ -18,4 +18,25 @@
 .videoPage__main {
   display: grid;
   grid-template-columns: 1fr 3fr;
+}
+
+.video__container {
+  border-radius: 0 20px 20px 0;
+  background-color: #444242;
+}
+
+.theme__wrapper {
+  border-radius: 20px 0 0 20px;
+  background-color: #444242;
+}
+
+@media screen and (max-width: 950px) {
+  .videoPage__main {
+    display: flex;
+    flex-direction: column;
+  }
+  .video__container,
+  .theme__wrapper {
+    background-color: transparent;
+  }
 }
