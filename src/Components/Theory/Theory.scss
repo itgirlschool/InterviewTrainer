@@ -4,7 +4,9 @@
 .theory{
   &__window {
     width: 80%;
+    height: 600px;
     padding: 2% 4%;
+    overflow-y: auto;
     background-color: #222222;
   }
 
@@ -14,11 +16,13 @@
     color: $pinkcolor;
   }
 
-  // &__article{
+  &__article{
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
 
-  // }
-
-  &__answer{
+  &__answer, &__example{
+    white-space: pre-wrap;
     font-size: 16px;
   }
 
@@ -27,7 +31,8 @@
   }
 
   &__theme{
-    width: 15%;
+    min-width: 15%;
+    max-width: 20%;
     margin-bottom: 1.5%;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -40,9 +45,21 @@
   }
 
   &__picture{
-    max-width: 80%;
+    max-width: 90%;
     margin-top: 5px;
     margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__example {
+    margin-top: 3%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: $background-code;
   }
 
   &__control {
@@ -92,4 +109,10 @@
   margin-left: 7%;
   line-height:0.7;
   font-size: 18px;
+}
+
+.picture_item {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
