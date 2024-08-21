@@ -7,7 +7,8 @@ import firebase from "firebase/compat/app";
 import { firebaseConfig } from "../../../firebaseConfig";
 import "firebase/compat/database";
 import { initializeApp } from "firebase/app";
-import { videosApi } from "./middleware/videosApi";
+// import { videosApi } from "./middleware/videosApi";
+import middlewareVideos from "./middleware/middlewareVideos";
 
 initializeApp(firebaseConfig);
 export const database = firebase
@@ -20,12 +21,13 @@ export const store = configureStore({
   reducer: {
     userAuth: userAuthSlice,
     users: usersSlice,
-    [videosApi.reducerPath]: videosApi.reducer,
+    // [videosApi.reducerPath]: videosApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(
       listenerMiddlewareUsers,
       listenerMiddlewareUserAuth,
-      videosApi.middleware,
+      // videosApi.middleware,
+      middlewareVideos,
     ),
 });

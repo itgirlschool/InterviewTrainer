@@ -4,13 +4,39 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import "./VideoFirst.scss";
-import { useGetVideosQuery } from "../../../app/store/middleware/videosApi.js";
+// import { useGetVideosQuery } from "../../../app/store/middleware/videosApi.js";
+import { fetchVideos } from "../../../app/store/middleware/middlewareVideos.js";
 import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
 
 export default function VideoFirst() {
-  const { data, error, isLoading } = useGetVideosQuery();
+  // const { data, error, isLoading } = useGetVideosQuery();
+
+  const dispatch = useDispatch();
+  const [data, setData] = useState([]);
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setStatus("loading");
+      try {
+        const actionResult = await dispatch(
+          fetchVideos(),
+        ).unwrap();
+        setData(actionResult);
+        setStatus("succeeded");
+      } catch (err) {
+        setError(err);
+        setStatus("failed");
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
+
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -40,7 +66,7 @@ export default function VideoFirst() {
         <ThemeNavBar
           data={data?.stage1 || []}
           error={error}
-          isLoading={isLoading}
+          status={status}
         />
         <Outlet />
       </div>

@@ -4,7 +4,7 @@ import ThemeNavBarInner from "./ThemeNavBarInner.jsx";
 import list from "../../assets/images/navbar_mobile_list.svg";
 import close from "../../assets/images/navbar_mobile_list-close.svg";
 
-function ThemeNavBarResponsive({ data, error, isLoading }) {
+function ThemeNavBarResponsive({ data, error, status }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -28,15 +28,22 @@ function ThemeNavBarResponsive({ data, error, isLoading }) {
     setMobNavBarClass("mobile__t_wrapper");
   };
 
+  if (status === "failed" || error) {
+    console.log(status, error);
+    return (
+      <h3>
+        Не удалось загрузить данные.... Попробуйте ещё раз
+        позже
+      </h3>
+    );
+  }
+
+  if (status === "loading") {
+    return <h3>Loading....</h3>;
+  }
+
   return (
     <div>
-      {error && (
-        <h3>
-          Не удалось загрузить видео.... Попробуйте ещё раз
-          позже
-        </h3>
-      )}
-      {isLoading && <h3>Loading....</h3>}
       {isMobile ? (
         <div className="mobile__container">
           <button
