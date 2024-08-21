@@ -24,54 +24,13 @@
     font-weight: 500;
   }
 
-  .graiding__arrow {
-    color: $pinkcolor;
-    height: 10.5px;
-  }
-
   & .graiding__section {
     font-size: 32px;
   }
 }
 
 .codetrainer {
-  padding-top: 32px;
-}
-
-.codetaining__buttom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  padding-top: 19px;
-
-.codetrainer__button {
-  justify-self: end;
-}
-
-  .codetrainer__buttons {
-  @include flex__center;
-  justify-content: space-between;
-}
-
-.codetrainer__pink {
-  font-size: 16px;
-  background-color: $pinkcolor;
-  color: $white-color;
-  @include flex__center;
-  border: none;
-  gap: 8px;
-  padding: 6px 40px;
-  border-radius: 50px;
-}
-
-.codetrainer__check {
-    font-size: 16px;
-    background-color: $color-grey-button;
-    color: $pinkcolor;
-    border: 1px solid $grey;
-    padding: 6px 40px;
-    border-radius: 50px;
-  }
+  padding-top: 22px;
 }
 
 

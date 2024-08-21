@@ -4,9 +4,24 @@
 
 .trainer__container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 15px;
   height: 50vh;
+  justify-items: end;
+
+  .trainer__check {
+    grid-column: 2 span;
+  }
+}
+
+.codetrainer__button-check {
+  font-size: 16px;
+  background-color: $color-grey-button;
+  color: $pinkcolor;
+  border: 1px solid $grey;
+  padding: 6px 40px;
+  border-radius: 50px;
+  grid-column: 1/2;
 }
 
 .trainer__question {
@@ -15,6 +30,7 @@
   overflow-x: auto;
   overflow-anchor: none;
   padding: 22px;
+  grid-row: 2 span;
 
   .trainer__name {
     font-size: 22px;
@@ -44,14 +60,10 @@
   .task__answer {
     margin-top: 16px;
     padding: 16px;
-    font-weight: 600;
     background-color: $color-grade;
     border-radius: 20px;
-    display: none;
-  }
-
-  .task__answer.active {
-    display: contents;
+    width: 40wv;
+    white-space: pre-line;
   }
 }
 
@@ -68,3 +80,35 @@
 pre {
   font-family: $font !important;
 }
+
+.codetaining__console {
+  background-color: $color-grade;
+  border-radius: 20px;
+}
+
+.codetaining__buttom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding-top: 19px;
+
+  .codetrainer__button {
+    justify-self: end;
+  }
+
+  .codetrainer__buttons {
+    @include flex__center;
+    justify-content: space-between;
+  }
+}
+
+.codetrainer__pink {
+    font-size: 16px;
+    background-color: $pinkcolor;
+    color: $white-color;
+    @include flex__center;
+    border: none;
+    gap: 8px;
+    padding: 6px 40px;
+    border-radius: 50px;
+  }

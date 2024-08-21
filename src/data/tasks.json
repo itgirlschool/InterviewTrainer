@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "tasks": "Палиндром",
+      "task_name": "Палиндром",
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая будет проверять, является ли строка палиндромом (одинаково читается справа и слева) и возвращать булевое значение.",
       "example": "isPalindrome(‘тест’); //false; isPalindrome(‘шалаш’); //true",
@@ -18,6 +18,66 @@
       "solution": {
         "base": "function findShort(string) {\n  let wordsArr = string.split(' ');\n  let shortestWord = wordsArr[0];\n  for (let word of wordsArr) {\n    if (word.length < shortestWord.length) {\n      shortestWord = word;\n    }\n  }\n  return shortestWord;\n}",
         "es6": "const findShort = str => str.split(' ').reduce((shortest, current) => \n  current.length < shortest.length ? current : shortest);"
+      }
+    },
+    {
+      "id": 6,
+      "task_name": "Циклы",
+      "task_theme": "JavaScript",
+      "task": "Напишите функцию, которая выводит в консоль числа от 1 до n, где n - целое число, которая функция принимает в качестве аргумента. Доп. условие: функция должна выводить foo, вместо чисел кратных 3,   bar, вместо чисел кратных 5, foobar, вместо чисел кратных 3 и 5.",
+      "example": "fooBar(3); //foo; fooBar(15); //foobar;",
+      "funcName": "const fooBar = num => {}",
+      "solution": {
+        "base": "const fooBar = num => { for(let i = 1; i <= num; i++) { if (i % 3 === 0 && i%5 === 0){ console.log('foobar');} else if ( i % 3 === 0) {console.log ('foo')}; elst if (i % 5 === 0) {console.log('bar')}; else { console.log(i); } } };",
+        "es6": ""
+      }
+    },
+    {
+      "id": 7,
+      "task_name": "Массивы",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию, которая будет принимать один или несколько массивов и возвращать новый массив уникальных значений в порядке исходных, предоставленных массивов.",
+      "example": "foo([1,2,3], [4,5,1], [6,4,7]) //[1,2,3,4,5,6,7], foo2([1], [2], [3,2,2]) //[1,2,3]",
+      "funcName": "function uniteUnique(){}",
+      "solution": {
+        "base": "function uniteUnique() { const arr = [...arguments]; let newArr = []; for (let i = 0; i < arr.length; i++) { newArr.push(...arr[i]); } newArr = new Set(newArr); return [...newArr];}",
+        "es6": "function uniteUnique() { return [...new Set([...arguments].flat())]};"  
+      }
+    },
+    {
+      "id": 8,
+      "task_name": "Строки",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию, которая на вход будет принимать девятизначное число, а на выходе возвращать сроку, которая будет содержать переданное девять чисел в определенном формате телефонного номера.",
+      "example": "createPhoneNumber(123456789); //'(123) 456-789';createPhoneNumber(555267894); //'(555) 267-894';",
+      "funcName": "function createPhoneNumber(number){}",
+      "solution": {
+        "base": "function createPhoneNumber(number) { let numArr = number.toString().split(''); numArr.splice(0.0,'('); numArr.splice(4,0,')'); numArr.splice(5,0,' '); numArr.splice(9,0,'-'); return numArr.join('');}",
+        "es6": "const createPhoneNumber = (number) => {const strNum = number.toString(); return `(${strNum.slice(0, 3)}) ${strNum.slice(3, 6)}-${strNum.slice(3, 9)}`};"  
+      }
+    },
+    {
+      "id": 9,
+      "task_name": "Строки",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию, которая на вход будет принимать произвольную строку и возвращать число, которая будет равняться количеству гласных букв в этой строке. Задача должна быть реализована для английского алфавита.",
+      "example": "findVowels(“hello”);    //2   findVowels(“hello world”);  //3",
+      "funcName": "const findVowels = (str) => {}",
+      "solution": {
+        "base": "const findVowels = (str) => { const vowels = ['a', 'e', 'i', 'o', 'u']; let count = 0; for(let char of str.toLowerCase()) { if(vowels.includes(char)) {count++;}} return count;}",
+        "es6": "const findVowels1 = (str) => { const matches = str.match(/[aeiou]/gi); return matches ? matches.length : 0;}"  
+      }
+    },
+    {
+      "id": 10,
+      "task_name": "Строки",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию, которая на вход будет принимать строку это либо одно слово, либо предложение и возвращать трансформированную строку, где первая буква каждого слова будет заглавной.",
+      "example": "findVowels('hello');    //'Hello'  findVowels('hello world');  //'Hello World'",
+      "funcName": "function toCapitalCase(str) {  }",
+      "solution": {
+        "base": "function toCapitalCase(str) { const arr = str.split(' '); const resArr = []; for (let i=0; i < arr.length; i++) { resArr.push(arr[i][0].toUpperCase() + arr[i].slice(1));} return resArr.join(' ');}",
+        "es6": "const toCapitalCase = (str) => str.split(' ').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');"  
       }
     }
 ]

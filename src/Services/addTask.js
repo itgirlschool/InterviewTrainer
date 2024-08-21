@@ -5,7 +5,10 @@ const filePath = path.resolve(new URL(import.meta.url).pathname, '../../data/tas
 
 //Сюда вписать новую задачу для файла tasks.json
 const taskToAdd = {
+    task_name: "",
+    task_theme: "",
     task: "",
+    example: "",
     funcName: "",
     solution: {
         base: "",
