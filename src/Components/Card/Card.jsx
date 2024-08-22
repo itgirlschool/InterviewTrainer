@@ -88,8 +88,6 @@ export default function Card({ item, count, setCount, tests }) {
                         name="answer" 
                         id="first-answer" 
                         hidden value={answers[0].checkOne}
-                        //checked={value == '1' ? true : false}
-                        //onChange={(e)=>setValue(e.target.value)}
                         />
                         <label htmlFor="first-answer" className="radio-style"></label>
                         <label htmlFor="first-answer" className='answer-text'>{answers[0].answerOne}</label>
@@ -102,8 +100,6 @@ export default function Card({ item, count, setCount, tests }) {
                         id="second-answer" 
                         hidden 
                         value={answers[1].checkTwo}
-                        //checked={value == '2' ? true : false}
-                        //onChange={(e)=>setValue(e.target.value)}
                         />
                         <label htmlFor="second-answer" className="radio-style"></label>
                         <label htmlFor="first-answer" className='answer-text'>{answers[1].answerTwo}</label>
@@ -116,8 +112,6 @@ export default function Card({ item, count, setCount, tests }) {
                         id="third-answer" 
                         hidden
                         value={answers[2].checkThree}
-                        //checked={value == '3' ? true : false}
-                        //onChange={(e)=>setValue(e.target.value)}
                         />
                         <label htmlFor="third-answer" className="radio-style"></label>
                         <label htmlFor="first-answer" className='answer-text'>{answers[2].answerThree}</label>
@@ -130,8 +124,6 @@ export default function Card({ item, count, setCount, tests }) {
                         id="fourth-answer" 
                         hidden 
                         value={answers[3].checkFour}
-                       // checked={value == '4' ? true : false}
-                       // onChange={(e)=>setValue(e.target.value)}
                         />
                         <label htmlFor="fourth-answer" className="radio-style"></label>
                         <label htmlFor="first-answer" className='answer-text'>{answers[3].answerFour}</label>
