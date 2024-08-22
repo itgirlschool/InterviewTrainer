@@ -1,66 +1,29 @@
 import { useParams } from "react-router-dom";
 import VideoPlayer from "../../../Components/VideoPlayer/VideoPlayer";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import db from "../../../db.json";
-import { fetchVideos } from "../../../app/store/middleware/middlewareVideos";
+import { useSelector } from "react-redux";
 
 export default function VideoFirstItem() {
   const { id } = useParams();
-
-  const dispatch = useDispatch();
-  const [data, setData] = useState([]);
-  const [status, setStatus] = useState("idle");
-  const [error, setError] = useState(null);
-  const [video, setVideo] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setStatus("loading");
-      try {
-        const actionResult = await dispatch(
-          fetchVideos(),
-        ).unwrap();
-        setData(actionResult);
-        setStatus("succeeded");
-      } catch (err) {
-        setError(err);
-        setStatus("failed");
-      }
-    };
-
-    fetchData();
-  }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (data && id) {
-  //     console.log(data.stage1);
-  //     const newVideo = data.stage1.find(
-  //       item => item.id === id,
-  //     );
-  //     setVideo(prevVideo => newVideo);
-  //   } else {
-  //     const newVideo = db.videos.stage1.find(
-  //       item => item.id === id,
-  //     );
-  //     setVideo(prevVideo => newVideo);
-  //   }
-  // }, [data, id]);
+  const data = useSelector(state => state.videos.videos);
+  const status = useSelector(state => state.videos.status);
+  const error = useSelector(state => state.videos.error);
+  const [video, setVideo] = useState({});
 
   useEffect(() => {
     if (data && id) {
-      console.log(data);
       const newVideo = data.find(item => item.id === id);
-      setVideo(newVideo);
-    } else if (db.videos) {
-      const newVideo = db.find(item => item.id === id);
-      setVideo(newVideo);
+      setVideo(prevVideo => newVideo);
     }
   }, [data, id]);
 
-  // if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading videos</div>;
-  if (!video) return <div>Video not found</div>;
+  if (status === "loading")
+    return <div>Загрузка видео...</div>;
+  if (status === "failed" || error)
+    return <div>Невозможно загрузить видео...</div>;
+  if (!data) return <div>Видео не найдены</div>;
 
-  return <VideoPlayer src={video.src} />;
+  return (
+    <VideoPlayer title={video.title} src={video.src} />
+  );
 }

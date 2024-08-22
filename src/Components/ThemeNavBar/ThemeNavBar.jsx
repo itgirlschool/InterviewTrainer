@@ -4,7 +4,12 @@ import ThemeNavBarInner from "./ThemeNavBarInner.jsx";
 import list from "../../assets/images/navbar_mobile_list.svg";
 import close from "../../assets/images/navbar_mobile_list-close.svg";
 
-function ThemeNavBarResponsive({ data, error, status }) {
+function ThemeNavBarResponsive({
+  data,
+  error,
+  status,
+  pagePath,
+}) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -60,11 +65,14 @@ function ThemeNavBarResponsive({ data, error, status }) {
             >
               <img src={close} alt="close" />
             </button>
-            <ThemeNavBarInner data={data} />
+            <ThemeNavBarInner
+              data={data}
+              pagePath={pagePath}
+            />
           </div>
         </div>
       ) : (
-        <ThemeNavBarInner data={data} />
+        <ThemeNavBarInner data={data} pagePath={pagePath} />
       )}
     </div>
   );

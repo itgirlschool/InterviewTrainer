@@ -3,7 +3,7 @@ import VideoPlayerInner from "./VideoPlayerInner.jsx";
 import VideoPlayerPagination from "./VideoPlayerPagination.jsx";
 import "./VideoPlayer.scss";
 
-function VideoPlayer({ src }) {
+function VideoPlayer({ title, src }) {
   const videoRef = useRef(null);
   const [isEnded, setIsEnded] = useState(false);
 
@@ -38,6 +38,7 @@ function VideoPlayer({ src }) {
 
   return (
     <div className="video__container">
+      <div>{title}</div>
       <VideoPlayerInner src={src} videoRef={videoRef} />
       <VideoPlayerPagination isEnded={isEnded} />
     </div>

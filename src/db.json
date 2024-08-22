@@ -40,5 +40,16 @@
       "title": "Bootstrap компоненты",
       "src": "https://www.dropbox.com/scl/fi/tjjd2o3bwsux0kuj53kkp/Bootstrap.mp4?rlkey=55c0dwabd79l5j5t8zwbwhxc5&st=892ag2bn&dl=1"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "",
+      "surname": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "progress": ""
+    }
   ]
 }

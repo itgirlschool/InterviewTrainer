@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userAuthSlice from "./slice/UserAuthSlice";
 import usersSlice from "./slice/UsersSlice";
+import { videosReducer } from "./slice/VideosSlice.js";
 import middlewareUsers from "./middleware/middlewareUsers";
 import middlewareUserAuth from "./middleware/middlewareUsersAuth.js";
-import middlewareVideos from "./middleware/middlewareVideos";
 import firebase from "firebase/compat/app";
 import { firebaseConfig } from "../../../firebaseConfig";
 import "firebase/compat/database";
@@ -20,12 +20,12 @@ export const store = configureStore({
   reducer: {
     userAuth: userAuthSlice,
     users: usersSlice,
+    videos: videosReducer,
   },
   devTools: true,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(
       listenerMiddlewareUsers,
       listenerMiddlewareUserAuth,
-      middlewareVideos,
     ),
 });

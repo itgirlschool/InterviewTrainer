@@ -3,7 +3,7 @@ import "./VideoPlayer.scss";
 
 function VideoPlayerInner({ src, videoRef }) {
   const handleError = () => {
-    console.error("Failed to load video:", video.src);
+    console.error("Failed to load video:", src);
   };
 
   return (
