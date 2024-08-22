@@ -28,19 +28,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "class, title, style, aria-*, onclick",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "label, max, min, multiple",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "name, pattern, placeholder, required",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "selected, size, src, summary, type",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -51,19 +51,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "2 типа: основные категории контента, категории контента для элементов форм, Особые категории контента.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "3 типа: Основные категории контента; Категории контента для элементов форм; Особые категории контента, описывающие редкие категории, актуальные только для нескольких элементов.",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: '4 типа: Первичные категории контента; Вторичные категории контента; Основные категории контента; Категории контента для элементов форм;',
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: '5 типов: Первичные категории контента; Вторичные категории контента; Основные категории контента; Категории контента для элементов форм; Особые категории контента, описывающие редкие категории, актуальные только для нескольких элементов.',
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -74,19 +74,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Встроенный контент, Метаданные, Потоковый контент, Секционный контент.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Встроенный контент, Интерактивный контент, Явный контент, Контент форм.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: 'Метаданные, Потоковый контент, Секционный контент, Заголовочный контент, Фразовый контент, Встроенный контент, Интерактивный контент, Явный контент, Контент форм',
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: 'Метаданные, Потоковый контент, Секционный контент, Заголовочный контент, Фразовый контент,',
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -97,19 +97,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Для обозначения основного тела документа",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Для указания типа документа браузеру",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: "Для связи html и css-документов",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Для подключения шрифтов в документе",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -120,19 +120,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "section ,h1, article",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "header, main, footer",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "nav, a, head",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "html, head, body",
-                check: true,
+                checkFour: true,
             },
         ]
 
@@ -143,19 +143,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Проверка документа специальной программой валидатором на соответствие установленным веб-стандартам и обнаружение ошибок.",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Программный интерфейс, то есть описание способов взаимодействия одной компьютерной программы с другими.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Расширение протокола HTTP для поддержки шифрования в целях повышения безопасности.",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Признак, приписываемое качество, свойство",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -166,19 +166,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "1 тип проверки: валидация HTML документа",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "2 типа проверок: валидация HTML и CSS документа",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "4 типа проверки: проверка синтаксиса, проверка вложенности, проверка dtd, проверка на наличие посторонних элементов.",
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: "3 типа проверки: проверка синтаксиса, проверка вложенности, валидация HTML документа",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -189,19 +189,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Валидация HTML, валидация CSS, валидация ссылок, валидация адаптивности, проверка синтаксиса кода",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Валидация HTML, валидация картинок, валидация JavaScript кода, проверка React кода",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Валидация HTML, валидация CSS, проверка расширением Prittier",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Валидация HTML, валидация CSS",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -212,19 +212,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "2D/3D-графика и эффекты, стилизация, семантика.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Офлайн и хранилище, мультимедиа.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: " Производительность, интеграция, доступ к устройствам.",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Все варианты правильные",
-                check: true,
+                checkFour: true,
             },
         ]
 
@@ -235,19 +235,19 @@ export const tests = [
         answers: [
             {
                 answerOne: " <strong>",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "<button>, <input>, <a>",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: "<h1>, <nav>",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "<ul>, <li>",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -258,19 +258,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Стиль прописанный в отдельном файле CSS",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Стиль прописанный в файле HTML над тегом <html>",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Cтиль прописаннный не в отдельном файле/блоке, а непосредственно в коде.",
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: "Стиль прописанный при помощи препроцессора SASS",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -281,19 +281,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Переопределить его можно только при помощи атрибута !important ",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Переопределить нельзя",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Можно переопределить если прописать его над тегом <html>",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Можно переопределить используя атрибут style внутри тега",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -304,19 +304,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Да, практически каждый html-элемент обладает набором индивидуальных стилей.",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Нет, индивидуальные стили отсутствуют",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Да, но их немного",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Да, информация стиля для одного элемента указывается в его атрибуте style",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -327,19 +327,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Это отличительная принадлежность, присвоенный кому-либо или чему-либо, знак, предмет для отличия.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Использование правильных тегов, описывающих содержание контента внутри себя.",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: "Это применение определенного стиля элементов веб-страницы.",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Язык похожий на HAML, но предназначенный для упрощения создания CSS-кода",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -350,19 +350,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "aside, nav",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "header, footer",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "span, div",
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: "article, section",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -373,19 +373,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Маркированные списки (<ul>)",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Нумерованные списки (<ol>)",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Cписки определений (<dl>)",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Список пунктов",
-                check: true,
+                checkFour: true,
             },
         ]
 
@@ -396,19 +396,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Используется для тега img.  Если картинка не отображается, то будет отображаться альтернативный текст.",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Используется для тега заголовков h1-h6, для лучшей читаемости заголовков",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Используется для тега style для добавления css стилей в html",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Используется для семантических тегов, для облегчения работы поисковых систем при индексации контента",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -419,19 +419,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "<li>, <ul>",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "<strong>, <b> ",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: "<em>, <i>",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "<br>, <h1>",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -442,19 +442,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "<em>, <i>",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "<h3>, <h4>",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "<article>, <section>",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "<div>, <span>",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -465,19 +465,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "text, number,",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "email, checkbox",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "submit, date",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "style, strong",
-                check: true,
+                checkFour: true,
             },
         ]
 
@@ -488,19 +488,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Для отправки данных на сервер",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Для лучшей читаемости семантических тегов",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Для хранения различной информации.",
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: "В настоящее время они не используются.",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -511,19 +511,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Для создания выпадающего списка с возможностью в html нативной реализации автозаполнения.",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Для получения данных от пользователя",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Для указания поисковым системам содержания страницы",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Для группировки содержимого страницы, которое связано тематически или по смыслу.",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -534,19 +534,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Чтобы как можно раньше показать пользователю хоть какой-то контент, а не белую страницу.",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Чтобы не влиять на процессы построения DOM и стилизации элементов",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Для встраивания или подключения исполняемого JavaScript кода",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "для размещения всего содержимого, которое отображается на веб-странице",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -557,19 +557,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Для размещения всего содержимого, которое отображается на веб-странице.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Чтобы как можно раньше показать пользователю хоть какой-то контент, а не белую страницу.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Для того чтобы не влиять на описанные процессы построения DOM и стилизации элементов",
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: "Для создания интерактивных элементов управления в веб-формах для получения данных от пользователя",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -580,19 +580,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Часть программного HTML-кода, заключенная между тегом <head>...</head> (заголовок страницы).",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Шаблон, соответствующий определенным элементам HTML-разметки",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Это видимая пользователю область веб-страницы",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "HTML элемент, использующийся для рисования графики средствами языков программирования",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -603,19 +603,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Предназначен для хранения служебной информации о странице.",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Cодержит весь контент, который появится на странице.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Содержимое страницы, которое связано тематически или по смыслу.",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Описывается значение атрибутов",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -626,19 +626,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Для того чтобы разбить текстовый контент по секциям",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Для создания таблицы",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: "Для хранения различной технической информации",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Для отправки данных пользователя на сервер",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -649,19 +649,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "th",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "tr",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "tk",
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: "td",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -672,19 +672,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Чтобы сообщить браузеру, как масштабировать и отображать страницу на разных устройствах.",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "Для группировки непронумерованных элементов данных.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Для создания блоков макета CSS и расположения их в документе.",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Для группировки элементов в целях стилизации.",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -695,19 +695,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Язык разметки масштабируемые векторные графики.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Атрибут, содержащий информацию CSS.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "HTML-элемент, который содержит машиночитаемую информацию (metadata) о документе, например его заголовок, скрипты и страницы стилей",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "HTML элемент использующийся для рисования графики средствами языков программирования.",
-                check: true,
+                checkFour: true,
             },
         ]
 
@@ -718,19 +718,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Для создания таблицы.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Для группировки содержимого страницы",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "Для вставки изображений, градиентов и сложной анимации, отрисовки графики",
-                check: true,
+                checkThree: true,
             },
             {
                 answerFour: "Для задания цветов, шрифтов, стилей, расположения отдельных блоков и других аспектов представления внешнего вида этих веб-страниц",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -741,19 +741,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "HTML элемент использующийся для рисования графики средствами языков программирования.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Язык разметки масштабируемые векторные графики.",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: "Атрибут, содержащий информацию CSS",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "HTML-элемент, который содержит машиночитаемую информацию (metadata) о документе, например его заголовок, скрипты и страницы стилей",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -764,19 +764,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Canvas - это одиночный дом элемент, скриптовый язык. SVG - это набор элементов, язык разметки. ",
-                check: true,
+                checkOne: true,
             },
             {
                 answerTwo: "SVG - это одиночный дом элемент, скриптовый язык. Canvas - это набор элементов, язык разметки.",
-                check: false,
+                checkTwo: false,
             },
             {
                 answerThree: "SVG используется для растровой графики,а  canvas для векторной;",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Сanvas изображения поддаются сжатию, в то время как SVG с изображением нельзя сжимать.",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -787,19 +787,19 @@ export const tests = [
         answers: [
             {
                 answerOne: "Cоздание пользовательских интерфейсов веб-приложений, интерактивных анимированных пользовательских интерфейсов, графиков и диаграмм.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Редактирование изображений, создания растровой и игровой графики, визуализации данных, создания фракталов и графиков функций.",
-                check: true,
+                checkTwo: true,
             },
             {
                 answerThree: "Для добавления разных форматов изображений, не поддерживаемых всеми браузерами.",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Создание плавных анимаций",
-                check: false,
+                checkFour: false,
             },
         ]
 
@@ -810,22 +810,53 @@ export const tests = [
         answers: [
             {
                 answerOne: "Редактирование изображений, создания растровой и игровой графики, визуализации данных, создания фракталов и графиков функций.",
-                check: false,
+                checkOne: false,
             },
             {
                 answerTwo: "Создание плавных анимаций",
-                check: false,
+                checkFour: false,
             },
             {
                 answerThree: "Для добавления разных форматов изображений, не поддерживаемых всеми браузерами",
-                check: false,
+                checkThree: false,
             },
             {
                 answerFour: "Cоздание пользовательских интерфейсов веб-приложений, интерактивных анимированных интерфейсов, ",
-                check: true,
+                checkFour: true,
             },
         ]
 
     },
 
 ];
+/*
+export const tests = [
+    {
+        id: 1,
+        question: "Что такое HTML и для чего он нужен?",
+        answerOne: "Это язык гипертекстовой разметки (HyperText Markup Language). Это стандартизированный язык, позволяющий создавать веб-страницы.",
+        answerTwo: "Язык программирования, который позволяет создавать динамически обновляемый контент.",
+        answerThree: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
+        answerFour: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
+        valueOne: true, 
+        valueTwo: false, 
+        valueThree: false,
+        valueFour: false,
+    },
+    {
+        id: 2,
+        question: "Какие глобальные атрибуты есть в HTML?",
+        answerOne: "class, title, style, aria-*, onclick",
+        check: true,
+        answerTwo: "label, max, min, multiple",
+        check: false,
+        answerThree: "name, pattern, placeholder, required",
+        check: false,
+        answerFour: "selected, size, src, summary, type",
+        check: false,
+            
+        
+
+    },
+
+]*/

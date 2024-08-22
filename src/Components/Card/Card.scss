@@ -107,11 +107,11 @@
         .card-button {
             text-align: center;
 
-            .card-btn {
+            .card-btn,.btn-result {
                 width: 442px;
                 height: 62px;
                 border-radius: 50px;
-                background-color: $pink-color;
+                
                 font-family: $font;
                 font-weight: 400;
                 font-size: 20px;
@@ -119,6 +119,14 @@
                 outline: none;
                 
             }
+            .card-btn{
+                background-color: $pink-color;
+            }
+            .btn-result{
+                background-color: $color-green;
+            }
+
+            
         }
 
     }
