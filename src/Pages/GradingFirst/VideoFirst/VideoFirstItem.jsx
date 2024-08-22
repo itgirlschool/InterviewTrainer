@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import VideoPlayer from "../../../Components/VideoPlayer/VideoPlayer";
-// import { useGetVideosQuery } from "../../../app/store/middleware/videosApi.js";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import db from "../../../db.json";
@@ -8,7 +7,6 @@ import { fetchVideos } from "../../../app/store/middleware/middlewareVideos";
 
 export default function VideoFirstItem() {
   const { id } = useParams();
-  // const { data, error, isLoading } = useGetVideosQuery();
 
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
@@ -34,18 +32,29 @@ export default function VideoFirstItem() {
     fetchData();
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   if (data && id) {
+  //     console.log(data.stage1);
+  //     const newVideo = data.stage1.find(
+  //       item => item.id === id,
+  //     );
+  //     setVideo(prevVideo => newVideo);
+  //   } else {
+  //     const newVideo = db.videos.stage1.find(
+  //       item => item.id === id,
+  //     );
+  //     setVideo(prevVideo => newVideo);
+  //   }
+  // }, [data, id]);
+
   useEffect(() => {
     if (data && id) {
-      console.log(data.stage1);
-      // const newVideo = data.stage1.find(
-      //   item => item.id === id,
-      // );
-      // setVideo(prevVideo => newVideo);
-    } else {
-      const newVideo = db.videos.stage1.find(
-        item => item.id === id,
-      );
-      setVideo(prevVideo => newVideo);
+      console.log(data);
+      const newVideo = data.find(item => item.id === id);
+      setVideo(newVideo);
+    } else if (db.videos) {
+      const newVideo = db.find(item => item.id === id);
+      setVideo(newVideo);
     }
   }, [data, id]);
 

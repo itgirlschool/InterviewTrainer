@@ -29,7 +29,7 @@ function ThemeNavBarResponsive({ data, error, status }) {
   };
 
   if (status === "failed" || error) {
-    console.log(status, error);
+    console.error("Status:", status, "Error:", error);
     return (
       <h3>
         Не удалось загрузить данные.... Попробуйте ещё раз

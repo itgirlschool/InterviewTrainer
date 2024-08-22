@@ -3,12 +3,11 @@ import userAuthSlice from "./slice/UserAuthSlice";
 import usersSlice from "./slice/UsersSlice";
 import middlewareUsers from "./middleware/middlewareUsers";
 import middlewareUserAuth from "./middleware/middlewareUsersAuth.js";
+import middlewareVideos from "./middleware/middlewareVideos";
 import firebase from "firebase/compat/app";
 import { firebaseConfig } from "../../../firebaseConfig";
 import "firebase/compat/database";
 import { initializeApp } from "firebase/app";
-// import { videosApi } from "./middleware/videosApi";
-import middlewareVideos from "./middleware/middlewareVideos";
 
 initializeApp(firebaseConfig);
 export const database = firebase
@@ -21,13 +20,12 @@ export const store = configureStore({
   reducer: {
     userAuth: userAuthSlice,
     users: usersSlice,
-    // [videosApi.reducerPath]: videosApi.reducer,
   },
+  devTools: true,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(
       listenerMiddlewareUsers,
       listenerMiddlewareUserAuth,
-      // videosApi.middleware,
       middlewareVideos,
     ),
 });

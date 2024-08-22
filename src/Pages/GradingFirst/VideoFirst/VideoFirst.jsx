@@ -64,7 +64,7 @@ export default function VideoFirst() {
       </div>
       <div className="videoPage__main">
         <ThemeNavBar
-          data={data?.stage1 || []}
+          data={data || []}
           error={error}
           status={status}
         />
