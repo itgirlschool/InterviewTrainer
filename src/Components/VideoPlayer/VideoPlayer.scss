@@ -2,6 +2,10 @@
 @import "../../style/template.scss";
 
 .video__container {
+  background-image: url("../../assets/images/background_video.svg");
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: bottom right;
   padding: 20px;
   display: flex;
   flex-direction: column;
