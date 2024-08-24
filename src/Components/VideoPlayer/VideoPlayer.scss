@@ -10,12 +10,6 @@
   gap: 20px;
   align-items: center;
   position: relative;
-
-  &-pic {
-    position: absolute;
-    top: 30px;
-    right: 20px;
-  }
 }
 
 .video__wrapper {
@@ -24,7 +18,6 @@
   align-content: center;
   width: 80%;
   padding-bottom: 20px;
-  overflow: hidden;
 }
 
 video {
@@ -60,8 +53,19 @@ video {
   }
 }
 
+.bg-image__cat,
+.bg-image__star {
+  display: block;
+}
+.bg-image__star {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+}
+
 @media screen and (max-width: 950px) {
   .video__container {
+    background-color: transparent;
     margin-top: 30px;
     padding: 0;
   }
@@ -76,5 +80,9 @@ video {
     & img {
       width: 16px;
     }
+  }
+  .bg-image__cat,
+  .bg-image__star {
+    display: none;
   }
 }

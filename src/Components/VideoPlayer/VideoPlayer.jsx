@@ -40,7 +40,7 @@ function VideoPlayer({ title, src }) {
   return (
     <div className="video__container">
       <img
-        className="video__container-pic"
+        className="bg-image__star"
         src={star}
         alt="star_video"
       />

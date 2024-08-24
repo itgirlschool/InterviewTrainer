@@ -18,6 +18,7 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     min-height: 90vh;
+    border-radius: 20px;
     box-shadow: $container-boxshadow;
   }
 }
@@ -36,9 +37,19 @@
   .videoPage__main {
     display: flex;
     flex-direction: column;
+    box-shadow: none;
+    min-height: auto;
   }
   .video__container,
   .theme__wrapper {
     background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .theme__wrapper {
+    border-radius: 10px;
+    background-color: white;
+    max-height: 20vh;
   }
 }
