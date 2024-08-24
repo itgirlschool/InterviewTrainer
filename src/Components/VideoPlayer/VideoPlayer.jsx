@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import VideoPlayerInner from "./VideoPlayerInner.jsx";
 import VideoPlayerPagination from "./VideoPlayerPagination.jsx";
 import "./VideoPlayer.scss";
+import star from "../../assets/images/background_star.svg";
 
 function VideoPlayer({ title, src }) {
   const videoRef = useRef(null);
@@ -38,7 +39,12 @@ function VideoPlayer({ title, src }) {
 
   return (
     <div className="video__container">
-      <div>{title}</div>
+      <img
+        className="video__container-pic"
+        src={star}
+        alt="star_video"
+      />
+      {/* <div>{title}</div> */}
       <VideoPlayerInner src={src} videoRef={videoRef} />
       <VideoPlayerPagination isEnded={isEnded} />
     </div>

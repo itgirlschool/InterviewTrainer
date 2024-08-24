@@ -2,34 +2,40 @@
 @import "../../style/template.scss";
 
 .video__container {
-  background-image: url("../../assets/images/background_video.svg");
-  background-repeat: no-repeat;
-  background-color: white;
-  background-position: bottom right;
-  padding: 20px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: $whitecolor;
   gap: 20px;
   align-items: center;
+  position: relative;
+
+  &-pic {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+  }
 }
 
 .video__wrapper {
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 100%;
+  width: 80%;
+  padding-bottom: 20px;
   overflow: hidden;
-  border-radius: 16px;
 }
 
 video {
   width: 100%;
+  border-radius: 16px;
 }
 .video {
   &__nav {
     display: flex;
     justify-content: space-around;
+    align-items: start;
     width: 100%;
   }
 

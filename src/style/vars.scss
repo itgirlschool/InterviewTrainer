@@ -18,4 +18,17 @@ $font: "M PLUS Rounded 1c";
 $Mobile: "(max-width: 431px)";
 $Tablet: "(max-width: 818px)";
 $Desktop: "(min-width: 819px)";
-$theme-nav-bar-color: #444242;
+$scrollbar: linear-gradient(
+  90deg,
+  rgba(228, 226, 226, 1) 0%,
+  rgba(251, 250, 250, 1) 100%
+);
+$scrollbar-thumb: linear-gradient(
+  90deg,
+  rgba(234, 93, 128, 1) 0%,
+  rgba(207, 71, 105, 1) 100%
+);
+$container-boxshadow: 30px 50px 100px 0px
+  rgba(158, 158, 158, 0.25);
+$inner-boxshadow: inset 17px 0px 60px 0px
+  rgba(158, 158, 158, 0.25);

@@ -4,6 +4,7 @@ import "./VideoPlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
+import catBottomPic from "../../assets/images/background_cat-video.svg";
 
 function VideoPlayerPagination({ isEnded }) {
   const [hasWatched, setHasWatched] = useState(false);
@@ -32,6 +33,7 @@ function VideoPlayerPagination({ isEnded }) {
         <img src={prev} alt="video-prev" />
         <p>Предыдущее видео</p>
       </Link>
+      <img src={catBottomPic} alt="video_cat" />
       <Link
         className="video__button"
         to="/"

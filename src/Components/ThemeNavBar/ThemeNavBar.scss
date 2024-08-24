@@ -9,11 +9,11 @@
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-    width: 12px;
-    background-color: #f9f9fd;
+    width: 15px;
+    background: $scrollbar;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: $grey;
+    background: $scrollbar-thumb;
     cursor: pointer;
   }
 }
@@ -29,11 +29,12 @@
   justify-content: space-between;
   margin-bottom: 8px;
   padding-bottom: 8px;
-  border-bottom: $grey solid 1px;
+  border-bottom: $pinkcolor solid 1px;
 
   &_link {
+    color: $blackcolor;
     padding-left: 8px;
-    font-size: 18px;
+    font-size: 20px;
     max-width: 70%;
     white-space: nowrap;
     overflow: hidden;

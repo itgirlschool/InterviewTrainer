@@ -17,16 +17,19 @@
   &__main {
     display: grid;
     grid-template-columns: 1fr 3fr;
+    min-height: 90vh;
+    box-shadow: $container-boxshadow;
   }
 }
 
 .video__container {
   border-radius: 0 20px 20px 0;
-  background-color: $theme-nav-bar-color;
+  background-color: $whitecolor;
+  box-shadow: $inner-boxshadow;
 }
 .theme__wrapper {
   border-radius: 20px 0 0 20px;
-  background-color: $theme-nav-bar-color;
+  background-color: $whitecolor;
 }
 
 @media screen and (max-width: 950px) {
