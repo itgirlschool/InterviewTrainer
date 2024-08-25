@@ -8,7 +8,10 @@ function VideoPlayerInner({ src, videoRef }) {
 
   return (
     <div className="video__wrapper">
-      <video ref={videoRef} controls onError={handleError}>
+      <video
+        ref={videoRef}
+        controls /* onError={handleError}*/
+      >
         <source src={src} type="video/mp4" />
         <p>Ваш браузер не поддерживает видео</p>
       </video>

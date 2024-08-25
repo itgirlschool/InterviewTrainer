@@ -19,9 +19,11 @@ export default function VideoFirstItem() {
 
   if (status === "loading")
     return <div>Загрузка видео...</div>;
-  if (status === "failed" || error)
-    return <div>Невозможно загрузить видео...</div>;
-  if (!data) return <div>Видео не найдены</div>;
+
+  // закомментировано на случай недееспособности мок-сервера
+  // if (status === "failed" || error)
+  //   return <div>Невозможно загрузить видео...</div>;
+  // if (!data) return <div>Видео не найдены</div>;
 
   return (
     <VideoPlayer title={video.title} src={video.src} />

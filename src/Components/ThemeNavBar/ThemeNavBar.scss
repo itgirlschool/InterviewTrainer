@@ -40,6 +40,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
+
+    &.active {
+      color: yellow;
+    }
   }
 
   &_div {
