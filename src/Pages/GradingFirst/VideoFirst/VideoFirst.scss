@@ -3,15 +3,11 @@
 
 .videoPage {
   @include container;
-
   gap: 30px;
 
   &__mainlink {
-    @include stageSubTitlePink;
-  }
-
-  &__titlespan {
-    @include stageSubTitleWhite;
+    color: $pink-color;
+    font-size: 1rem;
   }
 
   &__main {

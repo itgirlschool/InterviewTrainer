@@ -13,9 +13,6 @@ function ThemeNavBarLink({ pagePath, itemId, itemTitle }) {
   return (
     <Link
       to={`/gradingfirst/${pagePath}/${itemId}`}
-      // className={`theme__item_link {active
-      //   ? "active"
-      //   : ""}`}
       className={`theme__item_link ${
         active ? "active" : ""
       }`}

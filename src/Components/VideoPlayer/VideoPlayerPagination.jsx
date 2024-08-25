@@ -33,7 +33,7 @@ function VideoPlayerPagination({ isEnded }) {
         <img src={prev} alt="video-prev" />
         <p>Предыдущее видео</p>
       </Link>
-      <div>
+      <div className="video__cat">
         <img
           className="bg-image__cat"
           src={catBottomPic}

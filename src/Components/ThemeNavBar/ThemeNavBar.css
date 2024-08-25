@@ -38,7 +38,7 @@
   text-decoration: none;
 }
 .theme__item_link.active {
-  color: yellow;
+  color: #ea5d80;
 }
 .theme__item_div {
   display: flex;

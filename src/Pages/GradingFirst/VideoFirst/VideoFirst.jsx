@@ -4,7 +4,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./VideoFirst.scss";
 import { fetchVideos } from "../../../Services/fetchVideos.js";
@@ -38,12 +38,8 @@ export default function VideoFirst() {
           className="videoPage__mainlink"
           to="/gradingfirst"
         >
-          Градация 1
+          Вернуться назад к градации
         </Link>
-        <span className="videoPage__titlespan">
-          {" "}
-          {">"} Видеоуроки
-        </span>
       </div>
       <div className="videoPage__main">
         <ThemeNavBar
