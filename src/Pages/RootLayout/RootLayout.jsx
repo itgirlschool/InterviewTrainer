@@ -28,7 +28,7 @@ export default function RootLayout() {
     onAuthStateChanged(auth,(user)=>{
       if(user){
         dispatch({ type: "SUBSCRIBE_TO_USER",emailUser:user.email});
-        navigate("/home");
+        //navigate("/home");
         return
       }
       navigate('login')

@@ -107,7 +107,7 @@
         .card-button {
             text-align: center;
 
-            .card-btn,.btn-result {
+            .card-btn,.btn-result,.card-btnDisabled {
                 width: 442px;
                 height: 62px;
                 border-radius: 50px;
@@ -122,6 +122,9 @@
             .card-btn{
                 background-color: $pink-color;
             }
+            .card-btnDisabled{
+                background-color: $graycolor;
+            }
             .btn-result{
                 background-color: $color-green;
             }
@@ -131,3 +134,12 @@
 
     }
 }
+
+////
+ .red{
+    color: $red;
+ }
+
+ .green{
+    color: $color-green;
+ }

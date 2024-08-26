@@ -10,6 +10,10 @@ export default function Slider() {
     const [testEnd, setTestEnd] = useState(false);
     
    
+
+
+
+
    
     return (
         <div className='slider-container'>
@@ -47,6 +51,7 @@ export default function Slider() {
                         setCount={setCount}
                         setTestEnd={setTestEnd}
                         tests={tests}
+                       
                         
                     />
 
