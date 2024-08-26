@@ -4,9 +4,7 @@ export const fetchVideos = createAsyncThunk(
   "videos/fetchVideos",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        "http://localhost:3001/videos",
-      );
+      const response = await fetch("/videos.json");
 
       if (!response.ok) {
         throw new Error("Failed to fetch videos");
