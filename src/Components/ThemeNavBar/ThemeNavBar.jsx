@@ -33,16 +33,15 @@ function ThemeNavBarResponsive({
     setMobNavBarClass("mobile__t_wrapper");
   };
 
-  // закомментировано на случай недееспособности мок-сервера
-  // if (status === "failed" || error) {
-  //   console.error("Status:", status, "Error:", error);
-  //   return (
-  //     <h3>
-  //       Не удалось загрузить данные.... Попробуйте ещё раз
-  //       позже
-  //     </h3>
-  //   );
-  // }
+  if (status === "failed" || error) {
+    console.error("Status:", status, "Error:", error);
+    return (
+      <h3>
+        Не удалось загрузить данные.... Попробуйте ещё раз
+        позже
+      </h3>
+    );
+  }
 
   if (status === "loading") {
     return <h3>Loading....</h3>;
