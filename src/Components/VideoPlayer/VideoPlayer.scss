@@ -51,6 +51,11 @@ video {
     &:hover {
       background: $grey;
     }
+
+    &.disabled {
+      cursor: unset;
+      background: $pinkcolor;
+    }
   }
 }
 

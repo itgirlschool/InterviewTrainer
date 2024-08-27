@@ -9,33 +9,26 @@ function VideoPlayer({ src }) {
   const [isEnded, setIsEnded] = useState(false);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      setIsEnded(false);
-    }
-  }, [src]);
-
-  useEffect(() => {
     const videoElement = videoRef.current;
 
-    const handleEnded = () => {
-      setIsEnded(true);
-    };
-
     if (videoElement) {
-      videoElement.addEventListener("ended", handleEnded);
-    }
+      videoElement.load();
+      setIsEnded(false);
 
-    return () => {
-      if (videoElement) {
+      const handleEnded = () => {
+        setIsEnded(true);
+      };
+
+      videoElement.addEventListener("ended", handleEnded);
+
+      return () => {
         videoElement.removeEventListener(
           "ended",
           handleEnded,
         );
-      }
-      setIsEnded(false);
-    };
-  }, []);
+      };
+    }
+  }, [src]);
 
   return (
     <div className="video__container">

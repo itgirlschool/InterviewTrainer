@@ -47,6 +47,10 @@ video {
 .video__button:hover {
   background: #777777;
 }
+.video__button.disabled {
+  cursor: unset;
+  background: #ea5d80;
+}
 
 .bg-image__cat,
 .bg-image__star {

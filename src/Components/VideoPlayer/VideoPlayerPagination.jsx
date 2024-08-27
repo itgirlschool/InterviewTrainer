@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./VideoPlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
@@ -9,30 +9,43 @@ import catBottomPic from "../../assets/images/background_cat-video.svg";
 function VideoPlayerPagination({ isEnded }) {
   const [hasWatched, setHasWatched] = useState(false);
 
-  const watching = (
-    <>
-      <img src={check} alt="video-checked" />
-      <p>Я посмотрела</p>
-    </>
-  );
-
-  const watched = (
-    <>
-      <img src={next} alt="video-next" />
-      <p>Следующее видео</p>
-    </>
-  );
-
   const handleCheck = () => {
     if (isEnded) setHasWatched(true);
   };
 
+  const watching = (
+    <button
+      className={`video__button ${
+        !isEnded ? "disabled" : ""
+      }`}
+      disabled={!isEnded}
+      onClick={handleCheck}
+    >
+      <img src={check} alt="video-checked" />
+      <p>Я посмотрела</p>
+    </button>
+  );
+
+  const watched = (
+    <button
+      className="video__button"
+      disabled={!isEnded}
+      onClick={handleNext}
+    >
+      <img src={next} alt="video-next" />
+      <p>Следующее видео</p>
+    </button>
+  );
+
   return (
     <div className="video__nav">
-      <Link className="video__button" to="/">
+      <button
+        className="video__button"
+        onClick={handlePrev}
+      >
         <img src={prev} alt="video-prev" />
         <p>Предыдущее видео</p>
-      </Link>
+      </button>
       <div className="video__cat">
         <img
           className="bg-image__cat"
@@ -40,14 +53,8 @@ function VideoPlayerPagination({ isEnded }) {
           alt="video_cat"
         />
       </div>
-      <Link
-        className="video__button"
-        to="/"
-        disabled={!isEnded}
-        onClick={handleCheck}
-      >
-        {hasWatched && isEnded ? watched : watching}
-      </Link>
+
+      {hasWatched && isEnded ? watched : watching}
     </div>
   );
 }
