@@ -3,12 +3,15 @@ import "./ThemeNavBar.scss";
 import ThemeNavBarInner from "./ThemeNavBarInner.jsx";
 import list from "../../assets/images/navbar_mobile_list.svg";
 import close from "../../assets/images/navbar_mobile_list-close.svg";
+import hide from "../../assets/images/navbar_hide.svg";
 
 function ThemeNavBarResponsive({
   data,
   error,
   status,
   pagePath,
+  handleHideNavBar,
+  navBarIsHidden,
 }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -23,14 +26,14 @@ function ThemeNavBarResponsive({
   }, []);
 
   const [mobNavBarClass, setMobNavBarClass] = useState(
-    "mobile__t_wrapper",
+    "mobile__wrapper",
   );
 
   const handleOpenNavBar = () => {
-    setMobNavBarClass("mobile__t_wrapper__active");
+    setMobNavBarClass("mobile__wrapper__active");
   };
   const handleCloseNavBar = () => {
-    setMobNavBarClass("mobile__t_wrapper");
+    setMobNavBarClass("mobile__wrapper");
   };
 
   if (status === "failed" || error) {
@@ -72,7 +75,27 @@ function ThemeNavBarResponsive({
           </div>
         </div>
       ) : (
-        <ThemeNavBarInner data={data} pagePath={pagePath} />
+        <div className="desktop__container">
+          <button
+            className="desktop__hide_btn"
+            onClick={handleHideNavBar}
+          >
+            <img
+              className={
+                navBarIsHidden
+                  ? "unhidden-img"
+                  : "hidden-img"
+              }
+              src={hide}
+              alt="hide"
+            />
+          </button>
+          <ThemeNavBarInner
+            data={data}
+            pagePath={pagePath}
+            navBarIsHidden={navBarIsHidden}
+          />
+        </div>
       )}
     </div>
   );

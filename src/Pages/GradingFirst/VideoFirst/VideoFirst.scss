@@ -10,12 +10,23 @@
     font-size: 1rem;
   }
 
-  &__main {
+  &__main,
+  &__main__modified {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    min-height: 90vh;
+    justify-content: center;
+    width: 100%;
     border-radius: 20px;
-    box-shadow: $container-boxshadow;
+    // box-shadow: $container-boxshadow;
+  }
+
+  &__main {
+    grid-template-columns: 30% 1fr;
+    transition: grid-template-columns 0.5s ease;
+  }
+
+  &__main__modified {
+    grid-template-columns: 0 1fr;
+    transition: grid-template-columns 0.5s ease;
   }
 }
 
