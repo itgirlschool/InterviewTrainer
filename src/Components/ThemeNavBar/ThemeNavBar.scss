@@ -9,6 +9,8 @@
   overflow-y: scroll;
   transition: width 0.5s ease;
   overflow-x: hidden;
+  border-radius: 20px 0 0 20px;
+  background-color: $whitecolor;
 
   &__hidden {
     width: 0%;
@@ -149,6 +151,9 @@
     overflow-y: auto;
     margin-top: 16px;
     font-size: 8px;
+    border-radius: 10px;
+    background-color: white;
+    max-height: 20vh;
 
     &::-webkit-scrollbar {
       width: 10px;

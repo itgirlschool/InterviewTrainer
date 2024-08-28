@@ -38,30 +38,32 @@ export default function VideoFirst() {
   };
 
   return (
-    <div className="videoPage">
-      <div className="videoPage__title">
-        <Link
-          className="videoPage__mainlink"
-          to="/gradingfirst"
+    <div>
+      <div className="videoPage">
+        <div className="videoPage__title">
+          <Link
+            className="videoPage__mainlink"
+            to="/gradingfirst"
+          >
+            Вернуться назад к градации
+          </Link>
+        </div>
+        <div
+          className={
+            navBarIsHidden
+              ? "videoPage__main__modified"
+              : "videoPage__main"
+          }
         >
-          Вернуться назад к градации
-        </Link>
-      </div>
-      <div
-        className={
-          navBarIsHidden
-            ? "videoPage__main__modified"
-            : "videoPage__main"
-        }
-      >
-        <ThemeNavBar
-          data={videos || []}
-          error={error}
-          status={status}
-          pagePath="videofirst"
-          toggleNavBar={handleToggleNavBar}
-        />
-        <Outlet navBarIsHidden={navBarIsHidden} />
+          <ThemeNavBar
+            data={videos || []}
+            error={error}
+            status={status}
+            pagePath="videofirst"
+            toggleNavBar={handleToggleNavBar}
+          />
+          <Outlet navBarIsHidden={navBarIsHidden} />
+        </div>
       </div>
     </div>
   );

@@ -38,31 +38,11 @@
   }
 }
 
-.video__container {
-  box-shadow: $inner-boxshadow;
-}
-.theme__wrapper {
-  border-radius: 20px 0 0 20px;
-  background-color: $whitecolor;
-}
-
 @media screen and (max-width: 950px) {
   .videoPage__main {
     display: flex;
     flex-direction: column;
     box-shadow: none;
     min-height: auto;
-  }
-  .video__container,
-  .theme__wrapper {
-    background-color: transparent;
-    box-shadow: none;
-    border-radius: 0;
-  }
-
-  .theme__wrapper {
-    border-radius: 10px;
-    background-color: white;
-    max-height: 20vh;
   }
 }
