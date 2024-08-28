@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: $whitecolor;
-  gap: 20px;
+  gap: 35px;
   align-items: center;
   position: relative;
 }
@@ -19,11 +19,12 @@
   justify-content: center;
   align-content: center;
   width: 80%;
-  padding-bottom: 20px;
 }
 
 video {
   width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000;
   border-radius: 16px;
 }
 .video {
@@ -54,7 +55,7 @@ video {
 
     &.disabled {
       cursor: unset;
-      background: $pinkcolor;
+      background: rgba($color: $pinkcolor, $alpha: 0.7);
     }
   }
 }

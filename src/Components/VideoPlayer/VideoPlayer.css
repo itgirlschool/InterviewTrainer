@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #ffffff;
-  gap: 20px;
+  gap: 35px;
   align-items: center;
   position: relative;
 }
@@ -16,11 +16,12 @@
   justify-content: center;
   align-content: center;
   width: 80%;
-  padding-bottom: 20px;
 }
 
 video {
   width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000;
   border-radius: 16px;
 }
 
@@ -49,7 +50,7 @@ video {
 }
 .video__button.disabled {
   cursor: unset;
-  background: #ea5d80;
+  background: rgba(234, 93, 128, 0.7);
 }
 
 .bg-image__cat,
@@ -76,6 +77,7 @@ video {
     font-size: 8px;
     padding: 4px 12px;
     min-width: 110px;
+    margin: 0 20px;
   }
   .video__button img {
     width: 16px;
