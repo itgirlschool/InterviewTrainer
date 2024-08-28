@@ -22,17 +22,23 @@
   &__main {
     grid-template-columns: 30% 1fr;
     transition: grid-template-columns 0.5s ease;
+
+    .video__container {
+      border-radius: 0 20px 20px 0;
+    }
   }
 
   &__main__modified {
     grid-template-columns: 0 1fr;
     transition: grid-template-columns 0.5s ease;
+
+    .video__container {
+      border-radius: 20px;
+    }
   }
 }
 
 .video__container {
-  border-radius: 0 20px 20px 0;
-  background-color: $whitecolor;
   box-shadow: $inner-boxshadow;
 }
 .theme__wrapper {

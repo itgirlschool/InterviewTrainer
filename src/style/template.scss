@@ -63,10 +63,3 @@
   color: $whitecolor;
   background: $pinkcolor;
 }
-
-@mixin player__btn {
-  background: transparent;
-  border: transparent;
-  outline: none;
-  cursor: pointer;
-}
