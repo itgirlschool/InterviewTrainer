@@ -35,8 +35,8 @@
 @mixin container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 4vh 10vw 4vh 10vw;
+  gap: 30px;
+  padding: 4vh 4.5vw;
 }
 
 @mixin stageSubTitlePink {

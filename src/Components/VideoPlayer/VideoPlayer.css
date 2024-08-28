@@ -1,7 +1,5 @@
 .video__container {
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding: 40px 40px 0 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,28 +7,20 @@
   gap: 35px;
   align-items: center;
   position: relative;
+  box-shadow: inset 17px 0px 60px 0px rgba(158, 158, 158, 0.25);
 }
-
-.video__wrapper {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+.video__container video {
   width: 80%;
-}
-
-video {
-  width: 100%;
   aspect-ratio: 16/9;
-  background-color: #000;
+  background-color: #1b1c20;
   border-radius: 16px;
 }
-
-.video__nav {
-  display: flex;
-  justify-content: space-around;
+.video__container .video__nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: start;
 }
-.video__button {
+.video__container .video__button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,25 +30,22 @@ video {
   background: #ea5d80;
   border: none;
   border-radius: 50px;
-  font-size: 18px;
+  font-size: 16px;
   padding: 4px 24px;
-  min-width: 270px;
+  min-width: 200px;
   text-decoration: none;
 }
-.video__button:hover {
+.video__container .video__button:hover {
   background: #777777;
 }
-.video__button.disabled {
+.video__container .video__button.disabled {
   cursor: unset;
   background: rgba(234, 93, 128, 0.7);
 }
-
-.bg-image__cat,
-.bg-image__star {
-  display: block;
+.video__container .bg-image__cat {
+  width: 100%;
 }
-
-.bg-image__star {
+.video__container .bg-image__star {
   position: absolute;
   top: 30px;
   right: 20px;
@@ -69,21 +56,20 @@ video {
     background-color: transparent;
     margin-top: 30px;
     padding: 0;
+    box-shadow: none;
+    border-radius: 0;
   }
-  .video__wrapper {
-    width: 100%;
-  }
-  .video__button {
+  .video__container .video__button {
     font-size: 8px;
     padding: 4px 12px;
     min-width: 110px;
     margin: 0 20px;
   }
-  .video__button img {
+  .video__container .video__button img {
     width: 16px;
   }
-  .bg-image__cat,
-  .bg-image__star {
+  .video__container .bg-image__cat,
+  .video__container .bg-image__star {
     display: none;
   }
 }

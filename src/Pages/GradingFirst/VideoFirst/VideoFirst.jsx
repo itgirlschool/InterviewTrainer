@@ -12,16 +12,17 @@ import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
 
 export default function VideoFirst() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const videos = useSelector(state => state.videos.videos);
   const status = useSelector(state => state.videos.status);
   const error = useSelector(state => state.videos.error);
+  const { pathname } = useLocation();
+  const [navBarIsHidden, setNavBarIsHidden] =
+    useState(false);
 
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
-
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (pathname === "/gradingfirst/videofirst") {
@@ -31,9 +32,7 @@ export default function VideoFirst() {
     }
   }, [pathname, navigate]);
 
-  const [navBarIsHidden, setNavBarIsHidden] =
-    useState(false);
-  const handleToggleNavBar = () => {
+  const toggleNavBar = () => {
     setNavBarIsHidden(!navBarIsHidden);
   };
 
@@ -60,9 +59,9 @@ export default function VideoFirst() {
             error={error}
             status={status}
             pagePath="videofirst"
-            toggleNavBar={handleToggleNavBar}
+            toggleNavBar={toggleNavBar}
           />
-          <Outlet navBarIsHidden={navBarIsHidden} />
+          <Outlet />
         </div>
       </div>
     </div>
