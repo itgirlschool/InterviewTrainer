@@ -50,3 +50,23 @@
     }
   }
 }
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__outer {
+    width: 100%;
+    height: 10px;
+    background-color: $ligth-grey;
+    border-radius: 64px;
+  }
+
+  &__inner {
+    width: 30%;
+    height: 100%;
+    background-color: $pink-color;
+    border-radius: 64px;
+  }
+}

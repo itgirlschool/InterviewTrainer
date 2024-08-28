@@ -24,6 +24,16 @@ export default function GradeContents({
           <h2 className="grading__container_title">
             Видеоуроки
           </h2>
+          <div className="progressBar">
+            <div className="progressBar__title">
+              <span>Пройдено: </span>
+              <span className="progressBar__value">30</span>
+              <span>%</span>
+            </div>
+            <div className="progressBar__outer">
+              <div className="progressBar__inner"></div>
+            </div>
+          </div>
           <p>{videoDescription}</p>
           <Link className="button" to={videoPath}>
             Начать
@@ -33,6 +43,16 @@ export default function GradeContents({
           <h2 className="grading__container_title">
             Теория
           </h2>
+          <div className="progressBar">
+            <div className="progressBar__title">
+              <span>Пройдено: </span>
+              <span className="progressBar__value">30</span>
+              <span>%</span>
+            </div>
+            <div className="progressBar__outer">
+              <div className="progressBar__inner"></div>
+            </div>
+          </div>
           <div>{theoryDescription}</div>
           <Link className="button" to={theoryPath}>
             Начать
@@ -42,6 +62,16 @@ export default function GradeContents({
           <h2 className="grading__container_title">
             Тесты
           </h2>
+          <div className="progressBar">
+            <div className="progressBar__title">
+              <span>Пройдено: </span>
+              <span className="progressBar__value">30</span>
+              <span>%</span>
+            </div>
+            <div className="progressBar__outer">
+              <div className="progressBar__inner"></div>
+            </div>
+          </div>
           <div>{testsDescription}</div>
           <Link className="button" to={testsPath}>
             Начать
