@@ -33,7 +33,7 @@ export default function VideoFirst() {
 
   const [navBarIsHidden, setNavBarIsHidden] =
     useState(false);
-  const handleHideNavBar = () => {
+  const handleToggleNavBar = () => {
     setNavBarIsHidden(!navBarIsHidden);
   };
 
@@ -59,8 +59,7 @@ export default function VideoFirst() {
           error={error}
           status={status}
           pagePath="videofirst"
-          handleHideNavBar={handleHideNavBar}
-          navBarIsHidden={navBarIsHidden}
+          toggleNavBar={handleToggleNavBar}
         />
         <Outlet navBarIsHidden={navBarIsHidden} />
       </div>

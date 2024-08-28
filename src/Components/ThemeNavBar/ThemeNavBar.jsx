@@ -10,8 +10,7 @@ function ThemeNavBarResponsive({
   error,
   status,
   pagePath,
-  handleHideNavBar,
-  navBarIsHidden,
+  toggleNavBar,
 }) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -34,6 +33,15 @@ function ThemeNavBarResponsive({
   };
   const handleCloseNavBar = () => {
     setMobNavBarClass("mobile__wrapper");
+  };
+
+  const [navBarIsHidden, setNavBarIsHidden] =
+    useState(false);
+
+  const handleHideNavBar = () => {
+    const newState = !navBarIsHidden;
+    setNavBarIsHidden(newState);
+    toggleNavBar(newState);
   };
 
   if (status === "failed" || error) {
