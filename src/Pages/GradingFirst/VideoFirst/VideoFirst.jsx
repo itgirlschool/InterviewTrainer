@@ -4,7 +4,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./VideoFirst.scss";
 import { fetchVideos } from "../../../Services/fetchVideos.js";
@@ -31,6 +31,12 @@ export default function VideoFirst() {
     }
   }, [pathname, navigate]);
 
+  const [navBarIsHidden, setNavBarIsHidden] =
+    useState(false);
+  const handleHideNavBar = () => {
+    setNavBarIsHidden(!navBarIsHidden);
+  };
+
   return (
     <div className="videoPage">
       <div className="videoPage__title">
@@ -41,14 +47,22 @@ export default function VideoFirst() {
           Вернуться назад к градации
         </Link>
       </div>
-      <div className="videoPage__main">
+      <div
+        className={
+          navBarIsHidden
+            ? "videoPage__main__modified"
+            : "videoPage__main"
+        }
+      >
         <ThemeNavBar
           data={videos || []}
           error={error}
           status={status}
           pagePath="videofirst"
+          handleHideNavBar={handleHideNavBar}
+          navBarIsHidden={navBarIsHidden}
         />
-        <Outlet />
+        <Outlet navBarIsHidden={navBarIsHidden} />
       </div>
     </div>
   );
