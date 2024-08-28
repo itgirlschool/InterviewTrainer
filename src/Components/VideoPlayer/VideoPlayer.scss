@@ -25,7 +25,7 @@
 video {
   width: 100%;
   aspect-ratio: 16/9;
-  background-color: #000;
+  background-color: $blackcolor;
   border-radius: 16px;
 }
 .video {
@@ -61,9 +61,8 @@ video {
   }
 }
 
-.bg-image__cat,
-.bg-image__star {
-  display: block;
+.bg-image__cat {
+  width: 100%;
 }
 .bg-image__star {
   position: absolute;

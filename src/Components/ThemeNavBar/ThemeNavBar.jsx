@@ -16,7 +16,7 @@ function ThemeNavBarResponsive({
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 480);
+      setIsMobile(window.innerWidth < 950);
     };
 
     window.addEventListener("resize", handleResize);
