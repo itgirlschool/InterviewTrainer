@@ -7,12 +7,12 @@
     justify-content: center;
 
     .card-wrapper {
-        width: 691px;
-        height: 563px;
-        padding-top: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 876px; //691px
+        height: 692px; //563px
+        padding-top: 100px;
+        //display: flex;
+        /// flex-direction: column;
+        // align-items: center;
         border: 1px solid $pink-color;
         border-radius: 28px;
         background-color: $white-color;
@@ -20,81 +20,87 @@
 
 
         .card-question {
+            max-width: 651px;
+            padding-left: 125px;
             .question {
-                max-width: 565px;
+                //max-width: 565px;
                 width: 100%;
                 margin-bottom: 46px;
                 font-family: $font;
                 font-weight: 800;
                 font-size: 20px;
-                
+
             }
         }
 
+        .answer-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-        .answers-list {
-            width: 555px;
+            .answers-list {
+                width: 629px;
+               
+
+                .answer {
+                    display: flex;
+                    align-items: center;
 
 
-            .answer {
-                display: flex;
-                align-items: center; 
 
-                .radio-input {
-                    appearance: none;
-                    width: 32px;
-                    height: 32px;
-                    margin: 0 10px 0 0;
-                    background-image: url("../../../assets/empty-circle.svg");
-                    background-repeat: no-repeat;
-                  }
+                    .radio-input {
+                        // display: block;
+                        appearance: none;
+                        width: 32px;
+                        height: 32px;
+                        background-image: url("../../../assets/empty-circle.svg");
+                        background-repeat: no-repeat;
+                    }
 
-                  .radio-input:checked {
-                   appearance: none;
-                    width: 32px;
-                    height: 32px;
-                    margin: 0 10px 0 0;
-                    background-image: url("../../../assets/full-circle.svg");
-                    background-repeat: no-repeat;
-                  }
+                    .radio-input:checked {
+                        appearance: none;
+                        width: 32px;
+                        height: 32px;
+                        background-image: url("../../../assets/full-circle.svg");
+                        background-repeat: no-repeat;
+                    }
 
-                  .red-img:checked {
-                    appearance: none;
-                    width: 32px;
-                    height: 32px;
-                    margin: 0 10px 0 0;
-                    background-image: url("../../../assets/red-full-circle.svg");
-                    background-repeat: no-repeat;
-                  }
-          
-                  .green-img:checked {
-                    appearance: none;
-                    width: 32px;
-                    height: 32px;
-                    margin: 0 10px 0 0;
-                    background-image: url("../../../assets/green-full-circle.svg");
-                    background-repeat: no-repeat;
-                  }
+                    .red-img:checked {
+                        appearance: none;
+                        width: 32px;
+                        height: 32px;
+                        background-image: url("../../../assets/red-full-circle.svg");
+                        background-repeat: no-repeat;
+                    }
 
-                .answer-text {
-                    display: block;
-                    max-width: 478px;
-                    width: 100%;
-                    height: 41px;
-                    padding-left: 36px;
-                    font-family: $font;
-                    font-weight: 400;
-                    font-size: 18px;
-                    
+                    .green-img:checked {
+                        appearance: none;
+                        width: 32px;
+                        height: 32px;
+                        background-image: url("../../../assets/green-full-circle.svg");
+                        background-repeat: no-repeat;
+                    }
+
+                    .answer-text {
+                        display: block;
+                        max-width: 551px;
+                        width: 100%;
+                        height: 41px;
+                        padding-left: 46px;
+                        font-family: $font;
+                        font-weight: 400;
+                        font-size: 18px;
+
+                    }
                 }
-            }
 
-            .answer:not(:last-child) {
-                margin-bottom: 47px;
-            }
+                .answer:not(:last-child) {
+                    margin-bottom: 47px;
+                }
 
-            .answer:last-child {
-                margin-bottom: 42px;
+                .answer:last-child {
+                    margin-bottom: 100px;
+                }
             }
         }
     }
@@ -106,13 +112,13 @@
         .btn-result,
         .card-btnDisabled {
             width: 442px;
-            height: 62px;
+            height: 60px;
             border-radius: 50px;
             border: none;
 
-            font-family: $font;
+            font-family: "Jost", sans-serif;
             font-weight: 400;
-            font-size: 20px;
+            font-size: 16px;
             color: $white-color;
         }
 

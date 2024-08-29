@@ -84,7 +84,7 @@ export default function Card({ item, count, setCount, tests }) {
                 <div className='card-question'>
                     <h5 className='question'>{question}</h5>
                 </div>
-
+               <div className='answer-wrapper'>
                 <div className='answers-list'>
                     {/*Тестовый вариант*/}
                     {answers.map((item) => {
@@ -132,7 +132,7 @@ export default function Card({ item, count, setCount, tests }) {
                         </div>
                     })}
                 </div>
-
+                </div>
                 {switchButton ?
                     (showResults ? <div className='card-button'>
                         <button
