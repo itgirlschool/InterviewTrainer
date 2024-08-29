@@ -3,21 +3,21 @@ export const tests = [
         id: 1,
         question: "Что такое HTML и для чего он нужен?",
         answers: [
-            {
-                answerOne: "Это язык гипертекстовой разметки (HyperText Markup Language). Это стандартизированный язык, позволяющий создавать веб-страницы.",
-                checkOne: true,
+            {   id:1.1,
+                text: "Это язык гипертекстовой разметки (HyperText Markup Language). Это стандартизированный язык, позволяющий создавать веб-страницы.",
+                isRight: true,
             },
-            {
-                answerTwo: "Язык программирования, который позволяет создавать динамически обновляемый контент.",
-                checkTwo: false,
+            {   id: 1.2,
+                text: "Язык программирования, который позволяет создавать динамически обновляемый контент.",
+                isRight: false,
             },
-            {
-                answerThree: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
-                checkThree: false,
+            {   id:1.3,
+                text: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
+                isRight: false,
             },
-            {
-                answerFour: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
-                checkFour: false,
+            {   id:1.4,
+                text: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
+                isRight: false,
             },
         ]
 
@@ -26,21 +26,21 @@ export const tests = [
         id: 2,
         question: "Какие глобальные атрибуты есть в HTML?",
         answers: [
-            {
-                answerOne: "class, title, style, aria-*, onclick",
-                checkOne: true,
+            {   id:2.1,
+                text: "class, title, style, aria-*, onclick",
+                isRight: true,
             },
-            {
-                answerTwo: "label, max, min, multiple",
-                checkTwo: false,
+            {   id:2.2,
+                text: "label, max, min, multiple",
+                isRight: false,
             },
-            {
-                answerThree: "name, pattern, placeholder, required",
-                checkThree: false,
+            {   id:3.3, 
+                text: "name, pattern, placeholder, required",
+                isRight: false,
             },
-            {
-                answerFour: "selected, size, src, summary, type",
-                checkFour: false,
+            {   id:4.4,
+                text: "selected, size, src, summary, type",
+                isRight: false,
             },
         ]
 
@@ -49,21 +49,21 @@ export const tests = [
         id: 3,
         question: "Назовите количество основных типов категорий контента?",
         answers: [
-            {
-                answerOne: "2 типа: основные категории контента, категории контента для элементов форм, Особые категории контента.",
-                checkOne: false,
+            {   id:3.1,
+                text: "2 типа: основные категории контента, категории контента для элементов форм, Особые категории контента.",
+                isRight: false,
             },
-            {
-                answerTwo: "3 типа: Основные категории контента; Категории контента для элементов форм; Особые категории контента, описывающие редкие категории, актуальные только для нескольких элементов.",
-                checkTwo: true,
+            {   id:3.2,
+                text: "3 типа: Основные категории контента; Категории контента для элементов форм; Особые категории контента, описывающие редкие категории, актуальные только для нескольких элементов.",
+                isRight: true,
             },
-            {
-                answerThree: '4 типа: Первичные категории контента; Вторичные категории контента; Основные категории контента; Категории контента для элементов форм;',
-                checkThree: false,
+            {   id:3.3,
+                text: '4 типа: Первичные категории контента; Вторичные категории контента; Основные категории контента; Категории контента для элементов форм;',
+                isRight: false,
             },
-            {
-                answerFour: '5 типов: Первичные категории контента; Вторичные категории контента; Основные категории контента; Категории контента для элементов форм; Особые категории контента, описывающие редкие категории, актуальные только для нескольких элементов.',
-                checkFour: false,
+            {   id: 3.4,
+                text: '5 типов: Первичные категории контента; Вторичные категории контента; Основные категории контента; Категории контента для элементов форм; Особые категории контента, описывающие редкие категории, актуальные только для нескольких элементов.',
+                isRight: false,
             },
         ]
 
@@ -72,21 +72,21 @@ export const tests = [
         id: 4,
         question: "Основные категории контента:",
         answers: [
-            {
-                answerOne: "Встроенный контент, Метаданные, Потоковый контент, Секционный контент.",
-                checkOne: false,
+            {   id:4.1,
+                text: "Встроенный контент, Метаданные, Потоковый контент, Секционный контент.",
+                isRight: false,
             },
-            {
-                answerTwo: "Встроенный контент, Интерактивный контент, Явный контент, Контент форм.",
-                checkTwo: false,
+            {   id: 4.2,
+                text: "Встроенный контент, Интерактивный контент, Явный контент, Контент форм.",
+                isRight: false,
             },
-            {
-                answerThree: 'Метаданные, Потоковый контент, Секционный контент, Заголовочный контент, Фразовый контент, Встроенный контент, Интерактивный контент, Явный контент, Контент форм',
-                checkThree: true,
+            {   id:4.3,
+                text: 'Метаданные, Потоковый контент, Секционный контент, Заголовочный контент, Фразовый контент, Встроенный контент, Интерактивный контент, Явный контент, Контент форм',
+                isRight: true,
             },
-            {
-                answerFour: 'Метаданные, Потоковый контент, Секционный контент, Заголовочный контент, Фразовый контент,',
-                checkFour: false,
+            {   id: 4.4,
+                text: 'Метаданные, Потоковый контент, Секционный контент, Заголовочный контент, Фразовый контент,',
+                isRight: false,
             },
         ]
 
@@ -95,21 +95,21 @@ export const tests = [
         id: 5,
         question: "Для чего служит doctype?",
         answers: [
-            {
-                answerOne: "Для обозначения основного тела документа",
-                checkOne: false,
+            {   id: 5.1,
+                text: "Для обозначения основного тела документа",
+                isRight: false,
             },
-            {
-                answerTwo: "Для указания типа документа браузеру",
-                checkTwo: true,
+            {   id: 5.2,
+                text: "Для указания типа документа браузеру",
+                isRight: true,
             },
-            {
-                answerThree: "Для связи html и css-документов",
-                checkThree: false,
+            {   id: 5.3,
+                text: "Для связи html и css-документов",
+                isRight: false,
             },
-            {
-                answerFour: "Для подключения шрифтов в документе",
-                checkFour: false,
+            {   id:5.4,
+                text: "Для подключения шрифтов в документе",
+                isRight: false,
             },
         ]
 
@@ -119,20 +119,20 @@ export const tests = [
         question: "Какие три тега являются обязательными для создания минимально допустимой HTML-страницы?",
         answers: [
             {
-                answerOne: "section ,h1, article",
-                checkOne: false,
+                text: "section ,h1, article",
+                isRight: false,
             },
             {
-                answerTwo: "header, main, footer",
-                checkTwo: false,
+                text: "header, main, footer",
+                isRight: false,
             },
             {
-                answerThree: "nav, a, head",
-                checkThree: false,
+                text: "nav, a, head",
+                isRight: false,
             },
             {
-                answerFour: "html, head, body",
-                checkFour: true,
+                text: "html, head, body",
+                isRight: true,
             },
         ]
 
@@ -142,20 +142,20 @@ export const tests = [
         question: "Что такое валидация?",
         answers: [
             {
-                answerOne: "Проверка документа специальной программой валидатором на соответствие установленным веб-стандартам и обнаружение ошибок.",
-                checkOne: true,
+                text: "Проверка документа специальной программой валидатором на соответствие установленным веб-стандартам и обнаружение ошибок.",
+                isRight: true,
             },
             {
-                answerTwo: "Программный интерфейс, то есть описание способов взаимодействия одной компьютерной программы с другими.",
-                checkTwo: false,
+                text: "Программный интерфейс, то есть описание способов взаимодействия одной компьютерной программы с другими.",
+                isRight: false,
             },
             {
-                answerThree: "Расширение протокола HTTP для поддержки шифрования в целях повышения безопасности.",
-                checkThree: false,
+                text: "Расширение протокола HTTP для поддержки шифрования в целях повышения безопасности.",
+                isRight: false,
             },
             {
-                answerFour: "Признак, приписываемое качество, свойство",
-                checkFour: false,
+                text: "Признак, приписываемое качество, свойство",
+                isRight: false,
             },
         ]
 
@@ -165,20 +165,20 @@ export const tests = [
         question: "Сколько и какие типы проверок HTML документа существуют?",
         answers: [
             {
-                answerOne: "1 тип проверки: валидация HTML документа",
-                checkOne: false,
+                text: "1 тип проверки: валидация HTML документа",
+                isRight: false,
             },
             {
-                answerTwo: "2 типа проверок: валидация HTML и CSS документа",
-                checkTwo: false,
+                text: "2 типа проверок: валидация HTML и CSS документа",
+                isRight: false,
             },
             {
-                answerThree: "4 типа проверки: проверка синтаксиса, проверка вложенности, проверка dtd, проверка на наличие посторонних элементов.",
-                checkThree: true,
+                text: "4 типа проверки: проверка синтаксиса, проверка вложенности, проверка dtd, проверка на наличие посторонних элементов.",
+                isRight: true,
             },
             {
-                answerFour: "3 типа проверки: проверка синтаксиса, проверка вложенности, валидация HTML документа",
-                checkFour: false,
+                text: "3 типа проверки: проверка синтаксиса, проверка вложенности, валидация HTML документа",
+                isRight: false,
             },
         ]
 
@@ -188,20 +188,20 @@ export const tests = [
         question: "Основные этапы проверок валидности HTML-документа?",
         answers: [
             {
-                answerOne: "Валидация HTML, валидация CSS, валидация ссылок, валидация адаптивности, проверка синтаксиса кода",
-                checkOne: true,
+                text: "Валидация HTML, валидация CSS, валидация ссылок, валидация адаптивности, проверка синтаксиса кода",
+                isRight: true,
             },
             {
-                answerTwo: "Валидация HTML, валидация картинок, валидация JavaScript кода, проверка React кода",
-                checkTwo: false,
+                text: "Валидация HTML, валидация картинок, валидация JavaScript кода, проверка React кода",
+                isRight: false,
             },
             {
-                answerThree: "Валидация HTML, валидация CSS, проверка расширением Prittier",
-                checkThree: false,
+                text: "Валидация HTML, валидация CSS, проверка расширением Prittier",
+                isRight: false,
             },
             {
-                answerFour: "Валидация HTML, валидация CSS",
-                checkFour: false,
+                text: "Валидация HTML, валидация CSS",
+                isRight: false,
             },
         ]
 
@@ -211,20 +211,20 @@ export const tests = [
         question: "Какие из описанных ниже блоков отностятся к HTML5 ?",
         answers: [
             {
-                answerOne: "2D/3D-графика и эффекты, стилизация, семантика.",
-                checkOne: false,
+                text: "2D/3D-графика и эффекты, стилизация, семантика.",
+                isRight: false,
             },
             {
-                answerTwo: "Офлайн и хранилище, мультимедиа.",
-                checkTwo: false,
+                text: "Офлайн и хранилище, мультимедиа.",
+                isRight: false,
             },
             {
-                answerThree: " Производительность, интеграция, доступ к устройствам.",
-                checkThree: false,
+                text: " Производительность, интеграция, доступ к устройствам.",
+                isRight: false,
             },
             {
-                answerFour: "Все варианты правильные",
-                checkFour: true,
+                text: "Все варианты правильные",
+                isRight: true,
             },
         ]
 
@@ -234,20 +234,20 @@ export const tests = [
         question: "Какой тэг использовать для того, чтобы сверстать кнопку?",
         answers: [
             {
-                answerOne: " <strong>",
-                checkOne: false,
+                text: " <strong>",
+                isRight: false,
             },
             {
-                answerTwo: "<button>, <input>, <a>",
-                checkTwo: true,
+                text: "<button>, <input>, <a>",
+                isRight: true,
             },
             {
-                answerThree: "<h1>, <nav>",
-                checkThree: false,
+                text: "<h1>, <nav>",
+                isRight: false,
             },
             {
-                answerFour: "<ul>, <li>",
-                checkFour: false,
+                text: "<ul>, <li>",
+                isRight: false,
             },
         ]
 
@@ -257,20 +257,20 @@ export const tests = [
         question: "Что такое инлайновый стиль?",
         answers: [
             {
-                answerOne: "Стиль прописанный в отдельном файле CSS",
-                checkOne: false,
+                text: "Стиль прописанный в отдельном файле CSS",
+                isRight: false,
             },
             {
-                answerTwo: "Стиль прописанный в файле HTML над тегом <html>",
-                checkTwo: false,
+                text: "Стиль прописанный в файле HTML над тегом <html>",
+                isRight: false,
             },
             {
-                answerThree: "Cтиль прописаннный не в отдельном файле/блоке, а непосредственно в коде.",
-                checkThree: true,
+                text: "Cтиль прописаннный не в отдельном файле/блоке, а непосредственно в коде.",
+                isRight: true,
             },
             {
-                answerFour: "Стиль прописанный при помощи препроцессора SASS",
-                checkFour: false,
+                text: "Стиль прописанный при помощи препроцессора SASS",
+                isRight: false,
             },
         ]
 
@@ -280,20 +280,20 @@ export const tests = [
         question: "Можно ли переопределить инлайновый стиль?",
         answers: [
             {
-                answerOne: "Переопределить его можно только при помощи атрибута !important ",
-                checkOne: true,
+                text: "Переопределить его можно только при помощи атрибута !important ",
+                isRight: true,
             },
             {
-                answerTwo: "Переопределить нельзя",
-                checkTwo: false,
+                text: "Переопределить нельзя",
+                isRight: false,
             },
             {
-                answerThree: "Можно переопределить если прописать его над тегом <html>",
-                checkThree: false,
+                text: "Можно переопределить если прописать его над тегом <html>",
+                isRight: false,
             },
             {
-                answerFour: "Можно переопределить используя атрибут style внутри тега",
-                checkFour: false,
+                text: "Можно переопределить используя атрибут style внутри тега",
+                isRight: false,
             },
         ]
 
@@ -303,20 +303,20 @@ export const tests = [
         question: "Есть ли у HTML элементов свои дефолтные специфичные стили?",
         answers: [
             {
-                answerOne: "Да, практически каждый html-элемент обладает набором индивидуальных стилей.",
-                checkOne: true,
+                text: "Да, практически каждый html-элемент обладает набором индивидуальных стилей.",
+                isRight: true,
             },
             {
-                answerTwo: "Нет, индивидуальные стили отсутствуют",
-                checkTwo: false,
+                text: "Нет, индивидуальные стили отсутствуют",
+                isRight: false,
             },
             {
-                answerThree: "Да, но их немного",
-                checkThree: false,
+                text: "Да, но их немного",
+                isRight: false,
             },
             {
-                answerFour: "Да, информация стиля для одного элемента указывается в его атрибуте style",
-                checkFour: false,
+                text: "Да, информация стиля для одного элемента указывается в его атрибуте style",
+                isRight: false,
             },
         ]
 
@@ -326,20 +326,20 @@ export const tests = [
         question: "Что такое семантика?",
         answers: [
             {
-                answerOne: "Это отличительная принадлежность, присвоенный кому-либо или чему-либо, знак, предмет для отличия.",
-                checkOne: false,
+                text: "Это отличительная принадлежность, присвоенный кому-либо или чему-либо, знак, предмет для отличия.",
+                isRight: false,
             },
             {
-                answerTwo: "Использование правильных тегов, описывающих содержание контента внутри себя.",
-                checkTwo: true,
+                text: "Использование правильных тегов, описывающих содержание контента внутри себя.",
+                isRight: true,
             },
             {
-                answerThree: "Это применение определенного стиля элементов веб-страницы.",
-                checkThree: false,
+                text: "Это применение определенного стиля элементов веб-страницы.",
+                isRight: false,
             },
             {
-                answerFour: "Язык похожий на HAML, но предназначенный для упрощения создания CSS-кода",
-                checkFour: false,
+                text: "Язык похожий на HAML, но предназначенный для упрощения создания CSS-кода",
+                isRight: false,
             },
         ]
 
@@ -349,20 +349,20 @@ export const tests = [
         question: "Выберите два не семантических тега:",
         answers: [
             {
-                answerOne: "aside, nav",
-                checkOne: false,
+                text: "aside, nav",
+                isRight: false,
             },
             {
-                answerTwo: "header, footer",
-                checkTwo: false,
+                text: "header, footer",
+                isRight: false,
             },
             {
-                answerThree: "span, div",
-                checkThree: true,
+                text: "span, div",
+                isRight: true,
             },
             {
-                answerFour: "article, section",
-                checkFour: false,
+                text: "article, section",
+                isRight: false,
             },
         ]
 
@@ -372,20 +372,20 @@ export const tests = [
         question: "Что не относится к типам списков HTML?",
         answers: [
             {
-                answerOne: "Маркированные списки (<ul>)",
-                checkOne: false,
+                text: "Маркированные списки (<ul>)",
+                isRight: false,
             },
             {
-                answerTwo: "Нумерованные списки (<ol>)",
-                checkTwo: false,
+                text: "Нумерованные списки (<ol>)",
+                isRight: false,
             },
             {
-                answerThree: "Cписки определений (<dl>)",
-                checkThree: false,
+                text: "Cписки определений (<dl>)",
+                isRight: false,
             },
             {
-                answerFour: "Список пунктов",
-                checkFour: true,
+                text: "Список пунктов",
+                isRight: true,
             },
         ]
 
@@ -395,20 +395,20 @@ export const tests = [
         question: "Для какого тэга используется атрибут alt и зачем он нужен?",
         answers: [
             {
-                answerOne: "Используется для тега img.  Если картинка не отображается, то будет отображаться альтернативный текст.",
-                checkOne: true,
+                text: "Используется для тега img.  Если картинка не отображается, то будет отображаться альтернативный текст.",
+                isRight: true,
             },
             {
-                answerTwo: "Используется для тега заголовков h1-h6, для лучшей читаемости заголовков",
-                checkTwo: false,
+                text: "Используется для тега заголовков h1-h6, для лучшей читаемости заголовков",
+                isRight: false,
             },
             {
-                answerThree: "Используется для тега style для добавления css стилей в html",
-                checkThree: false,
+                text: "Используется для тега style для добавления css стилей в html",
+                isRight: false,
             },
             {
-                answerFour: "Используется для семантических тегов, для облегчения работы поисковых систем при индексации контента",
-                checkFour: false,
+                text: "Используется для семантических тегов, для облегчения работы поисковых систем при индексации контента",
+                isRight: false,
             },
         ]
 
@@ -418,20 +418,20 @@ export const tests = [
         question: "Какие теги делают текст жирным?",
         answers: [
             {
-                answerOne: "<li>, <ul>",
-                checkOne: false,
+                text: "<li>, <ul>",
+                isRight: false,
             },
             {
-                answerTwo: "<strong>, <b> ",
-                checkTwo: true,
+                text: "<strong>, <b> ",
+                isRight: true,
             },
             {
-                answerThree: "<em>, <i>",
-                checkThree: false,
+                text: "<em>, <i>",
+                isRight: false,
             },
             {
-                answerFour: "<br>, <h1>",
-                checkFour: false,
+                text: "<br>, <h1>",
+                isRight: false,
             },
         ]
 
@@ -441,20 +441,20 @@ export const tests = [
         question: "Какие теги делают текст курсивным?",
         answers: [
             {
-                answerOne: "<em>, <i>",
-                checkOne: true,
+                text: "<em>, <i>",
+                isRight: true,
             },
             {
-                answerTwo: "<h3>, <h4>",
-                checkTwo: false,
+                text: "<h3>, <h4>",
+                isRight: false,
             },
             {
-                answerThree: "<article>, <section>",
-                checkThree: false,
+                text: "<article>, <section>",
+                isRight: false,
             },
             {
-                answerFour: "<div>, <span>",
-                checkFour: false,
+                text: "<div>, <span>",
+                isRight: false,
             },
         ]
 
@@ -464,20 +464,20 @@ export const tests = [
         question: "Что из предложенного ниже не является видом <input> элементов в HTML?",
         answers: [
             {
-                answerOne: "text, number,",
-                checkOne: false,
+                text: "text, number,",
+                isRight: false,
             },
             {
-                answerTwo: "email, checkbox",
-                checkTwo: false,
+                text: "email, checkbox",
+                isRight: false,
             },
             {
-                answerThree: "submit, date",
-                checkThree: false,
+                text: "submit, date",
+                isRight: false,
             },
             {
-                answerFour: "style, strong",
-                checkFour: true,
+                text: "style, strong",
+                isRight: true,
             },
         ]
 
@@ -487,20 +487,20 @@ export const tests = [
         question: "Для чего используют data-атрибуты?",
         answers: [
             {
-                answerOne: "Для отправки данных на сервер",
-                checkOne: false,
+                text: "Для отправки данных на сервер",
+                isRight: false,
             },
             {
-                answerTwo: "Для лучшей читаемости семантических тегов",
-                checkTwo: false,
+                text: "Для лучшей читаемости семантических тегов",
+                isRight: false,
             },
             {
-                answerThree: "Для хранения различной информации.",
-                checkThree: true,
+                text: "Для хранения различной информации.",
+                isRight: true,
             },
             {
-                answerFour: "В настоящее время они не используются.",
-                checkFour: false,
+                text: "В настоящее время они не используются.",
+                isRight: false,
             },
         ]
 
@@ -510,20 +510,20 @@ export const tests = [
         question: "Для чего используется элемент <datalist>?",
         answers: [
             {
-                answerOne: "Для создания выпадающего списка с возможностью в html нативной реализации автозаполнения.",
-                checkOne: true,
+                text: "Для создания выпадающего списка с возможностью в html нативной реализации автозаполнения.",
+                isRight: true,
             },
             {
-                answerTwo: "Для получения данных от пользователя",
-                checkTwo: false,
+                text: "Для получения данных от пользователя",
+                isRight: false,
             },
             {
-                answerThree: "Для указания поисковым системам содержания страницы",
-                checkThree: false,
+                text: "Для указания поисковым системам содержания страницы",
+                isRight: false,
             },
             {
-                answerFour: "Для группировки содержимого страницы, которое связано тематически или по смыслу.",
-                checkFour: false,
+                text: "Для группировки содержимого страницы, которое связано тематически или по смыслу.",
+                isRight: false,
             },
         ]
 
@@ -533,20 +533,20 @@ export const tests = [
         question: "Почему для подключения CSS стилей тег <link> раполагают внутри тэга <head>?",
         answers: [
             {
-                answerOne: "Чтобы как можно раньше показать пользователю хоть какой-то контент, а не белую страницу.",
-                checkOne: true,
+                text: "Чтобы как можно раньше показать пользователю хоть какой-то контент, а не белую страницу.",
+                isRight: true,
             },
             {
-                answerTwo: "Чтобы не влиять на процессы построения DOM и стилизации элементов",
-                checkTwo: false,
+                text: "Чтобы не влиять на процессы построения DOM и стилизации элементов",
+                isRight: false,
             },
             {
-                answerThree: "Для встраивания или подключения исполняемого JavaScript кода",
-                checkThree: false,
+                text: "Для встраивания или подключения исполняемого JavaScript кода",
+                isRight: false,
             },
             {
-                answerFour: "для размещения всего содержимого, которое отображается на веб-странице",
-                checkFour: false,
+                text: "для размещения всего содержимого, которое отображается на веб-странице",
+                isRight: false,
             },
         ]
 
@@ -556,20 +556,20 @@ export const tests = [
         question: " Почему <script> для подключения JS нужно ставить перед закрывающимся тэгом </body>?",
         answers: [
             {
-                answerOne: "Для размещения всего содержимого, которое отображается на веб-странице.",
-                checkOne: false,
+                text: "Для размещения всего содержимого, которое отображается на веб-странице.",
+                isRight: false,
             },
             {
-                answerTwo: "Чтобы как можно раньше показать пользователю хоть какой-то контент, а не белую страницу.",
-                checkTwo: false,
+                text: "Чтобы как можно раньше показать пользователю хоть какой-то контент, а не белую страницу.",
+                isRight: false,
             },
             {
-                answerThree: "Для того чтобы не влиять на описанные процессы построения DOM и стилизации элементов",
-                checkThree: true,
+                text: "Для того чтобы не влиять на описанные процессы построения DOM и стилизации элементов",
+                isRight: true,
             },
             {
-                answerFour: "Для создания интерактивных элементов управления в веб-формах для получения данных от пользователя",
-                checkFour: false,
+                text: "Для создания интерактивных элементов управления в веб-формах для получения данных от пользователя",
+                isRight: false,
             },
         ]
 
@@ -579,20 +579,20 @@ export const tests = [
         question: "Что такое мета-тэги?",
         answers: [
             {
-                answerOne: "Часть программного HTML-кода, заключенная между тегом <head>...</head> (заголовок страницы).",
-                checkOne: true,
+                text: "Часть программного HTML-кода, заключенная между тегом <head>...</head> (заголовок страницы).",
+                isRight: true,
             },
             {
-                answerTwo: "Шаблон, соответствующий определенным элементам HTML-разметки",
-                checkTwo: false,
+                text: "Шаблон, соответствующий определенным элементам HTML-разметки",
+                isRight: false,
             },
             {
-                answerThree: "Это видимая пользователю область веб-страницы",
-                checkThree: false,
+                text: "Это видимая пользователю область веб-страницы",
+                isRight: false,
             },
             {
-                answerFour: "HTML элемент, использующийся для рисования графики средствами языков программирования",
-                checkFour: false,
+                text: "HTML элемент, использующийся для рисования графики средствами языков программирования",
+                isRight: false,
             },
         ]
 
@@ -602,20 +602,20 @@ export const tests = [
         question: "Что описывается в тэге <head>?",
         answers: [
             {
-                answerOne: "Предназначен для хранения служебной информации о странице.",
-                checkOne: true,
+                text: "Предназначен для хранения служебной информации о странице.",
+                isRight: true,
             },
             {
-                answerTwo: "Cодержит весь контент, который появится на странице.",
-                checkTwo: false,
+                text: "Cодержит весь контент, который появится на странице.",
+                isRight: false,
             },
             {
-                answerThree: "Содержимое страницы, которое связано тематически или по смыслу.",
-                checkThree: false,
+                text: "Содержимое страницы, которое связано тематически или по смыслу.",
+                isRight: false,
             },
             {
-                answerFour: "Описывается значение атрибутов",
-                checkFour: false,
+                text: "Описывается значение атрибутов",
+                isRight: false,
             },
         ]
 
@@ -625,20 +625,20 @@ export const tests = [
         question: "Что описывается в тэге <head>?",
         answers: [
             {
-                answerOne: "Для того чтобы разбить текстовый контент по секциям",
-                checkOne: false,
+                text: "Для того чтобы разбить текстовый контент по секциям",
+                isRight: false,
             },
             {
-                answerTwo: "Для создания таблицы",
-                checkTwo: true,
+                text: "Для создания таблицы",
+                isRight: true,
             },
             {
-                answerThree: "Для хранения различной технической информации",
-                checkThree: false,
+                text: "Для хранения различной технической информации",
+                isRight: false,
             },
             {
-                answerFour: "Для отправки данных пользователя на сервер",
-                checkFour: false,
+                text: "Для отправки данных пользователя на сервер",
+                isRight: false,
             },
         ]
 
@@ -648,20 +648,20 @@ export const tests = [
         question: "Какого тега не существует для создания таблицы?",
         answers: [
             {
-                answerOne: "th",
-                checkOne: false,
+                text: "th",
+                isRight: false,
             },
             {
-                answerTwo: "tr",
-                checkTwo: false,
+                text: "tr",
+                isRight: false,
             },
             {
-                answerThree: "tk",
-                checkThree: true,
+                text: "tk",
+                isRight: true,
             },
             {
-                answerFour: "td",
-                checkFour: false,
+                text: "td",
+                isRight: false,
             },
         ]
 
@@ -671,20 +671,20 @@ export const tests = [
         question: "Зачем нужен мета-тег viewport?",
         answers: [
             {
-                answerOne: "Чтобы сообщить браузеру, как масштабировать и отображать страницу на разных устройствах.",
-                checkOne: true,
+                text: "Чтобы сообщить браузеру, как масштабировать и отображать страницу на разных устройствах.",
+                isRight: true,
             },
             {
-                answerTwo: "Для группировки непронумерованных элементов данных.",
-                checkTwo: false,
+                text: "Для группировки непронумерованных элементов данных.",
+                isRight: false,
             },
             {
-                answerThree: "Для создания блоков макета CSS и расположения их в документе.",
-                checkThree: false,
+                text: "Для создания блоков макета CSS и расположения их в документе.",
+                isRight: false,
             },
             {
-                answerFour: "Для группировки элементов в целях стилизации.",
-                checkFour: false,
+                text: "Для группировки элементов в целях стилизации.",
+                isRight: false,
             },
         ]
 
@@ -694,20 +694,20 @@ export const tests = [
         question: "Что такое <canvas>?",
         answers: [
             {
-                answerOne: "Язык разметки масштабируемые векторные графики.",
-                checkOne: false,
+                text: "Язык разметки масштабируемые векторные графики.",
+                isRight: false,
             },
             {
-                answerTwo: "Атрибут, содержащий информацию CSS.",
-                checkTwo: false,
+                text: "Атрибут, содержащий информацию CSS.",
+                isRight: false,
             },
             {
-                answerThree: "HTML-элемент, который содержит машиночитаемую информацию (metadata) о документе, например его заголовок, скрипты и страницы стилей",
-                checkThree: false,
+                text: "HTML-элемент, который содержит машиночитаемую информацию (metadata) о документе, например его заголовок, скрипты и страницы стилей",
+                isRight: false,
             },
             {
-                answerFour: "HTML элемент использующийся для рисования графики средствами языков программирования.",
-                checkFour: true,
+                text: "HTML элемент использующийся для рисования графики средствами языков программирования.",
+                isRight: true,
             },
         ]
 
@@ -717,20 +717,20 @@ export const tests = [
         question: "Для чего используется элемент <canvas>?",
         answers: [
             {
-                answerOne: "Для создания таблицы.",
-                checkOne: false,
+                text: "Для создания таблицы.",
+                isRight: false,
             },
             {
-                answerTwo: "Для группировки содержимого страницы",
-                checkTwo: false,
+                text: "Для группировки содержимого страницы",
+                isRight: false,
             },
             {
-                answerThree: "Для вставки изображений, градиентов и сложной анимации, отрисовки графики",
-                checkThree: true,
+                text: "Для вставки изображений, градиентов и сложной анимации, отрисовки графики",
+                isRight: true,
             },
             {
-                answerFour: "Для задания цветов, шрифтов, стилей, расположения отдельных блоков и других аспектов представления внешнего вида этих веб-страниц",
-                checkFour: false,
+                text: "Для задания цветов, шрифтов, стилей, расположения отдельных блоков и других аспектов представления внешнего вида этих веб-страниц",
+                isRight: false,
             },
         ]
 
@@ -740,20 +740,20 @@ export const tests = [
         question: "Что такое <svg>?",
         answers: [
             {
-                answerOne: "HTML элемент использующийся для рисования графики средствами языков программирования.",
-                checkOne: false,
+                text: "HTML элемент использующийся для рисования графики средствами языков программирования.",
+                isRight: false,
             },
             {
-                answerTwo: "Язык разметки масштабируемые векторные графики.",
-                checkTwo: true,
+                text: "Язык разметки масштабируемые векторные графики.",
+                isRight: true,
             },
             {
-                answerThree: "Атрибут, содержащий информацию CSS",
-                checkThree: false,
+                text: "Атрибут, содержащий информацию CSS",
+                isRight: false,
             },
             {
-                answerFour: "HTML-элемент, который содержит машиночитаемую информацию (metadata) о документе, например его заголовок, скрипты и страницы стилей",
-                checkFour: false,
+                text: "HTML-элемент, который содержит машиночитаемую информацию (metadata) о документе, например его заголовок, скрипты и страницы стилей",
+                isRight: false,
             },
         ]
 
@@ -763,20 +763,20 @@ export const tests = [
         question: "Разница между <canvas> и <svg>?",
         answers: [
             {
-                answerOne: "Canvas - это одиночный дом элемент, скриптовый язык. SVG - это набор элементов, язык разметки. ",
-                checkOne: true,
+                text: "Canvas - это одиночный дом элемент, скриптовый язык. SVG - это набор элементов, язык разметки. ",
+                isRight: true,
             },
             {
-                answerTwo: "SVG - это одиночный дом элемент, скриптовый язык. Canvas - это набор элементов, язык разметки.",
-                checkTwo: false,
+                text: "SVG - это одиночный дом элемент, скриптовый язык. Canvas - это набор элементов, язык разметки.",
+                isRight: false,
             },
             {
-                answerThree: "SVG используется для растровой графики,а  canvas для векторной;",
-                checkThree: false,
+                text: "SVG используется для растровой графики,а  canvas для векторной;",
+                isRight: false,
             },
             {
-                answerFour: "Сanvas изображения поддаются сжатию, в то время как SVG с изображением нельзя сжимать.",
-                checkFour: false,
+                text: "Сanvas изображения поддаются сжатию, в то время как SVG с изображением нельзя сжимать.",
+                isRight: false,
             },
         ]
 
@@ -786,20 +786,20 @@ export const tests = [
         question: "В каких случаях лучше использовать <canvas>?",
         answers: [
             {
-                answerOne: "Cоздание пользовательских интерфейсов веб-приложений, интерактивных анимированных пользовательских интерфейсов, графиков и диаграмм.",
-                checkOne: false,
+                text: "Cоздание пользовательских интерфейсов веб-приложений, интерактивных анимированных пользовательских интерфейсов, графиков и диаграмм.",
+                isRight: false,
             },
             {
-                answerTwo: "Редактирование изображений, создания растровой и игровой графики, визуализации данных, создания фракталов и графиков функций.",
-                checkTwo: true,
+                text: "Редактирование изображений, создания растровой и игровой графики, визуализации данных, создания фракталов и графиков функций.",
+                isRight: true,
             },
             {
-                answerThree: "Для добавления разных форматов изображений, не поддерживаемых всеми браузерами.",
-                checkThree: false,
+                text: "Для добавления разных форматов изображений, не поддерживаемых всеми браузерами.",
+                isRight: false,
             },
             {
-                answerFour: "Создание плавных анимаций",
-                checkFour: false,
+                text: "Создание плавных анимаций",
+                isRight: false,
             },
         ]
 
@@ -809,20 +809,20 @@ export const tests = [
         question: "В каких случаях лучше использовать SVG?",
         answers: [
             {
-                answerOne: "Редактирование изображений, создания растровой и игровой графики, визуализации данных, создания фракталов и графиков функций.",
-                checkOne: false,
+                text: "Редактирование изображений, создания растровой и игровой графики, визуализации данных, создания фракталов и графиков функций.",
+                isRight: false,
             },
             {
-                answerTwo: "Создание плавных анимаций",
-                checkFour: false,
+                text: "Создание плавных анимаций",
+                isRight: false,
             },
             {
-                answerThree: "Для добавления разных форматов изображений, не поддерживаемых всеми браузерами",
-                checkThree: false,
+                text: "Для добавления разных форматов изображений, не поддерживаемых всеми браузерами",
+                isRight: false,
             },
             {
-                answerFour: "Cоздание пользовательских интерфейсов веб-приложений, интерактивных анимированных интерфейсов, ",
-                checkFour: true,
+                text: "Cоздание пользовательских интерфейсов веб-приложений, интерактивных анимированных интерфейсов, ",
+                isRight: true,
             },
         ]
 
@@ -834,10 +834,10 @@ export const tests = [
     {
         id: 1,
         question: "Что такое HTML и для чего он нужен?",
-        answerOne: "Это язык гипертекстовой разметки (HyperText Markup Language). Это стандартизированный язык, позволяющий создавать веб-страницы.",
-        answerTwo: "Язык программирования, который позволяет создавать динамически обновляемый контент.",
-        answerThree: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
-        answerFour: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
+        text: "Это язык гипертекстовой разметки (HyperText Markup Language). Это стандартизированный язык, позволяющий создавать веб-страницы.",
+        text: "Язык программирования, который позволяет создавать динамически обновляемый контент.",
+        text: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
+        text: "Строго типизированный объектно-ориентированный язык программирования общего назначения.",
         valueOne: true, 
         valueTwo: false, 
         valueThree: false,
@@ -846,13 +846,13 @@ export const tests = [
     {
         id: 2,
         question: "Какие глобальные атрибуты есть в HTML?",
-        answerOne: "class, title, style, aria-*, onclick",
+        text: "class, title, style, aria-*, onclick",
         check: true,
-        answerTwo: "label, max, min, multiple",
+        text: "label, max, min, multiple",
         check: false,
-        answerThree: "name, pattern, placeholder, required",
+        text: "name, pattern, placeholder, required",
         check: false,
-        answerFour: "selected, size, src, summary, type",
+        text: "selected, size, src, summary, type",
         check: false,
             
         

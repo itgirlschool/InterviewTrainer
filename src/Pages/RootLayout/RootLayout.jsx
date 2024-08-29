@@ -31,7 +31,7 @@ export default function RootLayout() {
         //navigate("/home");
         return
       }
-      navigate('login')
+      //navigate('login')
     })
   }, []);
 

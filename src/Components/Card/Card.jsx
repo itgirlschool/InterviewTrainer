@@ -1,23 +1,47 @@
 import './Card.scss';
 import { useState, useEffect } from 'react';
+import emptyCircle from "../../../assets/empty-circle.svg";
+
 
 export default function Card({ item, count, setCount, tests }) {
     const { question, answers } = item;
 
-
     const [switchButton, setSwitchButton] = useState(false);
-    const [switchResults, setSwitchResults] = useState(false);
+    const [showResults, setShowResults] = useState(false);
     const [trueAnswers, setTrueAnswers] = useState(0);
-    const [disabledButton, setDisabledButton] = useState(true);
+    const [disabled, setDisabled] = useState(true);
+    const [inputDisabled, setInputDisabled] = useState(false);
+    const [valueId, setValueId] = useState(null);
+    const [inputValue, setInputValue] = useState(null);
+    
+    const [valueResultId,setValueResultId] = useState(null);
+    const [inputValueResult, setInputValueResult] = useState(null);
 
     const testsLength = tests.length;
-    const amountOfQuestions = count + 1;
+    const currentTestNumber = count + 1;
 
-    ////////////////////
+    useEffect(()=>{
+        setInputDisabled(false);
+    },[item.id])
 
-    const getAnswer = (e) => {
-        setDisabledButton(false);
-        if (e.target.value === 'true') {
+    const handleInputResult = (id, e) => {
+
+        if (id, e.target.value) {
+            setInputValue(e.target.value);
+            setValueId(id);
+        } else {
+            console.log('данных нет');
+
+        }
+        setDisabled(false);
+       
+    }
+
+    {/* const getAnswer = (e) => {
+        console.log(e);
+
+        setDisabled(false);
+        if (e.target.value === true) {
 
             setTrueAnswers((prevState) => {
                 const amount = prevState + 1;
@@ -28,38 +52,31 @@ export default function Card({ item, count, setCount, tests }) {
             setTrueAnswers(trueAnswers)
         }
 
-        if (e.target.checked == true && e.target.value === 'true') {
-            console.log('зеленый');
-
-        } else if (e.target.checked == true && e.target.value === 'false') {
-            console.log("красный");
-
-        }
-        console.log(e);
-
     }
+*/}
 
 
-
-    const handleSendBtn = () => {
+    const handleAnswer = () => {
         setSwitchButton(true);
-        if ([amountOfQuestions].includes(testsLength)) {
-            setSwitchResults(true)
+        if ([currentTestNumber].includes(testsLength)) {
+            setShowResults(true)
         }
-        console.log(trueAnswers);
+        setValueResultId(valueId);
+        setInputValueResult(inputValue);
+        setInputDisabled(true);
     }
 
-    const handleNextBtn = () => {
+    const handleNext = () => {
         setSwitchButton(false);
-        setDisabledButton(true);
+        setDisabled(true);
         setCount(count + 1);
+        
     }
 
     const checkResults = () => {
         console.log(trueAnswers);
 
     }
-
 
     return (
         <div className='card__container' key={item.id}>
@@ -69,80 +86,72 @@ export default function Card({ item, count, setCount, tests }) {
                 </div>
 
                 <div className='answers-list'>
-                    {/*Ответ один*/}
-                    <div className='answer'>
-                        <input
-                            onClick={(e) => getAnswer(e)}
-                            type="radio"
-                            name="answer"
-                            id="first-answer"
-                            hidden
-                            value={answers[0].checkOne}
+                    {/*Тестовый вариант*/}
+                    {answers.map((item) => {
+                        return <div className={`answer ${item.id === valueResultId &&
+                                                         //inputValue === true &&
+                                                        item.isRight === true ?
+                                                        'green' : ''}
+                                                        ${item.id===valueResultId &&
+                                                         item.isRight ===false? 
+                                                        "red": ""} 
+                                                        ${//item.id !== valueId  
+                                                        ![item.id].includes(valueResultId)&& 
+                                                        inputValueResult === false && 
+                                                        item.isRight===true ?
+                                                        'green':''}`} 
+                                                        key={item.id}>
 
-                        />
-                        <label htmlFor="first-answer" className="radio-style"></label>
-                        <label htmlFor="first-answer" className='answer-text'>{answers[0].answerOne}</label>
-                    </div>
-                    {/*Ответ два*/}
-                    <div className='answer'>
-                        <input
-                            onClick={(e) => getAnswer(e)}
-                            type="radio"
-                            name="answer"
-                            id="second-answer"
-                            hidden
-                            value={answers[1].checkTwo}
-
-                        />
-                        <label htmlFor="second-answer" className="radio-style"></label>
-                        <label htmlFor="first-answer" className='answer-text'>{answers[1].answerTwo}</label>
-                    </div>
-                    {/*Ответ три*/}
-                    <div className='answer'>
-                        <input
-                            onClick={(e) => getAnswer(e)}
-                            type="radio"
-                            name="answer"
-                            id="third-answer"
-                            hidden
-                            value={answers[2].checkThree}
-
-                        />
-                        <label htmlFor="third-answer" className="radio-style"></label>
-                        <label htmlFor="first-answer" className='answer-text'>{answers[2].answerThree}</label>
-                    </div>
-                    {/*Ответ четыре*/}
-                    <div className='answer'>
-                        <input
-                            onClick={(e) => getAnswer(e)}
-                            type="radio"
-                            name="answer"
-                            id="fourth-answer"
-                            hidden
-                            value={answers[3].checkFour}
-
-                        />
-                        <label htmlFor="fourth-answer" className="radio-style"></label>
-                        <label htmlFor="first-answer" className='answer-text'>{answers[3].answerFour}</label>
-                    </div>
+                            <input
+                                className={`radio-input 
+                                    ${item.id === valueResultId &&
+                                       item.isRight === true ?
+                                       'green-img' : ''}
+                                       ${item.id===valueResultId &&
+                                        item.isRight ===false? 
+                                       "red-img": ""} 
+                                       ${//item.id !== valueId  третье условие пока не работает
+                                       ![item.id].includes(valueResultId)&& 
+                                       inputValueResult === false && 
+                                       item.isRight===true ?
+                                       'green-img':''}
+                                    `}
+                                type="radio"
+                                name="answer"
+                                src={emptyCircle} alt='circle'
+                                id={item.id}
+                                value={item.isRight}
+                                onClick={(e) => handleInputResult(item.id, e)}
+                                disabled={inputDisabled}
+                            />
+                            <label
+                                htmlFor={item.id}
+                                className='answer-text'>
+                                {item.text}
+                            </label>
+                        </div>
+                    })}
                 </div>
 
                 {switchButton ?
-                    (switchResults ? <div className='card-button'>
-                        <button className='btn-result' onClick={checkResults}>Узнать результат</button>
+                    (showResults ? <div className='card-button'>
+                        <button
+                            className='btn-result'
+                            onClick={checkResults}>Узнать результат</button>
                     </div> :
                         <div className='card-button'>
-                            <button className='card-btn' onClick={handleNextBtn}>Далее</button>
+                            <button
+                                className='card-btn'
+                                onClick={handleNext}>Далее</button>
                         </div>
                     )
                     :
                     <div className='card-button'>
                         <button
-
-                            className={disabledButton ? 'card-btnDisabled' : 'card-btn'}
-                            onClick={handleSendBtn}
-                            disabled={disabledButton}
-                        >Отправить</button>
+                            className={disabled ? 'card-btnDisabled' : 'card-btn'}
+                            onClick={handleAnswer}
+                            disabled={disabled}
+                        >Ответить</button>
                     </div>
                 }
 

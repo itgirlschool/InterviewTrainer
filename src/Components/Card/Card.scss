@@ -3,20 +3,21 @@
 
 .card__container {
     display: flex;
-    //padding-bottom: 30px;
     align-items: center;
     justify-content: center;
 
     .card-wrapper {
         width: 691px;
         height: 563px;
-        border: 1px solid $pink-color;
-        border-radius: 28px;
-
         padding-top: 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        border: 1px solid $pink-color;
+        border-radius: 28px;
+        background-color: $white-color;
+
+
 
         .card-question {
             .question {
@@ -26,7 +27,7 @@
                 font-family: $font;
                 font-weight: 800;
                 font-size: 20px;
-                color: $white-color;
+                
             }
         }
 
@@ -37,46 +38,43 @@
 
             .answer {
                 display: flex;
-                align-items: center;
+                align-items: center; 
 
-                .radio-style {
-                    display: inline-block;
+                .radio-input {
+                    appearance: none;
                     width: 32px;
                     height: 32px;
-                    border-radius: 50%;
-                    background: #030303;
-                    border: 2px solid $pink-color;
+                    margin: 0 10px 0 0;
+                    background-image: url("../../../assets/empty-circle.svg");
+                    background-repeat: no-repeat;
+                  }
 
-                }
+                  .radio-input:checked {
+                   appearance: none;
+                    width: 32px;
+                    height: 32px;
+                    margin: 0 10px 0 0;
+                    background-image: url("../../../assets/full-circle.svg");
+                    background-repeat: no-repeat;
+                  }
 
-                .radio-style::before {
-                    content: '';
-                    display: inline-block;
-                    margin-top: 5px;
-                    margin-left: 5px;
-                    width: 65%;
-                    height: 65%;
-                    border-radius: 50%;
-                    background: $pink-color;
-                    opacity: 0;
-                    transition: opacity 0.3s;
-                }
-
-                #first-answer:checked+.radio-style::before {
-                    opacity: 1;
-                }
-
-                #second-answer:checked+.radio-style::before {
-                    opacity: 1;
-                }
-
-                #third-answer:checked+.radio-style::before {
-                    opacity: 1;
-                }
-
-                #fourth-answer:checked+.radio-style::before {
-                    opacity: 1;
-                }
+                  .red-img:checked {
+                    appearance: none;
+                    width: 32px;
+                    height: 32px;
+                    margin: 0 10px 0 0;
+                    background-image: url("../../../assets/red-full-circle.svg");
+                    background-repeat: no-repeat;
+                  }
+          
+                  .green-img:checked {
+                    appearance: none;
+                    width: 32px;
+                    height: 32px;
+                    margin: 0 10px 0 0;
+                    background-image: url("../../../assets/green-full-circle.svg");
+                    background-repeat: no-repeat;
+                  }
 
                 .answer-text {
                     display: block;
@@ -87,12 +85,8 @@
                     font-family: $font;
                     font-weight: 400;
                     font-size: 18px;
-                    color: $white-color;
+                    
                 }
-
-               
-
-               
             }
 
             .answer:not(:last-child) {
@@ -103,43 +97,43 @@
                 margin-bottom: 42px;
             }
         }
+    }
 
-        .card-button {
-            text-align: center;
+    .card-button {
+        text-align: center;
 
-            .card-btn,.btn-result,.card-btnDisabled {
-                width: 442px;
-                height: 62px;
-                border-radius: 50px;
-                
-                font-family: $font;
-                font-weight: 400;
-                font-size: 20px;
-                color: $white-color;
-                outline: none;
-                
-            }
-            .card-btn{
-                background-color: $pink-color;
-            }
-            .card-btnDisabled{
-                background-color: $graycolor;
-            }
-            .btn-result{
-                background-color: $color-green;
-            }
+        .card-btn,
+        .btn-result,
+        .card-btnDisabled {
+            width: 442px;
+            height: 62px;
+            border-radius: 50px;
+            border: none;
 
-            
+            font-family: $font;
+            font-weight: 400;
+            font-size: 20px;
+            color: $white-color;
         }
 
+        .card-btn {
+            background-color: $pink-color;
+        }
+
+        .card-btnDisabled {
+            background-color: $graycolor;
+        }
+
+        .btn-result {
+            background-color: $color-green;
+        }
     }
 }
 
-////
- .red{
+.red {
     color: $red;
- }
+}
 
- .green{
+.green {
     color: $color-green;
- }
+}

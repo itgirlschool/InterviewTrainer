@@ -3,25 +3,18 @@
 
 .container-autotests{
     .title-autotests{
-        padding: 50px 0 0 54px;
-        margin-bottom: 19px;
-        font-family: $font;
-        font-size: 32px;
-        font-weight: 500;
-        color: $pink-color;
-        .title-tests{
-            padding-left: 5.5px;
-            font-family: $font;
-            font-size: 32px;
-            font-weight: 400;
-            color: $white-color;   
-        }
+        padding: 60px 0 0 122px;
+        margin-bottom: 57px;  
     }
 
-    //.card-wrapper{
-      //  display: flex;
-      //  justify-content: center;
-   // }
+    .title-autotests a{
+        font-family: $font; //добавить шрифт DM Sans
+        font-size: 16px;
+        font-weight: 500;
+        color: $pink-color;
+        //text-decoration: none;
+        cursor: pointer;
+    }
 }
 
 

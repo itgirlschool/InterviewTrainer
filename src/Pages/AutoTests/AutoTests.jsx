@@ -1,21 +1,16 @@
-import Card from '../../Components/Card/Card'
+
 import Slider from '../../Components/Slider/Slider.jsx'
+import { NavLink } from "react-router-dom";
 import './AutoTests.scss'
 
-export default function AutoTests(){
+export default function AutoTests() {
 
-    return(
+    return (
         <div className='container-autotests'>
-             <div className='title-autotests'>Градация 1 &gt;
-                <span className='title-tests'>Тесты</span>
+           <div className='title-autotests'>
+            <NavLink to="#" >Вернуться к градации</NavLink>
             </div>
-
-          
-              
-                <Slider/>
-            
-           
-        
+            <Slider />
         </div>
     )
 }
