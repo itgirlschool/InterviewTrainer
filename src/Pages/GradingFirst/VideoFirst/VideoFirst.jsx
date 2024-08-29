@@ -21,16 +21,21 @@ export default function VideoFirst() {
     useState(false);
 
   useEffect(() => {
-    dispatch(fetchVideos());
-  }, [dispatch]);
+    if (status === "idle") {
+      dispatch(fetchVideos());
+    }
+  }, [dispatch, status]);
 
   useEffect(() => {
-    if (pathname === "/gradingfirst/videofirst") {
+    if (
+      videos.length > 0 &&
+      pathname === "/gradingfirst/videofirst"
+    ) {
       navigate("/gradingfirst/videofirst/1", {
         replace: true,
       });
     }
-  }, [pathname, navigate]);
+  }, [videos, pathname, navigate]);
 
   const toggleNavBar = () => {
     setNavBarIsHidden(!navBarIsHidden);
