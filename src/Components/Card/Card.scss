@@ -17,11 +17,22 @@
         border-radius: 28px;
         background-color: $white-color;
 
-
+        @media screen and (max-width: 1440px) {
+            width: 691px; //691px
+            height: 563px;
+            padding-top: 50px;
+        }
+       
 
         .card-question {
             max-width: 651px;
             padding-left: 125px;
+
+            @media screen and (max-width: 1440px) {
+                padding-left: 83px;
+               
+            }
+            
             .question {
                 //max-width: 565px;
                 width: 100%;
@@ -40,6 +51,11 @@
 
             .answers-list {
                 width: 629px;
+                @media screen and (max-width: 1440px) {
+                    width: 530px; //691px
+                   
+                }
+                
                
 
                 .answer {
@@ -90,17 +106,27 @@
                         font-family: $font;
                         font-weight: 400;
                         font-size: 18px;
-
+                       
                     }
                 }
 
                 .answer:not(:last-child) {
                     margin-bottom: 47px;
+
+                    @media screen and (max-width: 1440px) {
+                        margin-bottom: 37px;
+                       
+                    }
                 }
 
                 .answer:last-child {
                     margin-bottom: 100px;
+                    @media screen and (max-width: 1440px) {
+                        margin-bottom: 53px;
+                       
+                    }
                 }
+
             }
         }
     }
