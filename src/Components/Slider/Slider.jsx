@@ -7,7 +7,12 @@ export default function Slider() {
 
     
     const [count, setCount] = useState(0);
-    
+    const [trueAnswersResult, setTrueAnswersResult]=useState(); //Здесь храним количество правильных ответов
+
+    if(trueAnswersResult){ //Временная проверка для того чтобы увидеть отрабатывает ли код
+        console.log(trueAnswersResult);
+        
+    }
     
    
 
@@ -28,7 +33,10 @@ export default function Slider() {
                         item={tests[count]}
                         count={count}
                         setCount={setCount}
-                        tests={tests}  
+                        tests={tests}
+                        setTrueAnswersResult={setTrueAnswersResult}
+                        trueAnswersResult={trueAnswersResult}
+                        
                     />
         </div>
     )

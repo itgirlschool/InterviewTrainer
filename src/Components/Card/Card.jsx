@@ -3,17 +3,18 @@ import { useState, useEffect } from 'react';
 import emptyCircle from "../../../assets/empty-circle.svg";
 
 
-export default function Card({ item, count, setCount, tests }) {
+export default function Card({ item, count, setCount, tests, setTrueAnswersResult  }) {
+    
     const { question, answers } = item;
 
     const [switchButton, setSwitchButton] = useState(false);
     const [showResults, setShowResults] = useState(false);
-    const [trueAnswers, setTrueAnswers] = useState(0);
+    const [trueAnswers, setTrueAnswers] = useState(new Set());//Здесь будут храниться айди правильных ответов
     const [disabled, setDisabled] = useState(true);
     const [inputDisabled, setInputDisabled] = useState(false);
+
     const [valueId, setValueId] = useState(null);
     const [inputValue, setInputValue] = useState(null);
-
     const [valueResultId, setValueResultId] = useState(null);
     const [inputValueResult, setInputValueResult] = useState(null);
 
@@ -24,58 +25,50 @@ export default function Card({ item, count, setCount, tests }) {
         setInputDisabled(false);
     }, [item.id])
 
-    const handleInputResult = (id, e) => {
+    const handleInputResult = (id, e) => { // В эту функцию приходят данные из инпутов при клике
 
         if (id, e.target.value) {
             setInputValue(e.target.value);
             setValueId(id);
         } else {
             console.log('данных нет');
-
         }
         setDisabled(false);
-
     }
 
-    {/* const getAnswer = (e) => {
-        console.log(e);
-
-        setDisabled(false);
-        if (e.target.value === true) {
-
-            setTrueAnswers((prevState) => {
-                const amount = prevState + 1;
-                console.log(amount);
-                return amount;
-            });
-        } else {
-            setTrueAnswers(trueAnswers)
-        }
-
-    }
-*/}
-
-
-    const handleAnswer = () => {
+    const handleAnswer = () => {// КНОПКА "ОТВЕТИТЬ"
         setSwitchButton(true);
-        if ([currentTestNumber].includes(testsLength)) {
+        if ([currentTestNumber].includes(testsLength)) { //Проверка для того чтобы если дошли до последнего вопроса отрисовалась кнопка "Узнать результаты" 
             setShowResults(true)
         }
         setValueResultId(valueId);
         setInputValueResult(inputValue);
         setInputDisabled(true);
+
+         //делаем подсчет слов
+         if (inputValue==='true') {
+            if (!trueAnswers.has(valueId)) {
+                setTrueAnswers((prevState) => new Set(prevState).add(valueId));
+            }
+
+        } else {
+            setTrueAnswers(trueAnswers)
+        }
     }
 
-    const handleNext = () => {
+    const handleNext = () => { // КНОПКА "ДАЛЕЕ"
         setSwitchButton(false);
         setDisabled(true);
         setCount(count + 1);
 
     }
 
-    const checkResults = () => {
-        console.log(trueAnswers);
+    const checkResults = () => { // КНОПКА "УЗНАТЬ РЕЗУЛЬТАТЫ"
 
+        console.log(trueAnswers.size);
+        setTrueAnswersResult(trueAnswers.size); //отправляем слова в компонент Slider
+        
+        
     }
 
     return (
@@ -86,34 +79,33 @@ export default function Card({ item, count, setCount, tests }) {
                 </div>
                 <div className='answer-wrapper'>
                     <div className='answers-list'>
-                     
+
                         {answers.map((item) => {
-                            return <div  className={`answer ${item.id === valueResultId &&
+                            return <div className={`answer ${item.id === valueResultId &&
                                 item.isRight === true ?
-                                'green' : '' }
+                                'green' : ''}
                                  ${item.id === valueResultId &&
-                                 item.isRight === false ?
-                                 "red" : ""} 
-                                 ${ 
-                                 item.id !== valueResultId && //третье условие пока не работает
-                                 inputValueResult === false &&
-                                 item.isRight === true ?
-                                 'green' : ''}`}   
-                                 key={item.id}>
+                                    item.isRight === false ?
+                                    "red" : ""} 
+                                 ${item.id !== valueResultId && //третье условие пока не работает
+                                    inputValueResult === false &&
+                                    item.isRight === true ?
+                                    'green' : ''}`}
+                                key={item.id}>
 
                                 <input
                                     className={`radio-input 
                                     ${item.id === valueResultId &&
-                                      item.isRight === true ?
-                                      'green-img' : ''}
+                                            item.isRight === true ?
+                                            'green-img' : ''}
                                        ${item.id === valueResultId &&
-                                         item.isRight === false ?
-                                        "red-img" : ""} 
+                                            item.isRight === false ?
+                                            "red-img" : ""} 
                                        ${item.id !== valueResultId  //третье условие пока не работает
-                                         &&
-                                         inputValueResult === false &&
-                                        item.isRight === true ?
-                                        'green-img' : ''}
+                                            &&
+                                            inputValueResult === false &&
+                                            item.isRight === true ?
+                                            'green-img' : ''}
                                     `}
                                     type="radio"
                                     name="answer"
