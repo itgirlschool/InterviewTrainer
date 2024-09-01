@@ -4,9 +4,9 @@
 }
 
 @mixin background {
-  background: url("../../assets/images/background_top.svg") top right/38% auto no-repeat,
-    url("../../assets/images/background_bottom.svg") bottom left/38% auto no-repeat,
-    url('../../assets/images/background1.png') 0 0/100% 100% no-repeat;
+  background-image: url("../assets/images/backgrounnd_stars.svg");
+  background-size: cover;
+  background-repeat: no-repeats;
 }
 
 %font__jost {
