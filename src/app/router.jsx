@@ -5,7 +5,6 @@ import {
   LoginIn,
   SignIn,
   ResetPassword,
-  AutoTests,
   ContentLesson,
   Error,
   GradingFirst,
@@ -16,7 +15,7 @@ import {
   VideoFirst,
   VideoFirstItem,
   // TheoryFirst,
-  // TestsFirst,
+  AutoTestsFirst,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -40,10 +39,10 @@ export const router = createBrowserRouter([
         path: "resetpassword",
         element: <ResetPassword />,
       },
-      {
-        path: "autotests",
-        element: <AutoTests/>
-      },
+      // {
+      //   path: "autotests",
+      //   element: <AutoTests/>
+      // },
       {
         path: "contentlesson",
         element: <ContentLesson />,
@@ -62,15 +61,14 @@ export const router = createBrowserRouter([
               },
             ],
           },
-
           // {
           //   path: "thoryfirst",
           //   element: <TheoryFirst />,
           // },
-          // {
-          //   path: "testsfirst",
-          //   element: <TestsFirst />,
-          // },
+          {
+            path: "testsfirst",
+            element: <AutoTestsFirst />,
+          },
         ],
       },
       {

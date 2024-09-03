@@ -3,7 +3,6 @@ import Home from "./Home/Home";
 import LoginIn from "./Auth/LoginIn/LoginIn";
 import SignIn from "./Auth/SignIn/SignIn";
 import ResetPassword from "./Auth/ResetPassowrd/ResetPassword";
-import AutoTests from "./AutoTests/AutoTests";
 import ContentLesson from "./ContentLesson/ContentLesson";
 import Error from "./Error/Error";
 import GradingFirst from "./GradingFirst/GradingFirst";
@@ -13,6 +12,7 @@ import Instructions from "./Instructions/Instructions";
 import Profile from "./Profile/Profile";
 import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
 import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
+import AutoTestsFirst from "./GradingFirst/AutoTestsFirst/AutoTestsFirst";
 
 export {
   RootLayout,
@@ -20,7 +20,6 @@ export {
   LoginIn,
   SignIn,
   ResetPassword,
-  AutoTests,
   ContentLesson,
   Error,
   GradingFirst,
@@ -30,4 +29,5 @@ export {
   Profile,
   VideoFirst,
   VideoFirstItem,
+  AutoTestsFirst,
 };

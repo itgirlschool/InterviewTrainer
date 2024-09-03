@@ -1,0 +1,10 @@
+@import "../../style/vars.scss";
+@import "../../style/template.scss";
+
+.autotests {
+  @include container;
+  &__mainlink {
+    color: $pink-color;
+    font-size: 1rem;
+  }
+}
