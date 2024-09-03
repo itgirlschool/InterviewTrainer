@@ -1,0 +1,12 @@
+@import "../../style/vars.scss";
+@import "../../style/template.scss";
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+  &__count {
+    // color: $blackcolor; // пока что стоит белый цвет. по новому макету должен быть чёрный, но сейчас он не виден
+  }
+}
