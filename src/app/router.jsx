@@ -16,6 +16,7 @@ import {
   VideoFirstItem,
   // TheoryFirst,
   AutoTestsFirst,
+  AutoTestsCard,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -68,6 +69,12 @@ export const router = createBrowserRouter([
           {
             path: "testsfirst",
             element: <AutoTestsFirst />,
+            children: [
+              {
+                path: ":id",
+                element: <AutoTestsCard />,
+              },
+            ],
           },
         ],
       },

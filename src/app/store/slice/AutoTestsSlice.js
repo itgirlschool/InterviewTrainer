@@ -20,7 +20,7 @@ export const AutoTestsSlice = createSlice({
       .addCase(fetchTests.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.error = null;
-        state.videos = action.payload;
+        state.tests = action.payload;
       })
       .addCase(fetchTests.rejected, (state, action) => {
         state.status = "failed";

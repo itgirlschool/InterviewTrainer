@@ -1,31 +1,31 @@
 import "./AutoTestsSlider.scss";
-import Card from "../Card/Card.jsx";
+import AutoTestsCard from "../AutoTestsCard/AutoTestsCard.jsx";
 import { useState, useEffect } from "react";
-import { tests } from "./tests.js";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 export default function AutoTestsSlider() {
-  const [count, setCount] = useState(0);
-  const [trueAnswersResult, setTrueAnswersResult] =
-    useState(); //Здесь храним количество правильных ответов
+  const { id } = useParams();
+  const tests = useSelector(state => state.autotests.tests);
 
-  if (trueAnswersResult) {
-    //Временная проверка для того чтобы увидеть отрабатывает ли код
-    console.log(trueAnswersResult);
-  }
+  // const [count, setCount] = useState(0);
+  // const [trueAnswersResult, setTrueAnswersResult] =
+  //   useState(); //Здесь храним количество правильных ответов
 
   return (
     <div className="slider">
       <div className="slider__count">
-        {count + 1}/{tests.length}
+        {id}/{tests.length}
       </div>
-      <Card
+      {/* <AutoTestsCard /> */}
+      {/* <Card
         item={tests[count]}
         count={count}
         setCount={setCount}
         tests={tests}
         setTrueAnswersResult={setTrueAnswersResult}
         trueAnswersResult={trueAnswersResult}
-      />
+      /> */}
     </div>
   );
 }
