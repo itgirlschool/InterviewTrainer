@@ -20,9 +20,8 @@ export default function Home() {
     <div className="home">
       <div className="home__intro">
         <div className="welcome__title">
-          <img className="welcome__salute" src={salute} alt="Выбор градации" />
           <h1>Выбор градации</h1>
-          <p className="intro-text">
+          <p className="welcome__text">
             Тренажер предлагает практические задания и вопросы, которые помогут
             вам подготовиться к собеседованиям разного уровня — от Junior до
             Senior. Начните подготовку к собеседованию уже сегодня и сделайте
@@ -30,10 +29,8 @@ export default function Home() {
             Intern.
           </p>
         </div>
-        <div>
           <img className="cat__arrow" src={arrow_heart} alt="Выберите градацию" />
-          <img src={cat_grade} alt="Выберите градацию" />
-        </div>
+          <img className="cat__withlaptop" src={cat_grade} alt="Выберите градацию" />
       </div>
       <div className="grade-container">
         <div className="grade junior">

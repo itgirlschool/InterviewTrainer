@@ -2,7 +2,7 @@
 @import "../../style/vars";
 
 .header {
-    font-family:'Sans';
+    font-family:$fontSans;
     min-height: 10vh;
     background-color: $background-beige;
     @include flex__center;
@@ -134,11 +134,12 @@
 }
 }
 
-@media #{$Tablet} {
-   
-
+@media #{$Tablet}  {
     .header__body {
+        margin: 0 16px;
         padding: 16px 26px;
+        background-color: $white-color;
+        border-radius: 14px;
     }
 
     .header__links,
@@ -153,11 +154,11 @@
     }
 
     .burger__img {
-       border: 0.5px solid $blackcolor;
+       border: none;
        border-radius: 50%;
        width: 36px;
        height: 36px;
-       background-color: $background-beige;
+       background-color: $pink-color;
        background-repeat: no-repeat;
        background-position: center;
     }
