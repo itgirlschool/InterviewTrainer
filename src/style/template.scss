@@ -1,12 +1,15 @@
 @mixin flex__center {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 @mixin background {
-  background: url("../../assets/images/background_top.svg") top right/38% auto no-repeat,
-    url("../../assets/images/background_bottom.svg") bottom left/38% auto no-repeat,
-    url('../../assets/images/background1.png') 0 0/100% 100% no-repeat;
+  background: url("../../assets/images/background_top.svg")
+      top right/38% auto no-repeat,
+    url("../../assets/images/background_bottom.svg") bottom
+      left/38% auto no-repeat,
+    url("../../assets/images/background1.png") 0 0/100% 100%
+      no-repeat;
 }
 
 %font__jost {
@@ -20,13 +23,32 @@
   border: none;
   font-size: 24px;
   @extend %font__jost;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: transparent;
 }
 
 %flex__center {
   justify-content: center;
   align-items: center;
+}
+
+@mixin container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 4vh 4.5vw;
+}
+
+@mixin stageSubTitlePink {
+  font-size: 32px;
+  color: $pinkcolor;
+  text-decoration: none;
+}
+
+@mixin stageSubTitleWhite {
+  font-size: 32px;
+  color: $whitecolor;
+  text-decoration: none;
 }
 
 @mixin button__pink {

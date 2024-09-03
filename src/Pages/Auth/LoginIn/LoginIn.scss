@@ -1,214 +1,214 @@
-@import '../../../style/template';
-@import '../../../style/vars';
+@import "../../../style/template";
+@import "../../../style/vars";
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .container__login {
-    max-width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: $background-general;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-general;
 
-    .wrapper__login {
-        text-align: center;
+  .wrapper__login {
+    text-align: center;
 
-        .title__login {
-            margin-bottom: 38px;
-            font-size: 48px;
-            font-family: 'M PLUS Rounded 1c';
-            font-weight: 500;
-            color: $pinkcolor;
+    .title__login {
+      margin-bottom: 38px;
+      font-size: 48px;
+      font-family: "M PLUS Rounded 1c";
+      font-weight: 500;
+      color: $pinkcolor;
 
-            @media screen and (max-width: 1368px) {
-                font-size: 40px;
-                margin-bottom: 33px;
-            }
+      @media screen and (max-width: 1368px) {
+        font-size: 40px;
+        margin-bottom: 33px;
+      }
 
-            @media screen and (max-width: 1240px) {
-                font-size: 40px;
-                margin-bottom: 33px;
-            }
+      @media screen and (max-width: 1240px) {
+        font-size: 40px;
+        margin-bottom: 33px;
+      }
 
-            @media screen and (max-width: 980px) {
-                font-size: 37px;
-                margin-bottom: 33px;
-            }
+      @media screen and (max-width: 980px) {
+        font-size: 37px;
+        margin-bottom: 33px;
+      }
 
-            @media screen and (max-width: 435px) {
-                font-size: 26px;
-                margin-bottom: 32px;
-            }
-        }
-
-        .form-login__authorisation {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .form-login__input {
-                width: 442px;
-                height: 62px;
-                padding-left: 23px;
-                font-family: 'M PLUS Rounded 1c';
-                font-weight: 400;
-                font-size: 20px;
-                border-radius: 20px;
-                border: none;
-                background-color: $grey;
-                // color: $formlogin-fontcolor;
-                outline: none;
-
-                @media screen and (max-width: 1368px) {
-                    width: 390px;
-                    height: 55px;
-                    font-size: 20px;
-                    padding-left: 23px;
-                    border-radius: 20px;
-                }
-
-                @media screen and (max-width: 980px) {
-                    width: 350px;
-                    height: 52px;
-                    font-size: 20px;
-                    padding-left: 23px;
-                    border-radius: 18px;
-                }
-
-                @media screen and (max-width: 435px) {
-                    width: 280px;
-                    height: 44px;
-                    font-size: 16px;
-                    padding-left: 22px;
-                }
-            }
-
-            .form-error {
-                margin-top: -12px;
-                font-family: 'M PLUS Rounded 1c';
-                font-weight: 400;
-                font-size: 16px;
-                color: red;
-
-                @media screen and (max-width: 435px) {
-                    font-size: 13px;
-                }
-            }
-
-            .form-usererror {
-                margin-bottom: 10px;
-                font-size: 16px;
-                font-family: 'M PLUS Rounded 1c';
-                font-weight: 400;
-                color: red;
-
-                @media screen and (max-width: 435px) {
-                    font-size: 13px;
-                }
-            }
-
-            .form-login__input:not(:last-of-type) {
-                margin-bottom: 12px;
-
-                @media screen and (max-width: 980px) {
-                    margin-bottom: 10px;
-                }
-
-                @media screen and (max-width: 435px) {
-                    margin-bottom: 16px;
-                }
-            }
-
-            .form-login__input:last-of-type {
-                margin-bottom: 52px;
-
-                @media screen and (max-width: 980px) {
-                    margin-bottom: 45px;
-                }
-
-                @media screen and (max-width: 435px) {
-                    margin-bottom: 32px;
-                }
-            }
-
-            .form-login__input::placeholder {
-                font-family: 'M PLUS Rounded 1c';
-                font-size: 20px;
-                font-weight: 400;
-                color: $formlogin-fontcolor;
-
-                @media screen and (max-width: 980px) {
-                    font-size: 20px;
-                }
-
-                @media screen and (max-width: 435px) {
-                    font-size: 16px;
-                }
-            }
-
-            .enter__login {
-                .btn__login {
-                    width: 442px;
-                    height: 62px;
-                    margin-bottom: 22px;
-                    border-radius: 50px;
-                    border: none;
-                    font-family: 'M PLUS Rounded 1c';
-                    font-weight: 500;
-                    font-size: 20px;
-                    background-color: $pink-color;
-                    color: $whitecolor;
-                    cursor: pointer;
-
-                    @media screen and (max-width: 1368px) {
-                        width: 390px;
-                        height: 55px;
-                        font-size: 20px;
-                    }
-
-                    @media screen and (max-width: 980px) {
-                        width: 350px;
-                        height: 52px;
-                        font-size: 20px;
-                    }
-
-                    @media screen and (max-width: 435px) {
-                        width: 280px;
-                        height: 44px;
-                        font-size: 16px;
-                        margin-bottom: 16px;
-                    }
-                }
-            }
-
-            .create-acc__option {
-                margin-bottom: 10px;
-            }
-
-            .create-acc__option a {
-                font-family: 'Jost';
-                font-weight: 400;
-                font-size: 16px;
-                color: $whitecolor;
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-            .reset-password__option a {
-                font-family: 'Jost';
-                font-weight: 400;
-                font-size: 16px;
-                color: $whitecolor;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        }
+      @media screen and (max-width: 435px) {
+        font-size: 26px;
+        margin-bottom: 32px;
+      }
     }
+
+    .form-login__authorisation {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .form-login__input {
+        width: 442px;
+        height: 62px;
+        padding-left: 23px;
+        font-family: "M PLUS Rounded 1c";
+        font-weight: 400;
+        font-size: 20px;
+        border-radius: 20px;
+        border: none;
+        background-color: $grey;
+        // color: $formlogin-fontcolor;
+        outline: none;
+
+        @media screen and (max-width: 1368px) {
+          width: 390px;
+          height: 55px;
+          font-size: 20px;
+          padding-left: 23px;
+          border-radius: 20px;
+        }
+
+        @media screen and (max-width: 980px) {
+          width: 350px;
+          height: 52px;
+          font-size: 20px;
+          padding-left: 23px;
+          border-radius: 18px;
+        }
+
+        @media screen and (max-width: 435px) {
+          width: 280px;
+          height: 44px;
+          font-size: 16px;
+          padding-left: 22px;
+        }
+      }
+
+      .form-error {
+        margin-top: -12px;
+        font-family: "M PLUS Rounded 1c";
+        font-weight: 400;
+        font-size: 16px;
+        color: red;
+
+        @media screen and (max-width: 435px) {
+          font-size: 13px;
+        }
+      }
+
+      .form-usererror {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-family: "M PLUS Rounded 1c";
+        font-weight: 400;
+        color: red;
+
+        @media screen and (max-width: 435px) {
+          font-size: 13px;
+        }
+      }
+
+      .form-login__input:not(:last-of-type) {
+        margin-bottom: 12px;
+
+        @media screen and (max-width: 980px) {
+          margin-bottom: 10px;
+        }
+
+        @media screen and (max-width: 435px) {
+          margin-bottom: 16px;
+        }
+      }
+
+      .form-login__input:last-of-type {
+        margin-bottom: 52px;
+
+        @media screen and (max-width: 980px) {
+          margin-bottom: 45px;
+        }
+
+        @media screen and (max-width: 435px) {
+          margin-bottom: 32px;
+        }
+      }
+
+      .form-login__input::placeholder {
+        font-family: "M PLUS Rounded 1c";
+        font-size: 20px;
+        font-weight: 400;
+        // color: $formlogin-fontcolor;
+
+        @media screen and (max-width: 980px) {
+          font-size: 20px;
+        }
+
+        @media screen and (max-width: 435px) {
+          font-size: 16px;
+        }
+      }
+
+      .enter__login {
+        .btn__login {
+          width: 442px;
+          height: 62px;
+          margin-bottom: 22px;
+          border-radius: 50px;
+          border: none;
+          font-family: "M PLUS Rounded 1c";
+          font-weight: 500;
+          font-size: 20px;
+          background-color: $pink-color;
+          color: $whitecolor;
+          cursor: pointer;
+
+          @media screen and (max-width: 1368px) {
+            width: 390px;
+            height: 55px;
+            font-size: 20px;
+          }
+
+          @media screen and (max-width: 980px) {
+            width: 350px;
+            height: 52px;
+            font-size: 20px;
+          }
+
+          @media screen and (max-width: 435px) {
+            width: 280px;
+            height: 44px;
+            font-size: 16px;
+            margin-bottom: 16px;
+          }
+        }
+      }
+
+      .create-acc__option {
+        margin-bottom: 10px;
+      }
+
+      .create-acc__option a {
+        font-family: "Jost";
+        font-weight: 400;
+        font-size: 16px;
+        color: $whitecolor;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .reset-password__option a {
+        font-family: "Jost";
+        font-weight: 400;
+        font-size: 16px;
+        color: $whitecolor;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
 }

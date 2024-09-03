@@ -1,0 +1,73 @@
+.grading {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 4vh 4.5vw;
+}
+.grading__title {
+  font-size: 40px;
+  color: #ea5d80;
+  font-weight: 500;
+  text-align: left;
+  margin: 0;
+}
+.grading__description {
+  padding-top: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+}
+.grading__container {
+  padding-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  gap: 5vw;
+}
+.grading__container_block {
+  background: #0e0f14;
+  padding: 20px 20px;
+  border-radius: 28px;
+  border: 1px solid #ea5d80;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+}
+.grading__container_title {
+  color: #ea5d80;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+}
+.grading__container .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 56px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  color: #ffffff;
+  background: #ea5d80;
+  text-decoration: none;
+}
+
+.progressBar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.progressBar__outer {
+  width: 100%;
+  height: 10px;
+  background-color: #bcbaba;
+  border-radius: 64px;
+}
+.progressBar__inner {
+  width: 30%;
+  height: 100%;
+  background-color: #ea5d80;
+  border-radius: 64px;
+}
