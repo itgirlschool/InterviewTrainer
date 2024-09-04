@@ -15,23 +15,27 @@ export default function Theory() {
   const [prev, setPrev] = useState(false);
   const [count, setCount] = useState(1);
   const [total, setTotal] = useState("");
+  const [lastId, setLastId] = useState("");
+  const [disabledButton, setDisabledButton] = useState(true);
 
-  const myRef = useRef(0);
+  const myRef = useRef();
+  const scrollCallback = () => {
+    myRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     getTheory(data);
-    setProgress();
   }, []);
 
   useEffect(() => {
+    scrollCallback();
     getTheory(data);
-    setProgress();
-    myRef.current.scrollIntoView();
     setDone(false);
   }, [done]);
 
   useEffect(() => {
-    //отключить кнопку я прочитала
+    scrollCallback();
+    //отключить кнопку я прочитала?
     getTheory(data);
     setPrev(false);
   }, [prev]);
@@ -39,7 +43,6 @@ export default function Theory() {
   const getTheory = (data) => {
     const questArr = Object.values(data);
     let length = questArr.length;
-    console.log(count);
     let a = count - 1;
     console.log(a);
     let item = questArr[a];
@@ -65,8 +68,14 @@ export default function Theory() {
       case "webh":
         setTheme("WEB заголовки");
         break;
+      case "es":
+        setTheme("ECMAScript");
+        break;
       case "r":
         setTheme("React");
+        break;
+      case "sm":
+        setTheme("State Management");
         break;
       default:
         console.log(item.theme);
@@ -80,6 +89,7 @@ export default function Theory() {
 
   const handleDone = () => {
     setCount(count + 1);
+    setLastId(lastId);
     setDone(true);
   };
 
@@ -95,47 +105,47 @@ export default function Theory() {
   };
 
   const setProgress = () => {
-    let progress = (total / 100) * (count - 1);
-    console.log(progress);
-
-    //записать прогресс в состояние юзера
-    //записать ключ последнего пройденного урока
+    //посчитать прогресс, отправить в state
   };
 
   return (
     <div className="theory__window">
-      <p className="theory__quest">{quest}</p>
-      <p className="theory__theme">{theme}</p>
-      <article className="theory__article">
-        <section ref={myRef} className="theory__answer">
-          {answer}
-        </section>
-        <section className={example ? "theory__example" : "hidden"}>
-          {example}
-        </section>
-        <div className="theory__picture">
-          {image.map((item) => {
-            console.log(item);
-            return <GetPicture link={item} />;
-          })}
+      <div className="theory__scroll" ref={myRef}>
+        <p className="theory__quest">{quest}</p>
+        <p className="theory__theme">{theme}</p>
+        <article className="theory__article">
+          <section className="theory__answer">{answer}</section>
+          <section className={example ? "theory__example" : "hidden"}>
+            {example}
+          </section>
+          <div className="theory__picture">
+            {image.map((item, index) => {
+              return <GetPicture link={item} key={index} />;
+            })}
+          </div>
+        </article>
+        <div className="theory__control">
+          <button onClick={handlePrev} className="theory__befor">
+            <img src={arrow1} className="theory__img" />
+            <p className="button__sighn">Предыдущее</p>
+          </button>
+          <button onClick={handleDone} className="theory__done">
+            <img src={flag} className="theory__img" />
+            <p className="button__sighn">Я прочитала</p>
+          </button>
         </div>
-      </article>
-      <div className="theory__control">
-        <button onClick={handlePrev} className="theory__befor">
-          <img src={arrow1} className="theory__img" />
-          <p className="button__sighn">Предыдущее</p>
-        </button>
-        <button onClick={handleDone} className="theory__done">
-          <img src={flag} className="theory__img" />
-          <p className="button__sighn">Я прочитала</p>
-        </button>
-      </div>
-      <div className="theory__count">
-        {count}/{total}
+        <div className="theory__count">
+          {count}/{total}
+        </div>
       </div>
     </div>
   );
 }
-// передать юзеру прогресс в процентах (В стор и в выпадающее меню хедера)
+
 // вопрос передавать в компонент бокового меню, когда оно будет готово
+
+//выделение комментариев и определений
+
+//Переделать дизайн
+
 // отключить кнопку "я прочитала", включать при переходе на непройденный вопрос
