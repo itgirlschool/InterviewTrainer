@@ -25,6 +25,11 @@
     @include flex__center;
     font-size: 14px;
     gap: 50px;
+    
+    div {
+        color: $color-black;
+    }
+
 }
 
 .header__user {

@@ -5,101 +5,105 @@
   @include background;
   min-height: 90vh;
   font-family: $fontSans;
-}
 
-.home {
-  display: flex;
-  flex-direction: column;
-  padding: 40px 87px 0;
-
-  .home__intro {
-    display: flex;
-    align-items: start;
-
-    .cat__arrow {
-      padding-left: 40px;
-      max-height: 120px;
-    }
-
-    .cat__withlaptop {
-      max-height: 260px;
-    }
-  }
-
-  .welcome__title {
-    background-color: $white-color;
-    padding: 32px;
+  .home {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 16px;
-    border: 1px solid $pink-color;
-    border-radius: 60px;
-    max-width: 49vw;
-    min-height: 24vh;
+    padding: 40px 87px 0;
 
-    .welcome__text {
-      font-size: 16px;
-      line-height: 150%;
+    .home__intro {
+      display: flex;
+      align-items: start;
+
+      .cat__arrow {
+        padding-left: 40px;
+        max-height: 120px;
+      }
+
+      .cat__withlaptop {
+        max-height: 260px;
+      }
     }
 
-    h1 {
-      font-size: 28px;
-      margin: 0;
-      color: $pink-color;
-    }
-
-    h1::after {
-      content: "";
-      background-image: url("../../assets/images/lines.png");
-      display: inline-block;
-      background-size: 24px 24px;
-      width: 24px;
-      height: 24px;
-      position: relative;
-      top: -2vh;
-    }
-  }
-
-  .grade-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
-    gap: 5vw;
-
-    .grade {
-      background: $white-color;
-      box-shadow: 7px 21px 49px 0px #9e9e9e1a, 28px 84px 89px 0px #9e9e9e17,
-        64px 190px 120px 0px #9e9e9e0d, 114px 337px 142px 0px #9e9e9e03,
-        178px 527px 156px 0px #9e9e9e00;
-      padding: 24px 32px;
-      border-radius: 60px;
+    .welcome__title {
+      background-color: $white-color;
+      padding: 32px;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      min-height: 42vh;
+      justify-content: center;
+      gap: 16px;
+      border: 1px solid $pink-color;
+      border-radius: 60px;
+      max-width: 49vw;
+      min-height: 24vh;
 
-      h2 {
-        color: $pink-color;
-        margin: 0;
-        font-size: 28px;
-        font-weight: bold;
+      .welcome__text {
+        font-size: 16px;
+        line-height: 150%;
+        color: $color-black;
       }
 
-      p {
-        font-size: 14px;
-        line-height: 150%;
+      h1 {
+        font-size: 28px;
+        margin: 0;
+        color: $pink-color;
+      }
+
+      h1::after {
+        content: "";
+        background-image: url("../../assets/images/lines.png");
+        display: inline-block;
+        background-size: 24px 24px;
+        width: 24px;
+        height: 24px;
+        position: relative;
+        top: -2vh;
+      }
+    }
+
+    .grade-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-content: space-between;
+      gap: 5vw;
+
+      .grade {
+        background: $white-color;
+        box-shadow: 7px 21px 49px 0px #9e9e9e1a,
+          28px 84px 89px 0px #9e9e9e17,
+          64px 190px 120px 0px #9e9e9e0d,
+          114px 337px 142px 0px #9e9e9e03,
+          178px 527px 156px 0px #9e9e9e00;
+        padding: 24px 32px;
+        border-radius: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        min-height: 42vh;
+
+        h2 {
+          color: $pink-color;
+          margin: 0;
+          font-size: 28px;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 150%;
+          color: $color-black;
+        }
       }
     }
   }
-}
 
-.home__button {
-  @include button__pink;
-}
+  .home__button {
+    @include button__pink;
+  }
 
-.home__button:hover {
-  background: $grey;
+  .home__button:hover {
+    background: $grey;
+  }
 }
 
 @media only screen and (min-width: 1919px) {
