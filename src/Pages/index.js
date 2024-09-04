@@ -10,6 +10,9 @@ import GradingSecond from "./GradingSecond/GradingSecond";
 import GradingThird from "./GradingThird/GradingThird";
 import Instructions from "./Instructions/Instructions";
 import Profile from "./Profile/Profile";
+import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
+import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
+
 import TheoryPage from "./TheoryPage/TheoryPage";
 export {
   RootLayout,
@@ -24,5 +27,4 @@ export {
   GradingThird,
   Instructions,
   Profile,
-  TheoryPage,
 };

@@ -1,0 +1,47 @@
+@import "../../../style/template.scss";
+@import "../../../style/vars.scss";
+
+.videoPage {
+  @include container;
+
+  &__mainlink {
+    color: $pink-color;
+    font-size: 1rem;
+  }
+
+  &__main,
+  &__main__modified {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: $container-boxshadow;
+  }
+
+  &__main {
+    grid-template-columns: 30% 1fr;
+    transition: grid-template-columns 0.5s ease;
+
+    .video__container {
+      border-radius: 0 20px 20px 0;
+    }
+  }
+
+  &__main__modified {
+    grid-template-columns: 0 1fr;
+    transition: grid-template-columns 0.5s ease;
+
+    .video__container {
+      border-radius: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .videoPage__main {
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    min-height: auto;
+  }
+}

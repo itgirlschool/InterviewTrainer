@@ -12,7 +12,10 @@ import {
   GradingThird,
   Instructions,
   Profile,
-  TheoryPage,
+  VideoFirst,
+  VideoFirstItem,
+  // TheoryFirst,
+  // TestsFirst,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -43,6 +46,27 @@ export const router = createBrowserRouter([
       {
         path: "gradingfirst",
         element: <GradingFirst />,
+        children: [
+          {
+            path: "videofirst",
+            element: <VideoFirst />,
+            children: [
+              {
+                path: ":id",
+                element: <VideoFirstItem />,
+              },
+            ],
+          },
+
+          // {
+          //   path: "thoryfirst",
+          //   element: <TheoryFirst />,
+          // },
+          // {
+          //   path: "testsfirst",
+          //   element: <TestsFirst />,
+          // },
+        ],
       },
       {
         path: "gradingsecond",
