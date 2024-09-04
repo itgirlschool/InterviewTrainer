@@ -4,12 +4,10 @@
 }
 
 @mixin background {
-  background: url("../../assets/images/background_top.svg")
-      top right/38% auto no-repeat,
-    url("../../assets/images/background_bottom.svg") bottom
-      left/38% auto no-repeat,
-    url("../../assets/images/background1.png") 0 0/100% 100%
-      no-repeat;
+  background: $background-beige url("../../assets/images/backgrounnd_stars.svg");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: 4vw 13vh;
 }
 
 %font__jost {
@@ -55,11 +53,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 56px;
+  min-height: 46px;
   cursor: pointer;
   border: none;
   border-radius: 50px;
-  font-size: 20px;
+  font-size: 16px;
   color: $whitecolor;
   background: $pinkcolor;
 }

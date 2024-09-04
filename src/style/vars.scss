@@ -3,21 +3,24 @@ $whitecolor: #ffffff;
 $blackcolor: #1b1c20;
 $graycolor: #777777;
 
-$background-general: #1b1c20;
-$color-grade: #0e0f14;
-$white-color: #ffffff;
-$pink-color: #ea5d80;
-$ligth-grey: #bcbaba;
+$background-beige: #eae4e4;
+$background-general: #1B1C20;
+$color-grade: #0E0F14;
+$color-black:#36363A;
+$white-color: #FFFFFF;
+$pink-color: #EA5D80;
+$ligth-grey: #BCBABA;
 $grey: #777777;
-$ligth-grey: #bcbaba;
-$color-green: #00ff47;
+$ligth-grey: #BCBABA;
+$color-green: #6AD9A3;
 $formsignin-fontcolor: #444242;
 $formlogin-fontcolor: #444242;
 $red: red;
-$font: "M PLUS Rounded 1c";
+$font: 'M PLUS Rounded 1c';
+$fontSans: 'Sans';
 $Mobile: "(max-width: 431px)";
-$Tablet: "(max-width: 818px)";
-$Desktop: "(min-width: 819px)";
+$Tablet: "(max-width: 1025px)";
+$Desktop: "(min-width: 1026px)";
 $scrollbar: linear-gradient(
   90deg,
   rgba(228, 226, 226, 1) 0%,
@@ -32,3 +35,4 @@ $container-boxshadow: 30px 50px 100px
   rgba(158, 158, 158, 0.25);
 $inner-boxshadow: inset 17px 0px 60px 0px
   rgba(158, 158, 158, 0.25);
+
