@@ -1,9 +1,12 @@
 @import "normalize.css";
+@import "./style/template.scss";
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  @extend %font__jost;
+  color: #FFFFFF;
 }
 
 @font-face {
@@ -68,5 +71,3 @@
     font-weight: 100;
     font-style: normal;
   }
-
-  
