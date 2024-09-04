@@ -1,6 +1,6 @@
-$pinkcolor: #EA5D80;
-$whitecolor: #FFFFFF;
-$blackcolor: #1B1C20;
+$pinkcolor: #ea5d80;
+$whitecolor: #ffffff;
+$blackcolor: #1b1c20;
 $graycolor: #777777;
 
 $background-beige: #eae4e4;
@@ -21,3 +21,18 @@ $fontSans: 'Sans';
 $Mobile: "(max-width: 431px)";
 $Tablet: "(max-width: 1025px)";
 $Desktop: "(min-width: 1026px)";
+$scrollbar: linear-gradient(
+  90deg,
+  rgba(228, 226, 226, 1) 0%,
+  rgba(251, 250, 250, 1) 100%
+);
+$scrollbar-thumb: linear-gradient(
+  90deg,
+  rgba(234, 93, 128, 1) 0%,
+  rgba(207, 71, 105, 1) 100%
+);
+$container-boxshadow: 30px 50px 100px
+  rgba(158, 158, 158, 0.25);
+$inner-boxshadow: inset 17px 0px 60px 0px
+  rgba(158, 158, 158, 0.25);
+
