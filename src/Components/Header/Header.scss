@@ -51,7 +51,7 @@
     
 }
 
-.school_600 {
+.school__600 {
     background-color: $pink-color;
     @include flex__center;
     justify-content: center;
@@ -90,6 +90,11 @@
     transform: translateY(-10px);
     visibility: hidden;
     transition: 0.01s;
+
+    .popup__username,
+    .pupup__grade {
+        color: $color-black;
+    }
 }
 
 .header__popup.active {
@@ -103,6 +108,8 @@
 .popup__raitinginfo {
     display: grid;
     grid-template: auto auto/auto auto;
+
+
     .popup__percent {
         color: $pink-color;
         justify-self: end;

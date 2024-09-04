@@ -37,7 +37,7 @@ export default function Header() {
           <div onClick={() => setIsOpen(!isOpen)}>
             <div className="profile__img">{getInitials(displayName)}</div>
           </div>
-          <div className="school_600">Нас уже 600+ учениц</div>
+          <div className="school__600">Нас уже 600+ учениц</div>
         </div>
         <button
           onClick={() => setBurgerActive(!burgerActive)}
@@ -53,7 +53,7 @@ export default function Header() {
             {displayName || "Anonymous User"}
           </div>
           <div className="popup__raitinginfo">
-            <div>Градация 1</div>
+            <div className="pupup__grade">Градация 1</div>
             <div className="popup__percent">50%</div>
             <progress
               className="popup__progress"
