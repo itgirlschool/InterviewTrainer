@@ -6,7 +6,6 @@
   padding: 0;
   box-sizing: border-box;
   @extend %font__jost;
-  color: #FFFFFF;
 }
 
 @font-face {
@@ -70,4 +69,9 @@
     src: url('/fonts/MPLUSRounded1c-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Sans';
+    src: url('/public/fonts/OpenSans-Regular.ttf') format('truetype'); 
   }

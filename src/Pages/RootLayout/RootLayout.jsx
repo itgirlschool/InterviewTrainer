@@ -2,7 +2,6 @@ import "./RootLayout.scss";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {useNavigate} from "react-router-dom";
 import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -59,11 +58,6 @@ export default function RootLayout() {
       <div className="container_main">
         <Outlet />
       </div>
-      {flag && (
-        <div className="container_footer">
-          <Footer />
-        </div>
-      )}
     </div>
   );
 }
