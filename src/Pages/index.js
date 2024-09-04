@@ -27,4 +27,7 @@ export {
   GradingThird,
   Instructions,
   Profile,
+  TheoryPage,
+  VideoFirst,
+  VideoFirstItem
 };

@@ -14,6 +14,7 @@ import {
   Profile,
   VideoFirst,
   VideoFirstItem,
+  TheoryPage,
   // TheoryFirst,
   // TestsFirst,
 } from "../Pages";
