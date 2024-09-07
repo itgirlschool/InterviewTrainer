@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "Интервью 1",
+    "src": "https://www.youtube.com/watch?v=PLwrvZahiO4"
+  },
+  {
+    "id": "2",
+    "title": "Интервью 2",
+    "src": "https://www.youtube.com/watch?v=MdRE18dGmNU"
+  },
+  {
+    "id": "3",
+    "title": "Интервью 3",
+    "src": "https://www.youtube.com/watch?v=PLwrvZahiO4"
+  },
+  {
+    "id": "4",
+    "title": "Интервью 4",
+    "src": "https://www.youtube.com/watch?v=PLwrvZahiO4"
+  }
+]
