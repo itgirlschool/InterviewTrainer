@@ -7,7 +7,11 @@ import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-video.svg";
 import { useSelector } from "react-redux";
 
-function VideoPlayerPagination({ isEnded }) {
+function VideoPlayerPagination({
+  isEnded,
+  pagePath,
+  gradingPath,
+}) {
   const [hasWatched, setHasWatched] = useState(false);
   const data = useSelector(state => state.videos.videos);
   const { id } = useParams();
@@ -25,7 +29,7 @@ function VideoPlayerPagination({ isEnded }) {
   const handlePrev = () => {
     if (currentVideo > 1) {
       navigate(
-        `/gradingfirst/videofirst/${currentVideo - 1}`,
+        `/${gradingPath}/${pagePath}/${currentVideo - 1}`,
       );
     }
   };
@@ -33,7 +37,7 @@ function VideoPlayerPagination({ isEnded }) {
   const handleNext = () => {
     if (currentVideo < data.length) {
       navigate(
-        `/gradingfirst/videofirst/${currentVideo + 1}`,
+        `/${gradingPath}/${pagePath}/${currentVideo + 1}`,
       );
     }
   };

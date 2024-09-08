@@ -24,5 +24,11 @@ export default function VideoFirstItem() {
     return <div>Невозможно загрузить видео...</div>;
   if (!data) return <div>Видео не найдены</div>;
 
-  return <VideoPlayer src={video.src} />;
+  return (
+    <VideoPlayer
+      src={video.src}
+      pagePath="videofirst"
+      gradingPath="gradingfirst"
+    />
+  );
 }

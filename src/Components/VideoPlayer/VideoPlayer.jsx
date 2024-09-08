@@ -4,7 +4,7 @@ import VideoPlayerPagination from "./VideoPlayerPagination.jsx";
 import "./VideoPlayer.scss";
 import star from "../../assets/images/background_star.svg";
 
-function VideoPlayer({ src }) {
+function VideoPlayer({ src, pagePath, gradingPath }) {
   const videoRef = useRef(null);
   const [isEnded, setIsEnded] = useState(false);
 
@@ -38,7 +38,11 @@ function VideoPlayer({ src }) {
         alt="star_video"
       />
       <VideoPlayerInner src={src} videoRef={videoRef} />
-      <VideoPlayerPagination isEnded={isEnded} />
+      <VideoPlayerPagination
+        isEnded={isEnded}
+        pagePath={pagePath}
+        gradingPath={gradingPath}
+      />
     </div>
   );
 }

@@ -30,5 +30,11 @@ export default function InterviewSecondItem() {
     return <div>Невозможно загрузить видео...</div>;
   if (!data) return <div>Видео не найдены</div>;
 
-  return <IframePlayer currentVideo={video.youtubeId} />;
+  return (
+    <IframePlayer
+      currentVideo={video.youtubeId}
+      pagePath="interviewsecond"
+      gradingPath="gradingsecond"
+    />
+  );
 }

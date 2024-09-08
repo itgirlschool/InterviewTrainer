@@ -3,7 +3,11 @@ import "./IframePlayer.scss";
 import star from "../../assets/images/background_star.svg";
 import IframePlayerPagination from "./IframePlayerPagination";
 
-function IframePlayer({ currentVideo }) {
+function IframePlayer({
+  currentVideo,
+  pagePath,
+  gradingPath,
+}) {
   const playerRef = useRef(null);
   const [isEnded, setIsEnded] = useState(false);
 
@@ -62,7 +66,7 @@ function IframePlayer({ currentVideo }) {
         alt="star_video"
       />
       <div id="youtube-player"></div>
-      <IframePlayerPagination isEnded={isEnded} />
+      <IframePlayerPagination isEnded={isEnded} pagePath={pagePath} gradingPath={gradingPath}/>
     </div>
   );
 }

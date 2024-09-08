@@ -7,7 +7,11 @@ import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-video.svg";
 import { useSelector } from "react-redux";
 
-function IframePlayerPagination({ isEnded }) {
+function IframePlayerPagination({
+  isEnded,
+  pagePath,
+  gradingPath,
+}) {
   const [hasWatched, setHasWatched] = useState(false);
   const data = useSelector(
     state => state.interviews.interviews,
@@ -27,9 +31,7 @@ function IframePlayerPagination({ isEnded }) {
   const handlePrev = () => {
     if (currentVideo > 1) {
       navigate(
-        `/gradingsecond/interviewsecond/${
-          currentVideo - 1
-        }`,
+        `/${gradingPath}/${pagePath}/${currentVideo - 1}`,
       );
     }
   };
@@ -37,9 +39,7 @@ function IframePlayerPagination({ isEnded }) {
   const handleNext = () => {
     if (currentVideo < data.length) {
       navigate(
-        `/gradingsecond/interviewsecond/${
-          currentVideo + 1
-        }`,
+        `/${gradingPath}/${pagePath}/${currentVideo + 1}`,
       );
     }
   };
