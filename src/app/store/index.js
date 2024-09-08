@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userAuthSlice from "./slice/UserAuthSlice";
 import usersSlice from "./slice/UsersSlice";
 import { videosReducer } from "./slice/VideosSlice.js";
+import { interviewsReducer } from "./slice/InterviewsSlice.js";
 import middlewareUsers from "./middleware/middlewareUsers";
 import middlewareUserAuth from "./middleware/middlewareUsersAuth.js";
 import firebase from "firebase/compat/app";
@@ -21,6 +22,7 @@ export const store = configureStore({
     userAuth: userAuthSlice,
     users: usersSlice,
     videos: videosReducer,
+    interviews: interviewsReducer,
   },
   devTools: true,
   middleware: getDefaultMiddleware =>

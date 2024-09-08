@@ -22,7 +22,7 @@ export const InterviewsSlice = createSlice({
         (state, action) => {
           state.status = "succeeded";
           state.error = null;
-          state.videos = action.payload;
+          state.interviews = action.payload;
         },
       )
       .addCase(
@@ -35,4 +35,4 @@ export const InterviewsSlice = createSlice({
   },
 });
 
-export const inerviewsReducer = InterviewsSlice.reducer;
+export const interviewsReducer = InterviewsSlice.reducer;

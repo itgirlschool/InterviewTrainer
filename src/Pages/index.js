@@ -13,6 +13,7 @@ import Profile from "./Profile/Profile";
 import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
 import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
 import InterviewSecond from "./GradingSecond/InterviewSecond/InterviewSecond";
+import InterviewSecondItem from "./GradingSecond/InterviewSecond/InterviewSecondItem";
 
 export {
   RootLayout,
@@ -30,4 +31,5 @@ export {
   VideoFirst,
   VideoFirstItem,
   InterviewSecond,
+  InterviewSecondItem,
 };

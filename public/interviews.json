@@ -2,21 +2,19 @@
   {
     "id": "1",
     "title": "Интервью 1",
-    "src": "https://www.youtube.com/watch?v=PLwrvZahiO4"
+    "src": "https://www.youtube.com/embed/fNhEAnp3ntw?si=jg_kfktM0tjBDxBQ",
+    "youtubeId": "fNhEAnp3ntw"
   },
   {
     "id": "2",
     "title": "Интервью 2",
-    "src": "https://www.youtube.com/watch?v=MdRE18dGmNU"
+    "src": "https://www.youtube.com/embed/25lCunO6yDQ?si=6rI3uAHFn-elUeOb",
+    "youtubeId": "25lCunO6yDQ"
   },
   {
     "id": "3",
     "title": "Интервью 3",
-    "src": "https://www.youtube.com/watch?v=PLwrvZahiO4"
-  },
-  {
-    "id": "4",
-    "title": "Интервью 4",
-    "src": "https://www.youtube.com/watch?v=PLwrvZahiO4"
+    "src": "https://www.youtube.com/embed/_8qr7dK4A2g?si=Z9YpSPY1QVIAkVAc",
+    "youtubeId": "_8qr7dK4A2g"
   }
 ]
