@@ -70,6 +70,7 @@ export default function VideoFirst() {
             error={error}
             status={status}
             pagePath="interviewsecond"
+            gradingPath="gradingsecond"
             toggleNavBar={toggleNavBar}
           />
           <Outlet />

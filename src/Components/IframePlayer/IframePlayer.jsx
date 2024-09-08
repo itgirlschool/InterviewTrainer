@@ -16,6 +16,7 @@ function IframePlayer({ currentVideo }) {
           onStateChange: onPlayerStateChange,
         },
       });
+      setIsEnded(false);
     };
 
     // Загрузка YouTube IFrame API
