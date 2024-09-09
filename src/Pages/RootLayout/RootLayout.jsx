@@ -20,16 +20,19 @@ export default function RootLayout() {
     dispatch({ type: "SUBSCRIBE_TO_USERS" });
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth,(user)=>{
-  //     if(user){
-  //       dispatch({ type: "SUBSCRIBE_TO_USER",emailUser:user.email});
-  //       navigate("/home");
-  //       return
-  //     }
-  //     navigate('login')
-  //   })
-  // }, []);
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        dispatch({
+          type: "SUBSCRIBE_TO_USER",
+          emailUser: user.email,
+        });
+        navigate("/home");
+        return;
+      }
+      navigate("login");
+    });
+  }, []);
 
   useEffect(() => {
     if (
