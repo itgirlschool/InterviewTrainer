@@ -1,5 +1,16 @@
 import "./GradingSecond.scss";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import GradeStructure from "../../Components/GradeStructure/GradeStructure";
 
-export default function GradingSecond() {
-  return <div>GradingSecond</div>;
-}
+
+const GradingSecond = () => {
+
+  
+
+  return (
+  <GradeStructure></GradeStructure>
+  )
+};
+
+export default GradingSecond;
