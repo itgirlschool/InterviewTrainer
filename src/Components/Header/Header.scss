@@ -2,18 +2,18 @@
 @import "../../style/vars";
 
 .header {
-    font-family:$font;
+    font-family:$fontSans;
     min-height: 10vh;
-    background-color: $background-general;
-    border-bottom: 1px solid $pink-color;
+    background-color: $background-beige;
     @include flex__center;
 }
 
 .header__body {
     width: 100vw;
-    padding: 0 54px;
+    padding: 0 87px;
     @include flex__center;
     justify-content: space-between;
+    align-items: center;
 
     & .header__logo img {
     height: 90%;
@@ -23,22 +23,41 @@
 
 .header__links {
     @include flex__center;
-    gap: 53px;
+    font-size: 14px;
+    gap: 50px;
+    
+    div {
+        color: $color-black;
+    }
 
-    & > a {
-    @include flex__center;
-    text-decoration: none;
-    color: $pink-color;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
 }
+
+.header__user {
+    @include flex__center;
+    font-size: 14px;
+    font-weight: bold;
+    color: $white-color;
+    gap: 14px;
 }
 
 .profile__img {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     cursor: pointer;
+    background-color: $pink-color;
+    border-radius: 50%;
+    @include flex__center;
+    justify-content: center;
+    
+}
+
+.school__600 {
+    background-color: $pink-color;
+    @include flex__center;
+    justify-content: center;
+    border-radius: 73px;
+    padding: 0 32px;
+    height: 52px;
 }
 
 .overlay {
@@ -54,19 +73,28 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    color: $white-color;
-    background-color: rgba(26, 27, 31, 0.95);
-    border: 0.5px solid $ligth-grey;
-    border-radius: 10px;
+    color: $blackcolor;
+    background-color: $white-color;
+    box-shadow: 0px 4px 8px 0px #5C5C5C1A,
+                2px 14px 14px 0px #5C5C5C17,
+                4px 32px 19px 0px #5C5C5C0D,
+                8px 57px 23px 0px #5C5C5C03,
+                12px 89px 25px 0px #5C5C5C00;
+    border-radius: 18px;
     padding: 16px 16px 21px;
     font-size: 14px;
     position: fixed;
     z-index: 12;
-    right: 36px;
+    right: 300px;
     opacity: 0;
     transform: translateY(-10px);
     visibility: hidden;
     transition: 0.01s;
+
+    .popup__username,
+    .pupup__grade {
+        color: $color-black;
+    }
 }
 
 .header__popup.active {
@@ -80,6 +108,8 @@
 .popup__raitinginfo {
     display: grid;
     grid-template: auto auto/auto auto;
+
+
     .popup__percent {
         color: $pink-color;
         justify-self: end;
@@ -95,7 +125,7 @@
 
 .popup__link {
     text-decoration: none;
-    color: $white-color;
+    color: $blackcolor;
     @include flex__center;
 
     img,
@@ -116,14 +146,16 @@
 }
 }
 
-@media #{$Tablet} {
-   
-
+@media #{$Tablet}  {
     .header__body {
+        margin: 0 16px;
         padding: 16px 26px;
+        background-color: $white-color;
+        border-radius: 14px;
     }
 
-    .header__links {
+    .header__links,
+    .header__user {
         display: none;
     }
 
@@ -134,11 +166,11 @@
     }
 
     .burger__img {
-       border: 0.5px solid $pink-color;
+       border: none;
        border-radius: 50%;
        width: 36px;
        height: 36px;
-       background-color: $background-general;
+       background-color: $pink-color;
        background-repeat: no-repeat;
        background-position: center;
     }
@@ -154,7 +186,7 @@
     .burger {
         display: flex;
         flex-direction: column;
-        color: $white-color;
+        color: $blackcolor;
         padding: 26px;
         gap: 16px;
         position: fixed;
@@ -163,14 +195,14 @@
         width: 100vw;
         height: 100vh;
         z-index: 4;
-        background-color: $background-general;
+        background-color: $background-beige;
         opacity: 0;
         transform: translateY(-10px);
         visibility: hidden;
         transition: 0.01s;
         a {
             text-decoration: none;
-            color: $white-color;
+            color: $blackcolor;
             font-size: 16px;
         }
     }
@@ -242,8 +274,6 @@
 }
 
 @media #{$Mobile} {
-   
-
     .header__body {
         padding: 11px 16px;
     }
