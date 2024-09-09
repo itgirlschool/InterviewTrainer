@@ -6,29 +6,32 @@ import Footer from "../../Components/Footer/Footer";
 import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 export default function RootLayout() {
   const [flag, setFlag] = useState(true);
   const [loader,setLoader] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+
   const auth = getAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "SUBSCRIBE_TO_USERS" });
+    dispatch({ type: "SUBSCRIBE_TO_USERS",});
+
   }, [dispatch]);
 
 
   useEffect(() => {
     onAuthStateChanged(auth,(user)=>{
       if(user){
-        console.log('auth success')
+        dispatch({ type: "SUBSCRIBE_TO_USER",emailUser:user.email});
        // navigate("/home");
-       // return
+        return
       }
-     // navigate('login')
+      navigate('login')
     })
   }, []);
 
@@ -45,9 +48,6 @@ export default function RootLayout() {
   }, [location.pathname]);
 
 
-  //if(!loader){
-    //return  <Spinner/>
- // }
 
   return (
     <div>

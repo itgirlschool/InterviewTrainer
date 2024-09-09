@@ -6,6 +6,8 @@ const userAuthSlice = createSlice({
     email: null,
     password: null,
     displayName: null,
+    lastName:null,
+    firstName:null,
     id: null,
     progress: null,
     avatar: null,
@@ -20,6 +22,8 @@ const userAuthSlice = createSlice({
       state.progress = action.payload.progress;
       state.avatar = action.payload.avatar;
       state.feedback = action.payload.feedback;
+      state.lastName = action.payload.lastName;
+      state.firstName = action.payload.firstName;
     },
   },
   removeUser: (state) => {
