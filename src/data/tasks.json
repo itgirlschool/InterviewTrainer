@@ -4,7 +4,7 @@
       "task_name": "Палиндром",
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая будет проверять, является ли строка палиндромом (одинаково читается справа и слева) и возвращать булевое значение.",
-      "example": "isPalindrome(‘тест’); //false; isPalindrome(‘шалаш’); //true",
+      "example": "isPalindrome('тест'); //false; isPalindrome('шалаш'); //true",
       "funcName": "isPalindrome(string)",
       "solution": {
         "base": "function isPalindrome(string) {\n  let cleanedString = string.replace(/\\s+/g, '').toLowerCase();\n  let arr = cleanedString.split('');\n  let reversArr = arr.reverse();\n  let resString = reversArr.join('');\n  let res = cleanedString === resString;\n  return res;\n}",
@@ -18,6 +18,42 @@
       "solution": {
         "base": "function findShort(string) {\n  let wordsArr = string.split(' ');\n  let shortestWord = wordsArr[0];\n  for (let word of wordsArr) {\n    if (word.length < shortestWord.length) {\n      shortestWord = word;\n    }\n  }\n  return shortestWord;\n}",
         "es6": "const findShort = str => str.split(' ').reduce((shortest, current) => \n  current.length < shortest.length ? current : shortest);"
+      }
+    },
+    {
+      "id": 3,
+      "task_name": "Функция создания инициалов",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию, которая на вход будет принимать строку с именем, а возвращать инициалы. Причем, даже если имя будет написано с маленькой буквы, инициалы должны быть заглавными буквами.",
+      "example": "toInitials('Bill Gates'); //'B.G.';\ntoInitials('elon mask'); //'E.M.'",
+      "funcName": "toInitials(name)",
+      "solution": {
+        "base": "function toInitials(name) {\n  const nameArr = name.split(' ');\n  const firstLetterArr = nameArr.map(function(el) {\n    return el.slice(0, 1).toUpperCase() + '.';\n  });\n  const initials = firstLetterArr.join('');\n  return initials;\n}",
+        "es6": "const toInitials = name => name.split(' ').map(el => `${el.slice(0, 1).toUpperCase()}.`).join('');"
+      }
+    },
+    {
+      "id": 4,
+      "task_name": "Функция суммирования всех цифр числа",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию, которая на вход будет принимать число, а возвращать сумму всех цифр, которые входят в состав числа. Причем, даже если исходное число отрицательное, сумма все равно должна считаться.",
+      "example": "sumDigits(99); //18;\nsumDigits(-32); //5;",
+      "funcName": "sumDigits(number)",
+      "solution": {
+        "base": "function sumDigits(number) {\n  const moduleNumber = Math.abs(number);\n  const str = moduleNumber.toString();\n  const arr = str.split('');\n  const res = arr.reduce(function(sum, cur) {\n    return Number(sum) + Number(cur);\n  }, 0);\n  return res;\n}",
+        "es6": "const sumDigits = number => Math.abs(number).toString().split('').reduce((sum, cur) => sum + +cur, 0);"
+      }
+    },
+    {
+      "id": 5,
+      "task_name": "Функция поиска минимального и максимального значений в массиве",
+      "task_theme": "JavaScript",
+      "task": "Создать функцию поиска минимального и максимального значения в массиве чисел. Возвращать она должна массив из двух элементов.",
+      "example": "minMax([2, 9, 10, 25, 47, 4, 1]); //[7, 47];\nminMax([1]) //[1, 1];",
+      "funcName": "minMax(arr)",
+      "solution": {
+        "base": "function minMax(arr) {\n  const res = [];\n  let minValue = Math.min.apply(null, arr);\n  let maxValue = Math.max.apply(null, arr);\n  res.push(minValue, maxValue);\n  return res;\n}",
+        "es6": "const minMax = (arr) => [Math.min(...arr), Math.max(...arr)];"
       }
     },
     {
