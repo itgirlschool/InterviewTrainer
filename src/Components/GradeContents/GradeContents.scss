@@ -10,6 +10,15 @@
     font-weight: 500;
     text-align: left;
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+    }
   }
 
   &__description {
@@ -17,6 +26,14 @@
     font-size: 16px;
     line-height: 1.5;
     text-align: left;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
   }
 
   &__container {
@@ -25,6 +42,16 @@
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
     gap: 5vw;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 4vw;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
 
     &_block {
       background: $color-grade;
@@ -35,6 +62,11 @@
       flex-direction: column;
       justify-content: flex-start;
       gap: 16px;
+
+      @media (max-width: 768px) {
+        padding: 16px 16px;
+        gap: 12px;
+      }
     }
 
     &_title {
@@ -42,11 +74,24 @@
       margin: 0;
       font-size: 32px;
       font-weight: 500;
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 24px;
+      }
     }
 
     .button {
       @include button__pink;
       text-decoration: none;
+
+      @media (max-width: 480px) {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
     }
   }
 }
@@ -61,6 +106,14 @@
     height: 10px;
     background-color: $ligth-grey;
     border-radius: 64px;
+
+    @media (max-width: 768px) {
+      height: 8px;
+    }
+
+    @media (max-width: 480px) {
+      height: 6px;
+    }
   }
 
   &__inner {
