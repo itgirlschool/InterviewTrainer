@@ -41,6 +41,10 @@ export const router = createBrowserRouter([
         element: <ResetPassword />,
       },
       {
+        path: "theorypage",
+        element: <TheoryPage />,
+      },
+      {
         path: "contentlesson",
         element: <ContentLesson />,
       },
@@ -58,11 +62,10 @@ export const router = createBrowserRouter([
               },
             ],
           },
-
-          // {
-          //   path: "thoryfirst",
-          //   element: <TheoryFirst />,
-          // },
+          {
+            path: "theorypage",
+            element: <TheoryPage />,
+          },
           // {
           //   path: "testsfirst",
           //   element: <TestsFirst />,
@@ -85,7 +88,6 @@ export const router = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
-      { path: "theory", element: <TheoryPage /> },
     ],
     errorElement: <Error />,
   },

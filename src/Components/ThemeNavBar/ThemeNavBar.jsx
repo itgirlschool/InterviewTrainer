@@ -9,7 +9,10 @@ function ThemeNavBar({
   data,
   error,
   status,
+  count,
   pagePath,
+  setQuestId = () => {},
+  setLastId = () => {},
   toggleNavBar = () => {},
 }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -58,7 +61,11 @@ function ThemeNavBar({
         >
           <img src={close} alt="close" />
         </button>
-        <ThemeNavBarInner data={data} pagePath={pagePath} />
+        <ThemeNavBarInner
+          count={count}
+          data={data}
+          pagePath={pagePath}
+        />
       </div>
     </div>
   );
@@ -78,6 +85,8 @@ function ThemeNavBar({
         />
       </button>
       <ThemeNavBarInner
+        setQuestId={setQuestId}
+        count={count}
         data={data}
         pagePath={pagePath}
         navBarIsHidden={navBarIsHidden}
@@ -100,9 +109,7 @@ function ThemeNavBar({
   }
 
   return (
-    <div>
-      {isMobile ? mobileContainer : desktopContainer}
-    </div>
+    <>{isMobile ? mobileContainer : desktopContainer}</>
   );
 }
 

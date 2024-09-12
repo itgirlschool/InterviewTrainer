@@ -146,6 +146,29 @@
   transform: rotate(180deg);
 }
 
+.theory__item{
+  max-width: 90%;
+  padding-left: 8px;
+  font-size: 20px;
+  white-space: normal;
+  color: $blackcolor;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: start;
+
+  &.active {
+    color: $pink-color;
+  }
+
+  // &__div{}
+
+  &__img{
+    width: 24px;
+  }
+
+}
+
 @media screen and (max-width: 950px) {
   .theme__wrapper {
     overflow-y: auto;

@@ -22,23 +22,24 @@ export default function ResetPassword() {
   const [dataUser, setDataUser] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [trueUser, setTrueUser] = useState(true);
-  const {users} = useSelector((state) => state.users);
+  const { users } = useSelector(state => state.users);
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset({ email: "" });
     }
   }, [formState, reset]);
 
-
-  const onSubmit = (data) => {
+  const onSubmit = data => {
     const myArr = Object.values(users);
-    const result = myArr.find((el) => el.email === data.email);
+    const result = myArr.find(
+      el => el.email === data.email,
+    );
     if (result) {
-      setDataUser(result.password)
+      setDataUser(result.password);
       setShowModal(true);
-      return
+      return;
     }
-     setTrueUser(false);
+    setTrueUser(false);
   };
 
   return (
@@ -50,13 +51,18 @@ export default function ResetPassword() {
         <p className="reset__header">Забыли пароль?</p>
         <input
           className="input"
-          {...register("email", { required: true, pattern: /^\S+@\S+\.\S+$/i })}
+          {...register("email", {
+            required: true,
+            pattern: /^\S+@\S+\.\S+$/i,
+          })}
           type="text"
           placeholder="Ваш Email"
         />
         {""}
         <div className="message__error">
-          {isDirty && !isValid && "Ошибка формата ввода Email"}
+          {isDirty &&
+            !isValid &&
+            "Ошибка формата ввода Email"}
         </div>
         {""}
         <button
@@ -76,7 +82,7 @@ export default function ResetPassword() {
           <p className="button__sighnin">Создать аккаунт</p>
         </Link>
         <button
-          onClick={(e) => {
+          onClick={e => {
             setTrueUser(true);
           }}
           className="button__back"
@@ -84,7 +90,9 @@ export default function ResetPassword() {
           Назад
         </button>
       </div>
-      <div className={!showModal ? "hidden" : "modal__overlay"}>
+      <div
+        className={!showModal ? "hidden" : "modal__overlay"}
+      >
         <div className="modal">
           <div className="modal__data">{dataUser}</div>
           <button

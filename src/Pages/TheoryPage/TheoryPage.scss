@@ -2,10 +2,8 @@
 @import "../../style/vars.scss";
 
 .theory{ 
-
   &__page{
     padding-top: 3%;
-    font-family: "M PLUS Rounded 1c", sans-serif;
     font-weight: 500;
     font-style: normal;
     color: $white-color;
@@ -20,13 +18,16 @@
       font-size: 36px;
     }
 
-    // .pink__text {
-    //   color: $pink-color;
-    // }
+    .pink__text {
+      margin-left: 5%;
+      font-size: 16px;
+      color: $pink-color;
+    }
   }
 
   &__container{
-    width: 95%;
+    height:600px;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2%;
@@ -37,12 +38,19 @@
   &__list{
     width: 20%;
     height: 200px;
-    //background-color: $grey;
+    background-color: $grey;
   }
-
 }
 
 .header__img {
   margin-left: 2%;
   margin-right: 2%;
+}
+
+.theory__item {
+  color:#3C3C3C;
+}
+
+.theory__item__choose {
+  color: $pink-color;
 }
