@@ -6,8 +6,6 @@
   flex-direction: column;
   gap: 26px;
   align-items: center;
-  &__count {
-  }
 
   &__cardContainer {
     width: 876px;
@@ -16,17 +14,16 @@
     border-radius: 28px;
     box-shadow: 7px 21px 49px 0px #9e9e9e1a;
     padding: 100px 113px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    gap: 100px;
+  }
+
+  &__buttons {
+    justify-self: center;
   }
 
   &__button {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // gap: 8px;
     cursor: pointer;
     color: $whitecolor;
     background: $pinkcolor;

@@ -1,3 +1,30 @@
+.test {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.test__question {
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.test__answers {
+  font-size: 20px;
+  line-height: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.test__answer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 46px;
+}
 .card__container {
   display: flex;
   align-items: center;

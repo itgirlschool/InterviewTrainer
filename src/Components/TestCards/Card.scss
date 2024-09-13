@@ -1,6 +1,42 @@
 @import "../../style/vars.scss";
 @import "../../style/template.scss";
 
+.test {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__question {
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+
+  &__answers {
+    font-size: 20px;
+    line-height: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__answer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 46px;
+  }
+
+  &__radio {
+    // width: 32px;
+    // height: auto;
+  }
+}
+
 .card__container {
   display: flex;
   align-items: center;

@@ -11,10 +11,12 @@
   border-radius: 28px;
   box-shadow: 7px 21px 49px 0px rgba(158, 158, 158, 0.1019607843);
   padding: 100px 113px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  gap: 100px;
+}
+.slider__buttons {
+  justify-self: center;
 }
 .slider__button {
   cursor: pointer;
