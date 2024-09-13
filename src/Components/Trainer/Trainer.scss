@@ -4,6 +4,19 @@
 
 .trainer__container {
   display: grid;
-  grid-template: 1fr 1fr/1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 15px;
+
+  .trainer__left-content {
+    display: grid;
+    grid-template-rows: 30vh 34.5vh;
+    gap: 15px;
+  }
+
+  .trainer__rigth-content {
+    display: grid;
+    grid-template-rows: 0 42vh 22vh;
+  }
 }
+
+

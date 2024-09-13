@@ -6,13 +6,19 @@ import CodeConsole from "../CodeConsole/CodeConsole";
 
 const TrainerV2 = () => {
   return (
+    <>
     <div className="trainer__container">
-      <div><TaskDescription /></div>
-      <div><CodeEditor/></div>
-      <div><TaskSolution/></div>
-      <div><CodeConsole/></div>
-    </div>
-  )
-}
+      <div className="trainer__left-content">
+          <TaskDescription />
+          <div><TaskSolution /></div>
+      </div>
+      <div className="trainer__rigth-content">
+          <CodeEditor />
+          <CodeConsole />
+      </div>
+      </div>
+    </>
+  );
+};
 
-export default TrainerV2
+export default TrainerV2;

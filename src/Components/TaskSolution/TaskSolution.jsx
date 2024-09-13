@@ -1,6 +1,8 @@
 import "../../Components/TaskSolution/TaskSolution.scss"; // TODO перенести стили оттуда
+import img_sittingcat from "../../assets/images/cat2.svg";
+import img_arrow from "../../assets/images/arrow_heart_rigth.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { checkSolution, toggleSolution, nextTask } from "../../app/store/slice/TasksSlice";
+import { toggleSolution, nextTask } from "../../app/store/slice/TasksSlice";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
@@ -13,17 +15,10 @@ const TaskSolution = () => {
 
   return (
     <>
-      <div className="trainer__check">
-        <button
-          className="codetrainer__check"
-          onClick={() => dispatch(checkSolution())}
-        >
-          Проверить
-        </button>
-      </div>
       <div className="trainer__solution">
-        <img src="" alt="" srcset="" />
-      {isCorrect && (
+        <img src={img_sittingcat} alt="Здесь можно увидеть подсказку" />
+        <img src={img_arrow} alt="Здесь можно увидеть подсказку" />
+      {isCorrect ? (
         <div>
           <p>Верное решение!</p>
           <button
@@ -39,7 +34,7 @@ const TaskSolution = () => {
             Следующая задача <ArrowRightOutlined />
           </button>
         </div>
-      )}
+      ) : "Тут ты можешь получить подсказку"}
       {showSolution && (
         <div>
           <p><strong>Решение учителя:</strong></p>

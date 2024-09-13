@@ -3,20 +3,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { dracula } from "@uiw/codemirror-theme-dracula";
-import { setUserSolution } from "../../app/store/slice/TasksSlice";
+import { setUserSolution, checkSolution } from "../../app/store/slice/TasksSlice";
 
 const CodeEditor = () => {
     const dispatch = useDispatch();
-    const { userSolution }= useSelector((state) => state.tasks);
+    const { userSolution } = useSelector((state) => state.tasks);
 
     return (
+      <>
+      <div className="trainer__check">
+        <button
+          className="codetrainer__check"
+          onClick={() => dispatch(checkSolution())}
+        >
+          Проверить
+        </button>
+      </div>
       <CodeMirror
         value={userSolution}
         theme={dracula}
-        height="30vh"
+        height="42vh"
         extensions={[javascript()]}
         onChange={(value) => dispatch(setUserSolution(value))}
       />
+      </ >
     );
 };
 

@@ -2,23 +2,13 @@
 @import "../../style/vars.scss";
 @import "../../index.scss";
 
-.codetrainer__check {
-    position: absolute;
-    right: 4.5vw;
-    top: 11vh;
-    background-color: $color-grey-button;
-    border: none;
-    font-size: 16px;
-    padding: 0 70px;
-    height: 52px;
-    border-radius: 50px;
-    color: $white-color;
-}
-
 .trainer__solution {
+    display: flex;
+    align-items: start;
     background-color: $white-color;
     border-radius: 60px;
-    height: 22.2vh;
+    height: 34.5vh;
     color: $color-blacktext;
+    padding: 20px 40px 0;
 
 }
