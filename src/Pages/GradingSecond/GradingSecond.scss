@@ -1,2 +1,100 @@
 @import "../../style/template.scss";
 @import "../../style/vars.scss";
+
+.container_main {
+    @include background;
+    min-height: 90vh;
+    font-family: $fontSans;
+  
+    .grading__container {
+      display: flex;
+      flex-direction: column;
+      padding: 40px 87px 0;
+  
+      .grading__intro {
+        display: flex;
+        align-items: start;
+  
+        .cat__arrow {
+          padding-left: 40px;
+          max-height: 120px;
+        }
+  
+        .cat__withlaptop {
+          max-height: 260px;
+        }
+      }
+  
+      .grading__title {
+        background-color: $white-color;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+        border: 1px solid $pink-color;
+        border-radius: 60px;
+        max-width: 49vw;
+        min-height: 24vh;
+  
+        .grading__text {
+          font-size: 16px;
+          line-height: 150%;
+          color: $color-black;
+        }
+  
+        h1 {
+          font-size: 28px;
+          margin: 0;
+          color: $pink-color;
+        }
+  
+        h1::after {
+          content: "";
+          background-image: url("../../assets/images/lines.png");
+          display: inline-block;
+          background-size: 24px 24px;
+          width: 24px;
+          height: 24px;
+          position: relative;
+          top: -2vh;
+        }
+      }
+  
+      .grading__contents {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: space-between;
+        gap: 5vw;
+  
+        .grading__contents_block {
+          background: $white-color;
+          box-shadow: 7px 21px 49px 0px #9e9e9e1a,
+            28px 84px 89px 0px #9e9e9e17,
+            64px 190px 120px 0px #9e9e9e0d,
+            114px 337px 142px 0px #9e9e9e03,
+            178px 527px 156px 0px #9e9e9e00;
+          padding: 24px 32px;
+          border-radius: 60px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          min-height: 42vh;
+  
+          h2 {
+            color: $pink-color;
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+          }
+  
+          p {
+            font-size: 14px;
+            line-height: 150%;
+            color: $color-black;
+          }
+        }
+      }
+    }
+  
+} 

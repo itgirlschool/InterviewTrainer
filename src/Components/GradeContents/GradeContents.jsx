@@ -1,16 +1,12 @@
-import React from "react";
+/*import React from "react";
 import { Link } from "react-router-dom";
 import "./GradeContents.scss";
+import GradeBlock from "../GradeBlock/GradeBlock";
 
 export default function GradeContents({
   grading,
   gradeDescription,
-  videoPath,
-  theoryPath,
-  testsPath,
-  videoDescription,
-  theoryDescription,
-  testsDescription,
+
 }) {
   return (
     <div className="grading">
@@ -19,26 +15,10 @@ export default function GradeContents({
         {gradeDescription}
       </p>
 
-      <div className="grading__container">
-        <div className="grading__container_block">
-          <h2 className="grading__container_title">
-            Видеоуроки
-          </h2>
-          <div className="progressBar">
-            <div className="progressBar__title">
-              <span>Пройдено: </span>
-              <span className="progressBar__value">30</span>
-              <span>%</span>
-            </div>
-            <div className="progressBar__outer">
-              <div className="progressBar__inner"></div>
-            </div>
-          </div>
-          <p>{videoDescription}</p>
-          <Link className="button" to={videoPath}>
-            Начать
-          </Link>
-        </div>
+<div>
+  <GradeBlock></GradeBlock>
+</div>
+
         <div className="grading__container_block">
           <h2 className="grading__container_title">
             Теория
@@ -80,4 +60,4 @@ export default function GradeContents({
       </div>
     </div>
   );
-}
+}*/
