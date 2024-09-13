@@ -22,6 +22,7 @@ const TaskSolution = () => {
         </button>
       </div>
       <div className="trainer__solution">
+        <img src="" alt="" srcset="" />
       {isCorrect && (
         <div>
           <p>Верное решение!</p>
@@ -40,14 +41,12 @@ const TaskSolution = () => {
         </div>
       )}
       {showSolution && (
-        <div className="trainer__question">
+        <div>
           <p><strong>Решение учителя:</strong></p>
           {/* <pre className="task__answer"><code>{currentTask.solution.base}</code></pre> */}
           <CodeMirror
             value={currentTask.solution.base}
             theme={dracula}
-            height="50vh"
-            width="50vw"
             extensions={[javascript()]}
             readOnly={true}
           />

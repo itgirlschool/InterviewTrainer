@@ -13,7 +13,7 @@ const CodeEditor = () => {
       <CodeMirror
         value={userSolution}
         theme={dracula}
-        height="45vh"
+        height="30vh"
         extensions={[javascript()]}
         onChange={(value) => dispatch(setUserSolution(value))}
       />
