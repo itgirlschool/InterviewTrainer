@@ -1,0 +1,7 @@
+@import "../../../style/template.scss";
+@import "../../../style/vars.scss";
+
+.autotests {
+  @include container;
+  gap: 57px;
+}

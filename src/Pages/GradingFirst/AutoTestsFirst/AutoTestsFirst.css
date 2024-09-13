@@ -3,8 +3,5 @@
   flex-direction: column;
   gap: 30px;
   padding: 4vh 4.5vw;
-}
-.autotests__mainlink {
-  color: #ea5d80;
-  font-size: 1rem;
+  gap: 57px;
 }

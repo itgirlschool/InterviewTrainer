@@ -1,8 +1,13 @@
-import AutoTests from "../../../Components/AutoTests/AutoTests";
-import { useNavigate, useLocation } from "react-router-dom";
+import "./AutoTestsFirst.scss";
+import {
+  useNavigate,
+  useLocation,
+  Outlet,
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTests } from "../../../Services/fetchTests";
+import LinkBack from "../../../Components/LinkBack/LinkBack";
 
 export default function AutoTestsFirst() {
   const navigate = useNavigate();
@@ -30,5 +35,12 @@ export default function AutoTestsFirst() {
     }
   }, [tests, pathname, navigate]);
 
-  return <AutoTests linkBack="/gradingfirst" />;
+  return (
+    <div className="autotests">
+      <div className="autotests__title">
+        <LinkBack linkBack="/gradingfirst" />
+      </div>
+      <Outlet />
+    </div>
+  );
 }

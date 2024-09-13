@@ -13,8 +13,7 @@ import Profile from "./Profile/Profile";
 import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
 import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
 import AutoTestsFirst from "./GradingFirst/AutoTestsFirst/AutoTestsFirst";
-// import AutoTestsSlider from "../Components/AutoTestsSlider/AutoTestsSlider";
-import AutoTestsCard from "../Components/AutoTestsCard/AutoTestsCard";
+import AutoTestsSlider from "../Components/AutoTestsSlider/AutoTestsSlider";
 
 export {
   RootLayout,
@@ -33,5 +32,5 @@ export {
   VideoFirstItem,
   AutoTestsFirst,
   // AutoTestsSlider,
-  AutoTestsCard,
+  AutoTestsSlider,
 };

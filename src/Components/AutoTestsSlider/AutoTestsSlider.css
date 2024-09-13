@@ -4,3 +4,34 @@
   gap: 26px;
   align-items: center;
 }
+.slider__cardContainer {
+  width: 876px;
+  height: 692px;
+  background-color: #FFFFFF;
+  border-radius: 28px;
+  box-shadow: 7px 21px 49px 0px rgba(158, 158, 158, 0.1019607843);
+  padding: 100px 113px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.slider__button {
+  cursor: pointer;
+  color: #ffffff;
+  background: #ea5d80;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  min-width: 200px;
+  text-decoration: none;
+  width: 442px;
+  height: 60px;
+}
+.slider__button:hover {
+  background: #777777;
+}
+.slider__button.disabled {
+  cursor: unset;
+  background: rgba(234, 93, 128, 0.7);
+}
