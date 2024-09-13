@@ -1,4 +1,4 @@
-import "../../Components/Trainer/Trainer"; // TODO перенести стили оттуда
+import "../../Components/TaskSolution/TaskSolution.scss"; // TODO перенести стили оттуда
 import { useSelector, useDispatch } from "react-redux";
 import { checkSolution, toggleSolution, nextTask } from "../../app/store/slice/TasksSlice";
 import { ArrowRightOutlined } from "@ant-design/icons";

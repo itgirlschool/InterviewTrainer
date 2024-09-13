@@ -5,31 +5,15 @@
 .grading__codetasks {
   font-family: $font;
   color: $white-color;
-  padding: 0 54px;
-
-  .grading__intro {
-    padding-top: 4vh;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    a {
-      text-decoration: none;
-    }
-  }
+  padding: 4vh 4.5vw;
 
   .graiding__name {
-    font-size: 32px;
+    font-size: 16px;
     color: $pinkcolor;
-    font-weight: 500;
-  }
-
-  & .graiding__section {
-    font-size: 32px;
   }
 }
 
 .codetrainer {
-  padding-top: 22px;
+  padding-top: 24px;
 }
 
