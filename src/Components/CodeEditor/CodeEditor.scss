@@ -1,0 +1,9 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+@import "../../index.scss";
+
+.cm-editor,
+.cm-scroller {
+    padding: 16px;
+    border-radius: 60px;
+}

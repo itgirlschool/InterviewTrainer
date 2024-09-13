@@ -12,15 +12,16 @@ const TaskSolution = () => {
   const currentTask = tasks[currentTaskIndex];
 
   return (
-    <div>
+    <>
       <div className="trainer__check">
         <button
-          className="codetrainer__button-check"
+          className="codetrainer__check"
           onClick={() => dispatch(checkSolution())}
         >
           Проверить
         </button>
       </div>
+      <div className="trainer__solution">
       {isCorrect && (
         <div>
           <p>Верное решение!</p>
@@ -52,7 +53,8 @@ const TaskSolution = () => {
           />
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,17 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+@import "../../index.scss";
+
+.codetrainer__check {
+    position: absolute;
+    right: 4.5vw;
+    top: 11vh;
+    background-color: $color-grey-button;
+    border: none;
+    font-size: 16px;
+    padding: 0 70px;
+    height: 52px;
+    border-radius: 50px;
+    color: $white-color;
+
+}

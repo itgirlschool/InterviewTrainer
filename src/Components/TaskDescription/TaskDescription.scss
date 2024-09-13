@@ -1,0 +1,45 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+@import "../../index.scss";
+
+.trainer__question {
+  background-color: $white-color;
+  border-radius: 60px;
+  background-image: url("../../assets/images/cat_with_calculator.svg");
+  background-repeat: no-repeat;
+  background-position: right 40px bottom;
+  background-size: 297px 269px;
+  padding: 27px 320px 27px 40px;
+  color: $color-blacktext;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 30vh;
+
+  .trainer__name {
+    color: $pink-color;
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .task__text {
+    font-size: 16px;
+    line-height: 148%;
+  }
+}
+
+.codetrainer__hint {
+  background-color: $white-color;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: 50px;
+  position: absolute;
+  right: 40vw;
+  bottom: 7vh;
+  z-index: 10;
+}

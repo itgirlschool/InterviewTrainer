@@ -1,4 +1,4 @@
-import "../../Components/Trainer/Trainer"; // TODO перенести стили оттуда
+import "../../Components/TaskDescription/TaskDescription.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleHint } from "../../app/store/slice/TasksSlice";
 import img_lamp from "../../assets/images/img_lamp.svg"
@@ -11,15 +11,14 @@ const TaskDescription = () => {
   return (
     <div className="trainer__question">
       <div className="trainer__name">{currentTask.task_name}</div>
-      <div className="trainer__theme">{currentTask.task_theme}</div>
       <div className="task__text">{currentTask.task}</div>
-      { currentTask.example && <pre className="task__example">//Пример:<br></br>{currentTask.example}</pre>}
+      { currentTask.example && <strong className="task__example">Пример:<br /> {currentTask.example}</strong>}
       
       <button
-        className="codetrainer__pink"
+        className="codetrainer__hint"
         onClick={() => dispatch(toggleHint())}
       >
-        {!showHint ? "Посмотреть" : "Скрыть"} подсказку 
+        {!showHint ? "Подсказка" : "Скрыть подсказку"} 
         {!showHint ? <img src={img_lamp} alt="" /> : ""}
       </button>
       {showHint && <div className="hint__text"><strong>Подсказка:</strong> {currentTask.hint.base}</div>}
