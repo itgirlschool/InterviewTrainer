@@ -1,16 +1,30 @@
-import emptyCircle from "../../../../assets/empty-circle.svg";
 import "../Card.scss";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setHasSelectedAnswer,
+  setSelectedAnswer,
+} from "../../../app/store/slice/UserAutoTestsSlice";
 
 export default function Radio({ answer }) {
+  const hasAnswered = useSelector(
+    state => state.userAutoTests.hasAnswered,
+  );
+  const dispatch = useDispatch();
+  const handleChange = () => {
+    dispatch(setSelectedAnswer(answer.id));
+    dispatch(setHasSelectedAnswer());
+  };
+
   return (
     <div key={answer.id} className="test__answer">
       <input
         type="radio"
         name="testAnswer"
-        src={emptyCircle}
-        alt="circle"
         id={answer.id}
-        className="test__radio"
+        className="radio"
+        // value={answer.id}
+        onChange={handleChange}
+        disabled={hasAnswered}
       />
       <label htmlFor={answer.id}>{answer.text}</label>
     </div>

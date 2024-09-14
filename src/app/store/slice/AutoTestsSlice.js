@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const AutoTestsSlice = createSlice({
-  name: "autotests",
+  name: "autoTests",
   initialState,
   reducers: {},
   extraReducers: builder => {

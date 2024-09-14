@@ -3,6 +3,7 @@ import userAuthSlice from "./slice/UserAuthSlice";
 import usersSlice from "./slice/UsersSlice";
 import { videosReducer } from "./slice/VideosSlice.js";
 import { autotestsReducer } from "./slice/AutoTestsSlice.js";
+import { userAutoTestsReducer } from "./slice/UserAutoTestsSlice.js";
 import middlewareUsers from "./middleware/middlewareUsers";
 import middlewareUserAuth from "./middleware/middlewareUsersAuth.js";
 import firebase from "firebase/compat/app";
@@ -23,6 +24,7 @@ export const store = configureStore({
     users: usersSlice,
     videos: videosReducer,
     autotests: autotestsReducer,
+    userAutoTests: userAutoTestsReducer,
   },
   devTools: true,
   middleware: getDefaultMiddleware =>

@@ -39,7 +39,7 @@
       background: $grey;
     }
 
-    &.disabled {
+    &:disabled {
       cursor: unset;
       background: rgba($color: $pinkcolor, $alpha: 0.7);
     }

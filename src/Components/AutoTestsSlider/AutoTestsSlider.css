@@ -33,7 +33,7 @@
 .slider__button:hover {
   background: #777777;
 }
-.slider__button.disabled {
+.slider__button:disabled {
   cursor: unset;
   background: rgba(234, 93, 128, 0.7);
 }

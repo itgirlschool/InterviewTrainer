@@ -1,22 +1,46 @@
 import "./AutoTestsSlider.scss";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import TestCard from "../TestCards/TestCard";
+import { addUserChoice } from "../../app/store/slice/UserAutoTestsSlice";
+import {
+  clearHasSelectedAnswer,
+  clearSelectedAnswer,
+  setHasAnswered,
+  clearHasAnswered,
+} from "../../app/store/slice/UserAutoTestsSlice";
 
 export default function AutoTestsSlider() {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const dispatch = useDispatch();
   const tests = useSelector(state => state.autotests.tests);
+  const hasSelectedAnswer = useSelector(
+    state => state.userAutoTests.hasSelectedAnswer,
+  );
+  const selectedAnswer = useSelector(
+    state => state.userAutoTests.selectedAnswer,
+  );
+  const hasAnswered = useSelector(
+    state => state.userAutoTests.hasAnswered,
+  );
+  const { id } = useParams();
   const currentTest = parseInt(id, 10);
-  const [hasAnswered, setHasAnswered] = useState(false);
 
   useEffect(() => {
-    setHasAnswered(false);
+    dispatch(clearHasSelectedAnswer());
+    dispatch(clearSelectedAnswer());
+    dispatch(clearHasAnswered());
   }, [id]);
 
-  const handleAnswer = () => {
-    return <div>Я ответила</div>;
+  const handleChoice = () => {
+    dispatch(
+      addUserChoice({
+        testId: currentTest,
+        answerId: selectedAnswer,
+      }),
+    );
+    dispatch(setHasAnswered());
   };
 
   const handleNext = () => {
@@ -30,7 +54,8 @@ export default function AutoTestsSlider() {
   const buttonAnswer = (
     <button
       className="slider__button"
-      onClick={handleAnswer}
+      disabled={!hasSelectedAnswer}
+      onClick={handleChoice}
     >
       Ответить
     </button>
@@ -42,6 +67,15 @@ export default function AutoTestsSlider() {
     </button>
   );
 
+  const buttonShowResults = (
+    <button
+      className="slider__button"
+      // onClick={handleShowResults}
+    >
+      Показать результаты
+    </button>
+  );
+
   return (
     <div className="slider">
       <div className="slider__count">
@@ -49,11 +83,14 @@ export default function AutoTestsSlider() {
       </div>
       <div className="slider__cardContainer">
         <div>
-          <TestCard />
+          <TestCard currentTest={currentTest} />
         </div>
         <div className="slider__buttons">
-          {/* {!hasAnswered ? buttonAnswer : buttonNext} */}
-          {buttonNext}
+          {!hasAnswered
+            ? buttonAnswer
+            : currentTest < tests.length
+            ? buttonNext
+            : buttonShowResults}
         </div>
       </div>
     </div>
