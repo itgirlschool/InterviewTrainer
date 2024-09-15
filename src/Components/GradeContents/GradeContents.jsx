@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./GradeContents.scss";
 
 export default function GradeContents({
@@ -12,6 +12,10 @@ export default function GradeContents({
   theoryDescription,
   testsDescription,
 }) {
+  const location = useLocation();
+  const showNavigation = location.pathname === "/gradecontents";
+  console.log(location.pathname);
+
   return (
     <div className="grading">
       <h2 className="grading__title">{grading}</h2>
