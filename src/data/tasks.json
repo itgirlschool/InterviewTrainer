@@ -122,8 +122,8 @@
       "example": "fooBar(3); //foo;\nfooBar(15); //foobar;",
       "funcName": "fooBar",
       "solution": {
-        "base": "function fooBar(num) {\n  for(let i = 1; i <= num; i++) {\n    if (i % 3 === 0 && i % 5 === 0) {\n      console.log('foobar');\n    } else if ( i % 3 === 0) {\n      console.log ('foo');\n    } else if (i % 5 === 0) {\n      console.log('bar');\n    } else {\n      console.log(i);\n    }\n  }\n};",
-        "es6": "const fooBar = num => {\n  for (let i = 1; i <= num; i++) {\n    let output = '';\n    if (i % 3 === 0) output += 'foo';\n    if (i % 5 === 0) output += 'bar';\n    console.log(output || i);\n  }\n};"
+        "base": "function fooBar(num) {\n  let result = '';\n  for(let i = 1; i <= num; i++) {\n    if (i % 3 === 0 && i % 5 === 0) {\n      result = 'foobar';\n    } else if ( i % 3 === 0) {\n      result = 'foo';\n    } else if (i % 5 === 0) {\n      result = 'bar';\n    } else {\n      result = i.toString();\n    }\n  }\n  return result;\n};",
+        "es6": "const fooBar = num => {\n  let result = '';\n  for (let i = 1; i <= num; i++) {\n    let output = '';\n    if (i % 3 === 0) output += 'foo';\n    if (i % 5 === 0) output += 'bar';\n    result = output || i.toString();\n  }\n  return result;\n};"
       },
       "hint": {
         "base": "Используй цикл `for` для перебора чисел и оператор `%` для проверки кратности чисел. Применяй условные операторы `if-else`, чтобы выводить `foo`, `bar` или `foobar` в зависимости от условия.",
@@ -203,7 +203,7 @@
         { "input": ["hello world"], "output": 3 },
         { "input": ["why"], "output": 0 },
         { "input": ["AEIOU"], "output": 5 },
-        { "input": ["quick brown fox"], "output": 3 }
+        { "input": ["quick brown fox"], "output": 4 }
       ]
     },
     {
