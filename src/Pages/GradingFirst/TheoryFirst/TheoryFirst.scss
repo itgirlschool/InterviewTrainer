@@ -20,7 +20,6 @@
     transition: grid-template-columns 0.5s ease;
     .theory__container {
       border-radius: 0 20px 20px 0;
-      max-height: 100vh;
     }
   }
   &__main__modified {
@@ -28,6 +27,7 @@
     transition: grid-template-columns 0.5s ease;
     .theory__container {
       border-radius: 20px;
+      min-height: 150vh;
     }
   }
 }
