@@ -1,6 +1,7 @@
 import "../../Components/Trainer/Trainer"; // TODO перенести стили оттуда
 import { useSelector, useDispatch } from "react-redux";
-import { checkSolution, toggleSolution, nextTask } from "../../app/store/slice/TasksSlice";
+import { toggleSolution, nextTask } from "../../app/store/slice/TasksSlice";
+import { checkSolution } from "../../Services/checkSolution";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
@@ -8,19 +9,25 @@ import { dracula } from "@uiw/codemirror-theme-dracula";
 
 const TaskSolution = () => {
   const dispatch = useDispatch();
-  const { tasks, currentTaskIndex, showSolution, isCorrect } = useSelector((state) => state.tasks);
+  const { tasks, currentTaskIndex, showSolution, isCorrect, isLoading } = useSelector((state) => state.tasks);
   const currentTask = tasks[currentTaskIndex];
+
+  const handleCheckSolution = () => {
+    dispatch(checkSolution());
+  };
 
   return (
     <div>
       <div className="trainer__check">
         <button
           className="codetrainer__button-check"
-          onClick={() => dispatch(checkSolution())}
+          onClick={handleCheckSolution}
+          disabled={isLoading}
         >
-          Проверить
+          {isLoading ? "Проверка..." : "Проверить"}
         </button>
       </div>
+      
       {isCorrect && (
         <div>
           <p>Верное решение!</p>
@@ -38,6 +45,7 @@ const TaskSolution = () => {
           </button>
         </div>
       )}
+      
       {showSolution && (
         <div className="trainer__question">
           <p><strong>Решение учителя:</strong></p>

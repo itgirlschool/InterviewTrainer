@@ -13,7 +13,12 @@ const TaskDescription = () => {
       <div className="trainer__name">{currentTask.task_name}</div>
       <div className="trainer__theme">{currentTask.task_theme}</div>
       <div className="task__text">{currentTask.task}</div>
-      { currentTask.example && <pre className="task__example">//Пример:<br></br>{currentTask.example}</pre>}
+      { currentTask.example && (
+        <pre className="task__example">
+          //Пример:<br />
+          {currentTask.example}
+        </pre>
+      )}
       
       <button
         className="codetrainer__pink"
@@ -22,7 +27,12 @@ const TaskDescription = () => {
         {!showHint ? "Посмотреть" : "Скрыть"} подсказку 
         {!showHint ? <img src={img_lamp} alt="" /> : ""}
       </button>
-      {showHint && <div className="hint__text"><strong>Подсказка:</strong> {currentTask.hint.base}</div>}
+      
+      {showHint && (
+        <div className="hint__text">
+          <strong>Подсказка:</strong> {currentTask.hint.base}
+        </div>
+      )}
     </div>
   );
 };
