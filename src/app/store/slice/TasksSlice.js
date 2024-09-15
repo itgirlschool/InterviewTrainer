@@ -27,7 +27,7 @@ const tasksSlice = createSlice({
       state.showSolution = !state.showSolution;
     },
     nextTask: (state) => {
-      if (state.currentTaskIndex < state.tasks.length - 1) {
+      if (state.currentTaskIndex <= state.tasks.length - 1) {
         state.currentTaskIndex += 1;
         state.userSolution = "";
         state.showHint = false;
