@@ -12,6 +12,22 @@
   position: relative;
   box-shadow: $inner-boxshadow;
 
+  max-height: 100%;
+  width: 100%;
+  margin-left: auto;
+  overflow-y: scroll;
+  transition: width 0.5s ease;
+  background-color: $whitecolor;
+
+  &::-webkit-scrollbar {
+    width: 15px;
+    background: $scrollbar;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb;
+    cursor: pointer;
+  }
+
   .theory__inner {
     width: 80%;
   }
@@ -21,6 +37,13 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       align-items: start;
+      background-color: $whitecolor;
+    }
+
+    &__nav {
+      position: sticky;
+      bottom: 0;
+      padding-top: 10px;
     }
 
     &__button {
@@ -118,7 +141,7 @@
   }
 
   &__picture {
-    max-width: 90%;
+    max-width: 70%;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: auto;

@@ -11,6 +11,7 @@
   overflow-x: hidden;
   border-radius: 20px 0 0 20px;
   background-color: $whitecolor;
+  max-height: 100vh;
 
   &__hidden {
     width: 0%;
