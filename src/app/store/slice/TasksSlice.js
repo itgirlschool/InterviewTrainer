@@ -1,17 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import tasks from "../../../data/tasks.json"
+import tasks from "../../../data/tasks.json";
+import { checkSolution } from "../../../Services/checkSolution";
 
 const initialState = {
   tasks: tasks,
   currentTaskIndex: 0,
   showHint: false,
-  userSolution: '',
+  userSolution: "",
   showSolution: false,
-  isCorrect: false,
+  isCorrect: null,
+  isLoading: false,
+  error: null,
 };
 
 const tasksSlice = createSlice({
-  name: 'tasks',
+  name: "tasks",
   initialState,
   reducers: {
     setUserSolution: (state, action) => {
@@ -23,23 +26,34 @@ const tasksSlice = createSlice({
     toggleSolution: (state) => {
       state.showSolution = !state.showSolution;
     },
-    checkSolution: (state) => {
-      // TODO Продумать и сделать логику проверки
-      const userFunc = state.userSolution;
-      const isCorrect = userFunc === "1"; // Проверку реализовать здесь
-      state.isCorrect = isCorrect;
-    },
     nextTask: (state) => {
       if (state.currentTaskIndex < state.tasks.length - 1) {
         state.currentTaskIndex += 1;
-        state.userSolution = '';
+        state.userSolution = "";
         state.showHint = false;
         state.showSolution = false;
-        state.isCorrect = false;
+        state.isCorrect = null;
+        state.error = null;
       }
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(checkSolution.pending, (state) => {
+        state.isLoading = true;
+        state.isCorrect = null;
+        state.error = null;
+      })
+      .addCase(checkSolution.fulfilled, (state, action) => {
+        state.isCorrect = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(checkSolution.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+  },
 });
 
-export const { setUserSolution, toggleHint, toggleSolution, showSolution, checkSolution, nextTask } = tasksSlice.actions;
+export const { setUserSolution, toggleHint, toggleSolution, nextTask } = tasksSlice.actions;
 export const tasksReducer = tasksSlice.reducer;
