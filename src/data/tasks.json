@@ -142,7 +142,7 @@
       "task_name": "Массивы",
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая будет принимать один или несколько массивов и возвращать новый массив уникальных значений в порядке исходных, предоставленных массивов.",
-      "example": "foo([1,2,3], [4,5,1], [6,4,7]) //[1,2,3,4,5,6,7],\nfoo2([1], [2], [3,2,2]) //[1,2,3]",
+      "example": "uniteUnique([1,2,3], [4,5,1], [6,4,7]) //[1,2,3,4,5,6,7],\nuniteUnique2([1], [2], [3,2,2]) //[1,2,3]",
       "funcName": "uniteUnique",
       "solution": {
         "base": "function uniteUnique() {\n  const arr = [...arguments];\n  let newArr = [];\n  for (let i = 0; i < arr.length; i++) {\n    newArr.push(...arr[i]);\n  }\n  newArr = new Set(newArr);\n  return [...newArr];\n}",
