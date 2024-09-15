@@ -145,8 +145,8 @@
       "example": "foo([1,2,3], [4,5,1], [6,4,7]) //[1,2,3,4,5,6,7],\nfoo2([1], [2], [3,2,2]) //[1,2,3]",
       "funcName": "uniteUnique",
       "solution": {
-        "base": "function uniteUnique() { const arr = [...arguments]; let newArr = []; for (let i = 0; i < arr.length; i++) { newArr.push(...arr[i]); } newArr = new Set(newArr); return [...newArr];}",
-        "es6": "function uniteUnique() { return [...new Set([...arguments].flat())]};"  
+        "base": "function uniteUnique() {\n  const arr = [...arguments];\n  let newArr = [];\n  for (let i = 0; i < arr.length; i++) {\n    newArr.push(...arr[i]);\n  }\n  newArr = new Set(newArr);\n  return [...newArr];\n}",
+        "es6": "function uniteUnique() {\n  return [...new Set([...arguments].flat())];\n}"  
       },
       "hint": {
         "base": "Используй цикл для объединения всех массивов в один, а затем примени объект `Set`, чтобы получить уникальные значения.",
@@ -168,8 +168,8 @@
       "example": "createPhoneNumber(123456789); //'(123) 456-789';\ncreatePhoneNumber(555267894); //'(555) 267-894';",
       "funcName": "createPhoneNumber",
       "solution": {
-        "base": "function createPhoneNumber(number) { let numArr = number.toString().split(''); numArr.splice(0.0,'('); numArr.splice(4,0,')'); numArr.splice(5,0,' '); numArr.splice(9,0,'-'); return numArr.join('');}",
-        "es6": "const createPhoneNumber = (number) => {const strNum = number.toString(); return `(${strNum.slice(0, 3)}) ${strNum.slice(3, 6)}-${strNum.slice(3, 9)}`};"  
+        "base": "function createPhoneNumber(number) {\n  let numArr = number.toString().split('');\n  numArr.splice(0, 0,'(');\n  numArr.splice(4, 0,')');\n  numArr.splice(5, 0,' ');\n  numArr.splice(9, 0,'-');\n  return numArr.join('');\n}",
+        "es6": "const createPhoneNumber = (number) => {\n  const strNum = number.toString();\n  return `(${strNum.slice(0, 3)}) ${strNum.slice(3, 6)}-${strNum.slice(6, 9)}`;\n};"  
       },
       "hint": {
         "base": "Используй метод `toString` для преобразования числа в строку и `split`, чтобы разбить её на массив символов. Затем применяй `splice` для вставки символов в нужные позиции.",
@@ -191,8 +191,8 @@
       "example": "findVowels(“hello”);    //2 \nfindVowels(“hello world”);  //3",
       "funcName": "findVowels",
       "solution": {
-        "base": "function findVowels(str) { const vowels = ['a', 'e', 'i', 'o', 'u']; let count = 0; for(let char of str.toLowerCase()) { if(vowels.includes(char)) { count++; } } return count;};",
-        "es6": "const findVowels1 = (str) => { const matches = str.match(/[aeiou]/gi); return matches ? matches.length : 0;}"  
+        "base": "function findVowels(str) {\n  const vowels = ['a', 'e', 'i', 'o', 'u'];\n  let count = 0;\n  for(let char of str.toLowerCase()) {\n    if(vowels.includes(char)) {\n      count++;\n    }\n  }\n  return count;\n};",
+        "es6": "const findVowels = (str) => {\n  const matches = str.match(/[aeiou]/gi);\n  return matches ? matches.length : 0;\n};"  
       },
       "hint": {
         "base": "Преобразуй строку в нижний регистр с помощью `toLowerCase`, затем используй цикл `for...of`, чтобы проверить каждую букву, и метод `includes` для проверки на наличие гласных.",
@@ -214,7 +214,7 @@
       "example": "toCapitalCase('hello');    //'Hello'\ntoCapitalCase('hello world');  //'Hello World'",
       "funcName": "toCapitalCase",
       "solution": {
-        "base": "function toCapitalCase(str) { const arr = str.split(' '); const resArr = []; for (let i=0; i < arr.length; i++) { resArr.push(arr[i][0].toUpperCase() + arr[i].slice(1));} return resArr.join(' ');}",
+        "base": "function toCapitalCase(str) {\n  const arr = str.split(' ');\n  const resArr = [];\n  for (let i = 0; i < arr.length; i++) {\n    resArr.push(arr[i][0].toUpperCase() + arr[i].slice(1));\n  }\n  return resArr.join(' ');\n}",
         "es6": "const toCapitalCase = (str) => str.split(' ').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');"  
       },
       "hint": {
