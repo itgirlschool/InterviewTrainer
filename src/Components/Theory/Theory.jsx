@@ -1,5 +1,4 @@
 import "./Theory.scss";
-import { useEffect, useState, useRef } from "react";
 import star from "../../assets/images/star.svg";
 import TheoryInner from "./TheoryInner";
 import TheoryPagination from "./TheoryPagination";
