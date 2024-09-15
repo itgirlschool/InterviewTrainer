@@ -3,6 +3,7 @@ import { fetchTests } from "../../../Services/fetchTests";
 
 const initialState = {
   tests: [],
+  correctAnswers: [],
   status: "idle", //"loading", "succeeded", "failed"
   error: null,
 };
@@ -21,6 +22,19 @@ export const AutoTestsSlice = createSlice({
         state.status = "succeeded";
         state.error = null;
         state.tests = action.payload;
+        state.correctAnswers = action.payload.map(test => {
+          const answerId = test.answers.find(
+            answer => answer.isRight === true,
+          ).id;
+          return {
+            testId: test.id,
+            answerId,
+          };
+        });
+        console.log(
+          "correct answers from state",
+          state.correctAnswers,
+        );
       })
       .addCase(fetchTests.rejected, (state, action) => {
         state.status = "failed";

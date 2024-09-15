@@ -5,6 +5,7 @@ const initialState = {
   hasSelectedAnswer: false,
   selectedAnswer: null,
   hasAnswered: false,
+  showCorrectAnswer: false,
 };
 
 export const UserAutoTestsSlice = createSlice({
@@ -13,12 +14,7 @@ export const UserAutoTestsSlice = createSlice({
   reducers: {
     addUserChoice: (state, action) => {
       const { testId, answerId } = action.payload;
-      console.log("from slice", testId, answerId);
       state.userChoice.push({ testId, answerId });
-      console.log(
-        "User Choice Updated: ",
-        JSON.stringify(state.userChoice),
-      );
     },
     clearUserChoice: () => {
       return initialState;
@@ -41,6 +37,12 @@ export const UserAutoTestsSlice = createSlice({
     clearHasAnswered: state => {
       state.hasAnswered = false;
     },
+    setShowCorrectAnswer: state => {
+      state.showCorrectAnswer = true;
+    },
+    clearShowCorrectAnswer: state => {
+      state.showCorrectAnswer = false;
+    },
   },
 });
 
@@ -53,6 +55,8 @@ export const {
   clearSelectedAnswer,
   setHasAnswered,
   clearHasAnswered,
+  setShowCorrectAnswer,
+  clearShowCorrectAnswer,
 } = UserAutoTestsSlice.actions;
 export const userAutoTestsReducer =
   UserAutoTestsSlice.reducer;

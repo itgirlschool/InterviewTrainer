@@ -30,8 +30,6 @@
   appearance: none;
   width: 32px;
   height: 32px;
-  background-image: url("../../../assets/empty-circle.svg");
-  background-repeat: no-repeat;
 }
 .test .radio:checked {
   appearance: none;
@@ -40,14 +38,24 @@
   background-image: url("../../../assets/full-circle.svg");
   background-repeat: no-repeat;
 }
-.test .red-img:checked {
+.test .empty {
+  flex-shrink: 0;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  background-image: url("../../../assets/empty-circle.svg");
+  background-repeat: no-repeat;
+}
+.test .red-img {
+  flex-shrink: 0;
   appearance: none;
   width: 32px;
   height: 32px;
   background-image: url("../../../assets/red-full-circle.svg");
   background-repeat: no-repeat;
 }
-.test .green-img:checked {
+.test .green-img {
+  flex-shrink: 0;
   appearance: none;
   width: 32px;
   height: 32px;

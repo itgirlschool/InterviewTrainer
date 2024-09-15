@@ -3,27 +3,24 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import TestCard from "../TestCards/TestCard";
-import { addUserChoice } from "../../app/store/slice/UserAutoTestsSlice";
 import {
+  addUserChoice,
   clearHasSelectedAnswer,
   clearSelectedAnswer,
   setHasAnswered,
   clearHasAnswered,
+  setShowCorrectAnswer,
+  clearShowCorrectAnswer,
+  clearUserChoice,
 } from "../../app/store/slice/UserAutoTestsSlice";
 
 export default function AutoTestsSlider() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const tests = useSelector(state => state.autotests.tests);
-  const hasSelectedAnswer = useSelector(
-    state => state.userAutoTests.hasSelectedAnswer,
-  );
-  const selectedAnswer = useSelector(
-    state => state.userAutoTests.selectedAnswer,
-  );
-  const hasAnswered = useSelector(
-    state => state.userAutoTests.hasAnswered,
-  );
+  const hasSelectedAnswer = useSelector(state => state.userAutoTests.hasSelectedAnswer);
+  const selectedAnswer = useSelector(state => state.userAutoTests.selectedAnswer);
+  const hasAnswered = useSelector(state => state.userAutoTests.hasAnswered);
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
 
@@ -31,6 +28,8 @@ export default function AutoTestsSlider() {
     dispatch(clearHasSelectedAnswer());
     dispatch(clearSelectedAnswer());
     dispatch(clearHasAnswered());
+    dispatch(clearShowCorrectAnswer());
+    dispatch(clearUserChoice());
   }, [id]);
 
   const handleChoice = () => {
@@ -41,13 +40,12 @@ export default function AutoTestsSlider() {
       }),
     );
     dispatch(setHasAnswered());
+    dispatch(setShowCorrectAnswer());
   };
 
   const handleNext = () => {
     if (currentTest < tests.length) {
-      navigate(
-        `/gradingfirst/testsfirst/${currentTest + 1}`,
-      );
+      navigate(`/gradingfirst/testsfirst/${currentTest + 1}`);
     }
   };
 

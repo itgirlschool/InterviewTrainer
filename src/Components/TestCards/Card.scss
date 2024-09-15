@@ -36,8 +36,6 @@
     appearance: none;
     width: 32px;
     height: 32px;
-    background-image: url("../../../assets/empty-circle.svg");
-    background-repeat: no-repeat;
 
     &:checked {
       appearance: none;
@@ -48,7 +46,17 @@
     }
   }
 
-  .red-img:checked {
+  .empty {
+    flex-shrink: 0;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-image: url("../../../assets/empty-circle.svg");
+    background-repeat: no-repeat;
+  }
+
+  .red-img {
+    flex-shrink: 0;
     appearance: none;
     width: 32px;
     height: 32px;
@@ -56,7 +64,8 @@
     background-repeat: no-repeat;
   }
 
-  .green-img:checked {
+  .green-img {
+    flex-shrink: 0;
     appearance: none;
     width: 32px;
     height: 32px;
