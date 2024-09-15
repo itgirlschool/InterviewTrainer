@@ -12,6 +12,8 @@ import Instructions from "./Instructions/Instructions";
 import Profile from "./Profile/Profile";
 import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
 import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
+import TheoryFirst from "./GradingFirst/TheoryFirst/TheoryFirst";
+import TheoryFirstItem from "./GradingFirst/TheoryFirst/TheoryFirstItem";
 
 export {
   RootLayout,
@@ -28,4 +30,6 @@ export {
   Profile,
   VideoFirst,
   VideoFirstItem,
+  TheoryFirst,
+  TheoryFirstItem,
 };

@@ -14,7 +14,8 @@ import {
   Profile,
   VideoFirst,
   VideoFirstItem,
-  // TheoryFirst,
+  TheoryFirst,
+  TheoryFirstItem,
   // TestsFirst,
 } from "../Pages";
 
@@ -57,11 +58,16 @@ export const router = createBrowserRouter([
               },
             ],
           },
-
-          // {
-          //   path: "thoryfirst",
-          //   element: <TheoryFirst />,
-          // },
+          {
+            path: "theoryfirst",
+            element: <TheoryFirst />,
+            children: [
+              {
+                path: ":id",
+                element: <TheoryFirstItem />,
+              },
+            ],
+          },
           // {
           //   path: "testsfirst",
           //   element: <TestsFirst />,

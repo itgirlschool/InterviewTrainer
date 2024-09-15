@@ -10,6 +10,7 @@ function ThemeNavBar({
   error,
   status,
   pagePath,
+  gradingPath,
   toggleNavBar = () => {},
 }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -58,7 +59,11 @@ function ThemeNavBar({
         >
           <img src={close} alt="close" />
         </button>
-        <ThemeNavBarInner data={data} pagePath={pagePath} />
+        <ThemeNavBarInner
+          data={data}
+          pagePath={pagePath}
+          gradingPath={gradingPath}
+        />
       </div>
     </div>
   );
@@ -80,6 +85,7 @@ function ThemeNavBar({
       <ThemeNavBarInner
         data={data}
         pagePath={pagePath}
+        gradingPath={gradingPath}
         navBarIsHidden={navBarIsHidden}
       />
     </div>

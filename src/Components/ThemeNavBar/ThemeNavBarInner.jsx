@@ -2,7 +2,12 @@ import "./ThemeNavBar.scss";
 import check from "../../assets/images/video_checked.svg";
 import ThemeNavBarLink from "./ThemeNavBarLink";
 
-function ThemeNavBar({ data, pagePath, navBarIsHidden }) {
+function ThemeNavBar({
+  data,
+  pagePath,
+  gradingPath,
+  navBarIsHidden,
+}) {
   return (
     <div
       className={
@@ -16,6 +21,7 @@ function ThemeNavBar({ data, pagePath, navBarIsHidden }) {
           <li key={item.id} className="theme__item">
             <ThemeNavBarLink
               pagePath={pagePath}
+              gradingPath={gradingPath}
               itemId={item.id}
               itemTitle={item.title}
             />

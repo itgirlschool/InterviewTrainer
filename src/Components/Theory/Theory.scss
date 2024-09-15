@@ -1,0 +1,143 @@
+@import "../../style/vars.scss";
+@import "../../style/template.scss";
+
+.theory__container {
+  padding: 40px 40px 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: $whitecolor;
+  gap: 35px;
+  align-items: center;
+  position: relative;
+  box-shadow: $inner-boxshadow;
+
+  .theory__inner {
+    width: 80%;
+  }
+
+  .theory {
+    &__nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
+
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      color: $whitecolor;
+      background: $pinkcolor;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      padding: 4px 24px;
+      min-width: 200px;
+      text-decoration: none;
+
+      &:hover {
+        background: $grey;
+      }
+
+      &.disabled {
+        cursor: unset;
+        background: rgba($color: $pinkcolor, $alpha: 0.7);
+      }
+    }
+  }
+
+  .bg-image__cat {
+    width: 100%;
+  }
+  .bg-image__star {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .theory__container {
+    background-color: transparent;
+    margin-top: 30px;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+
+    .theory__button {
+      font-size: 8px;
+      padding: 4px 12px;
+      min-width: 110px;
+      margin: 0 20px;
+
+      & img {
+        width: 16px;
+      }
+    }
+    .bg-image__cat,
+    .bg-image__star {
+      display: none;
+    }
+  }
+}
+
+.theory {
+  &__title {
+    margin-top: 2%;
+    margin-bottom: 1.5%;
+    font-size: 20px;
+    color: $pink-color;
+  }
+
+  &__article {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  &__answer,
+  &__example {
+    white-space: pre-wrap;
+    font-size: 16px;
+  }
+
+  &__theme {
+    min-width: 15%;
+    max-width: 20%;
+    margin-bottom: 1.5%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20;
+    color: #1a1b1f;
+    background-color: $color-green;
+  }
+
+  &__picture {
+    max-width: 90%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__example {
+    margin-top: 3%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: $ligth-grey;
+  }
+}
+
+.picture_item {
+  max-width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

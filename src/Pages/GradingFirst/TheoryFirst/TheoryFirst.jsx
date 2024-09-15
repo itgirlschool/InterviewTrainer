@@ -6,47 +6,53 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./VideoFirst.scss";
-import { fetchVideos } from "../../../Services/fetchVideos.js";
+import "./TheoryFirst.scss";
+import { fetchTheoryFirst } from "../../../Services/fetchTheoryFirst.js";
 import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
 
-export default function VideoFirst() {
+export default function TheoryFirst() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const videos = useSelector(state => state.videos.videos);
-  const status = useSelector(state => state.videos.status);
-  const error = useSelector(state => state.videos.error);
+
+  const theoryFirst = useSelector(
+    state => state.theoryFirst.theoryFirst,
+  );
+  const status = useSelector(
+    state => state.theoryFirst.status,
+  );
+  const error = useSelector(
+    state => state.theoryFirst.error,
+  );
+
   const { pathname } = useLocation();
   const [navBarIsHidden, setNavBarIsHidden] =
     useState(false);
-
   useEffect(() => {
     if (status === "idle") {
-      dispatch(fetchVideos());
+      dispatch(fetchTheoryFirst());
     }
   }, [dispatch, status]);
 
   useEffect(() => {
     if (
-      videos.length > 0 &&
-      pathname === "/gradingfirst/videofirst"
+      theoryFirst.length > 0 &&
+      pathname === "/gradingfirst/theoryfirst"
     ) {
-      navigate("/gradingfirst/videofirst/1", {
+      navigate("/gradingfirst/theoryfirst/1", {
         replace: true,
       });
     }
-  }, [videos, pathname, navigate]);
+  }, [theoryFirst, pathname, navigate]);
 
   const toggleNavBar = () => {
     setNavBarIsHidden(!navBarIsHidden);
   };
-
   return (
     <div>
-      <div className="videoPage">
-        <div className="videoPage__title">
+      <div className="theoryPage">
+        <div className="theoryPage__title">
           <Link
-            className="videoPage__mainlink"
+            className="theoryPage__mainlink"
             to="/gradingfirst"
           >
             Вернуться назад к градации
@@ -55,15 +61,15 @@ export default function VideoFirst() {
         <div
           className={
             navBarIsHidden
-              ? "videoPage__main__modified"
-              : "videoPage__main"
+              ? "theoryPage__main__modified"
+              : "theoryPage__main"
           }
         >
           <ThemeNavBar
-            data={videos || []}
+            data={theoryFirst || []}
             error={error}
             status={status}
-            pagePath="videofirst"
+            pagePath="theoryfirst"
             gradingPath="gradingfirst"
             toggleNavBar={toggleNavBar}
           />
