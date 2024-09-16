@@ -22,15 +22,18 @@ export default function GradeStructure({
 }) {
   return (
     <div className="grading">
-                
       <div className="grading__intro">
-      <div className="grading__intro_block">
-      <h2 className="grading__title">{grading}</h2>
-      <p className="grading__description">
-        {gradeDescription}
-      </p>
-      </div>
-      <img className="cat__junior" src={cat_grade} alt="Выберите градацию" />
+        <div className="grading__intro_block">
+          <h2 className="grading__title">{grading}</h2>
+          <p className="grading__description">
+            {gradeDescription}
+          </p>
+        </div>
+        <img
+          className="cat__junior"
+          src={cat_grade}
+          alt="Выберите градацию"
+        />
       </div>
       <div className="grading__container">
         <div className="grading__container_block">
@@ -109,7 +112,8 @@ export default function GradeStructure({
           <Link className="button" to={testsRevPath}>
             Начать
           </Link>
-        </div><div className="grading__container_block">
+        </div>
+        <div className="grading__container_block">
           <h2 className="grading__container_title">
             Решение задач
           </h2>
@@ -127,7 +131,8 @@ export default function GradeStructure({
           <Link className="button" to={problemsPath}>
             Начать
           </Link>
-        </div><div className="grading__container_block">
+        </div>
+        <div className="grading__container_block">
           <h2 className="grading__container_title">
             Тесты
           </h2>
