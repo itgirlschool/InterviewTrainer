@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./GradeContents.scss";
 
 export default function GradeContents({
@@ -12,6 +12,7 @@ export default function GradeContents({
   theoryDescription,
   testsDescription,
 }) {
+
   return (
     <div className="grading">
       <h2 className="grading__title">{grading}</h2>
