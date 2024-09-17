@@ -2,6 +2,19 @@
 @import "../../style/vars.scss";
 @import "../../index.scss";
 
+.codetrainer__button-check {
+    background-color: $color-grey-button;
+    border: none;
+    font-size: 16px;
+    padding: 0 70px;
+    height: 52px;
+    border-radius: 50px;
+    color: $white-color;
+    position: absolute;
+    top: 11vh;
+    right: 4.5vw;
+}
+
 .trainer__solution {
     display: flex;
     align-items: start;

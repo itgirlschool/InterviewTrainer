@@ -21,7 +21,7 @@ const TrainerV2 = () => {
       </div>
       <div className="trainer__rigth-content">
           <CodeEditor />
-          <CodeConsole />
+          <Output />
       </div>
       </div>
     </>

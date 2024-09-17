@@ -1,3 +1,4 @@
+import "../../Components/Output/Output.scss"
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -17,7 +18,7 @@ const Output = () => {
   }
 
   return (
-    <div className="output-pane">
+    <div className="output__pane">
       <p>{outputMessage}</p>
     </div>
   );
