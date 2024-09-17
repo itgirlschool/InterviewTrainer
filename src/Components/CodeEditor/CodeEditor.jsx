@@ -7,7 +7,10 @@ import { setUserSolution, checkSolution } from "../../app/store/slice/TasksSlice
 
 const CodeEditor = () => {
     const dispatch = useDispatch();
-    const { userSolution } = useSelector((state) => state.tasks);
+    const { userSolution }= useSelector((state) => state.tasks);
+    const handleCodeChange = (value) => {
+      dispatch(setUserSolution(value));
+    };
 
     return (
       <>
@@ -24,7 +27,7 @@ const CodeEditor = () => {
         theme={dracula}
         height="42vh"
         extensions={[javascript()]}
-        onChange={(value) => dispatch(setUserSolution(value))}
+        onChange={handleCodeChange}
       />
       </ >
     );

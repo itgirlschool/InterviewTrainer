@@ -5,7 +5,7 @@
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая будет проверять, является ли строка палиндромом (одинаково читается справа и слева) и возвращать булевое значение.",
       "example": "isPalindrome('тест'); //false;\nisPalindrome('шалаш'); //true",
-      "funcName": "isPalindrome(string)",
+      "funcName": "isPalindrome",
       "solution": {
         "base": "function isPalindrome(string) {\n  let cleanedString = string.replace(/\\s+/g, '').toLowerCase();\n  let arr = cleanedString.split('');\n  let reversArr = arr.reverse();\n  let resString = reversArr.join('');\n  let res = cleanedString === resString;\n  return res;\n}",
         "es6": "const isPalindrome = (str) => {\n  const cleanedString = str.replace(/\\s+/g, '').toLowerCase();\n  return cleanedString === cleanedString.split('').reverse().join('');\n};"
@@ -13,7 +13,14 @@
       "hint": {
         "base": "Используй методы `replace` для удаления пробелов, `toLowerCase` для приведения строки к нижнему регистру, `split`, `reverse`, и `join` для преобразования строки и проверки на палиндром.",
         "es6": "Используй методы `replace`, `toLowerCase`, `split`, `reverse`, и `join` для проверки палиндрома."
-      }
+      },
+      "tests": [
+        { "input": ["шалаш"], "output": true },
+        { "input": ["тест"], "output": false },
+        { "input": ["А роза упала на лапу Азора"], "output": true },
+        { "input": ["12321"], "output": true },
+        { "input": ["123456"], "output": false }
+      ]
     },
     {
       "id": 2,
@@ -21,7 +28,7 @@
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая будет принимать предложение и возвращать из него первое самое короткое слово.",
       "example": "findShort(“The smallest word in sentence”); //”in”;\nfindShort(“Just test string”); //”Just",
-      "funcName": "findShort(string)",
+      "funcName": "findShort",
       "solution": {
         "base": "function findShort(string) {\n  let wordsArr = string.split(' ');\n  let shortestWord = wordsArr[0];\n  for (let word of wordsArr) {\n    if (word.length < shortestWord.length) {\n      shortestWord = word;\n    }\n  }\n  return shortestWord;\n}",
         "es6": "const findShort = str => str.split(' ').reduce((shortest, current) => \n  current.length < shortest.length ? current : shortest);"
@@ -29,7 +36,14 @@
       "hint": {
         "base": "Используй метод `split`, чтобы разбить строку на массив слов, а затем цикл `for...of` для сравнения длины слов и нахождения самого короткого.",
         "es6": "Для нахождения самого короткого слова используй методы `split` и `reduce` для сравнения длины слов."
-      }
+      },
+      "tests": [
+        { "input": ["The smallest word in sentence"], "output": "in" },
+        { "input": ["Just test string"], "output": "Just" },
+        { "input": ["Hello world"], "output": "Hello" },
+        { "input": ["A quick brown fox"], "output": "A" },
+        { "input": ["Some random long phrase"], "output": "Some" }
+      ]
     },
     {
       "id": 3,
@@ -37,7 +51,7 @@
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая на вход будет принимать строку с именем, а возвращать инициалы. Причем, даже если имя будет написано с маленькой буквы, инициалы должны быть заглавными буквами.",
       "example": "toInitials('Bill Gates'); //'B.G.';\ntoInitials('elon mask'); //'E.M.'",
-      "funcName": "toInitials(name)",
+      "funcName": "toInitials",
       "solution": {
         "base": "function toInitials(name) {\n  const nameArr = name.split(' ');\n  const firstLetterArr = nameArr.map(function(el) {\n    return el.slice(0, 1).toUpperCase() + '.';\n  });\n  const initials = firstLetterArr.join('');\n  return initials;\n}",
         "es6": "const toInitials = name => name.split(' ').map(el => `${el.slice(0, 1).toUpperCase()}.`).join('');"
@@ -45,7 +59,14 @@
       "hint": {
         "base": "Используй методы `split` для разделения имени на слова, затем метод `map` для извлечения первой буквы каждого слова и `toUpperCase` для преобразования её в заглавную букву.",
         "es6": "Используй методы `split`, `map`, и `toUpperCase` для извлечения и преобразования первых букв каждого слова в заглавные инициалы."
-      }
+      },
+      "tests": [
+        { "input": ["Bill Gates"], "output": "B.G." },
+        { "input": ["elon musk"], "output": "E.M." },
+        { "input": ["John Ronald Reuel Tolkien"], "output": "J.R.R.T." },
+        { "input": ["john smith"], "output": "J.S." },
+        { "input": ["Ada Lovelace"], "output": "A.L." }
+      ]
     },
     {
       "id": 4,
@@ -53,7 +74,7 @@
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая на вход будет принимать число, а возвращать сумму всех цифр, которые входят в состав числа. Причем, даже если исходное число отрицательное, сумма все равно должна считаться.",
       "example": "sumDigits(99); //18;\nsumDigits(-32); //5;",
-      "funcName": "sumDigits(number)",
+      "funcName": "sumDigits",
       "solution": {
         "base": "function sumDigits(number) {\n  const moduleNumber = Math.abs(number);\n  const str = moduleNumber.toString();\n  const arr = str.split('');\n  const res = arr.reduce(function(sum, cur) {\n    return Number(sum) + Number(cur);\n  }, 0);\n  return res;\n}",
         "es6": "const sumDigits = number => Math.abs(number).toString().split('').reduce((sum, cur) => sum + +cur, 0);"
@@ -61,7 +82,14 @@
       "hint": {
         "base": "Преобразуй число в строку с помощью `Math.abs` и `toString`, затем используй метод `split`, чтобы разделить цифры, и метод `reduce` для их суммирования.",
         "es6": "Преобразуй число в строку с помощью `Math.abs` и `toString`, затем используй `split`, `reduce`, и `Number` для суммирования цифр."
-      }
+      },
+      "tests": [
+        { "input": [99], "output": 18 },
+        { "input": [-32], "output": 5 },
+        { "input": [12345], "output": 15 },
+        { "input": [-123], "output": 6 },
+        { "input": [0], "output": 0 }
+      ]
     },
     {
       "id": 5,
@@ -69,7 +97,7 @@
       "task_theme": "JavaScript",
       "task": "Создать функцию поиска минимального и максимального значения в массиве чисел. Возвращать она должна массив из двух элементов.",
       "example": "minMax([2, 9, 10, 25, 47, 4, 1]); //[7, 47];\nminMax([1]) //[1, 1];",
-      "funcName": "minMax(arr)",
+      "funcName": "minMax",
       "solution": {
         "base": "function minMax(arr) {\n  const res = [];\n  let minValue = Math.min.apply(null, arr);\n  let maxValue = Math.max.apply(null, arr);\n  res.push(minValue, maxValue);\n  return res;\n}",
         "es6": "const minMax = (arr) => [Math.min(...arr), Math.max(...arr)];"
@@ -77,7 +105,14 @@
       "hint": {
         "base": "Используй методы `Math.min` и `Math.max` с функцией `apply` для нахождения минимального и максимального значений в массиве, а затем верни их в виде массива.",
         "es6": "Для поиска минимального и максимального значений в массиве используй `Math.min`, `Math.max` и оператор распространения (`...`)."
-      }
+      },
+      "tests": [
+        { "input": [[2, 9, 10, 25, 47, 4, 1]], "output": [1, 47] },
+        { "input": [[1]], "output": [1, 1] },
+        { "input": [[-5, -9, 0, 12]], "output": [-9, 12] },
+        { "input": [[100, 1000, 10, 1]], "output": [1, 1000] },
+        { "input": [[0, 0, 0, 0]], "output": [0, 0] }
+      ]
     },
     {
       "id": 6,
@@ -85,31 +120,45 @@
       "task_theme": "JavaScript",
       "task": "Напишите функцию, которая выводит в консоль числа от 1 до n, где n - целое число, которая функция принимает в качестве аргумента. Доп. условие: функция должна выводить foo, вместо чисел кратных 3,   bar, вместо чисел кратных 5, foobar, вместо чисел кратных 3 и 5.",
       "example": "fooBar(3); //foo;\nfooBar(15); //foobar;",
-      "funcName": "const fooBar = num => {}",
+      "funcName": "fooBar",
       "solution": {
-        "base": "function fooBar(num) {\n  for(let i = 1; i <= num; i++) {\n    if (i % 3 === 0 && i % 5 === 0) {\n      console.log('foobar');\n    } else if ( i % 3 === 0) {\n      console.log ('foo');\n    } else if (i % 5 === 0) {\n      console.log('bar');\n    } else {\n      console.log(i);\n    }\n  }\n};",
-        "es6": "const fooBar = num => {\n  for (let i = 1; i <= num; i++) {\n    let output = '';\n    if (i % 3 === 0) output += 'foo';\n    if (i % 5 === 0) output += 'bar';\n    console.log(output || i);\n  }\n};"
+        "base": "function fooBar(num) {\n  let result = '';\n  for(let i = 1; i <= num; i++) {\n    if (i % 3 === 0 && i % 5 === 0) {\n      result = 'foobar';\n    } else if ( i % 3 === 0) {\n      result = 'foo';\n    } else if (i % 5 === 0) {\n      result = 'bar';\n    } else {\n      result = i.toString();\n    }\n  }\n  return result;\n};",
+        "es6": "const fooBar = num => {\n  let result = '';\n  for (let i = 1; i <= num; i++) {\n    let output = '';\n    if (i % 3 === 0) output += 'foo';\n    if (i % 5 === 0) output += 'bar';\n    result = output || i.toString();\n  }\n  return result;\n};"
       },
       "hint": {
         "base": "Используй цикл `for` для перебора чисел и оператор `%` для проверки кратности чисел. Применяй условные операторы `if-else`, чтобы выводить `foo`, `bar` или `foobar` в зависимости от условия.",
         "es6": "Используй цикл `for` для перебора чисел, оператор `%` для проверки кратности чисел, агрегацию данных и логическое ИЛИ для вывода строки или числа."
-      }
+      },
+      "tests": [
+        { "input": [3], "output": "foo" },
+        { "input": [5], "output": "bar" },
+        { "input": [15], "output": "foobar" },
+        { "input": [1], "output": "1" },
+        { "input": [30], "output": "foobar" }
+      ]
     },
     {
       "id": 7,
       "task_name": "Массивы",
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая будет принимать один или несколько массивов и возвращать новый массив уникальных значений в порядке исходных, предоставленных массивов.",
-      "example": "foo([1,2,3], [4,5,1], [6,4,7]) //[1,2,3,4,5,6,7],\nfoo2([1], [2], [3,2,2]) //[1,2,3]",
-      "funcName": "function uniteUnique(){}",
+      "example": "uniteUnique([1,2,3], [4,5,1], [6,4,7]) //[1,2,3,4,5,6,7],\nuniteUnique2([1], [2], [3,2,2]) //[1,2,3]",
+      "funcName": "uniteUnique",
       "solution": {
-        "base": "function uniteUnique() { const arr = [...arguments]; let newArr = []; for (let i = 0; i < arr.length; i++) { newArr.push(...arr[i]); } newArr = new Set(newArr); return [...newArr];}",
-        "es6": "function uniteUnique() { return [...new Set([...arguments].flat())]};"  
+        "base": "function uniteUnique() {\n  const arr = [...arguments];\n  let newArr = [];\n  for (let i = 0; i < arr.length; i++) {\n    newArr.push(...arr[i]);\n  }\n  newArr = new Set(newArr);\n  return [...newArr];\n}",
+        "es6": "function uniteUnique() {\n  return [...new Set([...arguments].flat())];\n}"  
       },
       "hint": {
         "base": "Используй цикл для объединения всех массивов в один, а затем примени объект `Set`, чтобы получить уникальные значения.",
         "es6": "Для создания массива уникальных значений используй операторы распространения (`...`), `Set`, и методы `flat` и `Array.from`."
-      }
+      },
+      "tests": [
+        { "input": [[1, 2, 3], [4, 5, 1], [6, 4, 7]], "output": [1, 2, 3, 4, 5, 6, 7] },
+        { "input": [[1], [2], [3, 2, 2]], "output": [1, 2, 3] },
+        { "input": [[10, 20], [30, 40], [50, 20]], "output": [10, 20, 30, 40, 50] },
+        { "input": [[], [1, 2, 3]], "output": [1, 2, 3] },
+        { "input": [[1, 1, 1], [1, 1]], "output": [1] }
+      ]
     },
     {
       "id": 8,
@@ -117,15 +166,22 @@
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая на вход будет принимать девятизначное число, а на выходе возвращать сроку, которая будет содержать переданное девять чисел в определенном формате телефонного номера.",
       "example": "createPhoneNumber(123456789); //'(123) 456-789';\ncreatePhoneNumber(555267894); //'(555) 267-894';",
-      "funcName": "function createPhoneNumber(number){}",
+      "funcName": "createPhoneNumber",
       "solution": {
-        "base": "function createPhoneNumber(number) { let numArr = number.toString().split(''); numArr.splice(0.0,'('); numArr.splice(4,0,')'); numArr.splice(5,0,' '); numArr.splice(9,0,'-'); return numArr.join('');}",
-        "es6": "const createPhoneNumber = (number) => {const strNum = number.toString(); return `(${strNum.slice(0, 3)}) ${strNum.slice(3, 6)}-${strNum.slice(3, 9)}`};"  
+        "base": "function createPhoneNumber(number) {\n  let numArr = number.toString().split('');\n  numArr.splice(0, 0,'(');\n  numArr.splice(4, 0,')');\n  numArr.splice(5, 0,' ');\n  numArr.splice(9, 0,'-');\n  return numArr.join('');\n}",
+        "es6": "const createPhoneNumber = (number) => {\n  const strNum = number.toString();\n  return `(${strNum.slice(0, 3)}) ${strNum.slice(3, 6)}-${strNum.slice(6, 9)}`;\n};"  
       },
       "hint": {
         "base": "Используй метод `toString` для преобразования числа в строку и `split`, чтобы разбить её на массив символов. Затем применяй `splice` для вставки символов в нужные позиции.",
         "es6": "Преобразуй число в строку, используй `slice` для разделения на части и затем соедини их в нужном формате."
-      }
+      },
+      "tests": [
+        { "input": [123456789], "output": "(123) 456-789" },
+        { "input": [555267894], "output": "(555) 267-894" },
+        { "input": [987654321], "output": "(987) 654-321" },
+        { "input": [111111111], "output": "(111) 111-111" },
+        { "input": [999888777], "output": "(999) 888-777" }
+      ]
     },
     {
       "id": 9,
@@ -133,30 +189,44 @@
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая на вход будет принимать произвольную строку и возвращать число, которая будет равняться количеству гласных букв в этой строке. Задача должна быть реализована для английского алфавита.",
       "example": "findVowels(“hello”);    //2 \nfindVowels(“hello world”);  //3",
-      "funcName": "const findVowels = (str) => {}",
+      "funcName": "findVowels",
       "solution": {
-        "base": "const findVowels = (str) => { const vowels = ['a', 'e', 'i', 'o', 'u']; let count = 0; for(let char of str.toLowerCase()) { if(vowels.includes(char)) {count++;}} return count;}",
-        "es6": "const findVowels1 = (str) => { const matches = str.match(/[aeiou]/gi); return matches ? matches.length : 0;}"  
+        "base": "function findVowels(str) {\n  const vowels = ['a', 'e', 'i', 'o', 'u'];\n  let count = 0;\n  for(let char of str.toLowerCase()) {\n    if(vowels.includes(char)) {\n      count++;\n    }\n  }\n  return count;\n};",
+        "es6": "const findVowels = (str) => {\n  const matches = str.match(/[aeiou]/gi);\n  return matches ? matches.length : 0;\n};"  
       },
       "hint": {
         "base": "Преобразуй строку в нижний регистр с помощью `toLowerCase`, затем используй цикл `for...of`, чтобы проверить каждую букву, и метод `includes` для проверки на наличие гласных.",
         "es6": "Используй регулярные выражения и метод `match` для поиска гласных в строке."
-      }
+      },
+      "tests": [
+        { "input": ["hello"], "output": 2 },
+        { "input": ["hello world"], "output": 3 },
+        { "input": ["why"], "output": 0 },
+        { "input": ["AEIOU"], "output": 5 },
+        { "input": ["quick brown fox"], "output": 4 }
+      ]
     },
     {
       "id": 10,
       "task_name": "Строки. Капитализация первых букв",
       "task_theme": "JavaScript",
       "task": "Создать функцию, которая на вход будет принимать строку это либо одно слово, либо предложение и возвращать трансформированную строку, где первая буква каждого слова будет заглавной.",
-      "example": "findVowels('hello');    //'Hello'\nfindVowels('hello world');  //'Hello World'",
-      "funcName": "function toCapitalCase(str) {  }",
+      "example": "toCapitalCase('hello');    //'Hello'\ntoCapitalCase('hello world');  //'Hello World'",
+      "funcName": "toCapitalCase",
       "solution": {
-        "base": "function toCapitalCase(str) { const arr = str.split(' '); const resArr = []; for (let i=0; i < arr.length; i++) { resArr.push(arr[i][0].toUpperCase() + arr[i].slice(1));} return resArr.join(' ');}",
+        "base": "function toCapitalCase(str) {\n  const arr = str.split(' ');\n  const resArr = [];\n  for (let i = 0; i < arr.length; i++) {\n    resArr.push(arr[i][0].toUpperCase() + arr[i].slice(1));\n  }\n  return resArr.join(' ');\n}",
         "es6": "const toCapitalCase = (str) => str.split(' ').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');"  
       },
       "hint": {
         "base": "Раздели строку на массив слов с помощью `split`, затем используй цикл `for` для капитализации первой буквы каждого слова, объединяя результаты обратно в строку через `join`",
         "es6": "Для капитализации первых букв каждого слова используй методы `split`, `map`, `toUpperCase`, и `join`."
-      }
+      },
+      "tests": [
+        { "input": ["hello"], "output": "Hello" },
+        { "input": ["hello world"], "output": "Hello World" },
+        { "input": ["i am a developer"], "output": "I Am A Developer" },
+        { "input": ["a quick brown fox"], "output": "A Quick Brown Fox" },
+        { "input": ["capitalize this sentence"], "output": "Capitalize This Sentence" }
+      ]
     }
 ]

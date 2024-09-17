@@ -1,8 +1,7 @@
-import "../../Components/TaskSolution/TaskSolution.scss"; // TODO перенести стили оттуда
-import img_sittingcat from "../../assets/images/cat2.svg";
-import img_arrow from "../../assets/images/arrow_heart_rigth.svg";
+import "../../Components/Trainer/Trainer"; // TODO перенести стили оттуда
 import { useSelector, useDispatch } from "react-redux";
 import { toggleSolution, nextTask } from "../../app/store/slice/TasksSlice";
+import { checkSolution } from "../../Services/checkSolution";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
@@ -10,15 +9,26 @@ import { dracula } from "@uiw/codemirror-theme-dracula";
 
 const TaskSolution = () => {
   const dispatch = useDispatch();
-  const { tasks, currentTaskIndex, showSolution, isCorrect } = useSelector((state) => state.tasks);
+  const { tasks, currentTaskIndex, showSolution, isCorrect, isLoading } = useSelector((state) => state.tasks);
   const currentTask = tasks[currentTaskIndex];
 
+  const handleCheckSolution = () => {
+    dispatch(checkSolution());
+  };
+
   return (
-    <>
-      <div className="trainer__solution">
-        <img src={img_sittingcat} alt="Здесь можно увидеть подсказку" />
-        <img src={img_arrow} alt="Здесь можно увидеть подсказку" />
-      {isCorrect ? (
+    <div>
+      <div className="trainer__check">
+        <button
+          className="codetrainer__button-check"
+          onClick={handleCheckSolution}
+          disabled={isLoading}
+        >
+          {isLoading ? "Проверка..." : "Проверить"}
+        </button>
+      </div>
+      
+      {isCorrect && (
         <div>
           <p>Верное решение!</p>
           <button
@@ -34,7 +44,8 @@ const TaskSolution = () => {
             Следующая задача <ArrowRightOutlined />
           </button>
         </div>
-      ) : "Тут ты можешь получить подсказку"}
+      )}
+      
       {showSolution && (
         <div>
           <p><strong>Решение учителя:</strong></p>

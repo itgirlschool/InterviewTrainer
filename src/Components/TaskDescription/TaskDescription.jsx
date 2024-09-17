@@ -21,7 +21,12 @@ const TaskDescription = () => {
         {!showHint ? "Подсказка" : "Скрыть подсказку"} 
         {!showHint ? <img src={img_lamp} alt="" /> : ""}
       </button>
-      {showHint && <div className="hint__text"><strong>Подсказка:</strong> {currentTask.hint.base}</div>}
+      
+      {showHint && (
+        <div className="hint__text">
+          <strong>Подсказка:</strong> {currentTask.hint.base}
+        </div>
+      )}
     </div>
   );
 };
