@@ -6,32 +6,38 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./VideoFirst.scss";
-import { fetchVideos } from "../../../Services/fetchVideos.js";
+import "./InterviewSecond.scss";
+import { fetchInterviews } from "../../../Services/fetchInterviews.js";
 import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
 
 export default function VideoFirst() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const videos = useSelector(state => state.videos.videos);
-  const status = useSelector(state => state.videos.status);
-  const error = useSelector(state => state.videos.error);
+  const videos = useSelector(
+    state => state.interviews.interviews,
+  );
+  const status = useSelector(
+    state => state.interviews.status,
+  );
+  const error = useSelector(
+    state => state.interviews.error,
+  );
   const { pathname } = useLocation();
   const [navBarIsHidden, setNavBarIsHidden] =
     useState(false);
 
   useEffect(() => {
     if (status === "idle") {
-      dispatch(fetchVideos());
+      dispatch(fetchInterviews());
     }
   }, [dispatch, status]);
 
   useEffect(() => {
     if (
       videos.length > 0 &&
-      pathname === "/gradingfirst/videofirst"
+      pathname === "/gradingsecond/interviewsecond"
     ) {
-      navigate("/gradingfirst/videofirst/1", {
+      navigate("/gradingsecond/interviewsecond/1", {
         replace: true,
       });
     }
@@ -47,7 +53,7 @@ export default function VideoFirst() {
         <div className="videoPage__title">
           <Link
             className="videoPage__mainlink"
-            to="/gradingfirst"
+            to="/gradingsecond"
           >
             Вернуться назад к градации
           </Link>
@@ -63,8 +69,8 @@ export default function VideoFirst() {
             data={videos || []}
             error={error}
             status={status}
-            pagePath="videofirst"
-            gradingPath="gradingfirst"
+            pagePath="interviewsecond"
+            gradingPath="gradingsecond"
             toggleNavBar={toggleNavBar}
           />
           <Outlet />

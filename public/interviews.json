@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "title": "Интервью 1",
+    "src": "https://www.youtube.com/embed/fNhEAnp3ntw?si=jg_kfktM0tjBDxBQ",
+    "youtubeId": "fNhEAnp3ntw"
+  },
+  {
+    "id": "2",
+    "title": "Интервью 2",
+    "src": "https://www.youtube.com/embed/25lCunO6yDQ?si=6rI3uAHFn-elUeOb",
+    "youtubeId": "25lCunO6yDQ"
+  },
+  {
+    "id": "3",
+    "title": "Интервью 3",
+    "src": "https://www.youtube.com/embed/_8qr7dK4A2g?si=Z9YpSPY1QVIAkVAc",
+    "youtubeId": "_8qr7dK4A2g"
+  },
+  {
+    "id": "4",
+    "title": "Интервью 4",
+    "src": "https://www.youtube.com/live/8PIpHPftlpk?si=YO2Vv_x2aw2FqRRX",
+    "youtubeId": "8PIpHPftlpk"
+  },
+  {
+    "id": "5",
+    "title": "Интервью 5",
+    "src": "https://www.youtube.com/live/O1W76kdAUwY?si=Kh2rweZpmrr6Puv1",
+    "youtubeId": "O1W76kdAUwY"
+  },
+  {
+    "id": "6",
+    "title": "Интервью 6",
+    "src": "https://www.youtube.com/live/27krhiZ06_E?si=enX5gXZsiGDkuf15",
+    "youtubeId": "27krhiZ06_E"
+  },
+  {
+    "id": "7",
+    "title": "Интервью 7",
+    "src": "https://youtu.be/ezcYbYchx1U?si=SnjOTcXPmlAYoPSj",
+    "youtubeId": "ezcYbYchx1U"
+  },
+  {
+    "id": "8",
+    "title": "Интервью 8",
+    "src": "https://youtu.be/kYnSZTKL_tY?si=7ldeAqvqADZq2crV",
+    "youtubeId": "kYnSZTKL_tY"
+  },
+  {
+    "id": "9",
+    "title": "Интервью 9",
+    "src": "https://youtu.be/j_4U1CoFWWQ?si=0i6XdG-3Cy5HMLUw",
+    "youtubeId": "j_4U1CoFWWQ"
+  },
+  {
+    "id": "10",
+    "title": "Интервью 10",
+    "src": "https://youtu.be/LhHXcgbz3Z4?si=yvSH_EqfOWz4exs7",
+    "youtubeId": "LhHXcgbz3Z4"
+  }
+]

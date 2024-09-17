@@ -2,7 +2,12 @@ import "./ThemeNavBar.scss";
 import check from "../../assets/images/video_checked.svg";
 import ThemeNavBarLink from "./ThemeNavBarLink";
 
-function ThemeNavBar({ data, pagePath, navBarIsHidden }) {
+function ThemeNavBar({
+  data,
+  pagePath,
+  gradingPath,
+  navBarIsHidden,
+}) {
   return (
     <div
       className={
@@ -18,6 +23,7 @@ function ThemeNavBar({ data, pagePath, navBarIsHidden }) {
               pagePath={pagePath}
               itemId={item.id}
               itemTitle={item.title}
+              gradingPath={gradingPath}
             />
 
             {item.isFinished && (

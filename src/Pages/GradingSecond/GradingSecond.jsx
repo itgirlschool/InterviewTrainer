@@ -1,5 +1,22 @@
-import "./GradingSecond.scss";
+import {
+  Outlet,
+  useLocation,
+  Link,
+} from "react-router-dom";
 
 export default function GradingSecond() {
-  return <div>GradingSecond</div>;
+  const location = useLocation();
+  const showNavigation =
+    location.pathname === "/gradingsecond";
+
+  return (
+    <div>
+      {showNavigation && (
+        <Link className="button" to="interviewsecond">
+          Собеседования
+        </Link>
+      )}
+      <Outlet />
+    </div>
+  );
 }

@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import "./VideoPlayer.scss";
+import "./IframePlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-video.svg";
 import { useSelector } from "react-redux";
 
-function VideoPlayerPagination({
+function IframePlayerPagination({
   isEnded,
   pagePath,
   gradingPath,
 }) {
   const [hasWatched, setHasWatched] = useState(false);
-  const data = useSelector(state => state.videos.videos);
+  const data = useSelector(
+    state => state.interviews.interviews,
+  );
   const { id } = useParams();
   const currentVideo = parseInt(id, 10);
   const navigate = useNavigate();
@@ -100,4 +102,4 @@ function VideoPlayerPagination({
   );
 }
 
-export default VideoPlayerPagination;
+export default IframePlayerPagination;
