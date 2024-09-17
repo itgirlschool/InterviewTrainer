@@ -23,18 +23,12 @@ export const AutoTestsSlice = createSlice({
         state.error = null;
         state.tests = action.payload;
         state.correctAnswers = action.payload.map(test => {
-          const answerId = test.answers.find(
-            answer => answer.isRight === true,
-          ).id;
+          const answerId = test.answers.find(answer => answer.isRight === true).id;
           return {
             testId: test.id,
             answerId,
           };
         });
-        console.log(
-          "correct answers from state",
-          state.correctAnswers,
-        );
       })
       .addCase(fetchTests.rejected, (state, action) => {
         state.status = "failed";
@@ -43,4 +37,4 @@ export const AutoTestsSlice = createSlice({
   },
 });
 
-export const autotestsReducer = AutoTestsSlice.reducer;
+export const autoTestsReducer = AutoTestsSlice.reducer;

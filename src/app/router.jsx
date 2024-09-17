@@ -17,6 +17,7 @@ import {
   // TheoryFirst,
   AutoTestsFirst,
   AutoTestsSlider,
+  AutoTestsResults,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
               {
                 path: ":id",
                 element: <AutoTestsSlider />,
+              },
+              {
+                path: "testsresults",
+                element: <AutoTestsResults />,
               },
             ],
           },

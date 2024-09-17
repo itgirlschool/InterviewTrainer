@@ -6,12 +6,13 @@ const userAuthSlice = createSlice({
     email: null,
     password: null,
     displayName: null,
-    lastName:null,
-    firstName:null,
+    lastName: null,
+    firstName: null,
     id: null,
     progress: null,
     avatar: null,
     feedback: null,
+    isAuth: false,
   },
   reducers: {
     setUser: (state, action) => {
@@ -24,9 +25,10 @@ const userAuthSlice = createSlice({
       state.feedback = action.payload.feedback;
       state.lastName = action.payload.lastName;
       state.firstName = action.payload.firstName;
+      state.isAuth = true;
     },
   },
-  removeUser: (state) => {
+  removeUser: state => {
     state.email = null;
     state.password = null;
     state.displayName = null;
@@ -34,6 +36,7 @@ const userAuthSlice = createSlice({
     state.progress = null;
     state.avatar = null;
     state.feedback = null;
+    state.isAuth = false;
   },
 });
 

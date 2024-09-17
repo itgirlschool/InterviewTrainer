@@ -11,11 +11,11 @@ export default function Radio({ answer, testId }) {
   const hasAnswered = useSelector(state => state.userAutoTests.hasAnswered);
   const showCorrectAnswer = useSelector(state => state.userAutoTests.showCorrectAnswer);
   const userChoice = useSelector(state => state.userAutoTests.userChoice);
-  const correctAnswers = useSelector(state => state.autotests.correctAnswers);
+  const correctAnswers = useSelector(state => state.autoTests.correctAnswers);
 
   const handleChange = useCallback(() => {
     dispatch(setSelectedAnswer(answer.id));
-    dispatch(setHasSelectedAnswer());
+    dispatch(setHasSelectedAnswer(true));
   }, [testId, dispatch]);
 
   const findCorrectAnswer = useCallback(

@@ -14,6 +14,7 @@ import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
 import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
 import AutoTestsFirst from "./GradingFirst/AutoTestsFirst/AutoTestsFirst";
 import AutoTestsSlider from "../Components/AutoTestsSlider/AutoTestsSlider";
+import AutoTestsResults from "./AutoTestsResults/AutoTestsResults";
 
 export {
   RootLayout,
@@ -31,6 +32,6 @@ export {
   VideoFirst,
   VideoFirstItem,
   AutoTestsFirst,
-  // AutoTestsSlider,
   AutoTestsSlider,
+  AutoTestsResults,
 };

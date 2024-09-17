@@ -5,31 +5,43 @@ import { useNavigate, useParams } from "react-router-dom";
 import TestCard from "../TestCards/TestCard";
 import {
   addUserChoice,
-  clearHasSelectedAnswer,
+  setHasSelectedAnswer,
   clearSelectedAnswer,
   setHasAnswered,
-  clearHasAnswered,
   setShowCorrectAnswer,
-  clearShowCorrectAnswer,
   clearUserChoice,
+  setUserProgress,
+  calculateCorrectAnswers,
+  calculateUserProgress,
 } from "../../app/store/slice/UserAutoTestsSlice";
 
 export default function AutoTestsSlider() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const tests = useSelector(state => state.autotests.tests);
+  const tests = useSelector(state => state.autoTests.tests);
   const hasSelectedAnswer = useSelector(state => state.userAutoTests.hasSelectedAnswer);
   const selectedAnswer = useSelector(state => state.userAutoTests.selectedAnswer);
   const hasAnswered = useSelector(state => state.userAutoTests.hasAnswered);
+  const correctAnswers = useSelector(state => state.autoTests.correctAnswers);
+  const isAuth = useSelector(state => state.userAuth.isAuth);
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
 
+  console.log("correct ans", correctAnswers);
+
   useEffect(() => {
-    dispatch(clearHasSelectedAnswer());
-    dispatch(clearSelectedAnswer());
-    dispatch(clearHasAnswered());
-    dispatch(clearShowCorrectAnswer());
+    //вариант с сохранением прогресса
+    // if (!isAuth) dispatch(clearUserChoice());
+
+    // вариант без сохранения прогресса и возврата к нему
     dispatch(clearUserChoice());
+  }, []);
+
+  useEffect(() => {
+    dispatch(setHasSelectedAnswer(false));
+    dispatch(setHasAnswered(false));
+    dispatch(setShowCorrectAnswer(false));
+    dispatch(clearSelectedAnswer());
   }, [id]);
 
   const handleChoice = () => {
@@ -39,14 +51,21 @@ export default function AutoTestsSlider() {
         answerId: selectedAnswer,
       }),
     );
-    dispatch(setHasAnswered());
-    dispatch(setShowCorrectAnswer());
+    dispatch(setHasAnswered(true));
+    dispatch(setShowCorrectAnswer(true));
+    dispatch(setUserProgress(currentTest));
+    dispatch(calculateCorrectAnswers(correctAnswers));
+    dispatch(calculateUserProgress());
   };
 
   const handleNext = () => {
     if (currentTest < tests.length) {
       navigate(`/gradingfirst/testsfirst/${currentTest + 1}`);
     }
+  };
+
+  const handleShowResults = () => {
+    navigate("/gradingfirst/testsfirst/testsresults");
   };
 
   const buttonAnswer = (
@@ -66,10 +85,7 @@ export default function AutoTestsSlider() {
   );
 
   const buttonShowResults = (
-    <button
-      className="slider__button"
-      // onClick={handleShowResults}
-    >
+    <button className="slider__button" onClick={handleShowResults}>
       Показать результаты
     </button>
   );
