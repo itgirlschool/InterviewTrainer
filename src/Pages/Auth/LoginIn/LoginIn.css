@@ -13,9 +13,11 @@
   align-items: center;
   background-color: #1b1c20;
 }
+
 .container__login .wrapper__login {
   text-align: center;
 }
+
 .container__login .wrapper__login .title__login {
   margin-bottom: 38px;
   font-size: 48px;
@@ -23,36 +25,42 @@
   font-weight: 500;
   color: #ea5d80;
 }
+
 @media screen and (max-width: 1368px) {
   .container__login .wrapper__login .title__login {
     font-size: 40px;
     margin-bottom: 33px;
   }
 }
+
 @media screen and (max-width: 1240px) {
   .container__login .wrapper__login .title__login {
     font-size: 40px;
     margin-bottom: 33px;
   }
 }
+
 @media screen and (max-width: 980px) {
   .container__login .wrapper__login .title__login {
     font-size: 37px;
     margin-bottom: 33px;
   }
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .title__login {
     font-size: 26px;
     margin-bottom: 32px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .container__login .wrapper__login .form-login__authorisation .form-login__input {
   width: 442px;
   height: 62px;
@@ -65,6 +73,7 @@
   background-color: #777777;
   outline: none;
 }
+
 @media screen and (max-width: 1368px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input {
     width: 390px;
@@ -74,6 +83,7 @@
     border-radius: 20px;
   }
 }
+
 @media screen and (max-width: 980px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input {
     width: 350px;
@@ -83,6 +93,7 @@
     border-radius: 18px;
   }
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input {
     width: 280px;
@@ -91,6 +102,7 @@
     padding-left: 22px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation .form-error {
   margin-top: -12px;
   font-family: "M PLUS Rounded 1c";
@@ -98,11 +110,13 @@
   font-size: 16px;
   color: red;
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .form-login__authorisation .form-error {
     font-size: 13px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation .form-usererror {
   margin-bottom: 10px;
   font-size: 16px;
@@ -110,52 +124,63 @@
   font-weight: 400;
   color: red;
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .form-login__authorisation .form-usererror {
     font-size: 13px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation .form-login__input:not(:last-of-type) {
   margin-bottom: 12px;
 }
+
 @media screen and (max-width: 980px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input:not(:last-of-type) {
     margin-bottom: 10px;
   }
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input:not(:last-of-type) {
     margin-bottom: 16px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation .form-login__input:last-of-type {
   margin-bottom: 52px;
 }
+
 @media screen and (max-width: 980px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input:last-of-type {
     margin-bottom: 45px;
   }
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input:last-of-type {
     margin-bottom: 32px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation .form-login__input::placeholder {
   font-family: "M PLUS Rounded 1c";
   font-size: 20px;
   font-weight: 400;
 }
+
 @media screen and (max-width: 980px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input::placeholder {
     font-size: 20px;
   }
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .form-login__authorisation .form-login__input::placeholder {
     font-size: 16px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation .enter__login .btn__login {
   width: 442px;
   height: 62px;
@@ -169,6 +194,7 @@
   color: #ffffff;
   cursor: pointer;
 }
+
 @media screen and (max-width: 1368px) {
   .container__login .wrapper__login .form-login__authorisation .enter__login .btn__login {
     width: 390px;
@@ -176,6 +202,7 @@
     font-size: 20px;
   }
 }
+
 @media screen and (max-width: 980px) {
   .container__login .wrapper__login .form-login__authorisation .enter__login .btn__login {
     width: 350px;
@@ -183,6 +210,7 @@
     font-size: 20px;
   }
 }
+
 @media screen and (max-width: 435px) {
   .container__login .wrapper__login .form-login__authorisation .enter__login .btn__login {
     width: 280px;
@@ -191,9 +219,11 @@
     margin-bottom: 16px;
   }
 }
+
 .container__login .wrapper__login .form-login__authorisation .create-acc__option {
   margin-bottom: 10px;
 }
+
 .container__login .wrapper__login .form-login__authorisation .create-acc__option a {
   font-family: "Jost";
   font-weight: 400;
@@ -202,6 +232,7 @@
   text-decoration: none;
   cursor: pointer;
 }
+
 .container__login .wrapper__login .form-login__authorisation .reset-password__option a {
   font-family: "Jost";
   font-weight: 400;

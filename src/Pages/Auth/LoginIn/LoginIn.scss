@@ -65,6 +65,8 @@
         background-color: $grey;
         // color: $formlogin-fontcolor;
         outline: none;
+        transition: background-color 0.3s ease;
+
 
         @media screen and (max-width: 1368px) {
           width: 390px;
