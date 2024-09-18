@@ -12,6 +12,8 @@ import Instructions from "./Instructions/Instructions";
 import Profile from "./Profile/Profile";
 import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
 import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
+import InterviewSecond from "./GradingSecond/InterviewSecond/InterviewSecond";
+import InterviewSecondItem from "./GradingSecond/InterviewSecond/InterviewSecondItem";
 import AutoTestsFirst from "./GradingFirst/AutoTestsFirst/AutoTestsFirst";
 import AutoTestsSlider from "../Components/AutoTestsSlider/AutoTestsSlider";
 import AutoTestsResults from "./AutoTestsResults/AutoTestsResults";
@@ -32,6 +34,8 @@ export {
   Profile,
   VideoFirst,
   VideoFirstItem,
+  InterviewSecond,
+  InterviewSecondItem,
   AutoTestsFirst,
   AutoTestsSlider,
   AutoTestsResults,

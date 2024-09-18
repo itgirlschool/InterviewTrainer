@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userAuthSlice from "./slice/UserAuthSlice";
 import usersSlice from "./slice/UsersSlice";
 import { videosReducer } from "./slice/VideosSlice.js";
+import { interviewsReducer } from "./slice/InterviewsSlice.js";
 import { autoTestsReducer } from "./slice/AutoTestsSlice.js";
 import { userAutoTestsReducer } from "./slice/UserAutoTestsSlice.js";
 import middlewareUsers from "./middleware/middlewareUsers";
@@ -20,6 +21,7 @@ export const store = configureStore({
     userAuth: userAuthSlice,
     users: usersSlice,
     videos: videosReducer,
+    interviews: interviewsReducer,
     autoTests: autoTestsReducer,
     userAutoTests: userAutoTestsReducer,
   },

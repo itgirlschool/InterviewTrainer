@@ -14,6 +14,8 @@ import {
   Profile,
   VideoFirst,
   VideoFirstItem,
+  InterviewSecond,
+  InterviewSecondItem,
   // TheoryFirst,
   AutoTestsFirst,
   AutoTestsSlider,
@@ -91,7 +93,23 @@ export const router = createBrowserRouter([
       {
         path: "gradingsecond",
         element: <GradingSecond />,
+        children: [
+          {
+            path: "interviewsecond",
+            element: <InterviewSecond />,
+            children: [
+              {
+                path: ":id",
+                element: <InterviewSecondItem />,
+              },
+            ],
+          },
+        ],
       },
+      // {
+      //   path: "interviewsecond",
+      //   element: <InterviewSecond />,
+      // },
       {
         path: "gradingthird",
         element: <GradingThird />,
