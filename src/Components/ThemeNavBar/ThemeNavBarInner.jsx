@@ -24,6 +24,7 @@ function ThemeNavBar({
               gradingPath={gradingPath}
               itemId={item.id}
               itemTitle={item.title}
+              gradingPath={gradingPath}
             />
 
             {item.isFinished && (

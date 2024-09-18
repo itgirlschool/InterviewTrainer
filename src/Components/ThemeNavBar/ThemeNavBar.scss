@@ -94,12 +94,12 @@
 }
 
 .mobile__close_btn {
-  background-color: transparent;
+  background-color: $pinkcolor;
   border: $pinkcolor 1px solid;
   border-radius: 50%;
   position: absolute;
   right: 0;
-  top: -20%;
+  top: -30%;
 
   & img {
     width: 16px;

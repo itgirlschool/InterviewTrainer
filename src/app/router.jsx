@@ -16,6 +16,8 @@ import {
   VideoFirstItem,
   TheoryFirst,
   TheoryFirstItem,
+  InterviewSecond,
+  InterviewSecondItem,
   // TestsFirst,
 } from "../Pages";
 
@@ -77,6 +79,18 @@ export const router = createBrowserRouter([
       {
         path: "gradingsecond",
         element: <GradingSecond />,
+        children: [
+          {
+            path: "interviewsecond",
+            element: <InterviewSecond />,
+            children: [
+              {
+                path: ":id",
+                element: <InterviewSecondItem />,
+              },
+            ],
+          },
+        ],
       },
       {
         path: "gradingthird",

@@ -20,7 +20,7 @@ export default function SignIn() {
   const onSubmit = (data) => {
     getRegister(data, setUserError, navigate);
   };
- 
+
   const passw = watch("password");
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function SignIn() {
             <p className="form-error">Введите не более 20 символов</p>
           )}
           {errors?.firstName?.type === "pattern" && (
-            <p className="form-error">Используйте кириллицу или латинске буквы</p>
+            <p className="form-error">Используйте кириллицу или латинские буквы</p>
           )}
 
           <input type="text"
@@ -96,7 +96,7 @@ export default function SignIn() {
             <p className="form-error">Это поле обязательно для заполнения</p>
           )}
           {errors?.password?.type === "pattern" && (
-            <p className="form-error">Cимволы:(только: A-Z,a-z,!@,0-9)</p>
+            <p className="form-error">Пароль должен содержать только латинские буквы верхнего и нижнего регистров, цифры и символы</p>
           )}
           {errors?.password?.type === "minLength" && (
             <p className="form-error">Введите не менее 8 символов</p>
@@ -121,42 +121,44 @@ export default function SignIn() {
             <p className="form-error">Это поле обязательно для заполнения</p>
           )}
           {errors?.confirmPassword?.type === "pattern" && (
-            <p className="form-error">Cимволы:(только: A-Z,a-z,!@,0-9)</p>
+            <p className="form-error">Пароль должен содержать только латинские буквы верхнего и нижнего регистров, цифры и символы</p>
           )}
           {errors?.confirmPassword?.type === "minLength" && (
             <p className="form-error">Введите не менее 8 символов</p>
           )}
-           {errors.confirmPassword && <p className="form-error error_password">Пароли не совпадают</p>}
- 
+
+
           <input
             name="confirmPassword"
             type="password"
             placeholder="Повторите пароль"
             className="form-signin__input"
-              {...register("confirmPassword",
-                {
-                  required: true,
-                  minLength: 8,
-                  pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/,
-                  validate: value =>
-                    value === passw || "Пароли не совпадает"
-                },
-              )}
+            {...register("confirmPassword",
+              {
+                required: true,
+                minLength: 8,
+                pattern: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.* ).{8,}$/,
+                validate: value =>
+                  value === passw || "Пароли не совпадает"
+              },
+            )}
           />
+
+          {errors.confirmPassword && (errors.confirmPassword.type === "validate" && <p className="form-error error_password">Пароли не совпадают</p>)}
 
           <div className="save__sighin" >
             <button type="submit"
               className="btn__signin"
-            
-              >
+
+            >
               Сохранить</button>
           </div>
           <div className="enter__signin">
             <NavLink to="/login">Вход</NavLink>
           </div>
-          {userError?  <div className="reset-password__option">
-              <NavLink to="/resetpassword">Забыли свой пароль?</NavLink>
-            </div>:<div></div>}
+          {userError ? <div className="reset-password__option">
+            <NavLink to="/resetpassword">Забыли свой пароль?</NavLink>
+          </div> : <div></div>}
         </form>
       </div >
     </div >
