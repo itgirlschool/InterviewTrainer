@@ -5,7 +5,7 @@
 }
 .testResults__container {
   width: 876px;
-  height: 692px;
+  height: 680px;
   background-color: #ffffff;
   border-radius: 28px;
   box-shadow: 7px 21px 49px 0px rgba(158, 158, 158, 0.1019607843);
@@ -17,6 +17,10 @@
 .testResults__catImg {
   align-self: end;
 }
+.testResults__catImg img {
+  width: 100%;
+  height: auto;
+}
 .testResults__info {
   padding-right: 80px;
   display: grid;
@@ -25,14 +29,10 @@
   font-size: 20px;
   font-weight: 500;
   justify-items: center;
+  text-align: center;
 }
 .testResults__info-nums {
-  font-size: 20px;
-  font-weight: 500;
   color: #ea5d80;
-}
-.testResults__info-text {
-  text-align: center;
 }
 .testResults__info-btns {
   display: flex;
@@ -55,4 +55,50 @@
 }
 .testResults__info-btns button:hover {
   background: #777777;
+}
+
+@media ((max-width: 1025px)) {
+  .testResults__container {
+    width: 600px;
+    height: 450px;
+    padding: 70px 80px 40px;
+    grid-template-columns: 1fr;
+    gap: unset;
+  }
+  .testResults__info {
+    padding-right: 0px;
+    gap: 20px;
+  }
+  .testResults__info-btns button {
+    width: 350px;
+    height: 50px;
+  }
+  .testResults__catImg {
+    display: none;
+  }
+}
+@media ((max-width: 670px)) {
+  .testResults__container {
+    width: 80%;
+    height: unset;
+    padding: 40px;
+  }
+  .testResults__info-btns {
+    gap: 20px;
+    align-self: end;
+  }
+  .testResults__info-btns button {
+    width: 200px;
+    height: 50px;
+  }
+}
+@media ((max-width: 431px)) {
+  .testResults__container {
+    width: 100%;
+    padding: 30px 20px;
+  }
+  .testResults__info-btns button {
+    width: 170px;
+    height: 40px;
+  }
 }

@@ -1,4 +1,5 @@
 import "./AutoTestsSlider.scss";
+import catPicTests from "../../assets/images/cat_page_autotests.svg";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -27,7 +28,7 @@ export default function AutoTestsSlider() {
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
 
-  console.log("correct ans", correctAnswers);
+  // console.log("correct ans", correctAnswers);
 
   useEffect(() => {
     //вариант с сохранением прогресса
@@ -91,22 +92,27 @@ export default function AutoTestsSlider() {
   );
 
   return (
-    <div className="slider">
-      <div className="slider__count">
-        {id}/{tests.length}
-      </div>
-      <div className="slider__cardContainer">
-        <div>
-          <TestCard currentTest={currentTest} />
+    <>
+      <div className="slider">
+        <div className="slider__count">
+          {id}/{tests.length}
         </div>
-        <div className="slider__buttons">
-          {!hasAnswered
-            ? buttonAnswer
-            : currentTest < tests.length
-            ? buttonNext
-            : buttonShowResults}
+        <div className="slider__cardContainer">
+          <div>
+            <TestCard currentTest={currentTest} />
+          </div>
+          <div className="slider__buttons">
+            {!hasAnswered
+              ? buttonAnswer
+              : currentTest < tests.length
+              ? buttonNext
+              : buttonShowResults}
+          </div>
         </div>
       </div>
-    </div>
+      <div className="catImg">
+        <img src={catPicTests} alt="cat" />
+      </div>
+    </>
   );
 }

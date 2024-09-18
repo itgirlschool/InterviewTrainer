@@ -32,7 +32,9 @@ export default function AutoTestsResults() {
     navigate("/gradingfirst/testsfirst/1");
   };
 
-  const handleCheckMistakes = () => {};
+  const handleCheckMistakes = () => {
+    navigate("/gradingfirst/testsfirst/resultscheck");
+  };
 
   return (
     <div className="testResults">

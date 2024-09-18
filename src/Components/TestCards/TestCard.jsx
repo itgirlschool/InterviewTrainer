@@ -1,5 +1,4 @@
 import "./Card.scss";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Test from "./Test/Test";
@@ -11,7 +10,12 @@ export default function TestCard() {
   return (
     <div>
       {tests.map(test => (
-        <Test key={test.id} test={test} isVisible={Number(id) === test.id} />
+        <Test
+          key={test.id}
+          test={test}
+          isVisible={Number(id) === test.id}
+          className="test"
+        />
       ))}
     </div>
   );

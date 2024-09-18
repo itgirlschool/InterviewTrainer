@@ -16,8 +16,6 @@
   }
 
   &__answers {
-    font-size: 20px;
-    line-height: 22px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -25,6 +23,8 @@
   }
 
   &__answer {
+    font-size: 20px;
+    line-height: 22px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -41,7 +41,7 @@
       appearance: none;
       width: 32px;
       height: 32px;
-      background-image: url("../../../assets/full-circle.svg");
+      background-image: url("../../assets/images/full-circle.svg");
       background-repeat: no-repeat;
     }
   }
@@ -51,7 +51,7 @@
     appearance: none;
     width: 32px;
     height: 32px;
-    background-image: url("../../../assets/empty-circle.svg");
+    background-image: url("../../assets/images/empty-circle.svg");
     background-repeat: no-repeat;
   }
 
@@ -60,7 +60,7 @@
     appearance: none;
     width: 32px;
     height: 32px;
-    background-image: url("../../../assets/red-full-circle.svg");
+    background-image: url("../../assets/images/red-full-circle.svg");
     background-repeat: no-repeat;
   }
 
@@ -69,164 +69,64 @@
     appearance: none;
     width: 32px;
     height: 32px;
-    background-image: url("../../../assets/green-full-circle.svg");
+    background-image: url("../../assets/images/green-full-circle.svg");
     background-repeat: no-repeat;
   }
 }
 
-// .card__container {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
+@media ($Tablet) {
+  .test {
+    gap: 35px;
+    &__answer {
+      gap: 35px;
+    }
+  }
+}
 
-//   .card-wrapper {
-//     width: 876px; //691px
-//     height: 692px; //563px
-//     padding-top: 100px;
-//     //display: flex;
-//     /// flex-direction: column;
-//     // align-items: center;
-//     border: 1px solid $pink-color;
-//     border-radius: 28px;
-//     background-color: $white-color;
+@media ($LargeMobile) {
+  .test {
+    gap: 20px;
+    &__answer {
+      gap: 20px;
+    }
+    .radio {
+      width: 24px;
+      height: 24px;
 
-//     @media screen and (max-width: 1440px) {
-//       width: 691px; //691px
-//       height: 563px;
-//       padding-top: 50px;
-//     }
+      &:checked {
+        width: 24px;
+        height: 24px;
+        background-image: url("../../assets/images/full-circle-min.svg");
+      }
+    }
 
-//     .card-question {
-//       max-width: 651px;
-//       padding-left: 125px;
+    .empty {
+      background-image: url("../../assets/images/empty-circle-min.svg");
+      width: 24px;
+      height: 24px;
+    }
+    .red-img {
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/red-full-circle-min.svg");
+    }
+    .green-img {
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/green-full-circle-min.svg");
+    }
+  }
+}
 
-//       @media screen and (max-width: 1440px) {
-//         padding-left: 83px;
-//       }
-
-//       .question {
-//         //max-width: 565px;
-//         width: 100%;
-//         margin-bottom: 46px;
-//         font-family: $font;
-//         font-weight: 800;
-//         font-size: 20px;
-//       }
-//     }
-
-//     .answer-wrapper {
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-
-//       .answers-list {
-//         width: 629px;
-//         @media screen and (max-width: 1440px) {
-//           width: 530px; //691px
-//         }
-
-//         .answer {
-//           display: flex;
-//           align-items: center;
-
-//           .radio-input {
-//             // display: block;
-//             appearance: none;
-//             width: 32px;
-//             height: 32px;
-//             background-image: url("../../../assets/empty-circle.svg");
-//             background-repeat: no-repeat;
-//           }
-
-//           .radio-input:checked {
-//             appearance: none;
-//             width: 32px;
-//             height: 32px;
-//             background-image: url("../../../assets/full-circle.svg");
-//             background-repeat: no-repeat;
-//           }
-
-//           .red-img:checked {
-//             appearance: none;
-//             width: 32px;
-//             height: 32px;
-//             background-image: url("../../../assets/red-full-circle.svg");
-//             background-repeat: no-repeat;
-//           }
-
-//           .green-img:checked {
-//             appearance: none;
-//             width: 32px;
-//             height: 32px;
-//             background-image: url("../../../assets/green-full-circle.svg");
-//             background-repeat: no-repeat;
-//           }
-
-//           .answer-text {
-//             display: block;
-//             max-width: 551px;
-//             width: 100%;
-//             height: 41px;
-//             padding-left: 46px;
-//             font-family: $font;
-//             font-weight: 400;
-//             font-size: 18px;
-//           }
-//         }
-
-//         .answer:not(:last-child) {
-//           margin-bottom: 47px;
-
-//           @media screen and (max-width: 1440px) {
-//             margin-bottom: 37px;
-//           }
-//         }
-
-//         .answer:last-child {
-//           margin-bottom: 100px;
-//           @media screen and (max-width: 1440px) {
-//             margin-bottom: 53px;
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   .card-button {
-//     text-align: center;
-
-//     .card-btn,
-//     .btn-result,
-//     .card-btnDisabled {
-//       width: 442px;
-//       height: 60px;
-//       border-radius: 50px;
-//       border: none;
-
-//       font-family: "Jost", sans-serif;
-//       font-weight: 400;
-//       font-size: 16px;
-//       color: $white-color;
-//     }
-
-//     .card-btn {
-//       background-color: $pink-color;
-//     }
-
-//     .card-btnDisabled {
-//       background-color: $graycolor;
-//     }
-
-//     .btn-result {
-//       background-color: $color-green;
-//     }
-//   }
-// }
-
-// .red {
-//   color: $red;
-// }
-
-// .green {
-//   color: $color-green;
-// }
+@media ($Mobile) {
+  .test {
+    gap: 20px;
+    &__answer {
+      gap: 15px;
+    }
+    &__answer {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+}

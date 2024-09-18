@@ -8,7 +8,7 @@
 
   &__container {
     width: 876px;
-    height: 692px;
+    height: 680px;
     background-color: $white-color;
     border-radius: 28px;
     box-shadow: 7px 21px 49px 0px #9e9e9e1a;
@@ -20,6 +20,11 @@
 
   &__catImg {
     align-self: end;
+
+    & img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__info {
@@ -30,18 +35,17 @@
     font-size: 20px;
     font-weight: 500;
     justify-items: center;
+    text-align: center;
+
     &-nums {
-      font-size: 20px;
-      font-weight: 500;
       color: $pink-color;
     }
-    &-text {
-      text-align: center;
-    }
+
     &-btns {
       display: flex;
       flex-direction: column;
       gap: 38px;
+
       & button {
         cursor: pointer;
         color: $whitecolor;
@@ -56,8 +60,77 @@
         &:first-child {
           background: $color-green;
         }
+
         &:hover {
           background: $grey;
+        }
+      }
+    }
+  }
+}
+
+@media ($Tablet) {
+  .testResults {
+    &__container {
+      width: 600px;
+      height: 450px;
+      padding: 70px 80px 40px;
+      grid-template-columns: 1fr;
+      gap: unset;
+    }
+
+    &__info {
+      padding-right: 0px;
+      gap: 20px;
+
+      &-btns {
+        & button {
+          width: 350px;
+          height: 50px;
+        }
+      }
+    }
+
+    &__catImg {
+      display: none;
+    }
+  }
+}
+
+@media ($LargeMobile) {
+  .testResults {
+    &__container {
+      width: 80%;
+      height: unset;
+      padding: 40px;
+    }
+
+    &__info {
+      &-btns {
+        gap: 20px;
+        align-self: end;
+
+        & button {
+          width: 200px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media ($Mobile) {
+  .testResults {
+    &__container {
+      width: 100%;
+      padding: 30px 20px;
+    }
+
+    &__info {
+      &-btns {
+        & button {
+          width: 170px;
+          height: 40px;
         }
       }
     }
