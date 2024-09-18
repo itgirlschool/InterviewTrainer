@@ -4,7 +4,6 @@ import Test from "../../Components/TestCards/Test/Test";
 
 export default function AutoTestsResultsCheck() {
   const tests = useSelector(state => state.autoTests.tests);
-  // const { id } = useParams();
 
   return (
     <div className="testResultsCheck">

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTests } from "../../../Services/fetchTests";
 import LinkBack from "../../../Components/LinkBack/LinkBack";
+import findCorrectAnswersInSlice from "../../../common/helpers/findCorrectAnswersInSlice";
+import { addCorrectAnswers } from "../../../app/store/slice/AutoTestsSlice";
 
 export default function AutoTestsFirst() {
   const navigate = useNavigate();
@@ -19,6 +21,13 @@ export default function AutoTestsFirst() {
       dispatch(fetchTests());
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    if (tests.length > 0) {
+      const correctAnswers = findCorrectAnswersInSlice(tests);
+      dispatch(addCorrectAnswers(correctAnswers));
+    }
+  }, [tests]);
 
   // вариант без сохранения прогресса и возврата к нему
   useEffect(() => {

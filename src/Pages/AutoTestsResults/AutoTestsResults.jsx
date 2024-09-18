@@ -9,24 +9,6 @@ export default function AutoTestsResults() {
   const correctAnswersCount = useSelector(
     state => state.userAutoTests.correctAnswersCount,
   );
-  const messageGreat = (
-    <>
-      Умничка!
-      <br />
-      Так держать!
-    </>
-  );
-
-  const messageGood = (
-    <>
-      Чуть-чуть не хватило,
-      <br /> не унывай!
-      <br />
-      Разбери ошибки и попробуй
-      <br />
-      еще раз!
-    </>
-  );
 
   const handleAgain = () => {
     navigate("/gradingfirst/testsfirst/1");
@@ -47,7 +29,22 @@ export default function AutoTestsResults() {
             {correctAnswersCount} из {testsCount} правильных ответов
           </div>
           <div className="testResults__info-text">
-            {correctAnswersCount === testsCount ? messageGreat : messageGood}
+            {correctAnswersCount === testsCount ? (
+              <>
+                Умничка!
+                <br />
+                Так держать!
+              </>
+            ) : (
+              <>
+                Чуть-чуть не хватило,
+                <br /> не унывай!
+                <br />
+                Разбери ошибки и попробуй
+                <br />
+                еще раз!
+              </>
+            )}
           </div>
           <div className="testResults__info-btns">
             <button className="testResults__info-btnView" onClick={handleCheckMistakes}>

@@ -11,7 +11,11 @@ const initialState = {
 export const AutoTestsSlice = createSlice({
   name: "autoTests",
   initialState,
-  reducers: {},
+  reducers: {
+    addCorrectAnswers: (state, action) => {
+      state.correctAnswers = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchTests.pending, state => {
@@ -22,13 +26,6 @@ export const AutoTestsSlice = createSlice({
         state.status = "succeeded";
         state.error = null;
         state.tests = action.payload;
-        state.correctAnswers = action.payload.map(test => {
-          const answerId = test.answers.find(answer => answer.isRight === true).id;
-          return {
-            testId: test.id,
-            answerId,
-          };
-        });
       })
       .addCase(fetchTests.rejected, (state, action) => {
         state.status = "failed";
@@ -37,4 +34,5 @@ export const AutoTestsSlice = createSlice({
   },
 });
 
+export const { addCorrectAnswers } = AutoTestsSlice.actions;
 export const autoTestsReducer = AutoTestsSlice.reducer;

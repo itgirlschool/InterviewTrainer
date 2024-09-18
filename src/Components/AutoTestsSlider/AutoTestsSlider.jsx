@@ -15,6 +15,7 @@ import {
   calculateCorrectAnswers,
   calculateUserProgress,
 } from "../../app/store/slice/UserAutoTestsSlice";
+import calcCorrectAnswers from "../../common/helpers/calcCorrectAnswers";
 
 export default function AutoTestsSlider() {
   const navigate = useNavigate();
@@ -24,11 +25,10 @@ export default function AutoTestsSlider() {
   const selectedAnswer = useSelector(state => state.userAutoTests.selectedAnswer);
   const hasAnswered = useSelector(state => state.userAutoTests.hasAnswered);
   const correctAnswers = useSelector(state => state.autoTests.correctAnswers);
+  const userChoice = useSelector(state => state.userAutoTests.userChoice);
   const isAuth = useSelector(state => state.userAuth.isAuth);
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
-
-  // console.log("correct ans", correctAnswers);
 
   useEffect(() => {
     //вариант с сохранением прогресса
@@ -45,6 +45,10 @@ export default function AutoTestsSlider() {
     dispatch(clearSelectedAnswer());
   }, [id]);
 
+  useEffect(() => {
+    dispatch(calculateCorrectAnswers(calcCorrectAnswers(correctAnswers, userChoice)));
+  }, [correctAnswers, userChoice]);
+
   const handleChoice = () => {
     dispatch(
       addUserChoice({
@@ -55,7 +59,6 @@ export default function AutoTestsSlider() {
     dispatch(setHasAnswered(true));
     dispatch(setShowCorrectAnswer(true));
     dispatch(setUserProgress(currentTest));
-    dispatch(calculateCorrectAnswers(correctAnswers));
     dispatch(calculateUserProgress());
   };
 

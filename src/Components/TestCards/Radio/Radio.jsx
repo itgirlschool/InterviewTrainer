@@ -5,6 +5,7 @@ import {
   setHasSelectedAnswer,
   setSelectedAnswer,
 } from "../../../app/store/slice/UserAutoTestsSlice";
+import findCorrectAnswer from "../../../common/helpers/findCorrectAnswer";
 
 export default function Radio({ answer, testId }) {
   const dispatch = useDispatch();
@@ -18,13 +19,8 @@ export default function Radio({ answer, testId }) {
     dispatch(setHasSelectedAnswer(true));
   }, [testId, dispatch]);
 
-  const findCorrectAnswer = useCallback(
-    arr => arr.find(item => item.testId === testId)?.answerId,
-    [testId],
-  );
-
-  const userAnswer = findCorrectAnswer(userChoice);
-  const correctAnswer = findCorrectAnswer(correctAnswers);
+  const userAnswer = findCorrectAnswer(userChoice, testId);
+  const correctAnswer = findCorrectAnswer(correctAnswers, testId);
 
   const handleAnswerColor = () => {
     if (!showCorrectAnswer) return "radio empty";
