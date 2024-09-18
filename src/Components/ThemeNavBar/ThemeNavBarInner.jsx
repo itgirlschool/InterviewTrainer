@@ -21,6 +21,7 @@ function ThemeNavBar({
           <li key={item.id} className="theme__item">
             <ThemeNavBarLink
               pagePath={pagePath}
+              gradingPath={gradingPath}
               itemId={item.id}
               itemTitle={item.title}
               gradingPath={gradingPath}

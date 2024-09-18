@@ -14,9 +14,10 @@ import {
   Profile,
   VideoFirst,
   VideoFirstItem,
+  TheoryFirst,
+  TheoryFirstItem,
   InterviewSecond,
   InterviewSecondItem,
-  // TheoryFirst,
   // TestsFirst,
 } from "../Pages";
 
@@ -59,11 +60,16 @@ export const router = createBrowserRouter([
               },
             ],
           },
-
-          // {
-          //   path: "thoryfirst",
-          //   element: <TheoryFirst />,
-          // },
+          {
+            path: "theoryfirst",
+            element: <TheoryFirst />,
+            children: [
+              {
+                path: ":id",
+                element: <TheoryFirstItem />,
+              },
+            ],
+          },
           // {
           //   path: "testsfirst",
           //   element: <TestsFirst />,
@@ -86,10 +92,6 @@ export const router = createBrowserRouter([
           },
         ],
       },
-      // {
-      //   path: "interviewsecond",
-      //   element: <InterviewSecond />,
-      // },
       {
         path: "gradingthird",
         element: <GradingThird />,

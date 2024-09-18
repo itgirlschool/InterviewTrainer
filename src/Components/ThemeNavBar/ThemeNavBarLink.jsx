@@ -4,9 +4,9 @@ import "./ThemeNavBar.scss";
 
 function ThemeNavBarLink({
   pagePath,
+  gradingPath,
   itemId,
   itemTitle,
-  gradingPath,
 }) {
   const [active, setActive] = useState(false);
   const { id } = useParams();

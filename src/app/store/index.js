@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userAuthSlice from "./slice/UserAuthSlice";
 import usersSlice from "./slice/UsersSlice";
 import { videosReducer } from "./slice/VideosSlice.js";
+import { theoryFirstReducer } from "./slice/TheoryFirstSlice.js";
 import { interviewsReducer } from "./slice/InterviewsSlice.js";
 import middlewareUsers from "./middleware/middlewareUsers";
 import middlewareUserAuth from "./middleware/middlewareUsersAuth.js";
@@ -22,6 +23,7 @@ export const store = configureStore({
     userAuth: userAuthSlice,
     users: usersSlice,
     videos: videosReducer,
+    theoryFirst: theoryFirstReducer,
     interviews: interviewsReducer,
   },
   devTools: true,
