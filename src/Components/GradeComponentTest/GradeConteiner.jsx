@@ -1,5 +1,5 @@
 import React from "react";
-import "../GradeContents/GradeContents.scss";
+import "./GradeContainer.scss";
 
 const GradeContainer = ({ children }) => {
   return (

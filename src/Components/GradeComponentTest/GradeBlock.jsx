@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../GradeContents/GradeContents.scss";
+import "./GradeBlock.scss";
 
 export default function GradeBlock({
   blockTitle,

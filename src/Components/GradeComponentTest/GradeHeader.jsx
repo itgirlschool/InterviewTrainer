@@ -1,5 +1,6 @@
 import React from "react";
-import "../GradeContents/GradeContents.scss";
+
+import "./GradeHeader.scss"
 
 export default function GradeStructure({
   gradeTitle,

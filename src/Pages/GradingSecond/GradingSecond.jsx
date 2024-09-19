@@ -1,79 +1,65 @@
 import { Outlet, useLocation } from "react-router-dom";
-import GradeBlock from "../../Components/GradeBlock/GradeBlock";
-import "./GradingSecond.scss"
+import GradeContainer from "../../Components/GradeComponentTest/GradeConteiner";
+import GradeBlock from "../../Components/GradeComponentTest/GradeBlock";
+import GradeHeader from "../../Components/GradeComponentTest/GradeHeader";
+import cat_grade from "../../assets/images/Frame.svg";
+import "./GradingSecond.scss";
 
-export default function GradingSecond({
-  videoDescription,
-  videoPath,
-  title,
-}
-  
-) {
+export default function GradingFirst() {
   const location = useLocation();
-
   const showNavigation =
     location.pathname === "/gradingsecond";
 
   return (
     <div>
-      
-    {showNavigation && (
-      <div className="grading__container">
-        <div className="grading__intro">
-          <div className="welcome_title">
-            <h1> Junior</h1>
-            <p className="wecome_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.  </p>
-
-          </div>
-
-        </div>
-      <div className="grading__contents">
-        <div className="grading__contents_block">
-          <GradeBlock
-          title={title}
-          videoDescription={videoDescription}
-          videoPath={videoPath}
-        />
-        </div>
-        <div className="grading__contents_block">
-          <GradeBlock
-          title={title}
-          videoDescription={videoDescription}
-          videoPath={videoPath}
-        />
-        </div>
-        <div className="grading__contents_block">
-          <GradeBlock
-          title={title}
-          videoDescription={videoDescription}
-          videoPath={videoPath}
-        />
-        </div>
-        <div className="grading__contents_block">
-          <GradeBlock
-          title={title}
-          videoDescription={videoDescription}
-          videoPath={videoPath}
-        />
-        </div>
-        <div className="grading__contents_block">
-          <GradeBlock
-          title={title}
-          videoDescription={videoDescription}
-          videoPath={videoPath}
-        />
-        </div>
-        <div className="grading__contents_block">
-          <GradeBlock
-          title={title}
-          videoDescription={videoDescription}
-          videoPath={videoPath}
-        />
-        </div>
-      </div>
-      </div>)}
-
-    <Outlet />
-  </div>
-);
+      {showNavigation && (
+        <>
+          <GradeHeader
+            gradeTitle="Junior"
+            gradeDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            gradeCat={cat_grade}
+          />
+          <GradeContainer>
+            <GradeBlock
+              blockPath="videosecond"
+              blockTitle="Видео прохождения собеседований"
+              blockProgressValue={0}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+            <GradeBlock
+              blockPath="/"
+              blockTitle="Теория"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+            <GradeBlock
+              blockPath="/"
+              blockTitle="Разбор задач"
+              blockProgressValue={0}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+                        <GradeBlock
+              blockPath="/"
+              blockTitle="Разбор тестовых заданий"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+                        <GradeBlock
+              blockPath="/"
+              blockTitle="Решение задач"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+                        <GradeBlock
+              blockPath="/"
+              blockTitle="Тесты"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+          </GradeContainer>
+        </>
+      )}
+      <Outlet />
+    </div>
+  );
 }

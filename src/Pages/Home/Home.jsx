@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import "./Home.scss";
 import cat_grade from "../../assets/images/cat_page_grades.svg";
 import arrow_heart from "../../assets/images/arrow_heart.svg";
-import salute from "../../assets/images/lines.png"
+import salute from "../../assets/images/lines.png";
 import { app, realtimeDb } from "../../../firebaseConfig";
 
 export default function Home() {

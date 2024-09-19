@@ -1,0 +1,6 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.block__button {
+    @include button__pink;
+}

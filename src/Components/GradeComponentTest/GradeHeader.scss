@@ -1,0 +1,33 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.grading {
+    padding: 40px 87px 0;
+}
+.grading__intro {
+    display: flex;
+    flex-direction: row;
+
+    .grading__intro_block {
+        background-color: $white-color;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 16px;
+        border: 1px solid $pink-color;
+        border-radius: 60px;
+        max-width: 49vw;
+        min-height: 24vh;
+        h1 {
+            font-size: 28px;
+            margin: 0;
+            color: $pink-color;
+          }
+    }
+    .cat__junior {
+        max-height: 360px;
+        padding-left: 40px;
+    }
+
+}

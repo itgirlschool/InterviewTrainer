@@ -10,15 +10,14 @@
       display: flex;
       flex-direction: column;
       padding: 40px 87px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-content: space-between;
+      gap: 5vw;
   
       .grading__intro {
         display: flex;
         align-items: start;
-  
-        .cat__arrow {
-          padding-left: 40px;
-          max-height: 120px;
-        }
   
         .cat__withlaptop {
           max-height: 260px;
