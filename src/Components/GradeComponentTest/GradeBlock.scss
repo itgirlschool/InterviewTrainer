@@ -3,4 +3,8 @@
 
 .block__button {
     @include button__pink;
+
+}
+.button {
+    @include button__pink;
 }

@@ -5,15 +5,15 @@ import GradeHeader from "../../Components/GradeComponentTest/GradeHeader";
 import cat_grade from "../../assets/images/Frame.svg";
 import "./GradingSecond.scss";
 
-export default function GradingFirst() {
+export default function GradingSecond() {
   const location = useLocation();
   const showNavigation =
     location.pathname === "/gradingsecond";
 
   return (
-    <div>
+    <div >
       {showNavigation && (
-        <>
+        <div className="gradingSecond__main">
           <GradeHeader
             gradeTitle="Junior"
             gradeDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
@@ -57,7 +57,7 @@ export default function GradingFirst() {
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
           </GradeContainer>
-        </>
+        </div>
       )}
       <Outlet />
     </div>

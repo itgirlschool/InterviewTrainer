@@ -1,9 +1,7 @@
 @import "../../style/template.scss";
 @import "../../style/vars.scss";
 
-.grading {
-    padding: 40px 87px 0;
-}
+
 .grading__intro {
     display: flex;
     flex-direction: row;
@@ -18,7 +16,7 @@
         border: 1px solid $pink-color;
         border-radius: 60px;
         max-width: 49vw;
-        min-height: 24vh;
+        height: 32vh;
         h1 {
             font-size: 28px;
             margin: 0;
@@ -26,8 +24,9 @@
           }
     }
     .cat__junior {
-        max-height: 360px;
+        height: 360px;
         padding-left: 40px;
+        margin-top: -10vh;
     }
 
 }
