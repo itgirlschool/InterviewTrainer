@@ -26,15 +26,10 @@ export default function AutoTestsSlider() {
   const hasAnswered = useSelector(state => state.userAutoTests.hasAnswered);
   const correctAnswers = useSelector(state => state.autoTests.correctAnswers);
   const userChoice = useSelector(state => state.userAutoTests.userChoice);
-  const isAuth = useSelector(state => state.userAuth.isAuth);
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
 
   useEffect(() => {
-    //вариант с сохранением прогресса
-    // if (!isAuth) dispatch(clearUserChoice());
-
-    // вариант без сохранения прогресса и возврата к нему
     dispatch(clearUserChoice());
   }, []);
 
