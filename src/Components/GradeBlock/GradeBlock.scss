@@ -1,0 +1,42 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.block__button {
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+.button {
+    @include button__pink;
+}
+.button_startOver {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    text-decoration: underline;
+    color: $pinkcolor;
+    background: transparent;
+}
+
+@media only screen and (min-width: 1919px) {
+
+}
+
+@media (max-width: 1025px) {
+
+}
+
+@media (max-width: 1025px) and (min-width: 429px) {
+
+}
+
+@media #{$Mobile} {
+
+}
