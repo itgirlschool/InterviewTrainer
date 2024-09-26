@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $background-general;
+  background-color: $background-beige;
 
   .wrapper__login {
     text-align: center;
@@ -62,8 +62,8 @@
         font-size: 20px;
         border-radius: 20px;
         border: none;
-        background-color: $grey;
-        // color: $formlogin-fontcolor;
+        background-color: $white-color;
+        color: $formlogin-fontcolor;
         outline: none;
         transition: background-color 0.3s ease;
 
@@ -144,6 +144,7 @@
         font-family: "M PLUS Rounded 1c";
         font-size: 20px;
         font-weight: 400;
+        color: $ligth-grey;
         // color: $formlogin-fontcolor;
 
         @media screen and (max-width: 980px) {
@@ -188,6 +189,10 @@
             margin-bottom: 16px;
           }
         }
+
+        .btn__login:hover {
+          background: $grey;
+        }
       }
 
       .create-acc__option {
@@ -198,7 +203,7 @@
         font-family: "Jost";
         font-weight: 400;
         font-size: 16px;
-        color: $whitecolor;
+        color: $grey;
         text-decoration: none;
         cursor: pointer;
       }
@@ -207,7 +212,7 @@
         font-family: "Jost";
         font-weight: 400;
         font-size: 16px;
-        color: $whitecolor;
+        color: $grey;
         text-decoration: none;
         cursor: pointer;
       }

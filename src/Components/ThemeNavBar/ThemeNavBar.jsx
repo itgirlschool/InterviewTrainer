@@ -85,6 +85,7 @@ function ThemeNavBar({
       <ThemeNavBarInner
         data={data}
         pagePath={pagePath}
+        gradingPath={gradingPath}
         navBarIsHidden={navBarIsHidden}
         gradingPath={gradingPath}
       />

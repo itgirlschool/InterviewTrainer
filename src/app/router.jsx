@@ -14,13 +14,10 @@ import {
   Profile,
   VideoFirst,
   VideoFirstItem,
+  TheoryFirst,
+  TheoryFirstItem,
   InterviewSecond,
   InterviewSecondItem,
-  // TheoryFirst,
-  AutoTestsFirst,
-  AutoTestsSlider,
-  AutoTestsResults,
-  AutoTestsResultsCheck,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -44,10 +41,6 @@ export const router = createBrowserRouter([
         path: "resetpassword",
         element: <ResetPassword />,
       },
-      // {
-      //   path: "autotests",
-      //   element: <AutoTests/>
-      // },
       {
         path: "contentlesson",
         element: <ContentLesson />,
@@ -66,10 +59,16 @@ export const router = createBrowserRouter([
               },
             ],
           },
-          // {
-          //   path: "thoryfirst",
-          //   element: <TheoryFirst />,
-          // },
+          {
+            path: "theoryfirst",
+            element: <TheoryFirst />,
+            children: [
+              {
+                path: ":id",
+                element: <TheoryFirstItem />,
+              },
+            ],
+          },
           {
             path: "testsfirst",
             element: <AutoTestsFirst />,
@@ -106,10 +105,6 @@ export const router = createBrowserRouter([
           },
         ],
       },
-      // {
-      //   path: "interviewsecond",
-      //   element: <InterviewSecond />,
-      // },
       {
         path: "gradingthird",
         element: <GradingThird />,

@@ -2,8 +2,8 @@
 @import "../../style/template.scss";
 
 .theme__wrapper {
-  height: 100%;
   width: 100%;
+  height: 100%;
   padding: 16px;
   margin-left: auto;
   overflow-y: scroll;
@@ -11,9 +11,12 @@
   overflow-x: hidden;
   border-radius: 20px 0 0 20px;
   background-color: $whitecolor;
+  max-height: 100vh;
 
   &__hidden {
     width: 0%;
+    max-height: 100vh;
+    overflow-y: hidden;
   }
 
   &::-webkit-scrollbar {
@@ -43,7 +46,7 @@
     color: $blackcolor;
     padding-left: 8px;
     font-size: 20px;
-    max-width: 70%;
+    max-width: 90%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
