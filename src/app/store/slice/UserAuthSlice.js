@@ -6,10 +6,20 @@ const userAuthSlice = createSlice({
     email: null,
     password: null,
     displayName: null,
-    lastName:null,
-    firstName:null,
+    lastName: null,
+    firstName: null,
     id: null,
-    progress: null,
+    progress: [
+      {
+        gradeId: "grade1",
+        gradeName: "Intern",
+        blocks: [
+          { blockId: "InternVideo", lastItem: 0 },
+          { blockId: "InternTheory", lastItem: 0 },
+          { blockId: "InternTests", lastItem: 0 },
+        ],
+      },
+    ],
     avatar: null,
     feedback: null,
   },
@@ -26,16 +36,41 @@ const userAuthSlice = createSlice({
       state.firstName = action.payload.firstName;
     },
   },
-  removeUser: (state) => {
+  removeUser: state => {
     state.email = null;
     state.password = null;
     state.displayName = null;
     state.id = null;
-    state.progress = null;
+    state.progress = [
+      {
+        gradeId: "grade1",
+        gradeName: "Intern",
+        blocks: [
+          { blockId: "InternVideo", lastItem: 0 },
+          { blockId: "InternTheory", lastItem: 0 },
+          { blockId: "InternTests", lastItem: 0 },
+        ],
+      },
+    ];
     state.avatar = null;
     state.feedback = null;
   },
+  updateLastItem: (state, action) => {
+    const { gradeId, blockId, lastItem } = action.payload;
+    const grade = state.progress.find(
+      g => g.gradeId === gradeId,
+    );
+    if (grade) {
+      const block = grade.blocks.find(
+        b => b.blockId === blockId,
+      );
+      if (block) {
+        block.lastItem = lastItem;
+      }
+    }
+  },
 });
 
-export const { setUser, removeUser } = userAuthSlice.actions;
+export const { setUser, removeUser, updateLastItem } =
+  userAuthSlice.actions;
 export default userAuthSlice.reducer;

@@ -1,5 +1,10 @@
 import "./Profile.scss";
+import Progress from "../../Components/Progress/GeneralProgress";
 
 export default function Profile() {
-  return <div>Profile</div>;
+  return (
+    <>
+      <Progress grade="Intern" />
+    </>
+  );
 }

@@ -1,0 +1,71 @@
+@import "../../style/vars.scss";
+@import "../../style/template.scss";
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  h2 {
+    font-size: 32px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: $whitecolor;
+    border-radius: 40px;
+    padding: 40px;
+  }
+
+  &__bar {
+    display: flex;
+    flex-direction: column;
+
+    &_outer {
+      width: 100%;
+      background: $ultraligth-grey;
+      border-radius: 64px;
+    }
+    &_inner {
+      height: 8px;
+      background: $pinkcolor;
+      border-radius: 64px;
+    }
+    &_label {
+      font-size: 14px;
+      margin: 35px 0 10px 0;
+      span {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .progress {
+    width: 90%;
+    &__wrapper {
+      padding: 20px;
+      border-radius: 20px;
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+
+    &__bar_label {
+      margin: 5px 0;
+      font-size: 12px;
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .progress__catpic {
+    display: none;
+  }
+}
