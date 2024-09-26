@@ -1,68 +1,68 @@
 @import "../../style/template.scss";
 @import "../../style/vars.scss";
 
-
 .grading__intro {
+  display: flex;
+  width: 90%;
+  max-width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  .grading__intro_block {
+    background-color: $white-color;
+    padding: 32px;
     display: flex;
-    flex-direction: row;
-    margin: 0 0 -15vh 0;
-    .grading__intro_block {
-        background-color: $white-color;
-        padding: 32px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 16px;
-        border: 1px solid $pink-color;
-        border-radius: 60px;
-        max-width: 49vw;
-        height: 32vh;
-        h1 {
-            font-size: 28px;
-            margin: 0;
-            color: $pink-color;
-        }
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    border: 1px solid $pink-color;
+    border-radius: 60px;
+    max-width: 49vw;
+    height: 32vh;
+    h1 {
+      font-size: 28px;
+      color: $pink-color;
     }
-    .cat__junior {
-        height: 360px;
-        padding-left: 40px;
-        margin-top: -10vh;
-    }
+  }
+  .cat__junior {
+    // height: 360px;
+    // padding-left: 40px;
+    // margin-top: -10vh;
+    object-fit: cover;
+  }
 }
 
-
-
 @media #{$Desktop} {
-
 }
 
 @media #{$Tablet} {
-    .grading__intro {
-        display: flex;
-        flex-direction: row;
-        margin: 0 0 0 0;
-        justify-content:stretch;
-        .grading__intro_block {
-            padding: 18px;
-            justify-content: center;
-            gap: 9px;
-            max-width: 93vw;
-            height: 26vh;
-            h1 {
-                font-size: 28px;
-            }
-        }
-        .cat__junior {
-            display: none;
-        }
+  .grading__intro {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0 0;
+    justify-content: stretch;
+    .grading__intro_block {
+      padding: 18px;
+      justify-content: center;
+      gap: 9px;
+      max-width: 93vw;
+      height: 26vh;
+      h1 {
+        font-size: 28px;
+      }
     }
+    .cat__junior {
+      display: none;
+    }
+  }
 }
 
 @media #{$Mobile} {
-    .grading__intro_block {
-        border-radius: 20px;
+  .grading__intro_block {
+    border-radius: 20px;
     h1 {
-        font-size: 18px;
+      font-size: 18px;
     }
-    }
+  }
 }

@@ -15,58 +15,55 @@ export default function GradingSecond() {
     location.pathname === "/gradingsecond";
 
   return (
-    <div>
+    <>
       {showNavigation && (
-                <div className="gradingSecond__main">
-
-                <GradeIntro
-                  gradeTitle="Junior"
-                  gradeDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
-                  gradeCat={cat_grade}
-                />
-                <GradeContainer>
-                  <GradeBlock
-                    blockPath="interviewsecond"
-                    blockTitle="Видео прохождения собеседований"
-                    blockProgressValue={0}
-                    blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
-                  />
-                  <GradeBlock
-                    blockPath="/"
-                    blockTitle="Теория"
-                    blockProgressValue={30}
-                    blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
-                  />
-                  <GradeBlock
-                    blockPath="/"
-                    blockTitle="Разбор задач"
-                    blockProgressValue={0}
-                    blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
-                  />
-                              <GradeBlock
-                    blockPath="/"
-                    blockTitle="Разбор тестовых заданий"
-                    blockProgressValue={30}
-                    blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
-                  />
-                              <GradeBlock
-                    blockPath="/"
-                    blockTitle="Решение задач"
-                    blockProgressValue={30}
-                    blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
-                  />
-                              <GradeBlock
-                    blockPath="/"
-                    blockTitle="Тесты"
-                    blockProgressValue={30}
-                    blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
-                  />
-                </GradeContainer>
-              </div>
-
-
+        <>
+          <GradeIntro
+            gradeTitle="Junior"
+            gradeDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            gradeCat={cat_grade}
+          />
+          <GradeContainer>
+            <GradeBlock
+              blockPath="interviewsecond"
+              blockTitle="Видео прохождения собеседований"
+              blockProgressValue={0}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+            <GradeBlock
+              blockPath="/"
+              blockTitle="Теория"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+            <GradeBlock
+              blockPath="/"
+              blockTitle="Разбор задач"
+              blockProgressValue={0}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+            <GradeBlock
+              blockPath="/"
+              blockTitle="Разбор тестовых заданий"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+            <GradeBlock
+              blockPath="/"
+              blockTitle="Решение задач"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+            <GradeBlock
+              blockPath="/"
+              blockTitle="Тесты"
+              blockProgressValue={30}
+              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+            />
+          </GradeContainer>
+        </>
       )}
       <Outlet />
-    </div>
+    </>
   );
 }
