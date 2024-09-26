@@ -23,7 +23,7 @@ export default function GradeBlock({
                 <span>%</span>
             </div>
             <div className="progressBar__outer">
-                <div className="progressBar__inner"></div>
+                <div className="progressBar__inner" style={{ width: `${blockProgressValue}%` }} ></div>
             </div>
         </div>
         <div>{blockDescription}</div>

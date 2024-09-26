@@ -25,6 +25,17 @@
     background: transparent;
 }
 
+.progressBar__outer {
+    width: 100%;
+    background: $background-beige;
+}
+
+.progressBar__inner {
+    background: $pink-color;
+    width: 0; 
+    transition: width 0.5s; 
+}
+
 @media only screen and (min-width: 1919px) {
 
 }
