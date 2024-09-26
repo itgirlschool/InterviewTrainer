@@ -18,6 +18,10 @@ import {
   TheoryFirstItem,
   InterviewSecond,
   InterviewSecondItem,
+  AutoTestsFirst,
+  AutoTestsSlider,
+  AutoTestsResults,
+  AutoTestsResultsCheck,
 } from "../Pages";
 
 export const router = createBrowserRouter([
