@@ -1,0 +1,86 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.container__main{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.container__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.progress__block{
+    display: flex;
+    flex-direction: row;
+    background-color: $white-color;
+    border-radius: 30px;
+    width: 65vw;
+    height: 15vh;
+    margin-top: 2%;
+}
+
+.welcome__block{
+    display: flex;
+    flex-direction: column;
+    background-color: $white-color;
+    height: 70vh;
+    width: 20vw;
+    border-radius: 30px;
+    margin: 2%;
+}
+
+.user__info__block{
+    background-color: $white-color;
+    height: 53vh;
+    width: 64vw;
+    border-radius: 30px;
+    margin: 1%;
+}
+
+  
+  
+//   .progress__block, .welcome__block, .user__info__block {
+//     background-color: $white-color;
+//     border-radius: 30px;
+//     margin: 10px 0;  // Добавляем равные отступы
+//   }
+  
+//   .progress__block {
+//     width: 100%;     // На мобильных устройствах занимаем 100% ширины
+//     height: 15vh;
+//   }
+  
+//   .welcome__block {
+//     width: 100%;
+//     height: auto;
+//   }
+  
+//   .user__info__block {
+//     width: 100%;
+//     height: auto;
+//   }
+  
+//   @media (min-width: 768px) {
+//     .container__main {
+//       flex-direction: row;
+//       justify-content: space-between;
+//     }
+  
+//     .progress__block {
+//       width: 65vw;
+//     }
+  
+//     .welcome__block {
+//       width: 20vw;
+//       height: 70vh;
+//     }
+  
+//     .user__info__block {
+//       width: 64vw;
+//       height: 53vh;
+//     }
+//   }
+  
