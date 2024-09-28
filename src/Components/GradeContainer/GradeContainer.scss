@@ -2,71 +2,68 @@
 @import "../../style/vars.scss";
 
 .grading__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
-    gap: 5vw;
-    padding: 0 5vw 5vw 5vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  gap: 5vw;
+  padding: 0 5vw 5vw 5vw;
 
-    .grading__container_block{
-        background: $white-color;
-        box-shadow: 7px 21px 49px 0px #9e9e9e1a,
-                    28px 84px 89px 0px #9e9e9e17,
-                    64px 190px 120px 0px #9e9e9e0d,
-                    114px 337px 142px 0px #9e9e9e03,
-                    178px 527px 156px 0px #9e9e9e00;
-        padding: 24px 32px;
-        border-radius: 60px;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        min-height: 42vh;
-    }
-
+  .grading__container_block {
+    background: $white-color;
+    box-shadow: 7px 21px 49px 0px #9e9e9e1a,
+      28px 84px 89px 0px #9e9e9e17,
+      64px 190px 120px 0px #9e9e9e0d,
+      114px 337px 142px 0px #9e9e9e03,
+      178px 527px 156px 0px #9e9e9e00;
+    padding: 24px 32px;
+    border-radius: 60px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 42vh;
+  }
 }
 
-
 @media #{$Desktop} {
-
 }
 
 @media #{$Tablet} {
-    .grading__container {
-        padding-top: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+  .grading__container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-        .grading__container_block {
-          min-height: auto;
-          border-radius: 30px;
-          padding: 18px;
-          gap: 8px;
+    .grading__container_block {
+      min-height: auto;
+      border-radius: 30px;
+      padding: 18px;
+      gap: 8px;
 
-          h2 {
-            font-size: 18px;
-          }
-        }
+      h2 {
+        font-size: 18px;
       }
+    }
+  }
 }
 
 @media #{$Mobile} {
-    .grading__container {
-        padding-top: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+  .grading__container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-        .grading__container_block {
-          min-height: auto;
-          border-radius: 30px;
-          padding: 18px;
-          gap: 8px;
+    .grading__container_block {
+      min-height: auto;
+      border-radius: 30px;
+      padding: 18px;
+      gap: 8px;
 
-          h2 {
-            font-size: 18px;
-          }
-        }
+      h2 {
+        font-size: 18px;
       }
+    }
+  }
 }

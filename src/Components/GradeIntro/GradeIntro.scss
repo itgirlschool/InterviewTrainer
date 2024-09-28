@@ -5,6 +5,7 @@
   display: flex;
   width: 90%;
   max-width: 90%;
+  height: 32vh;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
@@ -19,50 +20,33 @@
     border: 1px solid $pink-color;
     border-radius: 60px;
     max-width: 49vw;
-    height: 32vh;
-    h1 {
+    .grading__title {
       font-size: 28px;
       color: $pink-color;
     }
   }
-  .cat__junior {
-    // height: 360px;
-    // padding-left: 40px;
-    // margin-top: -10vh;
+  .cat {
     object-fit: cover;
+    height: 100%;
   }
 }
 
-@media #{$Desktop} {
-}
-
-@media #{$Tablet} {
+@media screen and (max-width: 950px) {
+  .cat {
+    display: none;
+  }
   .grading__intro {
     display: flex;
-    flex-direction: row;
-    margin: 0 0 0 0;
-    justify-content: stretch;
+    height: 100%;
+    margin: 20px auto;
     .grading__intro_block {
       padding: 18px;
       justify-content: center;
-      gap: 9px;
-      max-width: 93vw;
-      height: 26vh;
-      h1 {
+      max-width: 90vw;
+      border-radius: 40px;
+      .grading__title {
         font-size: 28px;
       }
-    }
-    .cat__junior {
-      display: none;
-    }
-  }
-}
-
-@media #{$Mobile} {
-  .grading__intro_block {
-    border-radius: 20px;
-    h1 {
-      font-size: 18px;
     }
   }
 }

@@ -1,18 +1,13 @@
 @import "../../style/template.scss";
 @import "../../style/vars.scss";
 
-@media only screen and (min-width: 1919px) {
-
+.nav_link {
+  width: 90%;
+  margin: 0 auto;
+  .__home {
+    color: $pink-color;
+    font-size: 1rem;
+    margin-left: 3rem;
+  }
 }
 
-@media (max-width: 1025px) {
-
-}
-
-@media (max-width: 1025px) and (min-width: 429px) {
-
-}
-
-@media #{$Mobile} {
-
-}

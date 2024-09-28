@@ -6,7 +6,7 @@ import {
 import GradeContainer from "../../Components/GradeContainer/GradeContainer";
 import GradeIntro from "../../Components/GradeIntro/GradeIntro";
 import GradeBlock from "../../Components/GradeBlock/GradeBlock";
-import cat_grade from "../../assets/images/Frame.svg";
+import cat_grade from "../../assets/images/cat_second-grade.svg";
 import "./GradingSecond.scss";
 
 export default function GradingSecond() {
@@ -18,6 +18,11 @@ export default function GradingSecond() {
     <>
       {showNavigation && (
         <>
+          <div className="nav_link">
+            <Link className="nav_link__home" to="/home">
+              Вернуться на главную
+            </Link>
+          </div>
           <GradeIntro
             gradeTitle="Junior"
             gradeDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
