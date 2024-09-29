@@ -3,8 +3,11 @@ import React from 'react';
 import { useSelector } from 'react-redux'; 
 import { NavLink } from 'react-router-dom';
 import './Profile_Sidebar.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faHome, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import exit_icon from "../../assets/images/exit_icon.png";
+import edit_icon from "../../assets/images/edit_icon.png";
+import home_icon from "../../assets/images/home_icon.png";
+
+
 
 const Profile_Sidebar = () => {
     const { displayName, avatar, setAvatar } = useSelector((state) => state.userAuth);
@@ -32,7 +35,7 @@ const Profile_Sidebar = () => {
                         <div className="profile__img">{getInitials(displayName)}</div>
                     )}
                     <label htmlFor="avatarInput" className="edit-icon">
-                        <FontAwesomeIcon icon={faEdit} />
+                    <img src={edit_icon} alt="Edit Icon" />
                     </label>
                     <input
                         id="avatarInput"
@@ -43,17 +46,17 @@ const Profile_Sidebar = () => {
                         style={{ display: 'none' }} 
                     />
                 </div>
-                <h2 className='welcome-profile'>Добро пожаловать,<br /> {displayName}</h2>
+                <h2 className='welcome-profile'>Добро пожаловать<br /> <strong>{displayName}</strong></h2>
             </div>
             <div className="button_return">
                 <NavLink to="/Home" className="navlink">
-                    <FontAwesomeIcon icon={faHome} />
+                <img src={home_icon} alt="Home Icon" />
                     Вернуться на главную
                 </NavLink>
             </div>
             <div className="button_logout">
                 <NavLink to="/Login" className="navlink">
-                    <FontAwesomeIcon icon={faDoorOpen} />
+                <img src={exit_icon} alt="Exit Icon" />
                     Выход
                 </NavLink>
             </div>
