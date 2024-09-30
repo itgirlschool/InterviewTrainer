@@ -1,0 +1,52 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.grading__intro {
+  display: flex;
+  width: 90%;
+  max-width: 90%;
+  height: 32vh;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  .grading__intro_block {
+    background-color: $white-color;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    border: 1px solid $pink-color;
+    border-radius: 60px;
+    max-width: 49vw;
+    .grading__title {
+      font-size: 28px;
+      color: $pink-color;
+    }
+  }
+  .cat {
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .cat {
+    display: none;
+  }
+  .grading__intro {
+    display: flex;
+    height: 100%;
+    margin: 20px auto;
+    .grading__intro_block {
+      padding: 18px;
+      justify-content: center;
+      max-width: 90vw;
+      border-radius: 40px;
+      .grading__title {
+        font-size: 28px;
+      }
+    }
+  }
+}

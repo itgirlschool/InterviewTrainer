@@ -1,0 +1,50 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.block__button {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 20%;
+  max-height: 20%;
+}
+.button {
+  @include button__pink;
+  text-decoration: none;
+}
+.button_startOver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  text-decoration: underline;
+  color: $pinkcolor;
+  background: transparent;
+}
+
+.progressBar__outer {
+  width: 100%;
+  background: $background-beige;
+  height: 8px;
+  border-radius: 64px;
+  margin-top: 10px;
+}
+
+.grading__container_title {
+  color: $pink-color;
+}
+
+.progressBar__inner {
+  background: $pink-color;
+  width: 0;
+  transition: width 0.5s;
+  height: 100%;
+  border-radius: 64px;
+}
+
+.progressBar__value {
+  font-weight: bold;
+}
