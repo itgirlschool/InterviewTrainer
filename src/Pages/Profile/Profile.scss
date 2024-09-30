@@ -1,0 +1,40 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.container__main{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.container__info{
+    display: flex;
+    flex-direction: column;
+}
+
+.progress__block,.welcome__block, .user__info__block{
+    display: flex;
+    background-color: $white-color;
+    border-radius: 30px;
+}
+
+.progress__block{
+    flex-direction: row;
+    border-radius: 30px;
+    height: 15vh;
+    width: 65vw;
+    margin-top: 2%;
+}
+
+.welcome__block{
+    flex-direction: column;
+    height: 70vh;
+    width: 20vw;
+    margin: 2%;
+}
+
+.user__info__block{
+    height: 53vh;
+    width: 64vw;
+    margin: 1%;
+}
