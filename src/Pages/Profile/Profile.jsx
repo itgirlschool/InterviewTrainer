@@ -7,7 +7,9 @@ export default function Profile() {
     <div className="container__main">
       <div className="welcome__block"></div>
       <div className="container__info">
-        <div className="progress__block"></div>
+        <div className="progress__block">
+          <Progress grade="Intern" />
+        </div>
         <div className="user__info__block"></div>
       </div>
     </div>
