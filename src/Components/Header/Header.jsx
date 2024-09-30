@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
-  const { displayName } = useSelector((state) => state.userAuth);
+  const { displayName, avatar } = useSelector((state) => state.userAuth);
 
   const getInitials = (displayName) => {
     if (!displayName) return "AN";
@@ -35,7 +35,11 @@ export default function Header() {
         </div>
         <div className="header__user">
           <div onClick={() => setIsOpen(!isOpen)}>
-            <div className="profile__img">{getInitials(displayName)}</div>
+            {avatar ? (
+              <img src={avatar} alt="User Avatar" className="profile__img" /> // Отображаем Avatar
+            ) : (
+              <div className="profile__img">{getInitials(displayName)}</div> // Инициалы, если Avatar отсутствует
+            )}
           </div>
           <div className="school__600">Нас уже 600+ учениц</div>
         </div>
