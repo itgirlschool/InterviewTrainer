@@ -34,11 +34,13 @@ function GeneralProgress({ grade }) {
           </div>
         </div>
       </div>
-      <img
-        className="progress__catpic"
-        src={catGeneralProgress}
-        alt="cat_general_progress"
-      />
+      <div className="progress__catpic__wrapper">
+        <img
+          className="progress__catpic"
+          src={catGeneralProgress}
+          alt="cat_general_progress"
+        />
+      </div>
     </div>
   );
 }

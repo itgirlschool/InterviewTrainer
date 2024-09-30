@@ -1,8 +1,4 @@
-import {
-  Outlet,
-  useLocation,
-  Link,
-} from "react-router-dom";
+import { Outlet, useLocation, Link } from "react-router-dom";
 import GradeContainer from "../../Components/GradeContainer/GradeContainer";
 import GradeIntro from "../../Components/GradeIntro/GradeIntro";
 import GradeBlock from "../../Components/GradeBlock/GradeBlock";
@@ -11,8 +7,7 @@ import "./GradingFirst.scss";
 
 export default function GradingFirst() {
   const location = useLocation();
-  const showNavigation =
-    location.pathname === "/gradingfirst";
+  const showNavigation = location.pathname === "/gradingfirst";
 
   return (
     <>
@@ -48,7 +43,7 @@ export default function GradingFirst() {
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
-              blockPath="/"
+              blockPath="testsfirst"
               blockTitle="Тесты"
               blockProgressValue={0}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
