@@ -1,0 +1,132 @@
+@import "../../style/vars.scss";
+@import "../../style/template.scss";
+
+.test {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__question {
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__answer {
+    font-size: 20px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 46px;
+  }
+
+  .radio {
+    flex-shrink: 0;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+
+    &:checked {
+      appearance: none;
+      width: 32px;
+      height: 32px;
+      background-image: url("../../assets/images/full-circle.svg");
+      background-repeat: no-repeat;
+    }
+  }
+
+  .empty {
+    flex-shrink: 0;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-image: url("../../assets/images/empty-circle.svg");
+    background-repeat: no-repeat;
+  }
+
+  .red-img {
+    flex-shrink: 0;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-image: url("../../assets/images/red-full-circle.svg");
+    background-repeat: no-repeat;
+  }
+
+  .green-img {
+    flex-shrink: 0;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background-image: url("../../assets/images/green-full-circle.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+@media ($Tablet) {
+  .test {
+    gap: 35px;
+    &__answer {
+      gap: 35px;
+    }
+  }
+}
+
+@media ($LargeMobile) {
+  .test {
+    gap: 20px;
+    &__answer {
+      gap: 20px;
+    }
+    .radio {
+      width: 24px;
+      height: 24px;
+
+      &:checked {
+        width: 24px;
+        height: 24px;
+        background-image: url("../../assets/images/full-circle-min.svg");
+      }
+    }
+
+    .empty {
+      background-image: url("../../assets/images/empty-circle-min.svg");
+      width: 24px;
+      height: 24px;
+    }
+    .red-img {
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/red-full-circle-min.svg");
+    }
+    .green-img {
+      width: 24px;
+      height: 24px;
+      background-image: url("../../assets/images/green-full-circle-min.svg");
+    }
+  }
+}
+
+@media ($Mobile) {
+  .test {
+    gap: 20px;
+    &__answer {
+      gap: 15px;
+    }
+    &__answer {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+}
