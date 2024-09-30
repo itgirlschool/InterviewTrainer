@@ -16,6 +16,10 @@ import TheoryFirst from "./GradingFirst/TheoryFirst/TheoryFirst";
 import TheoryFirstItem from "./GradingFirst/TheoryFirst/TheoryFirstItem";
 import InterviewSecond from "./GradingSecond/InterviewSecond/InterviewSecond";
 import InterviewSecondItem from "./GradingSecond/InterviewSecond/InterviewSecondItem";
+import AutoTestsFirst from "./GradingFirst/AutoTestsFirst/AutoTestsFirst";
+import AutoTestsSlider from "../Components/AutoTestsSlider/AutoTestsSlider";
+import AutoTestsResults from "./AutoTestsResults/AutoTestsResults";
+import AutoTestsResultsCheck from "./AutoTestsResultsCheck/AutoTestsResultsCheck";
 
 export {
   RootLayout,
@@ -36,4 +40,8 @@ export {
   TheoryFirstItem,
   InterviewSecond,
   InterviewSecondItem,
+  AutoTestsFirst,
+  AutoTestsSlider,
+  AutoTestsResults,
+  AutoTestsResultsCheck,
 };
