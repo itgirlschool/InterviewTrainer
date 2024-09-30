@@ -1,0 +1,13 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.nav_link {
+  width: 90%;
+  margin: 0 auto;
+  .__home {
+    color: $pink-color;
+    font-size: 1rem;
+    margin-left: 3rem;
+  }
+}
+

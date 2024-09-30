@@ -1,9 +1,12 @@
 @import "../../style/vars.scss";
 @import "../../style/template.scss";
 
-.gradingFirst__linkToStart{
-      color: $pink-color;
-      font-size: 1rem; 
-      margin-left: 3rem;
-
+.nav_link {
+  width: 90%;
+  margin: 0 auto;
+  .__home {
+    color: $pink-color;
+    font-size: 1rem;
+    margin-left: 3rem;
   }
+}

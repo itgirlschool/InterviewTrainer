@@ -18,7 +18,10 @@ import {
   TheoryFirstItem,
   InterviewSecond,
   InterviewSecondItem,
-  // TestsFirst,
+  AutoTestsFirst,
+  AutoTestsSlider,
+  AutoTestsResults,
+  AutoTestsResultsCheck,
 } from "../Pages";
 
 export const router = createBrowserRouter([
@@ -70,10 +73,24 @@ export const router = createBrowserRouter([
               },
             ],
           },
-          // {
-          //   path: "testsfirst",
-          //   element: <TestsFirst />,
-          // },
+          {
+            path: "testsfirst",
+            element: <AutoTestsFirst />,
+            children: [
+              {
+                path: ":id",
+                element: <AutoTestsSlider />,
+              },
+              {
+                path: "testsresults",
+                element: <AutoTestsResults />,
+              },
+              {
+                path: "resultscheck",
+                element: <AutoTestsResultsCheck />,
+              },
+            ],
+          },
         ],
       },
       {
