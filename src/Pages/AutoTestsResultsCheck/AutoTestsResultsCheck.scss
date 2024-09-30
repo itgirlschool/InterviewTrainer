@@ -1,0 +1,45 @@
+@import "../../style/vars.scss";
+@import "../../style/template.scss";
+
+.testResultsCheck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  &__container {
+    width: 70%;
+    background-color: $white-color;
+    border-radius: 28px;
+    box-shadow: 7px 21px 49px 0px #9e9e9e1a;
+    padding: 60px;
+  }
+}
+
+@media ($Tablet) {
+  .testResultsCheck {
+    &__container {
+      width: 85%;
+      padding: 40px 50px;
+    }
+  }
+}
+
+@media ($LargeMobile) {
+  .testResultsCheck {
+    gap: 30px;
+    &__container {
+      width: 90%;
+      padding: 40px;
+    }
+  }
+}
+
+@media ($Mobile) {
+  .testResultsCheck {
+    &__container {
+      width: 100%;
+      padding: 30px 20px;
+    }
+  }
+}
