@@ -3,30 +3,29 @@ import { Link } from "react-router-dom";
 import "./GradeBlock.scss";
 
 export default function GradeBlock({
-    blockTitle,
-    blockDescription,
-    blockPath,
-    blockStartPath,
-    blockProgressValue,
+  blockTitle,
+  blockDescription,
+  blockPath,
+  blockStartPath,
+  blockProgressValue,
 }) {
-    return (
+  return (
     <>
-        <h2 className="grading__container_title">
-        {blockTitle}
-        </h2>
-        <div className="progressBar">
-            <div className="progressBar__title">
-                <span>Пройдено: </span>
-                <span className="progressBar__value">
-                    {blockProgressValue}
-                </span>
-                <span>%</span>
-            </div>
-            <div className="progressBar__outer">
-                <div className="progressBar__inner" style={{ width: `${blockProgressValue}%` }} ></div>
-            </div>
+      <h2 className="grading__container_title">{blockTitle}</h2>
+      <div className="progressBar">
+        <div className="progressBar__title">
+          <span>Пройдено: </span>
+          <span className="progressBar__value">{blockProgressValue}</span>
+          <span>%</span>
         </div>
-        <div>{blockDescription}</div>
+        <div className="progressBar__outer">
+          <div
+            className="progressBar__inner"
+            style={{ width: `${blockProgressValue}%` }}
+          ></div>
+        </div>
+      </div>
+      <div>{blockDescription}</div>
       {blockProgressValue === 0 ? (
         <div className="block__button">
           <Link className="button" to={blockPath}>

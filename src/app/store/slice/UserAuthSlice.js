@@ -11,11 +11,11 @@ const initialState = {
     {
       gradeName: "gradingfirst",
       blocks: [
-        { blockName: "videofirst", lastItem: "", blockProgress: "" },
-        { blockName: "theoryfirst", lastItem: "", blockProgress: "" },
-        { blockName: "testsfirst", lastItem: "", blockProgress: "" },
+        { blockName: "videofirst", lastItem: "", blockProgress: 0 },
+        { blockName: "theoryfirst", lastItem: "", blockProgress: 0 },
+        { blockName: "testsfirst", lastItem: "", blockProgress: 0 },
       ],
-      totalProgress: "",
+      totalProgress: 0,
     },
   ],
   avatar: null,
@@ -52,6 +52,7 @@ const userAuthSlice = createSlice({
       state.feedback = null;
       state.isAuth = false;
     },
+
     // updateLastItem: (state, action) => {
     //   const { gradeName, blockId, lastItem } = action.payload;
     //   const grade = state.progress.find(g => g.gradeName === gradeName);
@@ -62,6 +63,7 @@ const userAuthSlice = createSlice({
     //     }
     //   }
     // },
+
     updateProgress: (state, action) => {
       const { gradeName, blockName, lastItem, blockProgress } = action.payload;
       const grade = state.progress.find(g => g.gradeName === gradeName);
@@ -73,6 +75,7 @@ const userAuthSlice = createSlice({
         }
       }
     },
+
     updateGradeProgress: (state, action) => {
       const { gradeName } = action.payload;
       const grade = state.progress.find(g => g.gradeName === gradeName);
@@ -81,7 +84,7 @@ const userAuthSlice = createSlice({
         const totalBlocks = grade.blocks.length;
 
         const totalProgress = grade.blocks.reduce((acc, block) => {
-          return acc + Number(block.blockProgress);
+          return acc + block.blockProgress;
         }, 0);
 
         grade.totalProgress = parseInt(
@@ -89,7 +92,6 @@ const userAuthSlice = createSlice({
           10,
         );
       }
-      console.log("progress", JSON.stringify(state.progress));
     },
   },
 });

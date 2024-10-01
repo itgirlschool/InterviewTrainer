@@ -11,14 +11,13 @@ export default function AutoTestsFirst() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const [gradeName, blockName, lastItem] = pathname.split("/").slice(1);
+  const [gradeName, blockName] = pathname.split("/").slice(1);
   const tests = useSelector(state => state.autoTests.tests);
   const status = useSelector(state => state.autoTests.status);
   const progressItem = useSelector(state => {
     const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
     return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
   });
-  console.log("progressItem", progressItem);
 
   useEffect(() => {
     if (status === "idle") {
