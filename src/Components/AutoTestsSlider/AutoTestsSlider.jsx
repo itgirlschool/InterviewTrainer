@@ -2,7 +2,7 @@ import "./AutoTestsSlider.scss";
 import catPicTests from "../../assets/images/cat_page_autotests.svg";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import TestCard from "../TestCards/TestCard";
 import {
   addUserChoice,
@@ -15,6 +15,7 @@ import {
   calculateCorrectAnswers,
   calculateUserProgress,
 } from "../../app/store/slice/UserAutoTestsSlice";
+import { updateProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
 import calcCorrectAnswers from "../../common/helpers/calcCorrectAnswers";
 
 export default function AutoTestsSlider() {
@@ -28,6 +29,8 @@ export default function AutoTestsSlider() {
   const userChoice = useSelector(state => state.userAutoTests.userChoice);
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
+  const { pathname } = useLocation();
+  const [gradeName, blockName, lastItem] = pathname.split("/").slice(1);
 
   useEffect(() => {
     dispatch(clearUserChoice());
@@ -55,6 +58,9 @@ export default function AutoTestsSlider() {
     dispatch(setShowCorrectAnswer(true));
     dispatch(setUserProgress(currentTest));
     dispatch(calculateUserProgress());
+    const blockProgress = parseInt((currentTest / tests.length) * 100, 10);
+    dispatch(updateProgress({ gradeName, blockName, lastItem, blockProgress }));
+    dispatch(updateGradeProgress({ gradeName }));
   };
 
   const handleNext = () => {
