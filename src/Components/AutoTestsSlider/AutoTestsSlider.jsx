@@ -22,15 +22,14 @@ export default function AutoTestsSlider() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const tests = useSelector(state => state.autoTests.tests);
-  const hasSelectedAnswer = useSelector(state => state.userAutoTests.hasSelectedAnswer);
-  const selectedAnswer = useSelector(state => state.userAutoTests.selectedAnswer);
-  const hasAnswered = useSelector(state => state.userAutoTests.hasAnswered);
   const correctAnswers = useSelector(state => state.autoTests.correctAnswers);
-  const userChoice = useSelector(state => state.userAutoTests.userChoice);
+  const { hasSelectedAnswer, selectedAnswer, hasAnswered, userChoice } = useSelector(
+    state => state.userAutoTests,
+  );
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
   const { pathname } = useLocation();
-  const [gradeName, blockName, lastItem] = pathname.split("/").slice(1);
+  const [gradeName, blockName] = pathname.split("/").slice(1);
 
   useEffect(() => {
     dispatch(clearUserChoice());
@@ -41,11 +40,11 @@ export default function AutoTestsSlider() {
     dispatch(setHasAnswered(false));
     dispatch(setShowCorrectAnswer(false));
     dispatch(clearSelectedAnswer());
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     dispatch(calculateCorrectAnswers(calcCorrectAnswers(correctAnswers, userChoice)));
-  }, [correctAnswers, userChoice]);
+  }, [correctAnswers, userChoice, dispatch]);
 
   const handleChoice = () => {
     dispatch(
@@ -59,7 +58,7 @@ export default function AutoTestsSlider() {
     dispatch(setUserProgress(currentTest));
     dispatch(calculateUserProgress());
     const blockProgress = parseInt((currentTest / tests.length) * 100, 10);
-    dispatch(updateProgress({ gradeName, blockName, lastItem, blockProgress }));
+    dispatch(updateProgress({ gradeName, blockName, lastItem: id, blockProgress }));
     dispatch(updateGradeProgress({ gradeName }));
   };
 
