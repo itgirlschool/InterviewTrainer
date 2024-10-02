@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import "./Theory.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-theory.svg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
 
 function TheoryPagination() {
-  const data = useSelector(
-    state => state.theoryFirst.theoryFirst,
-  );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const data = useSelector(state => state.theoryFirst.theoryFirst);
   const { id } = useParams();
   const currentTheoryItem = parseInt(id, 10);
-  const navigate = useNavigate();
-
-  const [checkedTheoryItem, setCheckedTheoryItem] =
-    useState(false);
+  const { pathname } = useLocation();
+  const [gradeName, blockName] = pathname.split("/").slice(1);
+  const progressItem = useSelector(state => {
+    const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
+    return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
+  });
+  const [checkedTheoryItem, setCheckedTheoryItem] = useState(false);
 
   useEffect(() => {
     setCheckedTheoryItem(false);
@@ -24,33 +28,36 @@ function TheoryPagination() {
 
   const handleCheck = () => {
     setCheckedTheoryItem(true);
+    const blockProgress = Number(
+      parseFloat((currentTheoryItem / data.length) * 100).toFixed(2),
+    );
+    if (currentTheoryItem > progressItem) {
+      dispatch(updateGradeProgress({ gradeName }));
+      dispatch(
+        updateProgress({
+          gradeName,
+          blockName,
+          lastItem: currentTheoryItem,
+          blockProgress,
+        }),
+      );
+    }
   };
 
   const handlePrev = () => {
     if (currentTheoryItem > 1) {
-      navigate(
-        `/gradingfirst/theoryfirst/${
-          currentTheoryItem - 1
-        }`,
-      );
+      navigate(`/gradingfirst/theoryfirst/${currentTheoryItem - 1}`);
     }
   };
 
   const handleNext = () => {
     if (currentTheoryItem < data.length) {
-      navigate(
-        `/gradingfirst/theoryfirst/${
-          currentTheoryItem + 1
-        }`,
-      );
+      navigate(`/gradingfirst/theoryfirst/${currentTheoryItem + 1}`);
     }
   };
 
   const checkBtn = (
-    <button
-      className="theory__button"
-      onClick={handleCheck}
-    >
+    <button className="theory__button" onClick={handleCheck}>
       <img src={check} alt="theory-checked" />
       <p>Я прочла</p>
     </button>
@@ -58,9 +65,7 @@ function TheoryPagination() {
 
   const nextBtn = (
     <button
-      className={`theory__button ${
-        currentTheoryItem === data.length ? "disabled" : ""
-      }`}
+      className={`theory__button ${currentTheoryItem === data.length ? "disabled" : ""}`}
       disabled={currentTheoryItem === data.length}
       onClick={handleNext}
     >
@@ -71,9 +76,7 @@ function TheoryPagination() {
 
   const prevBtn = (
     <button
-      className={`theory__button ${
-        currentTheoryItem === 1 ? "disabled" : ""
-      }`}
+      className={`theory__button ${currentTheoryItem === 1 ? "disabled" : ""}`}
       onClick={handlePrev}
       disabled={currentTheoryItem === 1}
     >
@@ -84,11 +87,7 @@ function TheoryPagination() {
 
   const catImg = (
     <div className="theory__cat">
-      <img
-        className="bg-image__cat"
-        src={catBottomPic}
-        alt="theory_cat"
-      />
+      <img className="bg-image__cat" src={catBottomPic} alt="theory_cat" />
     </div>
   );
 

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./VideoFirst.scss";
 import { fetchVideos } from "../../../Services/fetchVideos.js";
 import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 export default function VideoFirst() {
   const dispatch = useDispatch();
@@ -20,19 +21,24 @@ export default function VideoFirst() {
   });
 
   useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchVideos());
-    }
-  }, [dispatch, status]);
-
-  useEffect(() => {
     const nextVideo =
       progressItem > 0 && progressItem < videos.length ? Number(progressItem) + 1 : 1;
 
     if (pathname === `/gradingfirst/videofirst`) {
-      navigate(`/gradingfirst/videofirst/${nextVideo}`, { replace: true });
+      if (status === "idle") {
+        dispatch(fetchVideos())
+          .unwrap()
+          .then(() => {
+            navigate(`/gradingfirst/videofirst/${nextVideo}`, { replace: true });
+          })
+          .catch(error => {
+            console.error("Ошибка загрузки видео:", error);
+          });
+      } else {
+        navigate(`/gradingfirst/videofirst/${nextVideo}`, { replace: true });
+      }
     }
-  }, [videos, pathname, navigate, progressItem]);
+  }, [dispatch, status, pathname, navigate, progressItem, videos.length]);
 
   const toggleNavBar = () => {
     setNavBarIsHidden(!navBarIsHidden);
@@ -46,17 +52,23 @@ export default function VideoFirst() {
             Вернуться назад к градации
           </Link>
         </div>
-        <div className={navBarIsHidden ? "videoPage__main__modified" : "videoPage__main"}>
-          <ThemeNavBar
-            data={videos || []}
-            error={error}
-            status={status}
-            pagePath="videofirst"
-            gradingPath="gradingfirst"
-            toggleNavBar={toggleNavBar}
-          />
-          <Outlet />
-        </div>
+        {status === "loading" ? (
+          <div className="loader">Загрузка видео...</div>
+        ) : (
+          <div
+            className={navBarIsHidden ? "videoPage__main__modified" : "videoPage__main"}
+          >
+            <ThemeNavBar
+              data={videos || []}
+              error={error}
+              status={status}
+              pagePath="videofirst"
+              gradingPath="gradingfirst"
+              toggleNavBar={toggleNavBar}
+            />
+            <Outlet />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -28,8 +28,9 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
 
   const handleCheck = () => {
     if (isEnded) setHasWatched(true);
-    const blockProgress = parseInt((currentVideo / data.length) * 100, 10);
-
+    const blockProgress = Number(
+      parseFloat((currentVideo / data.length) * 100).toFixed(2),
+    );
     if (currentVideo > progressItem) {
       dispatch(updateGradeProgress({ gradeName }));
       dispatch(

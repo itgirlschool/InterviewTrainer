@@ -99,9 +99,8 @@ const userAuthSlice = createSlice({
           return acc + block.blockProgress;
         }, 0);
 
-        grade.totalProgress = parseInt(
-          totalBlocks > 0 ? totalProgress / totalBlocks : 0,
-          10,
+        grade.totalProgress = Number(
+          parseFloat(totalBlocks > 0 ? totalProgress / totalBlocks : 0).toFixed(2),
         );
       }
     },

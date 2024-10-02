@@ -15,8 +15,6 @@ function ThemeNavBarLink({ pagePath, gradingPath, itemId, itemTitle }) {
     return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
   });
 
-  console.log(itemId, progressItem, typeof progressItem);
-
   useEffect(() => {
     setActive(itemId === id);
     setDisabled(Number(itemId) > progressItem + 1);
