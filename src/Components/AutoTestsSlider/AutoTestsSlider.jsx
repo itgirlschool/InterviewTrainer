@@ -58,7 +58,9 @@ export default function AutoTestsSlider() {
     dispatch(setUserProgress(currentTest));
     dispatch(calculateUserProgress());
     const blockProgress = parseInt((currentTest / tests.length) * 100, 10);
-    dispatch(updateProgress({ gradeName, blockName, lastItem: id, blockProgress }));
+    dispatch(
+      updateProgress({ gradeName, blockName, lastItem: currentTest, blockProgress }),
+    );
     dispatch(updateGradeProgress({ gradeName }));
   };
 

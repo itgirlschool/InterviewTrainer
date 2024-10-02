@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./GradeBlock.scss";
+import { useDispatch } from "react-redux";
+import { resetProgress } from "../../app/store/slice/UserAuthSlice";
 
 export default function GradeBlock({
+  gradeName,
   blockTitle,
   blockDescription,
   blockPath,
   blockStartPath,
   blockProgressValue,
 }) {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(resetProgress({ gradeName, blockName: blockPath }));
+  };
+
   return (
     <>
       <h2 className="grading__container_title">{blockTitle}</h2>
@@ -37,7 +46,7 @@ export default function GradeBlock({
           <Link className="button" to={blockPath}>
             Продолжить
           </Link>
-          <Link className="button_startOver" to={blockStartPath}>
+          <Link className="button_startOver" to={blockStartPath} onClick={handleClick}>
             Начать заново
           </Link>
         </div>

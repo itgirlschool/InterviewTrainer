@@ -76,6 +76,18 @@ const userAuthSlice = createSlice({
       }
     },
 
+    resetProgress: (state, action) => {
+      const { gradeName, blockName } = action.payload;
+      const grade = state.progress.find(g => g.gradeName === gradeName);
+      if (grade) {
+        const block = grade.blocks.find(b => b.blockName === blockName);
+        if (block) {
+          block.lastItem = "";
+          block.blockProgress = 0;
+        }
+      }
+    },
+
     updateGradeProgress: (state, action) => {
       const { gradeName } = action.payload;
       const grade = state.progress.find(g => g.gradeName === gradeName);
@@ -96,6 +108,6 @@ const userAuthSlice = createSlice({
   },
 });
 
-export const { setUser, removeUser, updateProgress, updateGradeProgress } =
+export const { setUser, removeUser, updateProgress, updateGradeProgress, resetProgress } =
   userAuthSlice.actions;
 export default userAuthSlice.reducer;

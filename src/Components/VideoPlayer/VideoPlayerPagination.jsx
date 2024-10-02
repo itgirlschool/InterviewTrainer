@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import "./VideoPlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-video.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
 
-function VideoPlayerPagination({
-  isEnded,
-  pagePath,
-  gradingPath,
-}) {
+function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [hasWatched, setHasWatched] = useState(false);
   const data = useSelector(state => state.videos.videos);
   const { id } = useParams();
   const currentVideo = parseInt(id, 10);
-  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [gradeName, blockName] = pathname.split("/").slice(1);
+  const progressItem = useSelector(state => {
+    const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
+    return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
+  });
 
   useEffect(() => {
     setHasWatched(false);
@@ -24,29 +28,31 @@ function VideoPlayerPagination({
 
   const handleCheck = () => {
     if (isEnded) setHasWatched(true);
+    const blockProgress = parseInt((currentVideo / data.length) * 100, 10);
+
+    if (currentVideo > progressItem) {
+      dispatch(updateGradeProgress({ gradeName }));
+      dispatch(
+        updateProgress({ gradeName, blockName, lastItem: currentVideo, blockProgress }),
+      );
+    }
   };
 
   const handlePrev = () => {
     if (currentVideo > 1) {
-      navigate(
-        `/${gradingPath}/${pagePath}/${currentVideo - 1}`,
-      );
+      navigate(`/${gradingPath}/${pagePath}/${currentVideo - 1}`);
     }
   };
 
   const handleNext = () => {
     if (currentVideo < data.length) {
-      navigate(
-        `/${gradingPath}/${pagePath}/${currentVideo + 1}`,
-      );
+      navigate(`/${gradingPath}/${pagePath}/${currentVideo + 1}`);
     }
   };
 
   const watchingBtn = (
     <button
-      className={`video__button ${
-        !isEnded ? "disabled" : ""
-      }`}
+      className={`video__button ${!isEnded ? "disabled" : ""}`}
       disabled={!isEnded}
       onClick={handleCheck}
     >
@@ -57,9 +63,7 @@ function VideoPlayerPagination({
 
   const watchedBtn = (
     <button
-      className={`video__button ${
-        currentVideo === data.length ? "disabled" : ""
-      }`}
+      className={`video__button ${currentVideo === data.length ? "disabled" : ""}`}
       disabled={currentVideo === data.length}
       onClick={handleNext}
     >
@@ -70,9 +74,7 @@ function VideoPlayerPagination({
 
   const prevBtn = (
     <button
-      className={`video__button ${
-        currentVideo === 1 ? "disabled" : ""
-      }`}
+      className={`video__button ${currentVideo === 1 ? "disabled" : ""}`}
       onClick={handlePrev}
       disabled={currentVideo === 1}
     >
@@ -83,11 +85,7 @@ function VideoPlayerPagination({
 
   const catImg = (
     <div className="video__cat">
-      <img
-        className="bg-image__cat"
-        src={catBottomPic}
-        alt="video_cat"
-      />
+      <img className="bg-image__cat" src={catBottomPic} alt="video_cat" />
     </div>
   );
 

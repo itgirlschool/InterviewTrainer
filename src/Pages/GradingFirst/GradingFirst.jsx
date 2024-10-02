@@ -21,8 +21,6 @@ export default function GradingFirst() {
   const progressTests =
     grade?.blocks.find(b => b.blockName === "testsfirst")?.blockProgress || 0;
 
-  console.log(progressVideo, progressTheory, progressTests);
-
   const showNavigation = location.pathname === "/gradingfirst";
 
   return (
@@ -47,6 +45,7 @@ export default function GradingFirst() {
           />
           <GradeContainer>
             <GradeBlock
+              gradeName="gradingfirst"
               blockPath="videofirst"
               blockTitle="Видеоуроки"
               blockProgressValue={progressVideo}
@@ -54,6 +53,7 @@ export default function GradingFirst() {
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
+              gradeName="gradingfirst"
               blockPath="theoryfirst"
               blockTitle="Теория"
               blockProgressValue={progressTheory}
@@ -61,6 +61,7 @@ export default function GradingFirst() {
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
+              gradeName="gradingfirst"
               blockPath="testsfirst"
               blockTitle="Тесты"
               blockProgressValue={progressTests}

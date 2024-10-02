@@ -43,6 +43,8 @@
   border-bottom: $pinkcolor solid 1px;
 
   &_link {
+    border: none;
+    background-color: transparent;
     color: $blackcolor;
     padding-left: 8px;
     font-size: 20px;
@@ -51,9 +53,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
+    cursor: pointer;
 
     &.active {
       color: $pink-color;
+    }
+
+    &:disabled {
+      cursor: unset;
+      opacity: 0.6;
     }
   }
 
