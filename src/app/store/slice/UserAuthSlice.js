@@ -28,7 +28,7 @@ const userAuthSlice = createSlice({
       state.isAuth = true;
     },
     setAvatar: (state, action) => {
-      state.avatar = action.payload; // Устанавливаем новое значение аватарки
+      state.avatar = action.payload; 
     },
   },
   removeUser: state => {

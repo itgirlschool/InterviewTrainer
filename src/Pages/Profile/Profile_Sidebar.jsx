@@ -64,7 +64,7 @@ const Profile_Sidebar = () => {
                 </NavLink>
             </div>
             <div className="button_logout">
-                <NavLink to="/Login" className="navlink">
+                <NavLink to="/login" className="navlink">
                     <img src={exit_icon} alt="Exit Icon" />
                     Выход
                 </NavLink>
