@@ -36,9 +36,9 @@ export default function Header() {
         <div className="header__user">
           <div onClick={() => setIsOpen(!isOpen)}>
             {avatar ? (
-              <img src={avatar} alt="User Avatar" className="profile__img" /> // Отображаем Avatar
+              <img src={avatar} alt="User Avatar" className="profile__img" /> 
             ) : (
-              <div className="profile__img">{getInitials(displayName)}</div> // Инициалы, если Avatar отсутствует
+              <div className="profile__img">{getInitials(displayName)}</div> 
             )}
           </div>
           <div className="school__600">Нас уже 600+ учениц</div>
