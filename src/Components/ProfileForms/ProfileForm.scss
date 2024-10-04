@@ -1,0 +1,87 @@
+@import "../../style/vars.scss";
+
+// 1920px frame width
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.520833333333vw; // 10px;
+  
+  &__field {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 20.1041666667vw; // 386px;
+    height: 3.125vw; // 60px;
+    border: 1px solid #F3F3F3;
+    border-radius: 50px;
+    padding: 19px 30px;
+    background-color: #F3F3F3;
+    position: relative;
+
+    &:focus-within {
+      border-color: $pink-color;
+
+      .profile__form__label {
+        color: #36363A80;
+        font-size: 12px;
+        transform: translateY(-0.75rem);
+        line-height: 0.25rem;
+        transition: transform 0.2s ease, color 0.2s ease;
+      }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 1.5625vw; // 30px;
+    top: 1.04166666667vw; // 20px;
+    color: #36363A;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  // Спрятать label, когда input заполнен и не в фокусе
+  &__input:not(:focus):not(:placeholder-shown) ~ &__label {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  &__input {
+    color: #36363A;
+    caret-color: $pink-color;
+    border: none;
+    background: transparent;
+    // background: #F3F3F3;
+    width: 100%;
+    padding: 0;
+    font-size: 16px;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+  &__error {
+    color: $red;
+    color: $pink-color;
+    align-self: flex-start;
+    padding-left: 0.78125vw; // 15px;
+  }
+  &__button {
+    width: 20.1041666667vw; // 386px;
+    height: 3.125vw; // 60px;
+    cursor: pointer;
+    background-color: $pink-color;
+    color: $white-color;
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: #777777;
+    }
+
+    &:disabled {
+      background-color: #EA5D80B3;
+      cursor: not-allowed;
+    }
+  }
+}
