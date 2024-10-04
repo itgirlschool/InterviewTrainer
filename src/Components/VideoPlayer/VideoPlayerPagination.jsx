@@ -32,10 +32,10 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
       parseFloat((currentVideo / data.length) * 100).toFixed(2),
     );
     if (currentVideo > progressItem) {
-      dispatch(updateGradeProgress({ gradeName }));
       dispatch(
         updateProgress({ gradeName, blockName, lastItem: currentVideo, blockProgress }),
       );
+      dispatch(updateGradeProgress({ gradeName }));
     }
   };
 

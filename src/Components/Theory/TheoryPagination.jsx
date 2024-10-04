@@ -32,7 +32,6 @@ function TheoryPagination() {
       parseFloat((currentTheoryItem / data.length) * 100).toFixed(2),
     );
     if (currentTheoryItem > progressItem) {
-      dispatch(updateGradeProgress({ gradeName }));
       dispatch(
         updateProgress({
           gradeName,
@@ -41,6 +40,7 @@ function TheoryPagination() {
           blockProgress,
         }),
       );
+      dispatch(updateGradeProgress({ gradeName }));
     }
   };
 
