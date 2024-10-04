@@ -53,17 +53,6 @@ const userAuthSlice = createSlice({
       state.isAuth = false;
     },
 
-    // updateLastItem: (state, action) => {
-    //   const { gradeName, blockId, lastItem } = action.payload;
-    //   const grade = state.progress.find(g => g.gradeName === gradeName);
-    //   if (grade) {
-    //     const block = grade.blocks.find(b => b.blockId === blockId);
-    //     if (block) {
-    //       block.lastItem = lastItem;
-    //     }
-    //   }
-    // },
-
     updateProgress: (state, action) => {
       const { gradeName, blockName, lastItem, blockProgress } = action.payload;
       const grade = state.progress.find(g => g.gradeName === gradeName);

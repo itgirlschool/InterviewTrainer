@@ -2,24 +2,18 @@ import "./GeneralProgress.scss";
 import catGeneralProgress from "../../assets/images/background_cat-lk-progress.svg";
 import { useSelector } from "react-redux";
 
-function GeneralProgress({ grade }) {
-  let progressWidth = 30;
-
-  // const fullProgressData = useSelector(
-  //   state => state.userAuth.progress,
-  // );
-
-  // const gradeData = fullProgressData.find(
-  //   level => level.gradeName === grade,
-  // );
-
-  // if (grade === "Intern") {
-  //   console.log(gradeData);
-  // }
+function GeneralProgress({ grade, gradeName }) {
+  const progressWidth = useSelector(state => {
+    const progress = state.userAuth?.progress;
+    if (progress && progress.length > 0) {
+      const grade = progress.find(g => g.gradeName === gradeName);
+      return grade ? grade.totalProgress : 0;
+    }
+    return 0;
+  });
 
   return (
     <div className="progress__wrapper">
-      {/* wrapper - позже как rel для img кота abs или удалим */}
       <div className="progress">
         <h2 className="progress__grade">{grade}</h2>
         <div className="progress__bar">

@@ -8,7 +8,7 @@ export default function Profile() {
       <div className="welcome__block"></div>
       <div className="container__info">
         <div className="progress__block">
-          <Progress grade="Intern" />
+          <Progress grade="Intern" gradeName="gradingfirst" />
         </div>
         <div className="user__info__block"></div>
       </div>
