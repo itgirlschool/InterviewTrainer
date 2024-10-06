@@ -99,7 +99,12 @@ function TheoryPagination() {
     <div className="theory__nav">
       {prevBtn}
       {catImg}
-      {checkedTheoryItem ? nextBtn : checkBtn}
+      <div className="nav__next_progress">
+        {checkedTheoryItem ? nextBtn : checkBtn}
+        <p className="nav__next_progress__value">
+          {progressItem}/{data.length}
+        </p>
+      </div>
     </div>
   );
 }
