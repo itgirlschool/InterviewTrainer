@@ -36,7 +36,7 @@ function ThemeNavBarLink({ pagePath, gradingPath, itemId, itemTitle }) {
       >
         {itemTitle}
       </button>
-      {!disabled && !active ? (
+      {!disabled && !active && itemId <= progressItem ? (
         <div className="theme__item_div">
           <img src={check} alt="checked" />
         </div>
