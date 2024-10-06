@@ -37,6 +37,7 @@ export default function Home() {
   const handleStartOver = gradeName => {
     dispatch(resetGradeProgress({ gradeName }));
     dispatch(updateGradeProgress({ gradeName }));
+    navigate(`/${gradeName}`);
   };
 
   return (

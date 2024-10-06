@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./GradeBlock.scss";
 import { useDispatch } from "react-redux";
 import { resetProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
@@ -13,10 +13,12 @@ export default function GradeBlock({
   blockProgressValue,
 }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     dispatch(resetProgress({ gradeName, blockName: blockPath }));
     dispatch(updateGradeProgress({ gradeName }));
+    navigate(blockStartPath);
   };
 
   return (

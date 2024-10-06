@@ -49,7 +49,7 @@ export default function GradingFirst() {
               blockPath="videofirst"
               blockTitle="Видеоуроки"
               blockProgressValue={progressVideo}
-              // blockStartPath={"/gradingfirst/videofirst/1"}
+              blockStartPath={"/gradingfirst/videofirst/1"}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
@@ -57,7 +57,7 @@ export default function GradingFirst() {
               blockPath="theoryfirst"
               blockTitle="Теория"
               blockProgressValue={progressTheory}
-              // blockStartPath={"/gradingfirst/theoryfirst/1"}
+              blockStartPath={"/gradingfirst/theoryfirst/1"}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
@@ -65,7 +65,7 @@ export default function GradingFirst() {
               blockPath="testsfirst"
               blockTitle="Тесты"
               blockProgressValue={progressTests}
-              // blockStartPath={"/gradingfirst/testsfirst/1"}
+              blockStartPath={"/gradingfirst/testsfirst/1"}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
           </GradeContainer>
