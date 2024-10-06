@@ -23,7 +23,11 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
   });
 
   useEffect(() => {
-    setHasWatched(false);
+    if (progressItem >= currentVideo) {
+      setHasWatched(true);
+    } else {
+      setHasWatched(false);
+    }
   }, [id]);
 
   const handleCheck = () => {

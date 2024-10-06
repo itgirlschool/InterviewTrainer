@@ -23,7 +23,11 @@ function TheoryPagination() {
   const [checkedTheoryItem, setCheckedTheoryItem] = useState(false);
 
   useEffect(() => {
-    setCheckedTheoryItem(false);
+    if (progressItem >= currentTheoryItem) {
+      setCheckedTheoryItem(true);
+    } else {
+      setCheckedTheoryItem(false);
+    }
   }, [id]);
 
   const handleCheck = () => {

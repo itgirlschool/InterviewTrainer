@@ -181,6 +181,13 @@
     }
   }
   .theme__item_link {
-    font-size: 10px;
+    font-size: 12px;
+  }
+
+  .theme__item_div {
+    padding: 0px;
+    img {
+      width: 10px;
+    }
   }
 }
