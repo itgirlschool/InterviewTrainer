@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./ThemeNavBar.scss";
+import check from "../../assets/images/progress_checkdone.svg";
 
 function ThemeNavBarLink({ pagePath, gradingPath, itemId, itemTitle }) {
   const [active, setActive] = useState(false);
@@ -27,13 +28,22 @@ function ThemeNavBarLink({ pagePath, gradingPath, itemId, itemTitle }) {
   };
 
   return (
-    <button
-      onClick={handleClick}
-      className={`theme__item_link ${active ? "active" : ""}`}
-      disabled={disabled}
-    >
-      {itemTitle}
-    </button>
+    <li key={itemId} className="theme__item">
+      <button
+        onClick={handleClick}
+        className={`theme__item_link ${active ? "active" : ""}`}
+        disabled={disabled}
+      >
+        {itemTitle}
+      </button>
+      {!disabled && !active ? (
+        <div className="theme__item_div">
+          <img src={check} alt="checked" />
+        </div>
+      ) : (
+        ""
+      )}
+    </li>
   );
 }
 
