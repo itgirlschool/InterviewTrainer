@@ -21,6 +21,7 @@ function TheoryPagination() {
     return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
   });
   const [checkedTheoryItem, setCheckedTheoryItem] = useState(false);
+  const emailUser = useSelector(state => state.userAuth.email);
 
   useEffect(() => {
     if (progressItem >= currentTheoryItem) {
@@ -45,6 +46,16 @@ function TheoryPagination() {
         }),
       );
       dispatch(updateGradeProgress({ gradeName }));
+      dispatch({
+        type: "UPDATE_PROGRESS",
+        payload: {
+          emailUser,
+          gradeName,
+          blockName,
+          lastItem: currentTheoryItem,
+          blockProgress,
+        },
+      });
     }
   };
 
@@ -102,7 +113,7 @@ function TheoryPagination() {
       <div className="nav__next_progress">
         {checkedTheoryItem ? nextBtn : checkBtn}
         <p className="nav__next_progress__value">
-          {progressItem}/{data.length}
+          {currentTheoryItem}/{data.length}
         </p>
       </div>
     </div>
