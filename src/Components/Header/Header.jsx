@@ -2,13 +2,16 @@ import "./Header.scss";
 import { SettingOutlined, LogoutOutlined } from "@ant-design/icons";
 import img_logo from "../../assets/images/logo.svg";
 import img_profileLittle from "../../assets/images/img_profile.svg";
+import { setAvatar } from '../../../src/app/store/slice/UserAuthSlice'; 
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
+  const dispatch = useDispatch();
   const { displayName, avatar } = useSelector((state) => state.userAuth);
 
   const getInitials = (displayName) => {
@@ -21,6 +24,13 @@ export default function Header() {
     return initials;
   };
 
+  useEffect(() => {
+    const savedAvatar = localStorage.getItem('userAvatar'); 
+    if (savedAvatar) {
+      dispatch(setAvatar(savedAvatar)); 
+    }
+  }, [dispatch]);
+  
   return (
     <header className="header">
       <div className="header__body">
@@ -79,14 +89,15 @@ export default function Header() {
           </NavLink>
         </div>
       </div>
-      <div
-        className={`burger ${burgerActive ? "active" : ""}`}
-        onClick={() => setBurgerActive(!burgerActive)}
-      >
-        <div className="burger__username">
-          <div className="profile__img">{getInitials(displayName)}</div>
-          <div>{displayName || "Anonymous User"}</div>
-        </div>
+      <div className={`burger ${burgerActive ? "active" : ""}`} onClick={() => setBurgerActive(!burgerActive)}>
+  <div className="burger__username">
+    {avatar ? (
+      <img src={avatar} alt="User Avatar" className="profile__img" />
+    ) : (
+      <div className="profile__img">{getInitials(displayName)}</div>
+    )}
+    <div>{displayName || "Anonymous User"}</div>
+  </div>
         <div className="burger__raiting">
           <div className="rainting__intro">
             <div className="active__status">Active</div>
