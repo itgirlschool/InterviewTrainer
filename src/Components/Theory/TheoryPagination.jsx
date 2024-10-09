@@ -102,7 +102,7 @@ function TheoryPagination() {
       <div className="nav__next_progress">
         {checkedTheoryItem ? nextBtn : checkBtn}
         <p className="nav__next_progress__value">
-          {progressItem}/{data.length}
+          {currentTheoryItem}/{data.length}
         </p>
       </div>
     </div>
