@@ -1,18 +1,27 @@
+@import "../../style/vars.scss";
+
 .profile__forms__container {
   display: flex;
   flex-direction: column;
 
   .profile__forms__heading {
     color: #3C3C3C;
-    padding-top: 2.08333333333vw; // 40px;
-    padding-left: 2.08333333333vw; // 40px;
-    margin-bottom: 2.08333333333vw; // 40px;
+    padding-top: 2.08333333333vw;
+    padding-left: 2.08333333333vw;
+    margin-bottom: 2.08333333333vw;
   }
 
   .profile__forms {
     display: flex;
-    column-gap: 1.77083333333vw; // 34px;
+    column-gap: 1.77083333333vw;
     justify-content: center;
-    padding-left: 2.08333333333vw; // 40px;
+    padding-left: 2.08333333333vw;
+  }
+}
+
+@media ($LargeMobile) {
+  .profile__forms {
+    flex-direction: column;
+    row-gap: 34px;
   }
 }

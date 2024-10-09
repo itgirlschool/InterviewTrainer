@@ -53,7 +53,6 @@ const ProfileForm = ({ user }) => {
           placeholder=""
           id="email"
           disabled={true}
-          // autoComplete="on"
           {...register("email")}
         />
         <label className="profile__form__label" htmlFor="email" >Электронная почта</label>
@@ -65,13 +64,10 @@ const ProfileForm = ({ user }) => {
           placeholder=""
           id="phone"
           disabled={true}
-          // autoComplete="on"
           {...register("phoneNumber")}
         />
         <label className="profile__form__label" htmlFor="phone" >Номер телефона</label>
       </div>
-
-      {/* <button className="profile__form__button">Редактировать</button> */}
     </form>
   );
 };
