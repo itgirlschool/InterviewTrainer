@@ -5,7 +5,7 @@ import {
   setHasSelectedAnswer,
   setSelectedAnswer,
 } from "../../../app/store/slice/UserAutoTestsSlice";
-import findCorrectAnswer from "../../../common/helpers/findCorrectAnswer";
+import findCorrectAnswer from "../../../Common/helpers/findCorrectAnswer.js";
 
 export default function Radio({ answer, testId }) {
   const dispatch = useDispatch();

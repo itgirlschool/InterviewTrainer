@@ -14,14 +14,14 @@ export default function getRegister(user, setUserError, navigate) {
         displayName: `${user.firstName} ${user.lastName}`,
         email: user.email,
         id: data.user.uid,
-        password: user.password,
+        progress:'start',
       }
       addUser(infoUser).then(()=>navigate('/home'));
 
 
     })
     .catch(error => {
-      if (error.code == 'auth/email-already-in-use') {
+      if (error.code === 'auth/email-already-in-use') {
         setUserError(true);
       }
     })}
