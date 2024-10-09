@@ -16,14 +16,11 @@ import {
 export default function Home() {
   const navigate = useNavigate();
   const { displayName } = useSelector(state => state.userAuth);
-  const dispatch = useDispatch();
-  const emailUser = useSelector(state => state.userAuth.email);
-  const progress = useSelector(state => state.userAuth.progress);
-
   const handleSelect = path => {
     navigate(path);
-    console.log(emailUser, progress);
   };
+  const dispatch = useDispatch();
+
   const gradeIntern = useSelector(state =>
     state.userAuth.progress.find(g => g.gradeName === "gradingfirst"),
   );
@@ -40,14 +37,6 @@ export default function Home() {
   const handleStartOver = gradeName => {
     dispatch(resetGradeProgress({ gradeName }));
     dispatch(updateGradeProgress({ gradeName }));
-    dispatch({
-      type: "RESET_TOTAL_PROGRESS",
-      payload: {
-        emailUser: userEmail,
-        gradeName: gradeName,
-        blockNames: gradeName ? gradeName.blocks.map(block => block.blockName) : [],
-      },
-    });
     navigate(`/${gradeName}`);
   };
 

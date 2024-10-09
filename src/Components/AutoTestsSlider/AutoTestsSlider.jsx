@@ -30,7 +30,6 @@ export default function AutoTestsSlider() {
   const currentTest = parseInt(id, 10);
   const { pathname } = useLocation();
   const [gradeName, blockName] = pathname.split("/").slice(1);
-  const emailUser = useSelector(state => state.userAuth.email);
 
   useEffect(() => {
     dispatch(clearUserChoice());
@@ -66,16 +65,6 @@ export default function AutoTestsSlider() {
       updateProgress({ gradeName, blockName, lastItem: currentTest, blockProgress }),
     );
     dispatch(updateGradeProgress({ gradeName }));
-    dispatch({
-      type: "UPDATE_PROGRESS",
-      payload: {
-        emailUser,
-        gradeName,
-        blockName,
-        lastItem: currentTest,
-        blockProgress,
-      },
-    });
   };
 
   const handleNext = () => {

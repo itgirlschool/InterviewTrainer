@@ -21,8 +21,7 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
     const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
     return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
   });
-  const emailUser = useSelector(state => state.userAuth.email);
-  
+
   useEffect(() => {
     if (progressItem >= currentVideo) {
       setHasWatched(true);
@@ -41,16 +40,6 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
         updateProgress({ gradeName, blockName, lastItem: currentVideo, blockProgress }),
       );
       dispatch(updateGradeProgress({ gradeName }));
-      dispatch({
-        type: "UPDATE_PROGRESS",
-        payload: {
-          emailUser,
-          gradeName,
-          blockName,
-          lastItem: currentVideo,
-          blockProgress,
-        },
-      });
     }
   };
 

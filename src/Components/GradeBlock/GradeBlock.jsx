@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./GradeBlock.scss";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { resetProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
 
 export default function GradeBlock({
@@ -15,21 +14,10 @@ export default function GradeBlock({
 }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const emailUser = useSelector(state => state.userAuth.email);
 
   const handleClick = () => {
     dispatch(resetProgress({ gradeName, blockName: blockPath }));
     dispatch(updateGradeProgress({ gradeName }));
-    dispatch({
-      type: "UPDATE_PROGRESS",
-      payload: {
-        emailUser,
-        gradeName,
-        blockName: blockPath,
-        lastItem: 0,
-        blockProgress: 0,
-      },
-    });
     navigate(blockStartPath);
   };
 
@@ -65,6 +53,9 @@ export default function GradeBlock({
           <Link className="button" to={blockPath}>
             Продолжить
           </Link>
+          {/* <Link className="button_startOver" to={blockStartPath} onClick={handleClick}>
+            Начать заново
+          </Link> */}
           <button className="button_startOver" onClick={handleClick}>
             Начать заново
           </button>
