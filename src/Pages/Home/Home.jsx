@@ -16,8 +16,12 @@ import {
 export default function Home() {
   const navigate = useNavigate();
   const { displayName } = useSelector(state => state.userAuth);
+  const { progress } = useSelector(state => state.userAuth);
+
   const handleSelect = path => {
     navigate(path);
+    console.log(progress);
+    console.log("hello");
   };
   const dispatch = useDispatch();
 
