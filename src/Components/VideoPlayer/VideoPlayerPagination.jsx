@@ -29,6 +29,10 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
   const currentUserData = useSelector(state => state.userAuth);
 
   useEffect(() => {
+    console.log("Updated user data in Redux:", currentUserData);
+  }, [currentUserData]);
+
+  useEffect(() => {
     if (progressItem >= currentVideo) {
       setHasWatched(true);
     } else {
@@ -48,12 +52,14 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
         lastItem: currentVideo,
         blockProgress,
       });
-      const updatedProgress = await updateUserProgress(userID, newProgress);
+      console.log("Progress to FB v55 : ", userID, newProgress);
+      await updateUserProgress(userID, newProgress);
       const updatedUserData = {
         ...currentUserData,
-        progress: updatedProgress,
+        progress: newProgress,
       };
       dispatch(setUser(updatedUserData));
+      console.log("Updated state progress v62 : ", currentUserData.progress);
     }
   };
 

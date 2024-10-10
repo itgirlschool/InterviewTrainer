@@ -21,6 +21,7 @@ export default function Home() {
 
   const handleSelect = path => {
     navigate(path);
+    console.log("Start progress from Home24: ", currentUserData.progress);
   };
   const dispatch = useDispatch();
 

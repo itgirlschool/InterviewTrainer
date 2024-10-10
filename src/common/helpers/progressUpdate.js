@@ -1,4 +1,4 @@
-export default function updateProgress(
+export function updateProgress(
   progressArray,
   { gradeName, blockName, lastItem, blockProgress },
 ) {
@@ -33,7 +33,7 @@ export default function updateProgress(
   return null;
 }
 
-export default function resetBlockProgress(progressArray, { gradeName, blockName }) {
+export function resetBlockProgress(progressArray, { gradeName, blockName }) {
   const updatedGrade = progressArray.find(grade => grade.gradeName === gradeName);
 
   if (updatedGrade) {
@@ -65,7 +65,7 @@ export default function resetBlockProgress(progressArray, { gradeName, blockName
   return null;
 }
 
-export default function resetTotalProgress(progressArray, { gradeName }) {
+export function resetTotalProgress(progressArray, { gradeName }) {
   const updatedGrade = progressArray.find(grade => grade.gradeName === gradeName);
 
   if (updatedGrade) {
