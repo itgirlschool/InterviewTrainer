@@ -8,20 +8,19 @@ import arrow_heart from "../../assets/images/arrow_heart.svg";
 import salute from "../../assets/images/lines.png";
 import { app, realtimeDb } from "../../../firebaseConfig";
 import { useDispatch } from "react-redux";
-import {
-  resetGradeProgress,
-  updateGradeProgress,
-} from "../../app/store/slice/UserAuthSlice";
+import { setUser } from "../../app/store/slice/UserAuthSlice";
+import { updateUserProgress } from "../../Services/fbProgress";
+import { resetTotalProgress } from "../../common/helpers/progressUpdate";
 
 export default function Home() {
   const navigate = useNavigate();
   const { displayName } = useSelector(state => state.userAuth);
-  const { progress } = useSelector(state => state.userAuth);
+  const progressArray = useSelector(state => state.userAuth.progress);
+  const userID = useSelector(state => state.userAuth.id);
+  const currentUserData = useSelector(state => state.userAuth);
 
   const handleSelect = path => {
     navigate(path);
-    console.log(progress);
-    console.log("hello");
   };
   const dispatch = useDispatch();
 
@@ -38,9 +37,16 @@ export default function Home() {
   const progressJunior = gradeJunior?.totalProgress || 0;
   const progressMiddle = gradeMiddle?.totalProgress || 0;
 
-  const handleStartOver = gradeName => {
-    dispatch(resetGradeProgress({ gradeName }));
-    dispatch(updateGradeProgress({ gradeName }));
+  const handleStartOver = async gradeName => {
+    const newProgress = resetTotalProgress(progressArray, {
+      gradeName,
+    });
+    const updatedProgress = await updateUserProgress(userID, newProgress);
+    const updatedUserData = {
+      ...currentUserData,
+      progress: updatedProgress,
+    };
+    dispatch(setUser(updatedUserData));
     navigate(`/${gradeName}`);
   };
 

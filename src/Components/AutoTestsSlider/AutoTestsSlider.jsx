@@ -34,6 +34,7 @@ export default function AutoTestsSlider() {
   const [gradeName, blockName] = pathname.split("/").slice(1);
   const progressArray = useSelector(state => state.userAuth.progress);
   const userID = useSelector(state => state.userAuth.id);
+  const currentUserData = useSelector(state => state.userAuth);
 
   useEffect(() => {
     dispatch(clearUserChoice());
@@ -72,7 +73,6 @@ export default function AutoTestsSlider() {
       blockProgress,
     });
     const updatedProgress = await updateUserProgress(userID, newProgress);
-    const currentUserData = useSelector(state => state.userAuth);
     const updatedUserData = {
       ...currentUserData,
       progress: updatedProgress,

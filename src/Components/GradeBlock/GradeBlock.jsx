@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./GradeBlock.scss";
-import { useDispatch } from "react-redux";
-import { resetProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../../app/store/slice/UserAuthSlice";
+import { updateUserProgress } from "../../Services/fbProgress";
+import { resetBlockProgress } from "../../common/helpers/progressUpdate";
 
 export default function GradeBlock({
   gradeName,
@@ -14,10 +16,21 @@ export default function GradeBlock({
 }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const progressArray = useSelector(state => state.userAuth.progress);
+  const userID = useSelector(state => state.userAuth.id);
+  const currentUserData = useSelector(state => state.userAuth);
 
-  const handleClick = () => {
-    dispatch(resetProgress({ gradeName, blockName: blockPath }));
-    dispatch(updateGradeProgress({ gradeName }));
+  const handleClick = async () => {
+    const newProgress = resetBlockProgress(progressArray, {
+      gradeName,
+      blockName: blockPath,
+    });
+    const updatedProgress = await updateUserProgress(userID, newProgress);
+    const updatedUserData = {
+      ...currentUserData,
+      progress: updatedProgress,
+    };
+    dispatch(setUser(updatedUserData));
     navigate(blockStartPath);
   };
 

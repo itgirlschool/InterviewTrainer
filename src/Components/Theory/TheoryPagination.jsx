@@ -25,6 +25,7 @@ function TheoryPagination() {
   const [checkedTheoryItem, setCheckedTheoryItem] = useState(false);
   const progressArray = useSelector(state => state.userAuth.progress);
   const userID = useSelector(state => state.userAuth.id);
+  const currentUserData = useSelector(state => state.userAuth);
 
   useEffect(() => {
     if (progressItem >= currentTheoryItem) {
@@ -47,7 +48,6 @@ function TheoryPagination() {
         blockProgress,
       });
       const updatedProgress = await updateUserProgress(userID, newProgress);
-      const currentUserData = useSelector(state => state.userAuth);
       const updatedUserData = {
         ...currentUserData,
         progress: updatedProgress,
