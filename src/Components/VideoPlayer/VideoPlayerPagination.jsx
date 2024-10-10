@@ -5,8 +5,11 @@ import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-video.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { updateProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../app/store/slice/UserAuthSlice";
+import { updateUserProgress } from "../../Services/fbProgress";
+import { updateProgress } from "../../common/helpers/progressUpdate";
 
 function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
   const navigate = useNavigate();
@@ -21,6 +24,8 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
     const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
     return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
   });
+  const progressArray = useSelector(state => state.userAuth.progress);
+  const userID = useSelector(state => state.userAuth.id);
 
   useEffect(() => {
     if (progressItem >= currentVideo) {
@@ -30,16 +35,25 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
     }
   }, [id]);
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     if (isEnded) setHasWatched(true);
     const blockProgress = Number(
       parseFloat((currentVideo / data.length) * 100).toFixed(2),
     );
     if (currentVideo > progressItem) {
-      dispatch(
-        updateProgress({ gradeName, blockName, lastItem: currentVideo, blockProgress }),
-      );
-      dispatch(updateGradeProgress({ gradeName }));
+      const newProgress = updateProgress(progressArray, {
+        gradeName,
+        blockName,
+        lastItem: currentVideo,
+        blockProgress,
+      });
+      const updatedProgress = await updateUserProgress(userID, newProgress);
+      const currentUserData = useSelector(state => state.userAuth);
+      const updatedUserData = {
+        ...currentUserData,
+        progress: updatedProgress,
+      };
+      dispatch(setUser(updatedUserData));
     }
   };
 

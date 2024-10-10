@@ -15,8 +15,10 @@ import {
   calculateCorrectAnswers,
   calculateUserProgress,
 } from "../../app/store/slice/UserAutoTestsSlice";
-import { updateProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
 import calcCorrectAnswers from "../../common/helpers/calcCorrectAnswers";
+import { setUser } from "../../app/store/slice/UserAuthSlice";
+import { updateUserProgress } from "../../Services/fbProgress";
+import { updateProgress } from "../../common/helpers/progressUpdate";
 
 export default function AutoTestsSlider() {
   const navigate = useNavigate();
@@ -30,6 +32,8 @@ export default function AutoTestsSlider() {
   const currentTest = parseInt(id, 10);
   const { pathname } = useLocation();
   const [gradeName, blockName] = pathname.split("/").slice(1);
+  const progressArray = useSelector(state => state.userAuth.progress);
+  const userID = useSelector(state => state.userAuth.id);
 
   useEffect(() => {
     dispatch(clearUserChoice());
@@ -46,7 +50,7 @@ export default function AutoTestsSlider() {
     dispatch(calculateCorrectAnswers(calcCorrectAnswers(correctAnswers, userChoice)));
   }, [correctAnswers, userChoice, dispatch]);
 
-  const handleChoice = () => {
+  const handleChoice = async () => {
     dispatch(
       addUserChoice({
         testId: currentTest,
@@ -61,10 +65,19 @@ export default function AutoTestsSlider() {
       parseFloat((currentTest / tests.length) * 100).toFixed(2),
     );
 
-    dispatch(
-      updateProgress({ gradeName, blockName, lastItem: currentTest, blockProgress }),
-    );
-    dispatch(updateGradeProgress({ gradeName }));
+    const newProgress = updateProgress(progressArray, {
+      gradeName,
+      blockName,
+      lastItem: currentTest,
+      blockProgress,
+    });
+    const updatedProgress = await updateUserProgress(userID, newProgress);
+    const currentUserData = useSelector(state => state.userAuth);
+    const updatedUserData = {
+      ...currentUserData,
+      progress: updatedProgress,
+    };
+    dispatch(setUser(updatedUserData));
   };
 
   const handleNext = () => {

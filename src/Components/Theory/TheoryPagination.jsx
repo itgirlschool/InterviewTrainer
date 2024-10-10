@@ -6,7 +6,9 @@ import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-theory.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { updateProgress, updateGradeProgress } from "../../app/store/slice/UserAuthSlice";
+import { setUser } from "../../app/store/slice/UserAuthSlice";
+import { updateUserProgress } from "../../Services/fbProgress";
+import { updateProgress } from "../../common/helpers/progressUpdate";
 
 function TheoryPagination() {
   const dispatch = useDispatch();
@@ -21,6 +23,8 @@ function TheoryPagination() {
     return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
   });
   const [checkedTheoryItem, setCheckedTheoryItem] = useState(false);
+  const progressArray = useSelector(state => state.userAuth.progress);
+  const userID = useSelector(state => state.userAuth.id);
 
   useEffect(() => {
     if (progressItem >= currentTheoryItem) {
@@ -30,21 +34,25 @@ function TheoryPagination() {
     }
   }, [id]);
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     setCheckedTheoryItem(true);
     const blockProgress = Number(
       parseFloat((currentTheoryItem / data.length) * 100).toFixed(2),
     );
     if (currentTheoryItem > progressItem) {
-      dispatch(
-        updateProgress({
-          gradeName,
-          blockName,
-          lastItem: currentTheoryItem,
-          blockProgress,
-        }),
-      );
-      dispatch(updateGradeProgress({ gradeName }));
+      const newProgress = updateProgress(progressArray, {
+        gradeName,
+        blockName,
+        lastItem: currentTheoryItem,
+        blockProgress,
+      });
+      const updatedProgress = await updateUserProgress(userID, newProgress);
+      const currentUserData = useSelector(state => state.userAuth);
+      const updatedUserData = {
+        ...currentUserData,
+        progress: updatedProgress,
+      };
+      dispatch(setUser(updatedUserData));
     }
   };
 

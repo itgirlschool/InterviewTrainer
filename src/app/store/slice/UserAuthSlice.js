@@ -52,68 +52,8 @@ const userAuthSlice = createSlice({
       state.feedback = null;
       state.isAuth = false;
     },
-
-    updateProgress: (state, action) => {
-      const { gradeName, blockName, lastItem, blockProgress } = action.payload;
-      const grade = state.progress.find(g => g.gradeName === gradeName);
-      if (grade) {
-        const block = grade.blocks.find(b => b.blockName === blockName);
-        if (block) {
-          block.lastItem = lastItem;
-          block.blockProgress = blockProgress;
-        }
-      }
-    },
-
-    resetProgress: (state, action) => {
-      const { gradeName, blockName } = action.payload;
-      const grade = state.progress.find(g => g.gradeName === gradeName);
-      if (grade) {
-        const block = grade.blocks.find(b => b.blockName === blockName);
-        if (block) {
-          block.lastItem = "";
-          block.blockProgress = 0;
-        }
-      }
-    },
-
-    resetGradeProgress: (state, action) => {
-      const { gradeName } = action.payload;
-      const grade = state.progress.find(g => g.gradeName === gradeName);
-
-      if (grade) {
-        grade.blocks.forEach(block => {
-          block.lastItem = "";
-          block.blockProgress = 0;
-        });
-      }
-    },
-
-    updateGradeProgress: (state, action) => {
-      const { gradeName } = action.payload;
-      const grade = state.progress.find(g => g.gradeName === gradeName);
-
-      if (grade) {
-        const totalBlocks = grade.blocks.length;
-
-        const totalProgress = grade.blocks.reduce((acc, block) => {
-          return acc + block.blockProgress;
-        }, 0);
-
-        grade.totalProgress = Number(
-          parseFloat(totalBlocks > 0 ? totalProgress / totalBlocks : 0).toFixed(2),
-        );
-      }
-    },
   },
 });
 
-export const {
-  setUser,
-  removeUser,
-  updateProgress,
-  updateGradeProgress,
-  resetProgress,
-  resetGradeProgress,
-} = userAuthSlice.actions;
+export const { setUser, removeUser } = userAuthSlice.actions;
 export default userAuthSlice.reducer;
