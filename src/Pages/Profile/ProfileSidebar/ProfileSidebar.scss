@@ -4,7 +4,7 @@
 .sidebar-profile {
     display: flex;
     flex-direction: column;
-    margin: 20px auto;
+    margin: 30px;
     height: 100%;
     justify-content: center;
     color: $color-black;
@@ -131,6 +131,7 @@
         .soft-skills {
             display: flex;
             align-items: center;
+            margin: auto 10px;
 
             .skill-item {
                 display: flex;
