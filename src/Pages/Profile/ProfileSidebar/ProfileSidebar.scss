@@ -1,0 +1,219 @@
+@import "../../../style/template.scss";
+@import "../../../style/vars.scss";
+
+.sidebar-profile {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    height: 100%;
+    justify-content: center;
+    color: $color-black;
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        width: 100%; 
+        margin-bottom: 10px;
+
+        .avatar-container {
+            display: flex; 
+            align-items: center;
+            margin-right: 10px;
+
+            .profile__img {
+                width: 100px;
+                height: 100px;
+                background-color: $pink-color; 
+                color: $white-color;
+                border-radius: 50%;
+                display: flex; 
+                align-items: center; 
+                justify-content: center;  
+                font-size: 2em; 
+                font-weight: bold; 
+                cursor: default;
+            }
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+
+            .welcome-message {
+                font-size: 16px;
+                color: $color-black; 
+                text-align: left; 
+                margin: 10px 0; 
+                font-weight: 400;
+
+                &::after {
+                    content: "";
+                    background-image: url("../../../../src/assets/images/rose_for_welcome.svg");
+                    display: inline-block;
+                    background-size: 15px 15px;
+                    width: 15px;
+                    height: 15px;
+                    position: relative;
+                    top: -1vh;
+                }
+            }
+
+            .display-name {
+                font-size: 16px; 
+                color: $color-black; 
+                text-align: left; 
+                margin: 0; 
+                font-weight: 700; 
+            }
+        }
+    }
+
+    .navlink {
+        display: flex; 
+        align-items: center; 
+        text-decoration: none; 
+        color: $blackcolor; 
+        margin: 5px 0; 
+    }
+
+    .button_return,
+    .button_logout {
+        font-size: 20px;
+        line-height: 150%;
+        cursor: pointer;
+        width: 100%;
+        text-align: left; 
+        padding: 10px 0;
+
+        img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+    }
+
+    .achievements-container {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        opacity: 0.5; 
+        margin: 20px 0;
+
+        .achievements-title {
+            font-size: 20px; 
+            margin-right: 10px; 
+        }
+
+        .arrow-icon {
+            width: 24px;
+            height: 24px; 
+        }
+    }
+
+    .divider {
+        border: none;
+        height: 1px;
+        background-color: $graycolor; 
+        margin: 15px 0; 
+        opacity: 0.5;
+    }
+
+    .skills-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0;
+        opacity: 0.5; 
+        color: $graycolor;
+
+        .hard-skills, 
+        .soft-skills {
+            display: flex;
+            align-items: center;
+
+            .skill-item {
+                display: flex;
+                align-items: center;
+
+                .skill-icon {
+                    width: 37px; 
+                    height: 37px; 
+                    margin-right: 10px; 
+                }
+
+                .skill-details {
+                    display: flex;
+                    flex-direction: column; 
+                    align-items: flex-start; 
+
+                    .skill-count {
+                        font-size: 18px; 
+                        margin-right: 10px; 
+                        font-weight: bold; 
+                    }
+
+                    .skill-title {
+                        font-size: 14px; 
+                    }
+                }
+            }
+        }
+    }
+
+    .courses-container {
+        border: 1px solid $pinkcolor;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 20px;
+
+        .course-header {
+            display: flex;
+            align-items: center; 
+            color: $color-black;
+            font-size: 15px;
+            font-weight: bold;
+
+            .course-details {
+                display: flex;
+                flex-direction: column; 
+                margin-right: auto; 
+            }
+
+            .star-icon {
+                background-color: $white-color;
+                border-radius: 43px;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+                padding: 5px; 
+            }
+
+            .course-date {
+                color: $graycolor;
+                font-size: 14px;
+                font-weight: normal;
+                margin: 10px 0;
+            }
+        }
+
+        .course-progress {
+            display: flex;
+            align-items: center;
+
+            .progress-bar {
+                background-color: #EFEFEF;
+                border-radius: 64px;
+                width: 100%;
+                height: 8px;
+                margin-right: 10px;
+                overflow: hidden;
+
+                .progress-fill {
+                    background-color: $pinkcolor;
+                    height: 100%;
+                    transition: width 0.3s ease;
+                    border-radius: 64px;
+                }
+            }
+        }
+    }
+}
