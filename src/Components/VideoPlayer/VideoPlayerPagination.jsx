@@ -27,6 +27,8 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
   const progressArray = useSelector(state => state.userAuth.progress);
   const userID = useSelector(state => state.userAuth.id);
   const currentUserData = useSelector(state => state.userAuth);
+  const usersData = useSelector(state => state.users);
+  const usersList = usersData.users;
 
   useEffect(() => {
     console.log("Updated user data in Redux:", currentUserData);
@@ -52,14 +54,18 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
         lastItem: currentVideo,
         blockProgress,
       });
-      console.log("Progress to FB v55 : ", userID, newProgress);
-      await updateUserProgress(userID, newProgress);
+      const usersArray = Array.isArray(usersList) ? usersList : Object.values(usersList);
+      const userIndex = usersArray.findIndex(
+        user => user.id && user.id.trim() === userID.trim(),
+      );
+      const userEntry = usersArray[userIndex];
+
+      await updateUserProgress(userEntry.key, newProgress);
       const updatedUserData = {
         ...currentUserData,
         progress: newProgress,
       };
       dispatch(setUser(updatedUserData));
-      console.log("Updated state progress v62 : ", currentUserData.progress);
     }
   };
 

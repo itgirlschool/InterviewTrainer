@@ -35,6 +35,8 @@ export default function AutoTestsSlider() {
   const progressArray = useSelector(state => state.userAuth.progress);
   const userID = useSelector(state => state.userAuth.id);
   const currentUserData = useSelector(state => state.userAuth);
+  const usersData = useSelector(state => state.users);
+  const usersList = usersData.users;
 
   useEffect(() => {
     dispatch(clearUserChoice());
@@ -72,10 +74,16 @@ export default function AutoTestsSlider() {
       lastItem: currentTest,
       blockProgress,
     });
-    const updatedProgress = await updateUserProgress(userID, newProgress);
+    const usersArray = Array.isArray(usersList) ? usersList : Object.values(usersList);
+    const userIndex = usersArray.findIndex(
+      user => user.id && user.id.trim() === userID.trim(),
+    );
+    const userEntry = usersArray[userIndex];
+
+    await updateUserProgress(userEntry.key, newProgress);
     const updatedUserData = {
       ...currentUserData,
-      progress: updatedProgress,
+      progress: newProgress,
     };
     dispatch(setUser(updatedUserData));
   };

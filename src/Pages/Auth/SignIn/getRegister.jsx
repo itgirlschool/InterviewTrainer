@@ -13,7 +13,15 @@ export default function getRegister(user, setUserError, navigate) {
         email: user.email,
         id: data.user.uid,
         password: user.password,
-        progress: "start",
+        progress: {
+          gradeName: "gradingfirst",
+          blocks: [
+            { blockName: "videofirst", lastItem: "", blockProgress: 0 },
+            { blockName: "theoryfirst", lastItem: "", blockProgress: 0 },
+            { blockName: "testsfirst", lastItem: "", blockProgress: 0 },
+          ],
+          totalProgress: 0,
+        },
       };
       addUser(infoUser).then(() => navigate("/home"));
     })

@@ -7,6 +7,7 @@ const middlewareUsers = database => {
         const data = Object.values(snapshot.val());
         const { displayName, email, id, password, lastName, firstName, progress } =
           data.find(user => user.email === action.emailUser);
+        console.log(data);
         store.dispatch(
           setUser({
             email,

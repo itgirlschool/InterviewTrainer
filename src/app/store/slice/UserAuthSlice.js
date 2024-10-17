@@ -35,6 +35,7 @@ const userAuthSlice = createSlice({
       state.progress = Array.isArray(action.payload.progress)
         ? action.payload.progress
         : initialState.progress;
+      // state.progress = action.payload.progress;
       state.avatar = action.payload.avatar;
       state.feedback = action.payload.feedback;
       state.lastName = action.payload.lastName;

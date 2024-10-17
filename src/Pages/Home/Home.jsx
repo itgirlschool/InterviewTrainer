@@ -18,10 +18,12 @@ export default function Home() {
   const progressArray = useSelector(state => state.userAuth.progress);
   const userID = useSelector(state => state.userAuth.id);
   const currentUserData = useSelector(state => state.userAuth);
+  const usersData = useSelector(state => state.users);
+  const usersList = usersData.users;
 
   const handleSelect = path => {
     navigate(path);
-    console.log("Start progress from Home24: ", currentUserData.progress);
+    console.log("Home: ", usersList);
   };
   const dispatch = useDispatch();
 
@@ -42,7 +44,13 @@ export default function Home() {
     const newProgress = resetTotalProgress(progressArray, {
       gradeName,
     });
-    const updatedProgress = await updateUserProgress(userID, newProgress);
+    const usersArray = Array.isArray(usersList) ? usersList : Object.values(usersList);
+    const userIndex = usersArray.findIndex(
+      user => user.id && user.id.trim() === userID.trim(),
+    );
+    const userEntry = usersArray[userIndex];
+
+    const updatedProgress = await updateUserProgress(userEntry.key, newProgress);
     const updatedUserData = {
       ...currentUserData,
       progress: updatedProgress,
