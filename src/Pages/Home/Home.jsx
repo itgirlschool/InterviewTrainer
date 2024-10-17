@@ -23,7 +23,6 @@ export default function Home() {
 
   const handleSelect = path => {
     navigate(path);
-    console.log("Home: ", usersList);
   };
   const dispatch = useDispatch();
 

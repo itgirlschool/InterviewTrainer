@@ -31,10 +31,6 @@ function VideoPlayerPagination({ isEnded, pagePath, gradingPath }) {
   const usersList = usersData.users;
 
   useEffect(() => {
-    console.log("Updated user data in Redux:", currentUserData);
-  }, [currentUserData]);
-
-  useEffect(() => {
     if (progressItem >= currentVideo) {
       setHasWatched(true);
     } else {
