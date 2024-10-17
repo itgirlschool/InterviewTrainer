@@ -21,16 +21,17 @@ export function updateProgress(
       (acc, block) => acc + block.blockProgress,
       0,
     );
-
-    return {
-      ...updatedGrade,
-      blocks: updatedBlocks,
-      totalProgress: Number(
-        parseFloat(totalBlocks > 0 ? totalProgress / totalBlocks : 0).toFixed(2),
-      ),
-    };
+    return [
+      {
+        ...updatedGrade,
+        blocks: updatedBlocks,
+        totalProgress: Number(
+          parseFloat(totalBlocks > 0 ? totalProgress / totalBlocks : 0).toFixed(2),
+        ),
+      },
+    ];
   }
-  return null;
+  return progressArray;
 }
 
 export function resetBlockProgress(progressArray, { gradeName, blockName }) {
@@ -54,15 +55,17 @@ export function resetBlockProgress(progressArray, { gradeName, blockName }) {
       0,
     );
 
-    return {
-      ...updatedGrade,
-      blocks: updatedBlocks,
-      totalProgress: Number(
-        parseFloat(totalBlocks > 0 ? totalProgress / totalBlocks : 0).toFixed(2),
-      ),
-    };
+    return [
+      {
+        ...updatedGrade,
+        blocks: updatedBlocks,
+        totalProgress: Number(
+          parseFloat(totalBlocks > 0 ? totalProgress / totalBlocks : 0).toFixed(2),
+        ),
+      },
+    ];
   }
-  return null;
+  return progressArray;
 }
 
 export function resetTotalProgress(progressArray, { gradeName }) {
@@ -77,12 +80,13 @@ export function resetTotalProgress(progressArray, { gradeName }) {
 
     const totalProgress = 0;
 
-    return {
-      ...updatedGrade,
-      blocks: updatedBlocks,
-      totalProgress,
-    };
+    return [
+      {
+        ...updatedGrade,
+        blocks: updatedBlocks,
+        totalProgress,
+      },
+    ];
   }
-
-  return null;
+  return progressArray;
 }
