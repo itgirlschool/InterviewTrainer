@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { changePassword } from "../../../Services/changePassword";
 
 const userAuthSlice = createSlice({
   name: "userAuth",
@@ -14,8 +13,6 @@ const userAuthSlice = createSlice({
     avatar: null,
     feedback: null,
     isAuth: false,
-    changePasswordStatus: "idle",
-    changePasswordError: null,
   },
   reducers: {
     setUser: (state, action) => {
@@ -40,20 +37,6 @@ const userAuthSlice = createSlice({
     state.avatar = null;
     state.feedback = null;
     state.isAuth = false;
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(changePassword.pending, (state) => {
-        state.changePasswordStatus = "loading";
-        state.changePasswordError = null;
-      })
-      .addCase(changePassword.fulfilled, (state) => {
-        state.changePasswordStatus = "succeeded";
-      })
-      .addCase(changePassword.rejected, (state, action) => {
-        state.changePasswordStatus = "failed";
-        state.changePasswordError = action.payload;
-      });
   },
 });
 

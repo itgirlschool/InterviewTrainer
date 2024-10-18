@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { notification } from "antd";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
 import { changePassword } from "../../Services/changePassword";
 import "./PasswordForm.scss";
 
 const PasswordForm = () => {
-  const dispatch = useDispatch();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
@@ -37,11 +35,7 @@ const PasswordForm = () => {
     setIsSubmitting(true);
 
     try {
-      const result = await dispatch(changePassword({
-        currentPassword: data.currentPassword,
-        newPassword: data.newPassword,
-      })).unwrap();
-
+      await changePassword(data.currentPassword, data.newPassword);
       openNotification("success", "Успешно", "Пароль успешно изменён");
       reset();
     } catch (error) {
