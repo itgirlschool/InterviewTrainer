@@ -15,7 +15,7 @@ import {
   calculateCorrectAnswers,
   calculateUserProgress,
 } from "../../app/store/slice/UserAutoTestsSlice";
-import {calcCorrectAnswers} from '../../Common/helpers/calcCorrectAnswers.js'
+import calcCorrectAnswers from "../../common/helpers/calcCorrectAnswers.js"
 
 export default function AutoTestsSlider() {
   const navigate = useNavigate();
