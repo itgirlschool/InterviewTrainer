@@ -60,10 +60,15 @@
     }
   }
   &__error {
-    color: $red;
-    color: $pink-color;
+    // color: $red;
+    color: #FC5555;
     align-self: flex-start;
-    padding-left: 0.78125vw;
+    padding-left: 1.5625vw;
+
+    font-family: Jost;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
   }
   &__button {
     width: 20.1041666667vw;
