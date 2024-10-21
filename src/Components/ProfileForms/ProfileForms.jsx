@@ -14,7 +14,7 @@ const ProfileForms = () => {
     <div className="profile__forms__container">
       <div className="profile__forms__wrapper">
         <h2 className="profile__forms__heading">{isChangingPassword ? "Пароль" : "Профиль"}</h2>
-        <Tooltip title="Изменить пароль" color={customTooltipColor}>
+        <Tooltip title={isChangingPassword ? "Профиль" : "Изменить пароль"} color={customTooltipColor}>
           <div className="settings__icon" onClick={() => setIsChangingPassword(!isChangingPassword)}>
             <img src="src/assets/images/settings.svg" alt="Настройки пароля" />
           </div>
