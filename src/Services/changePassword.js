@@ -18,6 +18,9 @@ export const changePassword = async (currentPassword, newPassword) => {
     if (error.code === "auth/requires-recent-login") {
       throw new Error("Требуется повторный вход в систему для смены пароля");
     }
+    if (error.code === "auth/invalid-credential") {
+      throw new Error("Неверные учетные данные. Проверьте текущий пароль.");
+    }
     throw new Error(`Ошибка при изменении пароля: ${error.message}`);
   }
 }
