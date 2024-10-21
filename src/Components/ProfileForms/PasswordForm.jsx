@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { notification } from "antd";
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
@@ -7,6 +7,8 @@ import "./PasswordForm.scss";
 
 const PasswordForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState(null);
+  const [notificationType, setNotificationType] = useState(null);
 
   const {
     register,
@@ -32,17 +34,27 @@ const PasswordForm = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
+    setNotificationMessage(null);
 
     try {
       await changePassword(data.currentPassword, data.newPassword);
-      openNotification("success", "Успешно", "Пароль успешно изменён");
+      setNotificationType("success");
+      setNotificationMessage("Пароль успешно изменён");
       reset();
     } catch (error) {
-      openNotification("error", "Ошибка", error || "Произошла ошибка при смене пароля");
+      setNotificationType("error");
+      setNotificationMessage(error.message || "Произошла ошибка при смене пароля");
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    if (notificationMessage) {
+      openNotification(notificationType, notificationType === "success" ? "Успешно" : "Ошибка", notificationMessage);
+      setNotificationMessage(null);
+    }
+  }, [notificationMessage, notificationType]);
 
   return (
     <>
