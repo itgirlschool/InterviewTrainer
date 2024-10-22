@@ -48,7 +48,7 @@ export default function GradingFirst() {
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
-              blockPath="/"
+              blockPath="testsfirst"
               blockTitle="Тесты"
               blockProgressValue={0}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
