@@ -106,6 +106,13 @@
   }
 }
 
+.middle,
+.senior {
+  button {
+    background: $grey !important
+  }
+}
+
 @media only screen and (min-width: 1919px) {
   .home {
     .home__intro {

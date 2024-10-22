@@ -41,7 +41,7 @@ export default function Home() {
             типичными вопросами и заданиями, которые могут быть заданы на
             собеседованиях, для начинающих разработчиков.
           </p>
-          <button
+          <button 
             className="home__button"
             onClick={() => handleSelect("/gradingfirst")}
           >
@@ -57,7 +57,7 @@ export default function Home() {
             касающиеся проектирования приложений и выбора технологий, что важно
             для среднего уровня.
           </p>
-          <button
+          <button disabled={true}
             className="home__button"
             onClick={() => handleSelect("/gradingsecond")}
           >
@@ -73,7 +73,7 @@ export default function Home() {
             является ключевым для senior-разработчиков, отвечающих за
             направления своей команды.
           </p>
-          <button
+          <button disabled={true}
             className="home__button"
             onClick={() => handleSelect("/gradingthird")}
           >
