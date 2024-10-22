@@ -4,13 +4,13 @@
 .profile__form {
   display: flex;
   flex-direction: column;
-  row-gap: 0.520833333333vw;
+  row-gap: 0.52vw;
   
   &__field {
     display: flex;
     justify-content: start;
     align-items: center;
-    width: 20.1041666667vw;
+    width: 20vw;
     height: 3.125vw;
     border: 1px solid #F3F3F3;
     border-radius: 50px;
@@ -34,7 +34,7 @@
   &__label {
     position: absolute;
     left: 1.5625vw;
-    top: 1.04166666667vw;
+    top: 1.0417vw;
     color: #36363A;
     transition: transform 0.2s ease, color 0.2s ease;
   }
@@ -71,7 +71,7 @@
     line-height: 16px;
   }
   &__button {
-    width: 20.1041666667vw;
+    width: 20vw;
     height: 3.125vw;
     cursor: pointer;
     background-color: $pink-color;
