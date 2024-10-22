@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTests } from "../../../Services/fetchTests";
 import LinkBack from "../../../Components/LinkBack/LinkBack";
-import findCorrectAnswersInSlice from "../../../common/helpers/findCorrectAnswersInSlice";
+import findCorrectAnswersInSlice from "../../../common/helpers/findCorrectAnswersInSlice.js";
 import { addCorrectAnswers } from "../../../app/store/slice/AutoTestsSlice";
 
 export default function AutoTestsFirst() {

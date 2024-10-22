@@ -1,5 +1,31 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import "./Error.scss";
+import cat_error from "../../assets/images/ErrorImg.svg"
 
 export default function Error() {
-  return <div>Error</div>;
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleSelect = () => {
+    navigate("/"); // Redirect to the home page
+  };
+  return (
+      
+    <> 
+      <div className="error">
+      <div className="error_container">
+        <h1>404</h1>
+        <p>Ошибка!</p>
+        <p>К сожалению, запрашиваемая Вами страница не найдена...</p>
+        <button className="home__button" onClick={handleSelect} >Вернуться на главную</button>
+      </div>
+      <div className="error_image">
+        <img className="cat_error" src={cat_error} alt="image" />
+      </div>
+    </div>
+
+  </>
+)
 }
