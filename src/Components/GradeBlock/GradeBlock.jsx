@@ -74,9 +74,6 @@ export default function GradeBlock({
           <Link className="button" to={blockPath}>
             Продолжить
           </Link>
-          {/* <Link className="button_startOver" to={blockStartPath} onClick={handleClick}>
-            Начать заново
-          </Link> */}
           <button className="button_startOver" onClick={handleClick}>
             Начать заново
           </button>
