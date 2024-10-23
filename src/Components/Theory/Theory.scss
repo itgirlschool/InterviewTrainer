@@ -83,6 +83,16 @@
   }
 }
 
+.nav__next_progress {
+  display: flex;
+  flex-direction: column;
+
+  &__value {
+    align-self: center;
+    margin-top: 10px;
+  }
+}
+
 @media screen and (max-width: 950px) {
   .theory__container {
     background-color: transparent;

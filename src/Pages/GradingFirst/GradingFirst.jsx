@@ -1,8 +1,5 @@
-import {
-  Outlet,
-  useLocation,
-  Link,
-} from "react-router-dom";
+import { Outlet, useLocation, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import GradeContainer from "../../Components/GradeContainer/GradeContainer";
 import GradeIntro from "../../Components/GradeIntro/GradeIntro";
 import GradeBlock from "../../Components/GradeBlock/GradeBlock";
@@ -11,8 +8,20 @@ import "./GradingFirst.scss";
 
 export default function GradingFirst() {
   const location = useLocation();
-  const showNavigation =
-    location.pathname === "/gradingfirst";
+  const gradeName = location.pathname.slice(1);
+
+  const grade = useSelector(state =>
+    state.userAuth.progress.find(g => g.gradeName === gradeName),
+  );
+
+  const progressVideo =
+    grade?.blocks.find(b => b.blockName === "videofirst")?.blockProgress || 0;
+  const progressTheory =
+    grade?.blocks.find(b => b.blockName === "theoryfirst")?.blockProgress || 0;
+  const progressTests =
+    grade?.blocks.find(b => b.blockName === "testsfirst")?.blockProgress || 0;
+
+  const showNavigation = location.pathname === "/gradingfirst";
 
   return (
     <>
@@ -36,21 +45,27 @@ export default function GradingFirst() {
           />
           <GradeContainer>
             <GradeBlock
+              gradeName="gradingfirst"
               blockPath="videofirst"
               blockTitle="Видеоуроки"
-              blockProgressValue={0}
+              blockProgressValue={progressVideo}
+              blockStartPath={"/gradingfirst/videofirst/1"}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
+              gradeName="gradingfirst"
               blockPath="theoryfirst"
               blockTitle="Теория"
-              blockProgressValue={30}
+              blockProgressValue={progressTheory}
+              blockStartPath={"/gradingfirst/theoryfirst/1"}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
             <GradeBlock
-              blockPath="/"
+              gradeName="gradingfirst"
+              blockPath="testsfirst"
               blockTitle="Тесты"
-              blockProgressValue={0}
+              blockProgressValue={progressTests}
+              blockStartPath={"/gradingfirst/testsfirst/1"}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
             />
           </GradeContainer>
