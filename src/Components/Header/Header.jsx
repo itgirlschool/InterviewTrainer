@@ -65,10 +65,6 @@ export default function Header() {
             <img src={img_profileLittle} alt="Мой профиль" />
             Мой профиль
           </NavLink>
-          <NavLink className="popup__link" to="#">
-            <SettingOutlined className="icon" />
-            Настройки
-          </NavLink>
           <NavLink className="popup__link" to="/signin">
             <LogoutOutlined className="icon" />
             Выйти
@@ -98,10 +94,6 @@ export default function Header() {
         <NavLink className="popup__link burger__line" to="/profile">
           <img src={img_profileLittle} alt="Мой профиль" />
           Мой профиль
-        </NavLink>
-        <NavLink className="popup__link burger__line" to="#">
-          <SettingOutlined className="icon" />
-          Настройки
         </NavLink>
         <NavLink className="popup__link" to="/signin">
           <LogoutOutlined className="icon" />

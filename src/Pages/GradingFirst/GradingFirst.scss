@@ -15,3 +15,12 @@
     
   }
 }
+
+@media #{$Tablet} {
+  .nav_link {
+    .nav_link__home {
+      margin-left: 0;
+      
+    }
+  }
+}
