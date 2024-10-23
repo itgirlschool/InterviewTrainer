@@ -5,34 +5,22 @@ import { useSelector } from "react-redux";
 
 export default function TheoryFirstItem() {
   const { id } = useParams();
-  const data = useSelector(
-    state => state.theoryFirst.theoryFirst,
-  );
-  const status = useSelector(
-    state => state.theoryFirst.status,
-  );
-  const error = useSelector(
-    state => state.theoryFirst.error,
-  );
+  const data = useSelector(state => state.theoryFirst.theoryFirst);
+  const status = useSelector(state => state.theoryFirst.status);
+  const error = useSelector(state => state.theoryFirst.error);
   const [theoryItem, setTheoryItem] = useState({});
 
   useEffect(() => {
     if (data && id) {
-      const newTheoryItem = data.find(
-        item => item.id === id,
-      );
+      const newTheoryItem = data.find(item => item.id === id);
       setTheoryItem(prevTheoryItem => newTheoryItem);
-      console.log(newTheoryItem);
     }
   }, [data, id]);
 
-  if (status === "loading")
-    return <div>Загрузка раздела с теорией...</div>;
+  if (status === "loading") return <div>Загрузка раздела с теорией...</div>;
 
   if (status === "failed" || error)
-    return (
-      <div>Невозможно загрузить раздел с теорией...</div>
-    );
+    return <div>Невозможно загрузить раздел с теорией...</div>;
   if (!data) return <div>Раздел с теорией не найден</div>;
 
   return (

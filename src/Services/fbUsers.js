@@ -9,3 +9,13 @@ export const addUser = async (user) => {
     console.log(err);
   }
 };
+
+export const updateUserData = async (userKey, data) => {
+  try {
+    const userRef = database.ref(`users/${userKey}`);
+    await userRef.update(data);
+    return true;
+  } catch (error) {
+    throw new Error(`Ошибка при обновлении данных: ${error.message}`);
+  }
+};

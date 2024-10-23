@@ -42,7 +42,14 @@
   padding-bottom: 8px;
   border-bottom: $pinkcolor solid 1px;
 
+  &_div {
+    width: 32px;
+    height: 32px;
+  }
+
   &_link {
+    border: none;
+    background-color: transparent;
     color: $blackcolor;
     padding-left: 8px;
     font-size: 20px;
@@ -51,9 +58,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
+    cursor: pointer;
 
     &.active {
       color: $pink-color;
+    }
+
+    &:disabled {
+      cursor: unset;
+      opacity: 0.6;
     }
   }
 
@@ -168,6 +181,13 @@
     }
   }
   .theme__item_link {
-    font-size: 10px;
+    font-size: 12px;
+  }
+
+  .theme__item_div {
+    padding: 0px;
+    img {
+      width: 10px;
+    }
   }
 }
