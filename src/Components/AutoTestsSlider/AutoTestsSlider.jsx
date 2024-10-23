@@ -15,7 +15,7 @@ import {
   calculateCorrectAnswers,
   calculateUserProgress,
 } from "../../app/store/slice/UserAutoTestsSlice";
-import calcCorrectAnswers from "../../common/helpers/calcCorrectAnswers";
+import calcCorrectAnswers from "../../common/helpers/calcCorrectAnswers.js"
 import { setUser } from "../../app/store/slice/UserAuthSlice";
 import { updateUserProgress } from "../../Services/fbProgress";
 import { updateProgress } from "../../common/helpers/progressUpdate";
