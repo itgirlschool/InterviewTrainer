@@ -1,8 +1,4 @@
-import {
-  Outlet,
-  useLocation,
-  Link,
-} from "react-router-dom";
+import { Outlet, useLocation, Link } from "react-router-dom";
 import GradeContainer from "../../Components/GradeContainer/GradeContainer";
 import GradeIntro from "../../Components/GradeIntro/GradeIntro";
 import GradeBlock from "../../Components/GradeBlock/GradeBlock";
@@ -11,8 +7,7 @@ import "./GradingSecond.scss";
 
 export default function GradingSecond() {
   const location = useLocation();
-  const showNavigation =
-    location.pathname === "/gradingsecond";
+  const showNavigation = location.pathname === "/gradingsecond";
 
   return (
     <>
@@ -30,7 +25,7 @@ export default function GradingSecond() {
           />
           <GradeContainer>
             <GradeBlock
-              blockPath="interviewsecond"
+              blockPath="/"
               blockTitle="Видео прохождения собеседований"
               blockProgressValue={0}
               blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."

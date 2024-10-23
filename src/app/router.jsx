@@ -16,8 +16,8 @@ import {
   VideoFirstItem,
   TheoryFirst,
   TheoryFirstItem,
-  InterviewSecond,
-  InterviewSecondItem,
+  InterviewFirst,
+  InterviewFirstItem,
   AutoTestsFirst,
   AutoTestsSlider,
   AutoTestsResults,
@@ -91,22 +91,32 @@ export const router = createBrowserRouter([
               },
             ],
           },
+          {
+            path: "interviewfirst",
+            element: <InterviewFirst />,
+            children: [
+              {
+                path: ":id",
+                element: <InterviewFirstItem />,
+              },
+            ],
+          },
         ],
       },
       {
         path: "gradingsecond",
         element: <GradingSecond />,
         children: [
-          {
-            path: "interviewsecond",
-            element: <InterviewSecond />,
-            children: [
-              {
-                path: ":id",
-                element: <InterviewSecondItem />,
-              },
-            ],
-          },
+          // {
+          //   path: "interviewsecond",
+          //   element: <InterviewSecond />,
+          //   children: [
+          //     {
+          //       path: ":id",
+          //       element: <InterviewSecondItem />,
+          //     },
+          //   ],
+          // },
         ],
       },
       {

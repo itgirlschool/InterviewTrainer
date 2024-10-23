@@ -1,54 +1,86 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import "./IframePlayer.scss";
 import prev from "../../assets/images/video_arr-prev.svg";
 import next from "../../assets/images/video_arr-next.svg";
 import check from "../../assets/images/video_checked.svg";
 import catBottomPic from "../../assets/images/background_cat-video.svg";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../app/store/slice/UserAuthSlice";
+import { updateUserProgress } from "../../Services/fbProgress";
+import { updateProgress } from "../../common/helpers/progressUpdate";
 
-function IframePlayerPagination({
-  isEnded,
-  pagePath,
-  gradingPath,
-}) {
+function IframePlayerPagination({ isEnded, pagePath, gradingPath }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [hasWatched, setHasWatched] = useState(false);
-  const data = useSelector(
-    state => state.interviews.interviews,
-  );
+  const data = useSelector(state => state.interviews.interviews);
   const { id } = useParams();
   const currentVideo = parseInt(id, 10);
-  const navigate = useNavigate();
+
+  const { pathname } = useLocation();
+  const [gradeName, blockName] = pathname.split("/").slice(1);
+  const progressItem = useSelector(state => {
+    const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
+    return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
+  });
+  const progressArray = useSelector(state => state.userAuth.progress);
+  const userID = useSelector(state => state.userAuth.id);
+  const currentUserData = useSelector(state => state.userAuth);
+  const usersData = useSelector(state => state.users);
+  const usersList = usersData.users;
 
   useEffect(() => {
-    setHasWatched(false);
+    if (progressItem >= currentVideo) {
+      setHasWatched(true);
+    } else {
+      setHasWatched(false);
+    }
   }, [id]);
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     if (isEnded) setHasWatched(true);
+    const blockProgress = Number(
+      parseFloat((currentVideo / data.length) * 100).toFixed(2),
+    );
+    if (currentVideo > progressItem) {
+      const newProgress = updateProgress(progressArray, {
+        gradeName,
+        blockName,
+        lastItem: currentVideo,
+        blockProgress,
+      });
+      const usersArray = Array.isArray(usersList) ? usersList : Object.values(usersList);
+      const userIndex = usersArray.findIndex(
+        user => user.id && user.id.trim() === userID.trim(),
+      );
+      const userEntry = usersArray[userIndex];
+
+      await updateUserProgress(userEntry.key, newProgress);
+      const updatedUserData = {
+        ...currentUserData,
+        progress: newProgress,
+      };
+      dispatch(setUser(updatedUserData));
+    }
   };
 
   const handlePrev = () => {
     if (currentVideo > 1) {
-      navigate(
-        `/${gradingPath}/${pagePath}/${currentVideo - 1}`,
-      );
+      navigate(`/${gradingPath}/${pagePath}/${currentVideo - 1}`);
     }
   };
 
   const handleNext = () => {
     if (currentVideo < data.length) {
-      navigate(
-        `/${gradingPath}/${pagePath}/${currentVideo + 1}`,
-      );
+      navigate(`/${gradingPath}/${pagePath}/${currentVideo + 1}`);
     }
   };
 
   const watchingBtn = (
     <button
-      className={`video__button ${
-        !isEnded ? "disabled" : ""
-      }`}
+      className={`video__button ${!isEnded ? "disabled" : ""}`}
       disabled={!isEnded}
       onClick={handleCheck}
     >
@@ -59,9 +91,7 @@ function IframePlayerPagination({
 
   const watchedBtn = (
     <button
-      className={`video__button ${
-        currentVideo === data.length ? "disabled" : ""
-      }`}
+      className={`video__button ${currentVideo === data.length ? "disabled" : ""}`}
       disabled={currentVideo === data.length}
       onClick={handleNext}
     >
@@ -72,9 +102,7 @@ function IframePlayerPagination({
 
   const prevBtn = (
     <button
-      className={`video__button ${
-        currentVideo === 1 ? "disabled" : ""
-      }`}
+      className={`video__button ${currentVideo === 1 ? "disabled" : ""}`}
       onClick={handlePrev}
       disabled={currentVideo === 1}
     >
@@ -85,11 +113,7 @@ function IframePlayerPagination({
 
   const catImg = (
     <div className="video__cat">
-      <img
-        className="bg-image__cat"
-        src={catBottomPic}
-        alt="video_cat"
-      />
+      <img className="bg-image__cat" src={catBottomPic} alt="video_cat" />
     </div>
   );
 

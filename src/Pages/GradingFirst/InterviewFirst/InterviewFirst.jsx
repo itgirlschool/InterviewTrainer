@@ -1,30 +1,18 @@
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./InterviewSecond.scss";
+import "./InterviewFirst.scss";
 import { fetchInterviews } from "../../../Services/fetchInterviews.js";
 import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
 
-export default function VideoFirst() {
+export default function InterviewFirst() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const videos = useSelector(
-    state => state.interviews.interviews,
-  );
-  const status = useSelector(
-    state => state.interviews.status,
-  );
-  const error = useSelector(
-    state => state.interviews.error,
-  );
+  const videos = useSelector(state => state.interviews.interviews);
+  const status = useSelector(state => state.interviews.status);
+  const error = useSelector(state => state.interviews.error);
   const { pathname } = useLocation();
-  const [navBarIsHidden, setNavBarIsHidden] =
-    useState(false);
+  const [navBarIsHidden, setNavBarIsHidden] = useState(false);
 
   useEffect(() => {
     if (status === "idle") {
@@ -33,11 +21,8 @@ export default function VideoFirst() {
   }, [dispatch, status]);
 
   useEffect(() => {
-    if (
-      videos.length > 0 &&
-      pathname === "/gradingsecond/interviewsecond"
-    ) {
-      navigate("/gradingsecond/interviewsecond/1", {
+    if (videos.length > 0 && pathname === "/gradingfirst/interviewfirst") {
+      navigate("/gradingfirst/interviewfirst/1", {
         replace: true,
       });
     }
@@ -51,26 +36,17 @@ export default function VideoFirst() {
     <div>
       <div className="videoPage">
         <div className="videoPage__title">
-          <Link
-            className="videoPage__mainlink"
-            to="/gradingsecond"
-          >
+          <Link className="videoPage__mainlink" to="/gradingfirst">
             Вернуться назад к градации
           </Link>
         </div>
-        <div
-          className={
-            navBarIsHidden
-              ? "videoPage__main__modified"
-              : "videoPage__main"
-          }
-        >
+        <div className={navBarIsHidden ? "videoPage__main__modified" : "videoPage__main"}>
           <ThemeNavBar
             data={videos || []}
             error={error}
             status={status}
-            pagePath="interviewsecond"
-            gradingPath="gradingsecond"
+            pagePath="interviewfirst"
+            gradingPath="gradingfirst"
             toggleNavBar={toggleNavBar}
           />
           <Outlet />

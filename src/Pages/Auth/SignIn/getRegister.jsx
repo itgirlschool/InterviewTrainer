@@ -19,6 +19,7 @@ export default function getRegister(user, setUserError, navigate) {
             { blockName: "videofirst", lastItem: "", blockProgress: 0 },
             { blockName: "theoryfirst", lastItem: "", blockProgress: 0 },
             { blockName: "testsfirst", lastItem: "", blockProgress: 0 },
+            { blockName: "interviewfirst", lastItem: "", blockProgress: 0 },
           ],
           totalProgress: 0,
         },
