@@ -38,12 +38,6 @@ export default function GradingFirst() {
             gradeTitle="Intern"
             gradeDescription="В этой градации ты сможешь закрепить знания по основным принципам веб-разработки, такие как HTML, CSS и JavaScript. Ты познакомишься с типичными вопросами и заданиями, которые могут быть заданы на собеседованиях, для начинающих разработчиков. Ознакомься с обучающими видео и теорией, проходи тест. Все получится!"
             gradeCat={cat_grade}
-            videoPath="videofirst"
-            theoryPath="theoryfirst"
-            testsPath="testsfirst"
-            videoDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida."
-            theoryDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida."
-            testsDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida."
           />
           <GradeContainer>
             <GradeBlock
@@ -52,7 +46,7 @@ export default function GradingFirst() {
               blockTitle="Видеоуроки"
               blockProgressValue={progressVideo}
               blockStartPath={"/gradingfirst/videofirst/1"}
-              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+              blockDescription="В этой секции ты сможешь наглядно изучить основные принципы веб-разработки через обучающие видеоматериалы. Простые и понятные объяснения помогут тебе быстро усвоить ключевые темы."
             />
             <GradeBlock
               gradeName="gradingfirst"
@@ -60,7 +54,7 @@ export default function GradingFirst() {
               blockTitle="Теория"
               blockProgressValue={progressTheory}
               blockStartPath={"/gradingfirst/theoryfirst/1"}
-              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+              blockDescription="Здесь ты найдешь подробные материалы по HTML, CSS и JavaScript в текстовом виде. Читай, изучай, закрепляй теоретические знания и возвращайся к ним при необходимости."
             />
             <GradeBlock
               gradeName="gradingfirst"
@@ -68,7 +62,7 @@ export default function GradingFirst() {
               blockTitle="Тесты"
               blockProgressValue={progressTests}
               blockStartPath={"/gradingfirst/testsfirst/1"}
-              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+              blockDescription="Проверяй свои знания и закрепляй пройденный материал с помощью тестов. Выполняй задания и следи за своим прогрессом — так ты убедишься, что готов к собеседованиям."
             />
             <GradeBlock
               gradeName="gradingfirst"
@@ -76,7 +70,7 @@ export default function GradingFirst() {
               blockTitle="Собеседования"
               blockProgressValue={progressInterviews}
               blockStartPath={"/gradingfirst/interviewfirst/1"}
-              blockDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit."
+              blockDescription="Посмотри реальные примеры собеседований для начинающих разработчиков. Это поможет тебе лучше понять процесс и подготовиться к вопросам, которые могут встретиться на интервью."
             />
           </GradeContainer>
         </>
