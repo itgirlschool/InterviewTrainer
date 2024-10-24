@@ -19,7 +19,8 @@
   .wrapper__login {
     text-align: center;
 
-    .title__login {
+    .title__login,
+    .login__greeting {
       margin-bottom: 38px;
       font-size: 48px;
       font-family: "M PLUS Rounded 1c";
@@ -47,6 +48,26 @@
       }
     }
 
+    .login__greeting {
+      width: 42vw;
+
+      @media screen and (max-width: 1368px) {
+        width: 48vw;
+      }
+
+      @media screen and (max-width: 1240px) {
+        width: 55vw;
+      }
+
+      @media screen and (max-width: 980px) {
+        width: 62vw;
+      }
+
+      @media screen and (max-width: 435px) {
+        width: 80vw;
+      }
+    }
+
     .form-login__authorisation {
       display: flex;
       flex-direction: column;
@@ -66,7 +87,6 @@
         color: $formlogin-fontcolor;
         outline: none;
         transition: background-color 0.3s ease;
-
 
         @media screen and (max-width: 1368px) {
           width: 390px;
