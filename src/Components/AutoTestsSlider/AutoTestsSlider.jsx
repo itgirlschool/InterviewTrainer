@@ -2,7 +2,7 @@ import "./AutoTestsSlider.scss";
 import catPicTests from "../../assets/images/cat_page_autotests.svg";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import TestCard from "../TestCards/TestCard";
 import {
   addUserChoice,
@@ -16,18 +16,27 @@ import {
   calculateUserProgress,
 } from "../../app/store/slice/UserAutoTestsSlice";
 import calcCorrectAnswers from "../../common/helpers/calcCorrectAnswers";
+import { setUser } from "../../app/store/slice/UserAuthSlice";
+import { updateUserProgress } from "../../Services/fbProgress";
+import { updateProgress } from "../../common/helpers/progressUpdate";
 
 export default function AutoTestsSlider() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const tests = useSelector(state => state.autoTests.tests);
-  const hasSelectedAnswer = useSelector(state => state.userAutoTests.hasSelectedAnswer);
-  const selectedAnswer = useSelector(state => state.userAutoTests.selectedAnswer);
-  const hasAnswered = useSelector(state => state.userAutoTests.hasAnswered);
   const correctAnswers = useSelector(state => state.autoTests.correctAnswers);
-  const userChoice = useSelector(state => state.userAutoTests.userChoice);
+  const { hasSelectedAnswer, selectedAnswer, hasAnswered, userChoice } = useSelector(
+    state => state.userAutoTests,
+  );
   const { id } = useParams();
   const currentTest = parseInt(id, 10);
+  const { pathname } = useLocation();
+  const [gradeName, blockName] = pathname.split("/").slice(1);
+  const progressArray = useSelector(state => state.userAuth.progress);
+  const userID = useSelector(state => state.userAuth.id);
+  const currentUserData = useSelector(state => state.userAuth);
+  const usersData = useSelector(state => state.users);
+  const usersList = usersData.users;
 
   useEffect(() => {
     dispatch(clearUserChoice());
@@ -38,13 +47,13 @@ export default function AutoTestsSlider() {
     dispatch(setHasAnswered(false));
     dispatch(setShowCorrectAnswer(false));
     dispatch(clearSelectedAnswer());
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     dispatch(calculateCorrectAnswers(calcCorrectAnswers(correctAnswers, userChoice)));
-  }, [correctAnswers, userChoice]);
+  }, [correctAnswers, userChoice, dispatch]);
 
-  const handleChoice = () => {
+  const handleChoice = async () => {
     dispatch(
       addUserChoice({
         testId: currentTest,
@@ -55,6 +64,28 @@ export default function AutoTestsSlider() {
     dispatch(setShowCorrectAnswer(true));
     dispatch(setUserProgress(currentTest));
     dispatch(calculateUserProgress());
+    const blockProgress = Number(
+      parseFloat((currentTest / tests.length) * 100).toFixed(2),
+    );
+
+    const newProgress = updateProgress(progressArray, {
+      gradeName,
+      blockName,
+      lastItem: currentTest,
+      blockProgress,
+    });
+    const usersArray = Array.isArray(usersList) ? usersList : Object.values(usersList);
+    const userIndex = usersArray.findIndex(
+      user => user.id && user.id.trim() === userID.trim(),
+    );
+    const userEntry = usersArray[userIndex];
+
+    await updateUserProgress(userEntry.key, newProgress);
+    const updatedUserData = {
+      ...currentUserData,
+      progress: newProgress,
+    };
+    dispatch(setUser(updatedUserData));
   };
 
   const handleNext = () => {

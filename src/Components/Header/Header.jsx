@@ -9,17 +9,27 @@ import { useSelector } from "react-redux";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
-  const { displayName } = useSelector((state) => state.userAuth);
+  const { displayName } = useSelector(state => state.userAuth);
 
-  const getInitials = (displayName) => {
+  const getInitials = displayName => {
     if (!displayName) return "AN";
     const initials = displayName
       .split(" ")
-      .map((word) => word[0])
+      .map(word => word[0])
       .join("")
       .toUpperCase();
     return initials;
   };
+
+  const progressTotal = useSelector(state => {
+    const progress = state.userAuth?.progress;
+    if (progress && progress.length > 0) {
+      const gradeName = "gradingfirst";
+      const grade = progress.find(g => g.gradeName === gradeName);
+      return grade ? grade.totalProgress : 0;
+    }
+    return 0;
+  });
 
   return (
     <header className="header">
@@ -44,21 +54,16 @@ export default function Header() {
           className={`burger__img ${!burgerActive ? "menu" : "close"}`}
         ></button>
       </div>
-      <div
-        className={` ${isOpen ? "overlay" : ""}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      <div className={` ${isOpen ? "overlay" : ""}`} onClick={() => setIsOpen(!isOpen)}>
         <div className={`header__popup ${isOpen ? "active" : ""}`}>
-          <div className="popup__username">
-            {displayName || "Anonymous User"}
-          </div>
+          <div className="popup__username">{displayName || "Anonymous User"}</div>
           <div className="popup__raitinginfo">
-            <div className="pupup__grade">Градация 1</div>
-            <div className="popup__percent">50%</div>
+            <div className="pupup__grade">Intern</div>
+            <div className="popup__percent">{progressTotal}%</div>
             <progress
               className="popup__progress"
               max="100"
-              value="50"
+              value={progressTotal}
             ></progress>
           </div>
           <NavLink className="popup__link" to="/profile">
@@ -85,11 +90,7 @@ export default function Header() {
             <div>Градация 1</div>
             <div className="burger__percent">50%</div>
           </div>
-          <progress
-            className="burger__progress"
-            max="100"
-            value="50"
-          ></progress>
+          <progress className="burger__progress" max="100" value="50"></progress>
         </div>
         <NavLink className="popup__link burger__line" to="/profile">
           <img src={img_profileLittle} alt="Мой профиль" />
