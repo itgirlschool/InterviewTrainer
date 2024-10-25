@@ -70,10 +70,6 @@ export default function Header() {
             <img src={img_profileLittle} alt="Мой профиль" />
             Мой профиль
           </NavLink>
-          <NavLink className="popup__link" to="#">
-            <SettingOutlined className="icon" />
-            Настройки
-          </NavLink>
           <NavLink className="popup__link" to="/signin">
             <LogoutOutlined className="icon" />
             Выйти
@@ -96,19 +92,9 @@ export default function Header() {
           </div>
           <progress className="burger__progress" max="100" value="50"></progress>
         </div>
-        <NavLink className="burger__line" to="/home">
-          Выбор градации
-        </NavLink>
-        <NavLink className="burger__line" to="/instructions">
-          Инструкции
-        </NavLink>
         <NavLink className="popup__link burger__line" to="/profile">
           <img src={img_profileLittle} alt="Мой профиль" />
           Мой профиль
-        </NavLink>
-        <NavLink className="popup__link burger__line" to="#">
-          <SettingOutlined className="icon" />
-          Настройки
         </NavLink>
         <NavLink className="popup__link" to="/signin">
           <LogoutOutlined className="icon" />

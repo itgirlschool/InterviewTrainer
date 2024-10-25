@@ -3,10 +3,12 @@
 
 .nav_link {
   width: 90%;
+  color: $pink-color;
   margin: 0 auto;
-  .__home {
+  padding-top: 2rem;
+
+  .nav_link__home {
     color: $pink-color;
     font-size: 1rem;
-    margin-left: 3rem;
   }
 }
