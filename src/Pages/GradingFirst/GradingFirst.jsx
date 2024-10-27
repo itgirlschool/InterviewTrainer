@@ -67,7 +67,7 @@ export default function GradingFirst() {
             <GradeBlock
               gradeName="gradingfirst"
               blockPath="interviewfirst"
-              blockTitle="Собеседования"
+              blockTitle="Видео прохождения собеседований"
               blockProgressValue={progressInterviews}
               blockStartPath={"/gradingfirst/interviewfirst/1"}
               blockDescription="Посмотри реальные примеры собеседований для начинающих разработчиков. Это поможет тебе лучше понять процесс и подготовиться к вопросам, которые могут встретиться на интервью."
