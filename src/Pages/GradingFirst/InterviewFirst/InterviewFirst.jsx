@@ -12,21 +12,29 @@ export default function InterviewFirst() {
   const status = useSelector(state => state.interviews.status);
   const error = useSelector(state => state.interviews.error);
   const { pathname } = useLocation();
+  const [gradeName, blockName] = pathname.split("/").slice(1);
   const [navBarIsHidden, setNavBarIsHidden] = useState(false);
+  const progressItem = useSelector(state => {
+    const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
+    return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
+  });
 
   useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchInterviews());
+    if (videos.length > 0 && progressItem !== undefined) {
+      const nextVideo =
+        progressItem > 0 && progressItem < videos.length ? Number(progressItem) + 1 : 1;
+      if (pathname === `/gradingfirst/interviewfirst`) {
+        navigate(`/gradingfirst/interviewfirst/${nextVideo}`, { replace: true });
+      }
+    } else if (videos.length === 0) {
+      dispatch(fetchInterviews())
+        .unwrap()
+        .catch(error => {
+          console.error("Ошибка загрузки видео:", error);
+        });
     }
-  }, [dispatch, status]);
-
-  useEffect(() => {
-    if (videos.length > 0 && pathname === "/gradingfirst/interviewfirst") {
-      navigate("/gradingfirst/interviewfirst/1", {
-        replace: true,
-      });
-    }
-  }, [videos, pathname, navigate]);
+    // апарпеп
+  }, [dispatch, status, pathname, navigate, progressItem, videos.length]);
 
   const toggleNavBar = () => {
     setNavBarIsHidden(!navBarIsHidden);

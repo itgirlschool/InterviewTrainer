@@ -20,26 +20,20 @@ export default function TheoryFirst() {
   });
 
   useEffect(() => {
-    const nextTheme =
-      progressItem > 0 && progressItem < theoryFirst.length
-        ? Number(progressItem) + 1
-        : 1;
-
-    // navigate(`/gradingfirst/theoryfirst/${nextTheme}`, { replace: true });
-
-    if (pathname === `/gradingfirst/theoryfirst`) {
-      if (status === "idle") {
-        dispatch(fetchTheoryFirst())
-          .unwrap()
-          .then(() => {
-            navigate(`/gradingfirst/theoryfirst/${nextTheme}`, { replace: true });
-          })
-          .catch(error => {
-            console.error("Ошибка загрузки теории:", error);
-          });
-      } else {
+    if (theoryFirst.length > 0 && progressItem !== undefined) {
+      const nextTheme =
+        progressItem > 0 && progressItem < theoryFirst.length
+          ? Number(progressItem) + 1
+          : 1;
+      if (pathname === `/gradingfirst/theoryfirst`) {
         navigate(`/gradingfirst/theoryfirst/${nextTheme}`, { replace: true });
       }
+    } else if (theoryFirst.length === 0) {
+      dispatch(fetchTheoryFirst())
+        .unwrap()
+        .catch(error => {
+          console.error("Ошибка загрузки теории:", error);
+        });
     }
   }, [dispatch, status, theoryFirst, pathname, navigate, progressItem]);
 

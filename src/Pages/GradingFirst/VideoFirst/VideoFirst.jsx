@@ -21,22 +21,18 @@ export default function VideoFirst() {
   });
 
   useEffect(() => {
-    const nextVideo =
-      progressItem > 0 && progressItem < videos.length ? Number(progressItem) + 1 : 1;
-
-    if (pathname === `/gradingfirst/videofirst`) {
-      if (status === "idle") {
-        dispatch(fetchVideos())
-          .unwrap()
-          .then(() => {
-            navigate(`/gradingfirst/videofirst/${nextVideo}`, { replace: true });
-          })
-          .catch(error => {
-            console.error("Ошибка загрузки видео:", error);
-          });
-      } else {
+    if (videos.length > 0 && progressItem !== undefined) {
+      const nextVideo =
+        progressItem > 0 && progressItem < videos.length ? Number(progressItem) + 1 : 1;
+      if (pathname === `/gradingfirst/videofirst`) {
         navigate(`/gradingfirst/videofirst/${nextVideo}`, { replace: true });
       }
+    } else if (videos.length === 0) {
+      dispatch(fetchVideos())
+        .unwrap()
+        .catch(error => {
+          console.error("Ошибка загрузки видео:", error);
+        });
     }
   }, [dispatch, status, pathname, navigate, progressItem, videos.length]);
 
