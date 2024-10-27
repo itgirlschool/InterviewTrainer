@@ -1,12 +1,23 @@
 @import "../../style/vars.scss";
 @import "../../style/template.scss";
 
-.nav_link {
-  width: 90%;
-  margin: 0 auto;
-  .__home {
-    color: $pink-color;
-    font-size: 1rem;
+.nav_link__home {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40px;
+    cursor: pointer;
+    border: none;
+    width: 16%;
+    gap: 1%;
+    border-radius: 50px;
+    font-size: 16px;
+    color: $white-color;
+    background: $pink-color;
     margin-left: 3rem;
+    text-decoration: none;
+    margin-left: 1%;
+    margin-bottom: 1%;
   }
-}
+
