@@ -13,6 +13,7 @@ const ProfileSidebar = () => {
     const { displayName } = useSelector((state) => state.userAuth);
     
     const getInitials = (name) => {
+        if (!name) return '';
         return name.split(' ').map(n => n[0]).join('').toUpperCase();
     };
 
@@ -24,7 +25,7 @@ const ProfileSidebar = () => {
                 </div>
                 <div className="text-container">
                     <h2 className='welcome-message'>Добро пожаловать</h2>
-                    <h3 className='display-name'>{displayName}</h3>
+                    <h3 className='display-name'>{displayName || 'Гость'}</h3>
                 </div>
             </div>
             

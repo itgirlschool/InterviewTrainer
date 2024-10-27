@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Tooltip } from "antd";
 import ProfileForm from "./ProfileForm";
 import PasswordForm from "./PasswordForm";
+import ProfileFormAvatar from "./ProfileFormAvatar";
 import "./ProfileForms.scss";
 
 const ProfileForms = () => {
@@ -23,7 +24,7 @@ const ProfileForms = () => {
       <div className="profile__forms">
         {!isChangingPassword ? (
           <>
-            {/* <AvatarForm /> */}
+            <ProfileFormAvatar />
             <ProfileForm user={user} />
           </>
         ) : (

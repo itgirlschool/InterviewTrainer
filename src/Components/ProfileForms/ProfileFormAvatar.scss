@@ -1,0 +1,44 @@
+@import "../../style/template.scss";
+@import "../../style/vars.scss";
+
+.avatar__container {
+    display: flex;
+    flex-direction: column;
+    color: $color-black;
+    margin-bottom: 2vw;
+}
+
+.avatar__label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar__circle {
+    width: 64px; 
+    height: 64px; 
+    border-radius: 50%;
+    border: 1px solid $pink-color;
+    background-color: #F3F3F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.avatar__initials {
+    font-size: 24px; 
+    color: $pink-color; 
+    font-weight: 700;
+}
+
+.avatar__edit-icon {
+    margin-left: 8px; 
+    width: 24px; 
+    height: 24px; 
+}
+
+.avatar__text {
+    margin-left: 15px; 
+    font-size: 16px; 
+}
