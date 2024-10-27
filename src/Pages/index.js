@@ -14,8 +14,8 @@ import VideoFirst from "./GradingFirst/VideoFirst/VideoFirst";
 import VideoFirstItem from "./GradingFirst/VideoFirst/VideoFirstItem";
 import TheoryFirst from "./GradingFirst/TheoryFirst/TheoryFirst";
 import TheoryFirstItem from "./GradingFirst/TheoryFirst/TheoryFirstItem";
-import InterviewSecond from "./GradingSecond/InterviewSecond/InterviewSecond";
-import InterviewSecondItem from "./GradingSecond/InterviewSecond/InterviewSecondItem";
+import InterviewFirst from "./GradingFirst/InterviewFirst/InterviewFirst";
+import InterviewFirstItem from "./GradingFirst/InterviewFirst/InterviewFirstItem";
 import AutoTestsFirst from "./GradingFirst/AutoTestsFirst/AutoTestsFirst";
 import AutoTestsSlider from "../Components/AutoTestsSlider/AutoTestsSlider";
 import AutoTestsResults from "./AutoTestsResults/AutoTestsResults";
@@ -38,8 +38,8 @@ export {
   VideoFirstItem,
   TheoryFirst,
   TheoryFirstItem,
-  InterviewSecond,
-  InterviewSecondItem,
+  InterviewFirst,
+  InterviewFirstItem,
   AutoTestsFirst,
   AutoTestsSlider,
   AutoTestsResults,

@@ -1,17 +1,16 @@
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./VideoFirst.scss";
-import { fetchVideos } from "../../../Services/fetchVideos.js";
+import "./InterviewFirst.scss";
+import { fetchInterviews } from "../../../Services/fetchInterviews.js";
 import ThemeNavBar from "../../../Components/ThemeNavBar/ThemeNavBar.jsx";
-import { unwrapResult } from "@reduxjs/toolkit";
 
-export default function VideoFirst() {
+export default function InterviewFirst() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const videos = useSelector(state => state.videos.videos);
-  const status = useSelector(state => state.videos.status);
-  const error = useSelector(state => state.videos.error);
+  const videos = useSelector(state => state.interviews.interviews);
+  const status = useSelector(state => state.interviews.status);
+  const error = useSelector(state => state.interviews.error);
   const { pathname } = useLocation();
   const [gradeName, blockName] = pathname.split("/").slice(1);
   const [navBarIsHidden, setNavBarIsHidden] = useState(false);
@@ -24,16 +23,17 @@ export default function VideoFirst() {
     if (videos.length > 0 && progressItem !== undefined) {
       const nextVideo =
         progressItem > 0 && progressItem < videos.length ? Number(progressItem) + 1 : 1;
-      if (pathname === `/gradingfirst/videofirst`) {
-        navigate(`/gradingfirst/videofirst/${nextVideo}`, { replace: true });
+      if (pathname === `/gradingfirst/interviewfirst`) {
+        navigate(`/gradingfirst/interviewfirst/${nextVideo}`, { replace: true });
       }
     } else if (videos.length === 0) {
-      dispatch(fetchVideos())
+      dispatch(fetchInterviews())
         .unwrap()
         .catch(error => {
           console.error("Ошибка загрузки видео:", error);
         });
     }
+    // апарпеп
   }, [dispatch, status, pathname, navigate, progressItem, videos.length]);
 
   const toggleNavBar = () => {
@@ -48,23 +48,17 @@ export default function VideoFirst() {
             Вернуться назад к градации
           </Link>
         </div>
-        {status === "loading" ? (
-          <div className="loader">Загрузка видео...</div>
-        ) : (
-          <div
-            className={navBarIsHidden ? "videoPage__main__modified" : "videoPage__main"}
-          >
-            <ThemeNavBar
-              data={videos || []}
-              error={error}
-              status={status}
-              pagePath="videofirst"
-              gradingPath="gradingfirst"
-              toggleNavBar={toggleNavBar}
-            />
-            <Outlet />
-          </div>
-        )}
+        <div className={navBarIsHidden ? "videoPage__main__modified" : "videoPage__main"}>
+          <ThemeNavBar
+            data={videos || []}
+            error={error}
+            status={status}
+            pagePath="interviewfirst"
+            gradingPath="gradingfirst"
+            toggleNavBar={toggleNavBar}
+          />
+          <Outlet />
+        </div>
       </div>
     </div>
   );

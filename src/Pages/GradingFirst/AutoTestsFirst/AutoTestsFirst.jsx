@@ -33,11 +33,12 @@ export default function AutoTestsFirst() {
   }, [tests]);
 
   useEffect(() => {
-    const nextTest =
-      progressItem > 0 && progressItem < tests.length ? Number(progressItem) + 1 : 1;
-
-    if (pathname === `/gradingfirst/testsfirst`) {
-      navigate(`/gradingfirst/testsfirst/${nextTest}`, { replace: true });
+    if (tests.length > 0 && progressItem !== undefined) {
+      const nextTest =
+        progressItem > 0 && progressItem < tests.length ? Number(progressItem) + 1 : 1;
+      if (pathname === `/gradingfirst/testsfirst`) {
+        navigate(`/gradingfirst/testsfirst/${nextTest}`, { replace: true });
+      }
     }
   }, [tests, pathname, navigate, progressItem]);
 

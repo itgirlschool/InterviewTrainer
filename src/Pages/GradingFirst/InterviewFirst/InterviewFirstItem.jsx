@@ -3,17 +3,11 @@ import IframePlayer from "../../../Components/IframePlayer/IframePlayer";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default function InterviewSecondItem() {
+export default function InterviewFirstItem() {
   const { id } = useParams();
-  const data = useSelector(
-    state => state.interviews.interviews,
-  );
-  const status = useSelector(
-    state => state.interviews.status,
-  );
-  const error = useSelector(
-    state => state.interviews.error,
-  );
+  const data = useSelector(state => state.interviews.interviews);
+  const status = useSelector(state => state.interviews.status);
+  const error = useSelector(state => state.interviews.error);
 
   const [video, setVideo] = useState({});
 
@@ -24,17 +18,15 @@ export default function InterviewSecondItem() {
     }
   }, [data, id]);
 
-  if (status === "loading")
-    return <div>Загрузка видео...</div>;
-  if (status === "failed" || error)
-    return <div>Невозможно загрузить видео...</div>;
+  if (status === "loading") return <div>Загрузка видео...</div>;
+  if (status === "failed" || error) return <div>Невозможно загрузить видео...</div>;
   if (!data) return <div>Видео не найдены</div>;
 
   return (
     <IframePlayer
       currentVideo={video.youtubeId}
-      pagePath="interviewsecond"
-      gradingPath="gradingsecond"
+      pagePath="interviewfirst"
+      gradingPath="gradingfirst"
     />
   );
 }
