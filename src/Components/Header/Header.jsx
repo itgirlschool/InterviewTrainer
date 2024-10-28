@@ -5,6 +5,7 @@ import img_profileLittle from "../../assets/images/img_profile.svg";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import logout from "../../Services/fbLogout";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,10 +71,10 @@ export default function Header() {
             <img src={img_profileLittle} alt="Мой профиль" />
             Мой профиль
           </NavLink>
-          <NavLink className="popup__link" to="/signin">
+          <button className="popup__link" onClick={logout}>
             <LogoutOutlined className="icon" />
             Выйти
-          </NavLink>
+          </button>
         </div>
       </div>
       <div
@@ -88,18 +89,22 @@ export default function Header() {
           <div className="rainting__intro">
             <div className="active__status">Active</div>
             <div>Градация 1</div>
-            <div className="burger__percent">50%</div>
+            <div className="popup__percent">{progressTotal}%</div>
           </div>
-          <progress className="burger__progress" max="100" value="50"></progress>
+          <progress
+            className="burger__progress"
+            max="100"
+            value={progressTotal}
+          ></progress>
         </div>
         <NavLink className="popup__link burger__line" to="/profile">
           <img src={img_profileLittle} alt="Мой профиль" />
           Мой профиль
         </NavLink>
-        <NavLink className="popup__link" to="/signin">
+        <button className="popup__link" onClick={logout}>
           <LogoutOutlined className="icon" />
           Выйти
-        </NavLink>
+        </button>
       </div>
     </header>
   );

@@ -1,4 +1,9 @@
-import { getAuth, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  updatePassword,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
+} from "firebase/auth";
 
 export const changePassword = async (currentPassword, newPassword) => {
   const auth = getAuth();
@@ -23,4 +28,4 @@ export const changePassword = async (currentPassword, newPassword) => {
     }
     throw new Error(`Ошибка при изменении пароля: ${error.message}`);
   }
-}
+};
