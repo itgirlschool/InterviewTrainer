@@ -17,14 +17,21 @@
 .avatar__circle {
     width: 64px; 
     height: 64px; 
-    border-radius: 50%;
-    border: 1px solid $pink-color;
-    background-color: #F3F3F3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    border-radius: 50%; 
+    border: 1px solid $pink-color; 
+    background-color: #F3F3F3; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden; /* Добавлено, чтобы скрыть любые лишние части аватара */
 }
+
+.avatar__image {
+    width: 100%; /* Убедитесь, что изображение занимает 100% размера контейнера */
+    height: 100%; /* Убедитесь, что изображение занимает 100% размера контейнера */
+    object-fit: cover; /* Это позволит сохранить пропорции изображения при заполнении контейнера */
+}
+
 
 .avatar__initials {
     font-size: 24px; 
@@ -41,4 +48,88 @@
 .avatar__text {
     margin-left: 15px; 
     font-size: 16px; 
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal__content {
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar__preview-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid $pink-color;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.avatar__preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar__selection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.avatar__selection-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+
+    &:hover {
+        border-color: $pink-color;
+    }
+}
+
+.avatar__selection-image.selected {
+    border-color: $pink-color;
+}
+
+.modal__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.modal__buttons button {
+    background-color: $pink-color; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px;
+    cursor: pointer; 
+    border-radius: 5px;
+    transition: background-color 0.3s; 
+}
+
+.modal__buttons button:hover {
+    background-color: $grey;
 }
