@@ -10,7 +10,7 @@ import logout from "../../Services/fbLogout";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
-  const { displayName } = useSelector(state => state.userAuth);
+  const { displayName, avatar } = useSelector(state => state.userAuth);
 
   const getInitials = displayName => {
     if (!displayName) return "AN";
@@ -46,7 +46,13 @@ export default function Header() {
         </div>
         <div className="header__user">
           <div onClick={() => setIsOpen(!isOpen)}>
-            <div className="profile__img">{getInitials(displayName)}</div>
+          <div className="profile__img">
+              {avatar ? (
+                <img src={avatar} alt="Avatar" className="avatar__image" />
+              ) : (
+                getInitials(displayName)
+              )}
+            </div>
           </div>
           <div className="school__600">Нас уже 600+ учениц</div>
         </div>
@@ -82,7 +88,7 @@ export default function Header() {
         onClick={() => setBurgerActive(!burgerActive)}
       >
         <div className="burger__username">
-          <div className="profile__img">{getInitials(displayName)}</div>
+        <div className="profile__img">{avatar ? <img src={avatar} alt="Avatar" className="avatar__image" /> : getInitials(displayName)}</div>
           <div>{displayName || "Anonymous User"}</div>
         </div>
         <div className="burger__raiting">

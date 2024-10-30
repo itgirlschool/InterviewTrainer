@@ -25,7 +25,7 @@ const ProfileFormAvatar = () => {
 
     const handleSave = () => {
         dispatch(setAvatar(selectedAvatar));
-        setIsModalOpen(false); // Закрытие модального окна
+        setIsModalOpen(false);
     };
 
     const handleCancel = () => {
