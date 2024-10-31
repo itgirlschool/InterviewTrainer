@@ -29,8 +29,12 @@ const ProfileFormAvatar = () => {
 
     const handleSave = async () => {
         if (selectedAvatar !== currentUserData.avatar) {
-            await updateUserAvatar(userID, selectedAvatar);
-            dispatch(setAvatar(selectedAvatar)); 
+            const usersArray = Array.isArray(usersList) ? usersList : Object.values(usersList); 
+            const userIndex = usersArray.findIndex( 
+              user => user.id && user.id.trim() === userID.trim(), 
+            ); 
+            const userEntry = usersArray[userIndex]; 
+            await updateUserAvatar(userEntry.key, selectedAvatar);
         }
         setIsModalOpen(false);
     };
