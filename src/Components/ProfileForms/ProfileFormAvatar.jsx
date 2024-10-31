@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setAvatar } from "../../app/store/slice/UserAuthSlice";
-import edit_icon from "../../../src/assets/images/edit_icon.svg";
-import { availableAvatars } from './availableAvatars';
-import "./ProfileFormAvatar.scss";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAvatar } from '../../app/store/slice/UserAuthSlice';
+import { updateUserAvatar } from '../../Services/fbAvatar'; // Импортируем функцию обновления аватара
+import edit_icon from '../../../src/assets/images/edit_icon.svg';
+import avatars from './avatars';
+import './ProfileFormAvatar.scss';
 
 const ProfileFormAvatar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedAvatar, setSelectedAvatar] = useState(null);
     const user = useSelector((state) => state.userAuth);
     const dispatch = useDispatch();
-
-    console.log(availableAvatars);
-
+    const [selectedAvatar, setSelectedAvatar] = useState(user.avatar);
+    
     useEffect(() => {
         if (user.avatar) {
             setSelectedAvatar(user.avatar);
@@ -23,7 +22,9 @@ const ProfileFormAvatar = () => {
         setSelectedAvatar(avatar);
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
+        // Обновляем аватар в базе данных
+        await updateUserAvatar(user.id, selectedAvatar);
         dispatch(setAvatar(selectedAvatar));
         setIsModalOpen(false);
     };
@@ -33,7 +34,7 @@ const ProfileFormAvatar = () => {
     };
 
     const getInitials = () => {
-        return user.displayName ? user.displayName.split(" ").map(n => n[0]).join("").toUpperCase() : "А";
+        return user.displayName ? user.displayName.split(' ').map(n => n[0]).join('').toUpperCase() : 'А';
     };
 
     return (
@@ -52,18 +53,22 @@ const ProfileFormAvatar = () => {
 
             {isModalOpen && (
                 <div className="modal">
-                    <div className="modal__content" style={{ backgroundColor: '#F3F3F3' }}>
+                    <div className="modal__content">
                         <div className="avatar__preview-circle">
-                            <img src={selectedAvatar} alt="Selected Avatar" className="avatar__preview-image" />
+                            {selectedAvatar ? (
+                                <img src={selectedAvatar} alt="Selected Avatar" className="avatar__preview-image" />
+                            ) : (
+                                <span className="avatar__preview-text">Выбери котика</span>
+                            )}
                         </div>
                         <div className="avatar__selection">
-                            {availableAvatars.map((avatar, index) => (
+                            {avatars.map(({ id, image }) => (
                                 <img
-                                    key={index}
-                                    src={avatar}
-                                    alt={`Avatar ${index}`}
-                                    className={`avatar__selection-image ${selectedAvatar === avatar ? 'selected' : ''}`}
-                                    onClick={() => handleAvatarSelect(avatar)}
+                                    key={id}
+                                    src={image}
+                                    alt={`Avatar ${id}`} 
+                                    className={`avatar__selection-image ${selectedAvatar === image ? 'selected' : ''}`}
+                                    onClick={() => handleAvatarSelect(image)}
                                 />
                             ))}
                         </div>

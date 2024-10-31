@@ -14,13 +14,15 @@ const ProfileSidebar = () => {
   const { displayName, avatar } = useSelector(state => state.userAuth);
 
   const getInitials = name => {
+    if (!name) return "";
+    
     return name
       .split(" ")
       .map(n => n[0])
       .join("")
       .toUpperCase();
   };
-
+  
   return (
     <div className="sidebar-profile">
       <div className="header-container">

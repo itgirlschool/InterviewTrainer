@@ -11,8 +11,9 @@ export default function getRegister(user, setUserError, navigate) {
         lastName: user.lastName,
         displayName: `${user.firstName} ${user.lastName}`,
         email: user.email,
-        id: data.user.uid,
+        id: data.user.id,
         password: user.password,
+        avatar: user.avatar,
         progress: {
           gradeName: "gradingfirst",
           blocks: [
