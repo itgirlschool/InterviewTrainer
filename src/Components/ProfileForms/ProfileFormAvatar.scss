@@ -23,13 +23,13 @@
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    overflow: hidden; /* Добавлено, чтобы скрыть любые лишние части аватара */
+    overflow: hidden; 
 }
 
 .avatar__image {
-    width: 100%; /* Убедитесь, что изображение занимает 100% размера контейнера */
-    height: 100%; /* Убедитесь, что изображение занимает 100% размера контейнера */
-    object-fit: cover; /* Это позволит сохранить пропорции изображения при заполнении контейнера */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
 }
 
 
