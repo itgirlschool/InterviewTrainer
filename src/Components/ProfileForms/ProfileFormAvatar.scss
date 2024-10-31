@@ -72,7 +72,9 @@
     flex-direction: column;
     align-items: center;
     background-color: #F3F3F3;
+    
 }
+
 
 .avatar__preview-circle {
     width: 100px;
@@ -139,4 +141,34 @@
 
 .modal__buttons button:hover {
     background-color: $grey;
+}
+@media ($LargeMobile) {
+    .modal__content {
+        padding: 10px; 
+        max-width: 90%; 
+    }
+
+    .avatar__preview-circle {
+        width: 80px; 
+        height: 80px;
+    }
+
+    .avatar__selection {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    
+    .avatar__selection-image {
+        width: 80px; 
+        height: 80px; 
+    }
+
+    .modal__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .modal__buttons button {
+        width: 100%;
+        margin-bottom: 10px; 
+    }
 }
