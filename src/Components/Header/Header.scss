@@ -45,6 +45,7 @@
   cursor: pointer;
   background-color: $pink-color;
   border-radius: 50%;
+  overflow: hidden;
   @include flex__center;
   justify-content: center;
 }

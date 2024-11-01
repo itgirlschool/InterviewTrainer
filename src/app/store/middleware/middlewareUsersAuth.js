@@ -5,7 +5,7 @@ const middlewareUsers = database => {
     if (action.type === "SUBSCRIBE_TO_USER") {
       database.ref("users").on("value", snapshot => {
         const data = Object.values(snapshot.val());
-        const { displayName, email, id, password, lastName, firstName, progress } =
+        const { displayName, email, id, password, lastName, firstName, progress, avatar } =
           data.find(user => user.email === action.emailUser);
         store.dispatch(
           setUser({
@@ -16,6 +16,7 @@ const middlewareUsers = database => {
             lastName,
             firstName,
             progress,
+            avatar,
           }),
         );
       });

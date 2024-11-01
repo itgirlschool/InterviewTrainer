@@ -13,6 +13,7 @@ export default function getRegister(user, setUserError, navigate) {
         email: user.email,
         id: data.user.uid,
         password: user.password,
+        avatar: user.avatar,
         progress: {
           gradeName: "gradingfirst",
           blocks: [

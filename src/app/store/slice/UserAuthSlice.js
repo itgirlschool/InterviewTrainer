@@ -43,6 +43,10 @@ const userAuthSlice = createSlice({
       state.isAuth = true;
     },
 
+    setAvatar: (state, action) => {
+      state.avatar = action.payload; 
+    },
+
     removeUser: state => {
       state.email = null;
       state.password = null;
@@ -56,5 +60,5 @@ const userAuthSlice = createSlice({
   },
 });
 
-export const { setUser, removeUser } = userAuthSlice.actions;
+export const { setUser, setAvatar, removeUser } = userAuthSlice.actions;
 export default userAuthSlice.reducer;

@@ -11,21 +11,27 @@ import diamond_yellow_icon from "../../../../src/assets/images/diamond_yellow_ic
 import logout from "../../../Services/fbLogout";
 
 const ProfileSidebar = () => {
-  const { displayName } = useSelector(state => state.userAuth);
+  const { displayName, avatar } = useSelector(state => state.userAuth);
 
   const getInitials = name => {
+    if (!name) return "";
+    
     return name
       .split(" ")
       .map(n => n[0])
       .join("")
       .toUpperCase();
   };
-
+  
   return (
     <div className="sidebar-profile">
       <div className="header-container">
-        <div className="avatar-container">
-          <div className="profile__img">{getInitials(displayName)}</div>
+      <div className="avatar-container">
+          {avatar ? (
+            <img src={avatar} alt="User Avatar" className="profile__img" />
+          ) : (
+            <div className="profile__img">{getInitials(displayName)}</div>
+          )}
         </div>
         <div className="text-container">
           <h2 className="welcome-message">Добро пожаловать</h2>
