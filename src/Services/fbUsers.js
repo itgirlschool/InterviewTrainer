@@ -4,7 +4,7 @@ export const addUser = async (user) => {
   try {
     const ref = database.ref("users").push();
     const { key } = ref;
-    await ref.set({ ...user, key });
+    await ref.set({ ...user, key,avatar:'/src/assets/images/avatar2.jpg' });
   } catch (err) {
     console.log(err);
   }
