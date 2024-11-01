@@ -1,102 +1,88 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import "./ResetPassword.scss";
 
 export default function ResetPassword() {
   const {
     register,
     handleSubmit,
-    getFieldState,
     reset,
-    formState,
-    formState: { isSubmitSuccessful, isDirty, isValid },
+    formState: { isSubmitSuccessful, isDirty, isValid, errors },
   } = useForm({
     mode: "onChange",
-
     defaultValues: {
       email: "",
     },
   });
-  const [dataUser, setDataUser] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [trueUser, setTrueUser] = useState(true);
-  const {users} = useSelector((state) => state.users);
+
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
   useEffect(() => {
     if (isSubmitSuccessful) {
       reset({ email: "" });
     }
-  }, [formState, reset]);
+  }, [isSubmitSuccessful, reset]);
 
+  const onSubmit = async (data) => {
 
-  const onSubmit = (data) => {
-    const myArr = Object.values(users);
-    const result = myArr.find((el) => el.email === data.email);
-    if (result) {
-      setDataUser(result.password)
-      setShowModal(true);
-      return
+    const auth = getAuth();
+    auth.languageCode = "ru";
+
+    try {
+      await sendPasswordResetEmail(auth, data.email);
+      setSuccess(true);
+      setError(null);
+    } catch (err) {
+      console.error(err)
+      setError("Ошибка при отправке письма. Проверьте email и попробуйте снова.");
+      setSuccess(false);
     }
-     setTrueUser(false);
   };
 
   return (
     <div className="reset__container">
       <form
-        className={trueUser ? "form" : "hidden"}
+        className="form"
         onSubmit={handleSubmit(onSubmit)}
       >
         <p className="reset__header">Забыли пароль?</p>
+
+        {success && (
+        <div className="message__success">
+          Письмо для сброса пароля отправлено! Проверьте вашу почту.
+        </div>
+        )}
+
+        {error && <div className="message__error">{error}</div>}
+        
         <input
           className="input"
-          {...register("email", { required: true, pattern: /^\S+@\S+\.\S+$/i })}
+          {...register("email", { 
+            required: "Введите email",
+            pattern: {
+              value: /^\S+@\S+\.\S+$/i,
+              message: "Неверный формат email",
+            },
+          })}
           type="text"
           placeholder="Ваш Email"
         />
-        {""}
-        <div className="message__error">
-          {isDirty && !isValid && "Ошибка формата ввода Email"}
-        </div>
-        {""}
+        {errors.email && <div className="message__error">{errors.email.message}</div>}
+
         <button
           disabled={!isDirty || !isValid}
-          className={"button__submit"}
+          className="button__submit"
           type="submit"
         >
-          Показать пароль
+          Отправить письмо для сброса
         </button>
         <Link to="/login">
           <p className="button__back">Вернуться</p>
         </Link>
       </form>
-      <div className={trueUser ? "hidden" : "form"}>
-        <p className="reset__header">E-mail не найден</p>
-        <Link to="/signin">
-          <p className="button__sighnin">Создать аккаунт</p>
-        </Link>
-        <button
-          onClick={(e) => {
-            setTrueUser(true);
-          }}
-          className="button__back"
-        >
-          Назад
-        </button>
-      </div>
-      <div className={!showModal ? "hidden" : "modal__overlay"}>
-        <div className="modal">
-          <div className="modal__data">{dataUser}</div>
-          <button
-            className="modal__button"
-            onClick={() => {
-              setShowModal(false);
-            }}
-          >
-            Ок
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

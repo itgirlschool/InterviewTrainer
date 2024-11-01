@@ -4,21 +4,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTests } from "../../../Services/fetchTests";
 import LinkBack from "../../../Components/LinkBack/LinkBack";
-import findCorrectAnswersInSlice from "../../../common/helpers/findCorrectAnswersInSlice";
+import findCorrectAnswersInSlice from "../../../common/helpers/findCorrectAnswersInSlice.js";
 import { addCorrectAnswers } from "../../../app/store/slice/AutoTestsSlice";
 
 export default function AutoTestsFirst() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
+  const [gradeName, blockName] = pathname.split("/").slice(1);
   const tests = useSelector(state => state.autoTests.tests);
   const status = useSelector(state => state.autoTests.status);
+  const progressItem = useSelector(state => {
+    const grade = state.userAuth.progress.find(grade => grade.gradeName === gradeName);
+    return grade?.blocks?.find(block => block.blockName === blockName)?.lastItem || 0;
+  });
 
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchTests());
     }
-  }, [dispatch]);
+  }, [status, dispatch]);
 
   useEffect(() => {
     if (tests.length > 0) {
@@ -28,12 +33,14 @@ export default function AutoTestsFirst() {
   }, [tests]);
 
   useEffect(() => {
-    if (tests.length > 0 && pathname === "/gradingfirst/testsfirst") {
-      navigate("/gradingfirst/testsfirst/1", {
-        replace: true,
-      });
+    if (tests.length > 0 && progressItem !== undefined) {
+      const nextTest =
+        progressItem > 0 && progressItem < tests.length ? Number(progressItem) + 1 : 1;
+      if (pathname === `/gradingfirst/testsfirst`) {
+        navigate(`/gradingfirst/testsfirst/${nextTest}`, { replace: true });
+      }
     }
-  }, [tests, pathname, navigate]);
+  }, [tests, pathname, navigate, progressItem]);
 
   return (
     <div className="autotests">

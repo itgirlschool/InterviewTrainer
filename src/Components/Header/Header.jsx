@@ -5,21 +5,32 @@ import img_profileLittle from "../../assets/images/img_profile.svg";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import logout from "../../Services/fbLogout";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
-  const { displayName } = useSelector((state) => state.userAuth);
+  const { displayName, avatar } = useSelector(state => state.userAuth);
 
-  const getInitials = (displayName) => {
+  const getInitials = displayName => {
     if (!displayName) return "AN";
     const initials = displayName
       .split(" ")
-      .map((word) => word[0])
+      .map(word => word[0])
       .join("")
       .toUpperCase();
     return initials;
   };
+
+  const progressTotal = useSelector(state => {
+    const progress = state.userAuth?.progress;
+    if (progress && progress.length > 0) {
+      const gradeName = "gradingfirst";
+      const grade = progress.find(g => g.gradeName === gradeName);
+      return grade ? grade.totalProgress : 0;
+    }
+    return 0;
+  });
 
   return (
     <header className="header">
@@ -35,7 +46,13 @@ export default function Header() {
         </div>
         <div className="header__user">
           <div onClick={() => setIsOpen(!isOpen)}>
-            <div className="profile__img">{getInitials(displayName)}</div>
+          <div className="profile__img">
+              {avatar ? (
+                <img src={avatar} alt="Avatar" className="avatar__image" />
+              ) : (
+                getInitials(displayName)
+              )}
+            </div>
           </div>
           <div className="school__600">Нас уже 600+ учениц</div>
         </div>
@@ -44,35 +61,26 @@ export default function Header() {
           className={`burger__img ${!burgerActive ? "menu" : "close"}`}
         ></button>
       </div>
-      <div
-        className={` ${isOpen ? "overlay" : ""}`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      <div className={` ${isOpen ? "overlay" : ""}`} onClick={() => setIsOpen(!isOpen)}>
         <div className={`header__popup ${isOpen ? "active" : ""}`}>
-          <div className="popup__username">
-            {displayName || "Anonymous User"}
-          </div>
+          <div className="popup__username">{displayName || "Anonymous User"}</div>
           <div className="popup__raitinginfo">
-            <div className="pupup__grade">Градация 1</div>
-            <div className="popup__percent">50%</div>
+            <div className="pupup__grade">Intern</div>
+            <div className="popup__percent">{progressTotal}%</div>
             <progress
               className="popup__progress"
               max="100"
-              value="50"
+              value={progressTotal}
             ></progress>
           </div>
           <NavLink className="popup__link" to="/profile">
             <img src={img_profileLittle} alt="Мой профиль" />
             Мой профиль
           </NavLink>
-          <NavLink className="popup__link" to="#">
-            <SettingOutlined className="icon" />
-            Настройки
-          </NavLink>
-          <NavLink className="popup__link" to="/signin">
+          <button className="popup__link" onClick={logout}>
             <LogoutOutlined className="icon" />
             Выйти
-          </NavLink>
+          </button>
         </div>
       </div>
       <div
@@ -80,39 +88,29 @@ export default function Header() {
         onClick={() => setBurgerActive(!burgerActive)}
       >
         <div className="burger__username">
-          <div className="profile__img">{getInitials(displayName)}</div>
+        <div className="profile__img">{avatar ? <img src={avatar} alt="Avatar" className="avatar__image" /> : getInitials(displayName)}</div>
           <div>{displayName || "Anonymous User"}</div>
         </div>
         <div className="burger__raiting">
           <div className="rainting__intro">
             <div className="active__status">Active</div>
             <div>Градация 1</div>
-            <div className="burger__percent">50%</div>
+            <div className="popup__percent">{progressTotal}%</div>
           </div>
           <progress
             className="burger__progress"
             max="100"
-            value="50"
+            value={progressTotal}
           ></progress>
         </div>
-        <NavLink className="burger__line" to="/home">
-          Выбор градации
-        </NavLink>
-        <NavLink className="burger__line" to="/instructions">
-          Инструкции
-        </NavLink>
         <NavLink className="popup__link burger__line" to="/profile">
           <img src={img_profileLittle} alt="Мой профиль" />
           Мой профиль
         </NavLink>
-        <NavLink className="popup__link burger__line" to="#">
-          <SettingOutlined className="icon" />
-          Настройки
-        </NavLink>
-        <NavLink className="popup__link" to="/signin">
+        <button className="popup__link" onClick={logout}>
           <LogoutOutlined className="icon" />
           Выйти
-        </NavLink>
+        </button>
       </div>
     </header>
   );

@@ -2,291 +2,288 @@
 @import "../../style/vars";
 
 .header {
-    font-family:$fontSans;
-    min-height: 10vh;
-    background-color: $background-beige;
-    @include flex__center;
+  font-family: $fontSans;
+  min-height: 10vh;
+  background-color: $background-beige;
+  @include flex__center;
 }
 
 .header__body {
-    width: 100vw;
-    padding: 0 87px;
-    @include flex__center;
-    justify-content: space-between;
-    align-items: center;
+  width: 100vw;
+  padding: 0 87px;
+  @include flex__center;
+  justify-content: space-between;
+  align-items: center;
 
-    & .header__logo img {
+  & .header__logo img {
     height: 90%;
     cursor: pointer;
-    } 
+  }
 }
 
 .header__links {
-    @include flex__center;
-    font-size: 14px;
-    gap: 50px;
-    
-    div {
-        color: $color-black;
-    }
+  @include flex__center;
+  font-size: 14px;
+  gap: 50px;
 
+  div {
+    color: $color-black;
+  }
 }
 
 .header__user {
-    @include flex__center;
-    font-size: 14px;
-    font-weight: bold;
-    color: $white-color;
-    gap: 14px;
+  @include flex__center;
+  font-size: 14px;
+  font-weight: bold;
+  color: $white-color;
+  gap: 14px;
 }
 
 .profile__img {
-    width: 52px;
-    height: 52px;
-    cursor: pointer;
-    background-color: $pink-color;
-    border-radius: 50%;
-    @include flex__center;
-    justify-content: center;
-    
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+  background-color: $pink-color;
+  border-radius: 50%;
+  overflow: hidden;
+  @include flex__center;
+  justify-content: center;
 }
 
 .school__600 {
-    background-color: $pink-color;
-    @include flex__center;
-    justify-content: center;
-    border-radius: 73px;
-    padding: 0 32px;
-    height: 52px;
+  background-color: $pink-color;
+  @include flex__center;
+  justify-content: center;
+  border-radius: 73px;
+  padding: 0 32px;
+  height: 52px;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
 }
 
 .header__popup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: $blackcolor;
+  background-color: $white-color;
+  box-shadow: 0px 4px 8px 0px #5c5c5c1a, 2px 14px 14px 0px #5c5c5c17,
+    4px 32px 19px 0px #5c5c5c0d, 8px 57px 23px 0px #5c5c5c03, 12px 89px 25px 0px #5c5c5c00;
+  border-radius: 18px;
+  padding: 16px 16px 21px;
+  font-size: 14px;
+  position: fixed;
+  z-index: 12;
+  right: 300px;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: 0.01s;
+
+  .popup__username,
+  .pupup__grade {
+    color: $color-black;
+  }
+}
+
+.header__popup.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  position: fixed;
+  top: 9vh;
+}
+
+.popup__raitinginfo {
+  display: grid;
+  grid-template: auto auto/auto auto;
+
+  .popup__percent {
+    color: $pink-color;
+    justify-self: end;
+  }
+
+  .popup__progress {
+    grid-column: 2 span;
+    accent-color: $pink-color;
+    width: 224px;
+    height: 20px;
+  }
+}
+
+.popup__link {
+  text-decoration: none;
+  color: $blackcolor;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  @include flex__center;
+
+  img,
+  svg {
+    padding-right: 8px;
+    height: 26px;
+    width: 26px;
+    color: $pink-color;
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+@media #{$Desktop} {
+  .burger,
+  .burger__img {
+    display: none;
+  }
+}
+
+@media #{$Tablet} {
+  .header__body {
+    margin: 0 16px;
+    padding: 16px 26px;
+    background-color: $white-color;
+    border-radius: 14px;
+  }
+
+  .header__links,
+  .header__user {
+    display: none;
+  }
+
+  .header__logo {
+    & img {
+      height: 36px;
+    }
+  }
+
+  .burger__img {
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background-color: $pink-color;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .burger__img.menu {
+    background-image: url("../../assets/images/img_burgermenu.svg");
+  }
+
+  .burger__img.close {
+    background-image: url("../../assets/images/img_closemenu.svg");
+  }
+
+  .burger {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     color: $blackcolor;
-    background-color: $white-color;
-    box-shadow: 0px 4px 8px 0px #5C5C5C1A,
-                2px 14px 14px 0px #5C5C5C17,
-                4px 32px 19px 0px #5C5C5C0D,
-                8px 57px 23px 0px #5C5C5C03,
-                12px 89px 25px 0px #5C5C5C00;
-    border-radius: 18px;
-    padding: 16px 16px 21px;
-    font-size: 14px;
+    padding: 26px;
+    gap: 16px;
     position: fixed;
-    z-index: 12;
-    right: 300px;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    background-color: $background-beige;
     opacity: 0;
     transform: translateY(-10px);
     visibility: hidden;
     transition: 0.01s;
-
-    .popup__username,
-    .pupup__grade {
-        color: $color-black;
+    a {
+      text-decoration: none;
+      color: $blackcolor;
+      font-size: 16px;
     }
-}
+  }
 
-.header__popup.active {
+  .burger.active {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
-    position: fixed;
-    top: 9vh;
-}
+  }
 
-.popup__raitinginfo {
-    display: grid;
-    grid-template: auto auto/auto auto;
-
-
-    .popup__percent {
-        color: $pink-color;
-        justify-self: end;
-    }
-
-    .popup__progress {
-        grid-column: 2 span;
-        accent-color: $pink-color;
-        width: 224px;
-        height: 20px;
-    }
-}
-
-.popup__link {
-    text-decoration: none;
-    color: $blackcolor;
+  .burger__username {
     @include flex__center;
+    gap: 16px;
+    font-size: 20px;
+    font-weight: 700;
 
+    img {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  .burger__raiting {
+    padding-top: 20px;
+    width: 78vw;
+
+    .rainting__intro {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .active__status {
+      position: fixed;
+      background-color: $color-green;
+      font-size: 10px;
+      color: $background-general;
+      padding: 2px 12px;
+      border-radius: 20px;
+      left: 110px;
+      top: 96px;
+    }
+
+    .burger__percent {
+      color: $pink-color;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .burger__progress {
+      accent-color: $pink-color;
+      width: 78vw;
+      height: 3vh;
+    }
+  }
+
+  .popup__link {
     img,
     svg {
-        padding-right: 8px;
-        height: 26px;
-        width: 26px;
-        color: $pink-color;
-        justify-self: center;
-        align-self: center;
+      width: 44px;
+      height: 28px;
+      padding-right: 16px;
     }
-}
+  }
 
-@media #{$Desktop} {
-    .burger,
-    .burger__img {
-    display: none;
-}
-}
-
-@media #{$Tablet}  {
-    .header__body {
-        margin: 0 16px;
-        padding: 16px 26px;
-        background-color: $white-color;
-        border-radius: 14px;
-    }
-
-    .header__links,
-    .header__user {
-        display: none;
-    }
-
-    .header__logo {
-        & img {
-            height: 36px;
-        }
-    }
-
-    .burger__img {
-       border: none;
-       border-radius: 50%;
-       width: 36px;
-       height: 36px;
-       background-color: $pink-color;
-       background-repeat: no-repeat;
-       background-position: center;
-    }
-
-    .burger__img.menu {
-        background-image: url("../../assets/images/img_burgermenu.svg");
-     }
-
-     .burger__img.close {
-        background-image: url("../../assets/images/img_closemenu.svg");
-     }
-
-    .burger {
-        display: flex;
-        flex-direction: column;
-        color: $blackcolor;
-        padding: 26px;
-        gap: 16px;
-        position: fixed;
-        top: 10vh;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 4;
-        background-color: $background-beige;
-        opacity: 0;
-        transform: translateY(-10px);
-        visibility: hidden;
-        transition: 0.01s;
-        a {
-            text-decoration: none;
-            color: $blackcolor;
-            font-size: 16px;
-        }
-    }
-
-    .burger.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .burger__username {
-        @include flex__center;
-        gap: 16px;
-        font-size: 20px;
-        font-weight: 700;
-
-        img {
-            width: 48px;
-            height: 48px;
-        }
-    }
-
-    .burger__raiting {
-        padding-top: 20px;
-        width: 78vw;
-
-        .rainting__intro {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .active__status {
-            position: fixed;
-            background-color: $color-green;
-            font-size: 10px;
-            color: $background-general;
-            padding: 2px 12px;
-            border-radius: 20px;
-            left: 110px;
-            top: 96px;
-        }
-
-        .burger__percent {
-            color: $pink-color;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .burger__progress {
-            accent-color: $pink-color;
-            width: 78vw;
-            height: 3vh;
-        }
-    }
-
-    .popup__link {
-        img,
-        svg {
-            width: 44px;
-            height: 28px;
-            padding-right: 16px;
-        }
-    }
-
-    .burger__line {
-        border-bottom: 0.3px solid $pink-color;
-        padding-bottom: 16px;
-    }
+  .burger__line {
+    border-bottom: 0.3px solid $pink-color;
+    padding-bottom: 16px;
+  }
 }
 
 @media #{$Mobile} {
-    .header__body {
-        padding: 11px 16px;
-    }
+  .header__body {
+    padding: 11px 16px;
+  }
 
-    .header__logo {
-        & img {
-            height: 29px;
-        }
+  .header__logo {
+    & img {
+      height: 29px;
     }
+  }
 
-    .burger__img {
-        width: 32px;
-        height: 32px;
-     }
+  .burger__img {
+    width: 32px;
+    height: 32px;
+  }
 }
-

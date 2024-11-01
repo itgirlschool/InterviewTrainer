@@ -1,0 +1,48 @@
+@import "../../style/vars.scss";
+
+.profile__forms__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .profile__forms__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2vw;
+    padding-left: 2vw;
+    margin-right: 2vw;
+    
+  }
+  .profile__forms__heading {
+    color: #3C3C3C;
+  }
+
+  .profile__forms {
+    padding-left: 2vw;
+  }
+}
+
+@media ($LargeMobile) {
+  .profile__forms {
+    flex-direction: column;
+    row-gap: 34px;
+  }
+}
+
+.settings__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  box-shadow:
+    0px 0px 1.77px 0px #4545451A,
+    1.77px 3.53px 3.53px 0px #45454517,
+    3.53px 7.06px 5.3px 0px #4545450D,
+    7.06px 12.36px 5.3px 0px #45454503,
+    10.59px 19.42px 7.06px 0px #45454500;
+
+}
