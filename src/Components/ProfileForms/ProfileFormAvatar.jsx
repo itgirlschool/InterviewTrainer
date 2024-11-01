@@ -43,8 +43,16 @@ const ProfileFormAvatar = () => {
         setIsModalOpen(false);
     };
 
-    const getInitials = () => {
-        return currentUserData.displayName ? currentUserData.displayName.split(' ').map(n => n[0]).join('').toUpperCase() : 'А';
+    const { displayName} = useSelector(state => state.userAuth);
+
+    const getInitials = displayName => {
+      if (!displayName) return "AN";
+      const initials = displayName
+        .split(" ")
+        .map(word => word[0])
+        .join("")
+        .toUpperCase();
+      return initials;
     };
 
     return (
@@ -54,7 +62,7 @@ const ProfileFormAvatar = () => {
                     {currentUserData.avatar ? (
                         <img src={currentUserData.avatar} alt="Avatar" className="avatar__image" />
                     ) : (
-                        <span className="avatar__initials">{getInitials()}</span>
+                        <span className="avatar__initials">{getInitials(displayName)}</span>
                     )}
                 </div>
                 <span className="avatar__text">Изменить фото профиля</span>

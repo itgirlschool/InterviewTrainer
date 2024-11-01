@@ -13,14 +13,14 @@ import logout from "../../../Services/fbLogout";
 const ProfileSidebar = () => {
   const { displayName, avatar } = useSelector(state => state.userAuth);
 
-  const getInitials = name => {
-    if (!name) return "";
-    
-    return name
+  const getInitials = displayName => {
+    if (!displayName) return "AN";
+    const initials = displayName
       .split(" ")
-      .map(n => n[0])
+      .map(word => word[0])
       .join("")
       .toUpperCase();
+    return initials;
   };
   
   return (
