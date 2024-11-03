@@ -38,3 +38,51 @@
     width: 64vw;
     margin: 1%;
 }
+@media (max-width: 1024px) {
+    .container__main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .progress__block {
+        width: 80vw;
+        height: 12vh;
+    }
+
+    .welcome__block {
+        width: 80vw;
+        height: auto;
+    }
+
+    .user__info__block {
+        width: 80vw;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container__main {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .progress__block {
+        flex-direction: column;
+        width: 90vw;
+        height: auto;
+        margin-top: 5%;
+    }
+
+    .welcome__block {
+        width: 90vw;
+        height: auto;
+        margin: 5% 0;
+    }
+
+    .user__info__block {
+        width: 90vw;
+        height: auto;
+        margin: 5% 0;
+    }
+}
