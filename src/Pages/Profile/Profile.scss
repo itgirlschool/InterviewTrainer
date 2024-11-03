@@ -4,12 +4,18 @@
 .container__main{
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 70vh;
+    width: 90vw;
+    gap: 10px;
+    margin: auto;
+    padding: 25px;
 }
 
 .container__info{
     display: flex;
     flex-direction: column;
+    align-items: center;
+
 }
 
 .progress__block,.welcome__block, .user__info__block{
@@ -22,7 +28,7 @@
     flex-direction: row;
     border-radius: 30px;
     height: 15vh;
-    width: 65vw;
+    width: 64vw;
     margin-top: 2%;
 }
 
@@ -42,6 +48,7 @@
     .container__main {
         flex-direction: column;
         align-items: center;
+        height: 100%;
     }
 
     .progress__block {
@@ -65,6 +72,7 @@
         flex-direction: column;
         align-items: center;
         padding: 10px;
+        height: 100%;
     }
 
     .progress__block {
