@@ -5,6 +5,7 @@ const middlewareUsers = (database) => {
     if (action.type === "SUBSCRIBE_TO_USERS") {
       database.ref("users").on("value", (snapshot) => {
         const data = snapshot.val();
+        if(!data)return next(action);
         store.dispatch(setUsers(data));
       });
     }

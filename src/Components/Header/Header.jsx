@@ -6,12 +6,15 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import logout from "../../Services/fbLogout";
+import { removeUser } from "../../app/store/slice/UserAuthSlice.js";
+import { useDispatch } from "react-redux";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
   const { displayName, avatar } = useSelector(state => state.userAuth);
-
+const  dispatch = useDispatch()
   const getInitials = displayName => {
     if (!displayName) return "AN";
     const initials = displayName
@@ -77,7 +80,9 @@ export default function Header() {
             <img src={img_profileLittle} alt="Мой профиль" />
             Мой профиль
           </NavLink>
-          <button className="popup__link" onClick={logout}>
+          <button className="popup__link" onClick={()=>{
+            logout().then(()=>{dispatch(removeUser())})
+          }}>
             <LogoutOutlined className="icon" />
             Выйти
           </button>
@@ -107,7 +112,9 @@ export default function Header() {
           <img src={img_profileLittle} alt="Мой профиль" />
           Мой профиль
         </NavLink>
-        <button className="popup__link" onClick={logout}>
+        <button className="popup__link" onClick={()=>{
+          logout().then(()=>{dispatch(removeUser())})
+        }}>
           <LogoutOutlined className="icon" />
           Выйти
         </button>

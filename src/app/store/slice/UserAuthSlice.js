@@ -56,6 +56,8 @@ const userAuthSlice = createSlice({
       state.avatar = null;
       state.feedback = null;
       state.isAuth = false;
+      state.lastName=null
+      state.firstName = null;
     },
   },
 });
