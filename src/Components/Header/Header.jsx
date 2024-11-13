@@ -61,14 +61,14 @@ export default function Header() {
               Интересные курсы <i className="fa fa-caret-down"></i>
             </button>
             <div className={`header__dropdown__content ${isCoursesDropdownOpen ? "open" : ""}`}>
-              <a href="https://itgirlschool.com/chat-bot">Архитектор чат-ботов</a>
-              <a href="https://itgirlschool.com/figma">Основы дизайна в Figma</a>
-              <a href="https://itgirlschool.com/tilda">Создание сайтов на Tilda</a>
-              <a href="https://itgirlschool.com/full_bubble">Разработка приложений на Bubble</a>
-              <a href="https://itgirlschool.com/personal-brand">Личный бренд для фрилансера</a>
-              <a href="https://itgirlschool.com/html">Основы вёрстки</a>
-              <a href="https://itgirlschool.com/neuro_course">Нейросети для заработка</a>
-              <a href="https://itgirlschool.com/burnout">Профилактика выгорания</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/chat-bot">Архитектор чат-ботов</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/figma">Основы дизайна в Figma</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/tilda">Создание сайтов на Tilda</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/full_bubble">Разработка приложений на Bubble</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/personal-brand">Личный бренд для фрилансера</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/html">Основы вёрстки</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/neuro_course">Нейросети для заработка</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/burnout">Профилактика выгорания</a>
           </div>
         </div>
         <div className="header__dropdown">
@@ -81,9 +81,9 @@ export default function Header() {
              О школе<i className="fa fa-caret-down"></i>
             </button>
             <div className={`header__dropdown__content ${isAboutDropdownOpen ? "open" : ""}`}>
-              <a href="https://itgirlschool.com/reviews">Отзывы учениц</a>
-              <a href="https://itgirlschool.com/career-center">Центр Карьеры</a>
-              <a href="https://itgirlschool.com/tpost/a0nvrmdnb1-smi-o-nas">СМИ о нас</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/reviews">Отзывы учениц</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/career-center">Центр Карьеры</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/tpost/a0nvrmdnb1-smi-o-nas">СМИ о нас</a>
           </div>
         </div>
       </div>
