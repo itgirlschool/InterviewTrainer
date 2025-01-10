@@ -105,148 +105,155 @@
 }
 
 @media only screen and (min-width: 1919px) {
-  .container_main{
-  .home {
-    .home__intro {
-      display: flex;
-      align-items: start;
-    }
-
-    .cat__withlaptop {
-      max-height: 321px;
-    }
-    .welcome__title {
-      padding: 9rem;
-      width: 45vw;
-      h1{
-        font-size: 7rem;
-      }
-      .welcome__text {
-        font-size: 5rem;
-      }
-    }
-
-    .grade {
-      justify-content: space-evenly;
-      width: 45vw;
-      h2{
-        font-size: 7rem;
-      }
-      p {
-        font-size: 5rem;
-      }
-    }
-
-  }
-  .home__button{
-    font-size: 6rem;
-    padding: 1%;
-  }
-} 
-
-
-@media (max-width: 1560px) {
   .container_main {
     .home {
+      .home__intro {
+        display: flex;
+        align-items: start;
+      }
+
+      .cat__withlaptop {
+        max-height: 321px;
+      }
+
       .welcome__title {
+        padding: 9rem;
+        width: 45vw;
+
+        h1 {
+          font-size: 7rem;
+        }
+
+        .welcome__text {
+          font-size: 5rem;
+        }
+      }
+
+      .grade {
+        justify-content: space-evenly;
+        width: 45vw;
+
+        h2 {
+          font-size: 7rem;
+        }
+
+        p {
+          font-size: 5rem;
+        }
+      }
+
+    }
+
+    .home__button {
+      font-size: 6rem;
+      padding: 1%;
+    }
+  }
+
+
+  @media (max-width: 1560px) {
+    .container_main {
+      .home {
+        .welcome__title {
+          .welcome__text {
+            font-size: 16px;
+          }
+        }
+
+        .grade {
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1025px) {
+    .container_main {
+      .home {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+
+        .cat__arrow,
+        .cat {
+          display: none;
+        }
+      }
+
+      .welcome__title {
+        padding: 36px;
+        min-height: auto;
+
         .welcome__text {
           font-size: 16px;
         }
       }
+    }
+  }
 
-      .grade {
-        p {
-          font-size: 15px;
+  @media (max-width: 1025px) and (min-width: 429px) {
+    .container_main {
+      .home {
+        .welcome__title {
+          min-width: 96vw;
+
+          h1 {
+            font-size: 26px;
+          }
+
+          h1::after {
+            top: -1.5vh;
+          }
+        }
+
+        .grade {
+          min-height: auto;
+          padding: 28px;
+          gap: 16px;
         }
       }
     }
   }
-}
 
-@media (max-width: 1025px) {
-  .container_main {
-    .home {
-      display: flex;
-      flex-direction: column;
-      padding: 16px;
+  @media #{$Mobile} {
+    .container_main {
+      background-color: $background-beige;
 
-      .cat__arrow,
-      .cat {
-        display: none;
-      }
-    }
+      .home {
+        .welcome__title {
+          padding: 18px;
+          gap: 6px;
+          border-radius: 30px;
+          min-width: 93vw;
 
-    .welcome__title {
-      padding: 36px;
-      min-height: auto;
+          .welcome__text {
+            font-size: 14px;
+          }
 
-      .welcome__text {
-        font-size: 16px;
-      }
-    }
-  }
-}
+          h1 {
+            font-size: 22px;
+          }
 
-@media (max-width: 1025px) and (min-width: 429px) {
-  .container_main {
-    .home {
-      .welcome__title {
-        min-width: 96vw;
-
-        h1 {
-          font-size: 26px;
+          h1::after {
+            content: "";
+            background-size: 18px 18px;
+            width: 18px;
+            height: 18px;
+            top: -1vh;
+          }
         }
 
-        h1::after {
-          top: -1.5vh;
-        }
-      }
+        .grade {
+          min-height: auto;
+          border-radius: 30px;
+          padding: 18px;
+          gap: 8px;
 
-      .grade {
-        min-height: auto;
-        padding: 28px;
-        gap: 16px;
-      }
-    }
-  }
-}
-
-@media #{$Mobile} {
-  .container_main {
-    background-color: $background-beige;
-
-    .home {
-      .welcome__title {
-        padding: 18px;
-        gap: 6px;
-        border-radius: 30px;
-        min-width: 93vw;
-
-        .welcome__text {
-          font-size: 14px;
-        }
-
-        h1 {
-          font-size: 22px;
-        }
-
-        h1::after {
-          content: "";
-          background-size: 18px 18px;
-          width: 18px;
-          height: 18px;
-          top: -1vh;
-        }
-      }
-
-      .grade {
-        min-height: auto;
-        border-radius: 30px;
-        padding: 18px;
-        gap: 8px;
-
-        h2 {
-          font-size: 22px;
+          h2 {
+            font-size: 22px;
+          }
         }
       }
     }
