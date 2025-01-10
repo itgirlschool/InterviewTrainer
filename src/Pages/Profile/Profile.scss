@@ -4,25 +4,32 @@
 .container__main{
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 70vh;
+    width: 90vw;
+    gap: 10px;
+    margin: auto;
+    padding: 25px;
 }
 
 .container__info{
     display: flex;
     flex-direction: column;
+    align-items: center;
+
 }
 
 .progress__block,.welcome__block, .user__info__block{
     display: flex;
     background-color: $white-color;
     border-radius: 30px;
+    box-shadow: $lk-block-boxshadow;
 }
 
 .progress__block{
     flex-direction: row;
     border-radius: 30px;
     height: 15vh;
-    width: 65vw;
+    width: 64vw;
     margin-top: 2%;
 }
 
@@ -37,4 +44,54 @@
     height: 53vh;
     width: 64vw;
     margin: 1%;
+}
+@media (max-width: 1024px) {
+    .container__main {
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    .progress__block {
+        width: 80vw;
+        height: 12vh;
+    }
+
+    .welcome__block {
+        width: 80vw;
+        height: auto;
+    }
+
+    .user__info__block {
+        width: 80vw;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container__main {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        height: 100%;
+    }
+
+    .progress__block {
+        flex-direction: column;
+        width: 90vw;
+        height: auto;
+        margin-top: 5%;
+    }
+
+    .welcome__block {
+        width: 90vw;
+        height: auto;
+        margin: 5% 0;
+    }
+
+    .user__info__block {
+        width: 90vw;
+        height: auto;
+        margin: 5% 0;
+    }
 }
