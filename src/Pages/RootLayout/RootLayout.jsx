@@ -21,7 +21,10 @@ export default function RootLayout() {
   }, [dispatch]);
 
   useEffect(() => {
+
     onAuthStateChanged(auth, user => {
+      console.log(user)
+      console.log('obs')
       if (user) {
         dispatch({
           type: "SUBSCRIBE_TO_USER",
