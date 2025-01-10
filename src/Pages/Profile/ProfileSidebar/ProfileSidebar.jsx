@@ -9,9 +9,12 @@ import arrow_for_profile from "../../../../src/assets/images/arrow_for_profile.s
 import diamond_rose_icon from "../../../../src/assets/images/diamond_rose_icon.svg";
 import diamond_yellow_icon from "../../../../src/assets/images/diamond_yellow_icon.svg";
 import logout from "../../../Services/fbLogout";
+import { useDispatch } from "react-redux";
+import  {removeUser} from "../../../app/store/slice/UserAuthSlice.js";
 
 const ProfileSidebar = () => {
   const { displayName, avatar } = useSelector(state => state.userAuth);
+  const dispatch = useDispatch();
 
   const getInitials = name => {
     if (!name) return "";
@@ -95,7 +98,9 @@ const ProfileSidebar = () => {
         </NavLink>
       </div>
       <div className="button_logout">
-        <button className="navlink" onClick={logout}>
+        <button className="navlink" onClick={()=>{
+          logout().then(()=>{dispatch(removeUser())})
+        }}>
           <img src={exit_icon} alt="Exit Icon" />
           Выход
         </button>

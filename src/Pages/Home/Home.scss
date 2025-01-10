@@ -88,7 +88,7 @@
       }
 
       p {
-        font-size: 11pt;
+        font-size: 1rem;
         line-height: 150%;
         color: $color-black;
       }
@@ -105,6 +105,7 @@
 }
 
 @media only screen and (min-width: 1919px) {
+  .container_main{
   .home {
     .home__intro {
       display: flex;
@@ -114,8 +115,35 @@
     .cat__withlaptop {
       max-height: 321px;
     }
+    .welcome__title {
+      padding: 9rem;
+      width: 45vw;
+      h1{
+        font-size: 7rem;
+      }
+      .welcome__text {
+        font-size: 5rem;
+      }
+    }
+
+    .grade {
+      justify-content: space-evenly;
+      width: 45vw;
+      h2{
+        font-size: 7rem;
+      }
+      p {
+        font-size: 5rem;
+      }
+    }
+
+  }
+  .home__button{
+    font-size: 6rem;
+    padding: 1%;
   }
 } 
+
 
 @media (max-width: 1560px) {
   .container_main {

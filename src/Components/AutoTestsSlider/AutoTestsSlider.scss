@@ -4,16 +4,16 @@
 .slider {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 2px;
   align-items: center;
 
   &__cardContainer {
-    width: 876px;
-    height: 680px;
+    width: 60vw;
+    height: auto;
     background-color: $white-color;
     border-radius: 28px;
     box-shadow: 7px 21px 49px 0px #9e9e9e1a;
-    padding: 100px 113px 40px;
+    padding: 4% 113px 40px;
     display: grid;
     grid-template-rows: 1fr min-content;
   }
@@ -56,9 +56,9 @@
 @media ($Tablet) {
   .slider {
     &__cardContainer {
-      width: 600px;
-      padding: 70px 80px 40px;
-      gap: 40px;
+      width: 70vw;
+      padding: 2% 3% 3%;;
+      gap: 1%;
     }
     &__button {
       width: 350px;

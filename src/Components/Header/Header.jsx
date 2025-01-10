@@ -6,11 +6,24 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import logout from "../../Services/fbLogout";
+import { removeUser } from "../../app/store/slice/UserAuthSlice.js";
+import { useDispatch } from "react-redux";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [burgerActive, setBurgerActive] = useState(false);
+  const [isCoursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
+  const [isAboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const { displayName, avatar } = useSelector(state => state.userAuth);
+  const toggleCoursesDropdown = () => {
+    setCoursesDropdownOpen(prevState => !prevState);
+    setAboutDropdownOpen(false);
+  };
+  const toggleAboutDropdown = () => {
+    setAboutDropdownOpen(prevState => !prevState);
+    setCoursesDropdownOpen(false);
+  };
 
   const getInitials = displayName => {
     if (!displayName) return "AN";
@@ -39,11 +52,44 @@ export default function Header() {
           <img src={img_logo} alt="Перейти на главную страницу" />
         </NavLink>
         <div className="header__links">
-          <div>Открытые уроки</div>
-          <div>Профессии</div>
-          <div>Интересные курсы</div>
-          <div>О школе</div>
+          <a href="https://itgirlschool.com/webinar_freelance">Открытые уроки</a>
+          <a href="https://itgirlschool.com/freelance_nocode">Профессии</a>
+          <div className="header__dropdown">
+            <button
+              className="dropbtn"
+              aria-haspopup="true"
+              aria-expanded={isCoursesDropdownOpen}
+              onClick={toggleCoursesDropdown}
+            >
+              Интересные курсы <i className="fa fa-caret-down"></i>
+            </button>
+            <div className={`header__dropdown__content ${isCoursesDropdownOpen ? "open" : ""}`}>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/chat-bot">Архитектор чат-ботов</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/figma">Основы дизайна в Figma</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/tilda">Создание сайтов на Tilda</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/full_bubble">Разработка приложений на Bubble</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/personal-brand">Личный бренд для фрилансера</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/html">Основы вёрстки</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/neuro_course">Нейросети для заработка</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/burnout">Профилактика выгорания</a>
+          </div>
         </div>
+        <div className="header__dropdown">
+            <button
+              className="dropbtn"
+              aria-haspopup="true"
+              aria-expanded={isAboutDropdownOpen}
+              onClick={toggleAboutDropdown}
+            >
+             О школе<i className="fa fa-caret-down"></i>
+            </button>
+            <div className={`header__dropdown__content ${isAboutDropdownOpen ? "open" : ""}`}>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/reviews">Отзывы учениц</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/career-center">Центр Карьеры</a>
+              <a className="header__dropdown__iteam" href="https://itgirlschool.com/tpost/a0nvrmdnb1-smi-o-nas">СМИ о нас</a>
+          </div>
+        </div>
+      </div>
         <div className="header__user">
           <div onClick={() => setIsOpen(!isOpen)}>
           <div className="profile__img">
@@ -77,7 +123,9 @@ export default function Header() {
             <img src={img_profileLittle} alt="Мой профиль" />
             Мой профиль
           </NavLink>
-          <button className="popup__link" onClick={logout}>
+          <button className="popup__link" onClick={()=>{
+            logout().then(()=>{dispatch(removeUser())})
+          }}>
             <LogoutOutlined className="icon" />
             Выйти
           </button>
@@ -107,7 +155,9 @@ export default function Header() {
           <img src={img_profileLittle} alt="Мой профиль" />
           Мой профиль
         </NavLink>
-        <button className="popup__link" onClick={logout}>
+        <button className="popup__link" onClick={()=>{
+          logout().then(()=>{dispatch(removeUser())})
+        }}>
           <LogoutOutlined className="icon" />
           Выйти
         </button>

@@ -21,9 +21,51 @@
   }
 }
 
+.header__dropdown__content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 60px;
+  min-width: auto;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  font-weight: bolder;
+  color: black;
+
+  &.open {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 3%;
+  }
+}
+
+.header__dropdown__iteam:not(:first-of-type){
+  margin-top: 2rem;
+}
+
+a{
+  text-decoration: none;
+  color: $color-black;
+}
+
+.dropbtn{
+  font-weight: bolder;
+  color: black;
+  border: none;
+  background-color: $background-beige;
+}
+
 .header__links {
   @include flex__center;
+  align-items: flex-end;
   font-size: 14px;
+  font-weight: bolder;
+  text-decoration: none;
+  color: $color-black;
   gap: 50px;
 
   div {
