@@ -3,12 +3,12 @@
 
 .autotests {
   @include container;
-  gap: 57px;
+  gap: 1%;
   position: relative;
 }
 
-@media ($LargeMobile) {
-  .autotests {
-    gap: 30px;
-  }
-}
+// @media ($LargeMobile) {
+//   .autotests {
+//     gap: 1%;
+//   }
+// }
